@@ -25,7 +25,7 @@
 
 
 /*ボタンデザイン 枠線：青、背景：白、文字：黒*/
-.button-list {
+button {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -48,7 +48,7 @@
   }
 
   /* ホバー時（カーソルをのせた時）の見た目 */
-.button-list:hover {
+button:hover {
     background-color: #064fda; /* 背景色 */
   }
 
