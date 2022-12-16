@@ -1,0 +1,62 @@
+@charset "utf-8";
+/*スマホ用*/
+@media screen and (max-width:990px) {
+/* ラジオボタン */
+input[type=radio] {
+    display: none;
+  }
+  
+  label{
+    display: block; /* ブロックレベル要素化する */
+    float: left; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px; /* ボックス外側の余白を指定する */
+    width: 200px; /* ボックスの横幅を指定する */
+    height: 80px; /* ボックスの高さを指定する */
+    padding: 12px;
+    font-size: 3em;
+    color: #006DD9; /* フォントの色を指定 */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 80px; /* 行の高さを指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+  }
+  input[type="radio"]:checked + label {
+    background: #006DD9;
+    color: #FFF;
+  }
+  label:hover {
+    background-color: #E2EDF9;
+  }
+}
+
+/*パソコン用*/
+@media screen and (min-width:990px) {
+    /* ラジオボタン */
+input[type=radio] {
+    display: none;
+  }
+  
+  label{
+    display: block; /* ブロックレベル要素化する */
+    float: left; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px; /* ボックス外側の余白を指定する */
+    width: 135px; /* ボックスの横幅を指定する */
+    height: 50px; /* ボックスの高さを指定する */
+    padding: 12px;
+    font-size: 2em;
+    color: #006DD9; /* フォントの色を指定 */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 60px; /* 行の高さを指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+  }
+  input[type="radio"]:checked + label {
+    background: #006DD9;
+    color: #FFF;
+  }
+  label:hover {
+    background-color: #E2EDF9;
+  }
+}
