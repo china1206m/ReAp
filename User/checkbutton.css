@@ -1,0 +1,79 @@
+/*チェックボタン*/
+@charset "utf-8";
+/*スマホ用*/
+@media screen and (max-width:990px) {
+/* 元のチェックボックスを表示しない */
+input[type=checkbox] {
+	display:		none;
+}
+/* ラベルのスタイル　*/
+label {
+	padding-left:		90px;			/* ラベルの位置 */
+	font-size:		85px;
+	line-height:		100px;
+	display:		inline-block;
+	cursor:			pointer;
+	position:		relative;
+}
+
+/* ボックスのスタイル */
+label:before {
+	content:		'';
+	width:			70px;			/* ボックスの横幅 */
+	height:			70px;			/* ボックスの縦幅 */
+	display:		inline-block;
+	position:		absolute;
+	left:			0;
+	background-color:	#fff;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+}
+
+/* チェックした時のスタイル */
+ input[type=checkbox]:checked + label:before {
+	content:		'\2713';		/* チェックの文字 */ 
+	font-size:		80px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#006DD9;			/* チェックした時の色 */
+}
+}
+
+/*パソコン用*/
+@media screen and (min-width:990px) {
+    /* 元のチェックボックスを表示しない */
+input[type=checkbox] {
+	display:		none;
+}
+    /* ラベルのスタイル　*/
+label {
+	padding-left:		45px;			/* ラベルの位置 */
+	font-size:		40px;
+	line-height:		42px;
+	display:		inline-block;
+	cursor:			pointer;
+	position:		relative;
+}
+
+/* ボックスのスタイル */
+label:before {
+	content:		'';
+	width:			40px;			/* ボックスの横幅 */
+	height:			40px;			/* ボックスの縦幅 */
+	display:		inline-block;
+	position:		absolute;
+	left:			0;
+	background-color:	#fff;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+}
+
+/* チェックした時のスタイル */
+input[type=checkbox]:checked + label:before {
+	content:		'\2713';		/* チェックの文字 */ 
+	font-size:		42px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#006DD9;			/* チェックした時の色 */
+}
+
+
+}
