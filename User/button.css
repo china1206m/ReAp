@@ -8,10 +8,10 @@
     appearance: none;
   
     /* 整える */
-    width: 400px;
+    width: 200px;
     margin: 1em 0; /* 前後の隙間 */
     padding: 0.6em 1em; /* 塗りの余白 */
-    font-size: 3em; /* フォントサイズ */
+    font-size: 2em; /* フォントサイズ */
     background-color: #1aa1ff; /* 背景色 */
     color: #FFF; /* テキストカラー */
     cursor: pointer; /* カーソルを指マークに */
