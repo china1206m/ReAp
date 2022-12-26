@@ -10,14 +10,30 @@
   border-radius: 7px;
 }
 .box {
-  width:400px;
-  height:400px;
-  margin:2px;
-  padding:5px;
+  width: 800px;
+  height: 500px;
+  margin: 2px;
+  padding: 5px;
   border: none;
-  background-color: white;
+  background-color: yellow;
 }
-a{
+a {
   width:200px;
   height:10px;
+}
+.circle {
+  width:50px;
+  height:50px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+.title {
+  margin: 0 0 0 20px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+.event-title {
+  display: flex;
 }
