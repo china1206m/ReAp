@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #header {
+    box-sizing: border-box;
+    background: #f0f8ff;
+    height: 50px;
+  }
+
+  #main {
+    box-sizing: border-box;
+    margin-top: 220px;
+    padding: 20px 40px;
+  }
+
+  #sub {
+    box-sizing: border-box;
+    top: 2000px;
+    height: 200px;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    background: #f0f8ff;
+    padding: 20px;
+  }
+
+  
+
+
+.menu-list {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    display: inline;
+    width: 100px;
+    list-style:none;
+    text-decoration: none; 
+    background-color: #f0f8ff; /* 背景色 */
+    color: black;
+    font-weight: bold;
+    font-size: 1.0em;
+    padding:0;
+    border: 0; /* 枠線を消す */
+    margin-left:60px;
+}
+
+
+
+
