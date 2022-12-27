@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>画面ID E-SE4</title>
+  <meta charset=”demo_overlay.css″>
+  
+</head>
+<body bgcolor="#f0f8ff">
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>画面ID E-SE4</title>
+  <meta charset=”E-SE1″>
+  <link rel="stylesheet" href="E-SE4.css" type="text/css">
+  <link rel="stylesheet" href="E-menu.css" type="text/css">
+  
+</head>
+<body bgcolor="#f0f8ff">
+  <main id="main">
+  <a href="E-SE1.html"><h4>＜　投稿イベント</h4></a>
+
+<div class="yoko">
+  <ul>
+  <li><div class="event_information">
+    本文
+  </div></li>
+  </ul>
+
+<button id="open-btn" class="overlay-event" "type="button">消去する</button>
+
+
+</div>
+
+<div id="overlay" class="overlay-event">
+  <div class="flex">
+    <div id="overlay-inner">
+      <p>選択した投稿を消去します。</p>
+      <p>本当によろしいですか。</p>
+      <!--idはデザイン-->
+      <button id="close-btn" type=button onClick="disp()">はい</button>
+      <!--はいを押したら消去機能呼び出し-->
+      <button id="close-btn" class="overlay-event" type=button>いいえ</button>
+    </div>
+  </main>
+  
+  <aside id="sub">
+  
+    <ul>
+        <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="menu-home.png" width="45" height="43">　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-CB1.html"><img src="menu-home.png" width="45" height="43">　イベント投稿</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-SE1.html"><img src="menu-home.png" width="45" height="43">　投稿イベント<br>一覧・消去</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-AC3.html"><img src="menu-home.png" width="45" height="43">　アカウント</a></li><br>
+    </ul>
+  </aside>
+  
+
+  <script>
+    n=2;
+function disp() {
+    if(n == 1){
+        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました</span>";
+    }else if(n == 2){
+        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです</span>";
+    }
+}      
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  
+  // オーバレイを開閉する関数
+  const overlay = document.getElementById('overlay');
+  function overlayToggle() {
+    overlay.classList.toggle('overlay-on');
+  }
+  // 指定した要素に対して上記関数を実行するクリックイベントを設定
+  const clickArea = document.getElementsByClassName('overlay-event');
+  for(let i = 0; i < clickArea.length; i++) {
+    clickArea[i].addEventListener('click', overlayToggle, false);
+  }
+  
+  // イベントに対してバブリングを停止
+  function stopEvent(event) {
+    event.stopPropagation();
+  }
+  const overlayInner = document.getElementById('overlay-inner');
+  overlayInner.addEventListener('click', stopEvent, false);
+  
+}, false);
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+    
