@@ -1,6 +1,6 @@
 <?php
 
-class testMA {
+class MA {
 
     // テーブル名、追加したい値、追加したい値の型
     function ma($table, $post, $type) : void {
