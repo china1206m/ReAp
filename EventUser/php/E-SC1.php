@@ -12,7 +12,7 @@
   <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">検索</h3>
 
 
-  <form action="E-SC2.html" method="post" name="searchForm" onSubmit="return check();">
+  <form action="E-SC2.php" method="post" name="searchForm" onSubmit="return check();">
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
 
 
@@ -98,9 +98,9 @@
   
     <ul>
       <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-CB1.html"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-SE1.html"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-AC3.html"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
     </ul>
   </aside>
 
