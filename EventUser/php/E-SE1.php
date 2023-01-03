@@ -17,7 +17,7 @@
     
     
       <div class="right"> 
-        <button type="button" onclick="location.href='E-SC1.html'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
+        <button type="button" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
     
       </div>
     
@@ -28,9 +28,9 @@
   
   <ul>
         <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="E-CB1.html"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="E-SE1.html"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="E-AC3.html"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
   </ul>
 </aside>
 
@@ -69,7 +69,7 @@
   // もっと見るを作成
   var a = document.createElement('a');
   a.classList.add("more-see");
-  a.href = "E-SE4.html";
+  a.href = "E-SE4.php";
   a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加

@@ -51,9 +51,9 @@
   
     <ul>
       <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-CB1.html"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-SE1.html"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-AC3.html"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
     </ul>
   </aside>
   
@@ -78,9 +78,9 @@ content_area.appendChild(img_add);
     n=1;
 function disp() {
     if(n == 1){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました<br></span><br><button id=close-btn type=button onclick=location.href='E-SE1.html'>完了</button>";
+        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました<br></span><br><button id=close-btn type=button onclick=location.href='E-SE1.php'>完了</button>";
     }else if(n == 2){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです.<br>ページを再読み込みします。</span><br><button id=close-btn type=button onclick=location.href='E-SE4.html'>再読み込み</button>";
+        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです.<br>ページを再読み込みします。</span><br><button id=close-btn type=button onclick=location.href='E-SE4.php'>再読み込み</button>";
     }
 }      
     </script>
