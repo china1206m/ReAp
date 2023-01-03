@@ -31,9 +31,13 @@
     </div></li>
 <br><br><br>
 <li><div>
-    <button type="submit"class="button-yes" onclick="location.href='E-AC1.html'">同意する</button>
+<form action="E-AC1.php" method="post">
+    <button type="submit" name="acountdelay-yes" class="button-yes">同意する</button>
+</form>
 
-    <button type="submit"class="button-yes" onclick="location.href='E-AC3.php'">同意しない</button>
+<form action="E-AC3.php" method="post">
+    <button type="submit" name="acountdelay-no" class="button-yes" >同意しない</button>
+</form>
 </div></li>
 </ul>
 </center>

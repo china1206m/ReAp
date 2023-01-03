@@ -19,9 +19,13 @@
     <br><br><br>
     
     <li><div>
-    <button type="submit"class="button-yes" onclick="location.href='E-AC4.php'">はい</button>
-  
-   <button type="submit"class="button-yes" onclick="location.href='E-AC3.php'">いいえ</button>
+    <form action="E-AC4.php" method="post">
+    <button type="submit" name="acountlogout-yes" class="button-yes" >はい</button>
+</form>
+
+    <form action="E-AC3.php" method="post">
+   <button type="submit" name="acountlogout-no" class="button-yes" >いいえ</button>
+</form>
     </div></li>
   </ul>
 </center>
