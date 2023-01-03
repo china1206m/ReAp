@@ -1,0 +1,72 @@
+/* パスワードの眼について */
+.form-wrapper {
+    display: inline;
+    justify-content: center;
+    gap: 10px;
+    margin: 5px 0;
+    width: 250px;
+
+}
+
+#eye {
+    display: inline;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/*中央配置*/
+section {
+    height:80vh;
+    display: grid;
+    place-items: center;
+}
+
+
+
+/* 各ラベルの大きさ */
+p {
+    font-size: 1.5em;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.user_mail{
+    width: 300px;
+    height: 25px;
+    font-size: 1.5em;
+    margin-left: 50px;
+}
+
+.user_pass{
+    width: 300px;
+    height: 25px;
+    font-size: 1.5em;
+    margin-left: 50px;
+}
+/*戻るボタンのデザイン*/
+   .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 1.2em;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+
+  /* ホバー時（カーソルをのせた時）の見た目 */
+.button_back:hover {
+    background-color: white; /* 背景色 */
+  }
