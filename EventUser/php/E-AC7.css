@@ -1,0 +1,76 @@
+.image-circle {
+    background-image:url('hokkaido.png');  /*画像のURL*/
+    width:100px;  /*表示する横幅(縦幅と同じ値)*/
+    height:92px;  /*表示する縦幅(横幅と同じ値)*/
+    border-radius:50%;  /*丸く表示*/
+    border: #4e7bcc 1px solid; /*境界線の指定*/
+    background-position:center;  /*背景画像の位置*/
+    margin-left: 0;
+}
+
+/*戻るボタンのデザイン*/
+.button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 1.2em;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+
+  /* ホバー時（カーソルをのせた時）の見た目 */
+.button_back:hover {
+    background-color: white; /* 背景色 */
+  }
+
+/*中央配置*/
+section {
+    height:80vh;
+    display: grid;
+    place-items: center;
+}
+
+/* 各ラベルの大きさ */
+p {
+    font-size: 1.5em;
+    margin-left: 400px;
+    margin-top: 80px;
+}
+
+/*テキストボックスの大きさ*/
+.txt{
+    line-height: 20px;
+    display: inline-block;
+    width: 400px;
+    padding: 0.5em;
+    border: 1px solid ;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    background: white;
+    margin: 0.5em 0;
+    margin-left: 400px;
+}
+
+.tarea{
+    display: inline-block;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid ;
+    box-sizing: border-box;
+    background: white;
+    margin: 0.5em 0;
+    line-height: 1.5;
+    height: 12em;
+    margin-left: 0px;
+}
