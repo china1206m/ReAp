@@ -1,0 +1,50 @@
+.image-circle {
+    background-image:url('hokkaido.png');  /*画像のURL*/
+    width:100px;  /*表示する横幅(縦幅と同じ値)*/
+    height:92px;  /*表示する縦幅(横幅と同じ値)*/
+    border-radius:50%;  /*丸く表示*/
+    border: #4e7bcc 1px solid; /*境界線の指定*/
+    background-position:center;  /*背景画像の位置*/
+}
+
+/* 画像とユーザ名の横並び */
+.parent {
+    /* ベンダープレフィックスは省略 */
+    display: flex;
+    justify-content: center; /* 子要素を中央揃え */
+    position: relative;
+}
+.left {
+    position: absolute;
+    left: 100px; /* 右寄せ */
+}
+
+.center{
+    font-size: 1.5em;
+}
+
+
+/* aタグの下線消しと黒文字 */
+a { 
+    color: black;
+    text-decoration: none; 
+    font-size: 1.5em;
+}
+
+
+.acount-menu {
+padding-left: 100px; /* 右寄せ */
+}
+
+.box {
+    width: 700px;
+    background:white; /*背景色の指定*/
+    border: #4e7bcc 1px solid; /*境界線の指定*/
+    border-radius: 6px; /*角丸の指定*/
+    padding:10px;
+    text-align: center;
+    }
+
+    h3{
+        margin-left: 100px;
+      }
