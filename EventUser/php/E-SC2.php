@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID E-SC2</title>
-  <meta charset=”E-SE1″>
+  <meta charset=”UTF-8″>
   <link rel="stylesheet" href="E-SC2.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
