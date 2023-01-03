@@ -1,0 +1,53 @@
+h3{
+    margin-left: 60px;
+  }
+
+  /* 各ラベルの大きさ */
+p {
+    font-size: 1.5em;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
+.event_image{
+    margin-left: 200px;
+}
+
+.post_day{
+    margin-left: 200px;
+    font-size: 1.2em;
+}
+
+.event_day{
+    width: 300px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
+
+.event_cost{
+    width: 300px;
+    height: 25px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
+
+.event_title{
+    width: 800px;
+    height: 25px;
+    font-size: 1.5em;
+    margin-left: 200px;
+  }
+
+.event_place{
+    width: 800px;
+    height: 25px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
+
+.event_content{
+    width: 800px;
+    height: 400px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
