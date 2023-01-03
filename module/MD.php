@@ -1,6 +1,6 @@
 <?php
 
-class testMD {
+class MD {
 
     // テーブル名、カラム名、削除したい値、型   
     function md($table, $columnnaem, $post, $type) : void {
