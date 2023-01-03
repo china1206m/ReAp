@@ -19,9 +19,9 @@
     <br><br><br>
     
     <li><div>
-    <button type="submit"class="button-yes" onclick="location.href='E-AC4.html'">はい</button>
+    <button type="submit"class="button-yes" onclick="location.href='E-AC4.php'">はい</button>
   
-   <button type="submit"class="button-yes" onclick="location.href='E-AC3.html'">いいえ</button>
+   <button type="submit"class="button-yes" onclick="location.href='E-AC3.php'">いいえ</button>
     </div></li>
   </ul>
 </center>

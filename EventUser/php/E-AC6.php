@@ -33,7 +33,7 @@
 <li><div>
     <button type="submit"class="button-yes" onclick="location.href='E-AC1.html'">同意する</button>
 
-    <button type="submit"class="button-yes" onclick="location.href='E-AC3.html'">同意しない</button>
+    <button type="submit"class="button-yes" onclick="location.href='E-AC3.php'">同意しない</button>
 </div></li>
 </ul>
 </center>
