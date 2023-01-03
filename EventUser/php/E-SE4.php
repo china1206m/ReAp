@@ -32,7 +32,7 @@
   </div></li>
   </ul>
 
-<button id="open-btn" class="overlay-event" "type="button">消去する</button>
+<button id="open-btn" class="overlay-event" type="button">消去する</button>
 </div>
 
 <div id="overlay" class="overlay-event">
@@ -41,7 +41,9 @@
       <p>選択した投稿を消去します。</p>
       <p>本当によろしいですか。</p>
       <!--idはデザイン-->
-      <button id="close-btn" type=button onClick="disp()">はい</button>
+<form action="#" method="post">
+      <button id="close-btn" name="eventdelay-yes" type=button onClick="disp()">はい</button>
+</form>
       <!--はいを押したら消去機能呼び出し-->
       <button id="close-btn" class="overlay-event" type=button>いいえ</button>
     </div>
