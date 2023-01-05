@@ -13,7 +13,7 @@
 
   
   
-  <form action="E-EL1.html" method="post">
+  <form action="E-EL1.html" method="POST">
    
     <table>
       

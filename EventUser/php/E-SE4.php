@@ -37,16 +37,18 @@
 
 <div id="overlay" class="overlay-event">
   <div class="flex">
+  <form action="#" method="POST">
     <div id="overlay-inner">
       <p>選択した投稿を消去します。</p>
       <p>本当によろしいですか。</p>
       <!--idはデザイン-->
-<form action="#" method="post">
+
       <button id="close-btn" name="eventdelay-yes" type=button onClick="disp()">はい</button>
-</form>
+
       <!--はいを押したら消去機能呼び出し-->
       <button id="close-btn" class="overlay-event" type=button>いいえ</button>
     </div>
+    </form>
   </main>
   
   <aside id="sub">

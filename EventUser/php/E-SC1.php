@@ -12,7 +12,7 @@
   <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">検索</h3>
 
 
-  <form action="E-SC2.php" method="post" name="searchForm" onSubmit="return check();">
+  <form action="E-SC2.php" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
 
 

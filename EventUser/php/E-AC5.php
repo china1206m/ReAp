@@ -19,11 +19,11 @@
     <br><br><br>
     
     <li><div>
-    <form action="E-AC4.php" method="post">
+    <form action="E-AC4.php" method="POST">
     <button type="submit" name="acountlogout-yes" class="button-yes" >はい</button>
 </form>
 
-    <form action="E-AC3.php" method="post">
+    <form action="E-AC3.php" method="POST">
    <button type="submit" name="acountlogout-no" class="button-yes" >いいえ</button>
 </form>
     </div></li>

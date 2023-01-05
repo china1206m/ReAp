@@ -20,7 +20,7 @@
    
     <section>
         
-            <form action="E-AC3.php" method="post">
+            <form action="E-AC3.php" method="POST">
                 <p><label for="user_mail" >メールアドレス</label></p>
                 <input type="email" class="user_mail" name="user_mail" value="firstmail@gmail.com" required>
                

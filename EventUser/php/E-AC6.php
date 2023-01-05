@@ -31,11 +31,11 @@
     </div></li>
 <br><br><br>
 <li><div>
-<form action="E-AC1.php" method="post">
+<form action="E-AC1.php" method="POST">
     <button type="submit" name="acountdelay-yes" class="button-yes">同意する</button>
 </form>
 
-<form action="E-AC3.php" method="post">
+<form action="E-AC3.php" method="POST">
     <button type="submit" name="acountdelay-no" class="button-yes" >同意しない</button>
 </form>
 </div></li>

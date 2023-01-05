@@ -22,7 +22,7 @@
     
     
         
-            <form action="E-AC3.php" method="post">
+            <form action="E-AC3.php" method="POST">
               <p><label for="user_mail" >ユーザ名</label></p>
               <input type="text" class="txt" name="user_name" maxlength="30" value="登録情報" required>
                 
