@@ -22,7 +22,7 @@
         <td><img src="select_image.png" class="event_image" width="103px" height="85px"></td>
     </tr>
     <tr>
-      <td><div id="current_date" name="post_day" class="post_day"></p></td>
+      <td><input type='date' id='date1' name="post_date" class="post_date"></p></td>
       <td><input type="file" name="event_image" class="event_image" multiple/></td>
     </tr>
 </table>
@@ -65,10 +65,11 @@
 </aside>
 
 <script>
-  date = new Date();
-  year = date.getFullYear();
-  month = date.getMonth() + 1;
-  day = date.getDate();
-  document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+  window.addEventListener('DOMContentLoaded', () => {
+    const element = document.getElementById('date1');
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+    element.value = element.min = date.toJSON().match(/\d+-\d+-\d+/);
+  });
   </script>
 </body>

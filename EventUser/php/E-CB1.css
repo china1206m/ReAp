@@ -13,9 +13,10 @@ p {
     margin-left: 200px;
 }
 
-.post_day{
+.post_date{
+    width: 300px;
+    font-size: 1.5em;
     margin-left: 200px;
-    font-size: 1.2em;
 }
 
 .event_day{
