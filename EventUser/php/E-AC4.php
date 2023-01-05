@@ -18,13 +18,13 @@
     <form action="E-EL1.php" method="POST">   
 <br>
 ユーザ名：
-<input type="text" name="event_name" maxlength="30" required>
+<input type="text" name="eventuser_name" maxlength="30" required>
 <br>
 <br>
 <br>
 <div class="form-wrapper">
 パスワード：
-<input type="password" name="event_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
+<input type="password" name="eventuser_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
 <i id="eye" class="fa-solid fa-eye"></i></div>
 
 <br>
