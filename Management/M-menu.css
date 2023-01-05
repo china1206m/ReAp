@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  #header {
+    box-sizing: border-box;
+    background: #f0f8ff;
+    height: 50px;
+  }
+  #main {
+    box-sizing: border-box;
+    margin-left: 220px;
+    padding: 20px 40px;
+  }
+  #sub {
+    box-sizing: border-box;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    overflow: auto;
+    background: #f0f8ff;
+    padding: 20px;
+  }
+
+  /*検索ボタン装飾　button.cssに入れるかも*/ 
+.menu-button {
+  text-decoration: none; 
+  color: black;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.menu-list {
+  list-style:none;
+    padding:0;
+    margin:0;
+}
+
+
+
