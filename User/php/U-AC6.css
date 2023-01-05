@@ -1,0 +1,48 @@
+/*パソコン用*/
+@media screen and (min-width:990px) {
+/*白四角*/
+.box1 {
+    background:white; /*背景色の指定*/
+    padding:80px;
+    width: 800px;
+    border-radius: 10px;
+    }
+    .box1 p {
+    margin:10;
+    padding:0;
+    }
+
+  /* 真ん中寄せ */  
+section {
+        height: 100vh;
+        /* 真ん中寄せ */
+        display: grid;
+        place-items: center;
+    }
+}
+
+
+/*スマホ用*/
+@media screen and (max-width:990px) {
+    /*白四角*/
+.box1 {
+    background:white; /*背景色の指定*/
+    padding:10px;
+    width: 350px;
+    height: 170px;
+    border-radius: 10px;
+    }
+    
+    .box1 p {
+    margin:0;
+    padding:0;
+    }
+ /* 真ん中寄せ */  
+ section {
+    height: 100vh;
+    /* 真ん中寄せ */
+    display: grid;
+    place-items: center;
+}
+  
+}
