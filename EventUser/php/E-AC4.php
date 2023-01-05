@@ -15,22 +15,22 @@
 <section>
 <center>
   <div class="box1">
-    <form action="E-AC3.php" method="post">   
+    <form action="E-EL1.php" method="POST">   
 <br>
 ユーザ名：
-<input type="text" name="user_name" maxlength="30" required>
+<input type="text" name="event_name" maxlength="30" required>
 <br>
 <br>
 <br>
 <div class="form-wrapper">
 パスワード：
-<input type="password" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
+<input type="password" name="event_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
 <i id="eye" class="fa-solid fa-eye"></i></div>
 
 <br>
 <br>
 <br>
-<button type="submit" name="login" class="button-only">登録する</button>
+<button type="submit" name="login" class="button-only">ログイン</button>
       
 </div>
 </form>
