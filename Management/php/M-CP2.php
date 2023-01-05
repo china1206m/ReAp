@@ -11,7 +11,7 @@
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン検索</h3>
 
-    <form action="M-CP3.php" method="post" name="searchForm" onSubmit="return check();">
+    <form action="M-CP3.php" method="POST" name="searchForm" onSubmit="return check();">
     <table>
         <tr>
             <td><p><label class="label-prefectures-shop" for="prefectures" >都道府県</label></p></td>

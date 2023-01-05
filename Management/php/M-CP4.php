@@ -33,7 +33,7 @@
 
     <div id="overlay" class="overlay-event">
       <div class="flex">
-      <form action="#" method="post">
+      <form action="#" method="POST">
         <div id="overlay-inner">
           <p>選択した投稿を消去します。</p>
           <p>本当によろしいですか。</p>

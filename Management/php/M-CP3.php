@@ -13,12 +13,12 @@
 
     
 <div class="yoko-narabi">
-<form action="E-AC4.php" method="post">
+<form action="E-AC4.php" method="POST">
     <ul id="coupon_list1">
         
     </ul>
 </form> 
-<form action="E-AC4.php" method="post">
+<form action="E-AC4.php" method="POST">
     <ul id="coupon_list2">
         
     </ul>
