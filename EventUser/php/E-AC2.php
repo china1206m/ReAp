@@ -19,11 +19,11 @@
 
         <div align="center" class="box2">
             <form action="E-AC3.php" method="POST">
-                <p>　　　　　　ユーザ名：<input type="text" name="name" maxlength="30" required></p>
-                <p>　　　メールアドレス：<input type="email" name="mail" required></p>
+                <p>　　　　　　ユーザ名：<input type="text" name="eventuser_name" maxlength="30" required></p>
+                <p>　　　メールアドレス：<input type="email" name="eventuser_mail" required></p>
                
                 <div class="form-group" class="form-wrapper">
-                <p>　　　　　パスワード：<input type="password" class="form-control" name="password" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required><i id="eye" class="fa-solid fa-eye"></i></p>
+                <p>　　　　　パスワード：<input type="password" class="form-control" name="eventuser_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required><i id="eye" class="fa-solid fa-eye"></i></p>
                 </div>
                
                 <div class="form-group" class="form-wrapper">
