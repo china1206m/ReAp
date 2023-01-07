@@ -1,3 +1,67 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['eventuser_name'], $_POST['eventuser_pass']) && $_POST['eventuser_name'] !== '' && $_POST['eventuser_pass'] !== '')  {
+    /* データベース接続 */
+    /*
+    try {
+        include "MC-01.php";
+        $db = getDB();
+    } catch (PDOException $e) {
+      //echo $e->getMessage();
+      $_SESSION['register_message'] = 'データベース接続に失敗しました';
+      header('Location:'.$_SERVER['PHP_SELF']);
+      exit;
+    }
+ */
+    /* 重複チェック */
+    /*
+    $stmt = $db->prepare('SELECT * FROM test_users WHERE name=?');
+    $stmt->bindValue(1, $_POST['name']);
+    $stmt->execute();
+    if (count($stmt->fetchAll())) {
+      $_SESSION['register_message'] = 'このユーザーネームはすでに使われています';
+      header('Location:'.$_SERVER['PHP_SELF']);
+      exit;
+    }
+    */
+
+    /* データ挿入 */
+    // 呼び出し
+    
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    // 入力したいカラム名を指定
+    $column = ['eventuser_mail','eventuser_pass', 'eventuser_name'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_POST['eventuser_mail'], $_POST['eventuser_pass'], $_POST['eventuser_name']];
+
+    // 入力された値の型を定義
+    $type = [1,1,1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型
+    $add->ma("eventuser",$column, $post, $type);
+    
+    $_SESSION['register_message'] = '会員登録が完了しました';
+    $_SESSION['eventuser_id'] = $_POST['name'];
+    header('Location:E-AC3.php');
+    exit;
+
+  } else {
+    $_SESSION['register_message'] = '送信データが正しくありません';
+    header('Location:'.$_SERVER['PHP_SELF']);
+    exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -18,7 +82,7 @@
         <div class="box1"><h3 align="center">アカウント登録</h3></div>   
 
         <div align="center" class="box2">
-            <form action="E-AC3.php" method="POST">
+            <form action="" method="POST">
                 <p>　　　　　　ユーザ名：<input type="text" name="eventuser_name" maxlength="30" required></p>
                 <p>　　　メールアドレス：<input type="email" name="eventuser_mail" required></p>
                
