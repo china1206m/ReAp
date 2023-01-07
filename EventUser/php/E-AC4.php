@@ -1,3 +1,45 @@
+<?php
+/* セッション開始 */
+session_start();
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['eventuser_name'], $_POST['eventuser_pass']) && $_POST['eventuser_name'] !== '' && $_POST['eventuser_pass'] !== '')  {
+    /* データベース接続 */
+    include "MC-01.php";
+    $db = getDB();
+ 
+    /* ユーザー認証 */
+    $stmt = $db->prepare('SELECT * FROM eventuser WHERE eventuser_name=? AND eventuser_pass=?');
+    $stmt->bindValue(1, $_POST['eventuser_name']);
+    $stmt->bindValue(2, $_POST['eventuser_pass']);
+    $stmt->execute();
+ 
+    $result = $stmt->fetchAll();
+
+    // ログインが成功したら
+    if (count($result) === 1) {
+        // eventuserIDを取得
+        $stmt = $db->prepare('SELECT eventuser_id FROM eventuser WHERE eventuser_name=? AND eventuser_pass=?');
+        $stmt->bindValue(1, $_POST['eventuser_name']);
+        $stmt->bindValue(2, $_POST['eventuser_pass']);
+        $stmt->execute();
+
+        // セッションでイベントユーザIDを保持
+        foreach ($stmt as $row) {
+            $_SESSION['eventuser_id'] = $row['eventuser_id'];
+            header('Location:E-EL1.html');
+            exit;
+        }
+    }
+  }
+  /* 正しくログインできなかった */
+  $_SESSION['login_message'] = '送信データが正しくありません';
+  header('Location:'.$_SERVER['PHP_SELF']);
+  exit;
+}
+?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +57,7 @@
 <section>
 <center>
   <div class="box1">
-    <form action="E-EL1.php" method="POST">   
+    <form action="" method="POST">   
 <br>
 ユーザ名：
 <input type="text" name="eventuser_name" maxlength="30" required>
@@ -54,3 +96,8 @@
 </script>
 </body>
 </html>
+ 
+<?php
+/* セッションの初期化 */
+$_SESSION['login_message'] = '';
+?>
