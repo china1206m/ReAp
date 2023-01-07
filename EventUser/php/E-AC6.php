@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID E-AC6</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E_button.css" type="text/css">
   <link rel="stylesheet" href="E-AC6.css" type="text/css">
   <link rel="stylesheet" href="E_position.css" type="text/css">
