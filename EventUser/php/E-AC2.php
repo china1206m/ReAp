@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* データ挿入 */
     // 呼び出し
-    
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
@@ -46,20 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 入力された値の型を定義
     $type = [1,1,1];
 
-    // 引数としてテーブル名、追加する値、追加する値の型
-    $add->ma("eventuser",$column, $post, $type);
-    
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['eventuser_id'] = $add->ma_return("eventuser",$column, $post, $type);
+
     $_SESSION['register_message'] = '会員登録が完了しました';
-    $_SESSION['eventuser_id'] = $_POST['name'];
     header('Location:E-AC3.php');
     exit;
-
   } else {
     $_SESSION['register_message'] = '送信データが正しくありません';
     header('Location:'.$_SERVER['PHP_SELF']);
     exit;
     }
 }
+?>
 ?>
 
 <!DOCTYPE html>
