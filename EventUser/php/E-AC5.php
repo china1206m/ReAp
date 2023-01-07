@@ -1,17 +1,28 @@
+<?php
+/* セッション開始 */
+session_start();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        include "logout.php";
+        $logout = new logout();
+        $logout->logout("E-AC4.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>画面ID E-AC5</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E_button.css" type="text/css">
   <link rel="stylesheet" href="E-AC5.css" type="text/css">
   <link rel="stylesheet" href="E_position.css" type="text/css">
 </head>
 
 <body bgcolor="#f0f8ff" >
-    <center>
-        
-        
+    <center>       
+      
+    
     <ul>
         <li><div class="box">
         <h3>ログアウトしてもよろしいですか？</h3>
@@ -19,13 +30,11 @@
     <br><br><br>
     
     <li><div>
-    <form action="E-AC4.php" method="POST">
-    <button type="submit" name="acountlogout-yes" class="button-yes" >はい</button>
-</form>
-
-    <form action="E-AC3.php" method="POST">
-   <button type="submit" name="acountlogout-no" class="button-yes" >いいえ</button>
-</form>
+    <form action="" method="POST">
+      <button type="submit"class="button-yes" onclick="location.href='' ">はい</button>
+    </form>
+  
+   <button type="submit"class="button-yes" onclick="location.href='E-AC3.html'">いいえ</button>
     </div></li>
   </ul>
 </center>
