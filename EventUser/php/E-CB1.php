@@ -28,15 +28,15 @@
 </table>
     
 
-    <p><label for="title">題名</label></p>
+    <p><label for="title">題名<span class="require">必須</span></label></p>
     <textarea name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
     
-    <p><label for="place">開催場所</label></p>
+    <p><label for="place">開催場所<span class="require">必須</span></label></p>
     <textarea name="event_place" class="event_place" required></textarea>
 
 <table>     
 <tr>
-  <td><p><label for="day">開催日</label></p></td>
+  <td><p><label for="day">開催日<span class="require">必須</span></label></p></td>
   <td><p><label for="cost">費用</label></p></td>
 </tr>
 <tr>
@@ -45,7 +45,7 @@
   </tr>
 </table>
 
-<p><label for="content">本文</label></p>
+<p><label for="content">本文<span class="require">必須</span></label></p>
 <textarea name="event_content" class="event_content" minlength="1" maxlength="1000" placeholder="1000文字以内" required></textarea>
 
 <center>

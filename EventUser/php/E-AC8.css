@@ -70,3 +70,10 @@ p {
 .button_back:hover {
     background-color: white; /* 背景色 */
   }
+
+  .require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+  }

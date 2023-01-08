@@ -18,7 +18,7 @@
      
     </center>
 
-              <p><label for="user_name" >ユーザ名</label></p>
+              <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
               <input type="text" class="txt" name="user_name" maxlength="20" value="登録情報" placeholder="20文字以内" required>
                 
               <p><label for="message" >一言コメント</label></p>

@@ -52,3 +52,10 @@ p {
     font-size: 1.5em;
     margin-left: 200px;
 }
+
+.require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+  }

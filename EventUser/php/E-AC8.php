@@ -21,16 +21,16 @@
     <section>
         
             <form action="E-AC3.php" method="POST">
-                <p><label for="user_mail" >メールアドレス</label></p>
+                <p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p>
                 <input type="email" class="user_mail" name="user_mail" value="" placeholder="firstmail@gmail.com" required>
                
                 <div class="form-group">
-                <p><label for="user_pass" >パスワード</label></p>
+                <p><label for="user_pass" >パスワード<span class="require">必須</span></label></p>
                 <input type="password" class="user_pass" class="form-control" name="user_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角英数字8-16文字" required>
                 </div>
                
                 <div class="form-group" class="form-wrapper">
-                <p><label for="user_pass_admit" >パスワード（確認）</label></p>
+                <p><label for="user_pass_admit" >パスワード（確認）<span class="require">必須</span></label></p>
                 <input type="password" class="user_pass" class="form-control" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" oninput="CheckPassword(this)" required>
                 <i id="eye" class="fa-solid fa-eye"></i>
                 </div>
