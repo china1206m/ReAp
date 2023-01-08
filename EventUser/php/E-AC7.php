@@ -13,20 +13,15 @@
   <center>
     <p class="image-circle"></p>
     <br>
-      
-    <input type="file" name="profiel_image" class="profiel_image">
+    <form action="E-AC3.php" method="POST" enctype="multipart/form-data">
+    <input type="file" name="profiel_image" class="profiel_image" accept="image/jpeg,image/png">
      
     </center>
-    
 
-    
-    
-        
-            <form action="E-AC3.php" method="POST">
-              <p><label for="user_mail" >ユーザ名</label></p>
-              <input type="text" class="txt" name="user_name" maxlength="30" value="登録情報" required>
+              <p><label for="user_name" >ユーザ名</label></p>
+              <input type="text" class="txt" name="user_name" maxlength="20" value="登録情報" placeholder="20文字以内" required>
                 
-              <p><label for="user_mail" >一言コメント</label></p>
+              <p><label for="message" >一言コメント</label></p>
                 <p><textarea class="tarea" name="profiel_message">テキストエリア</textarea></p>
                 
     <center>
