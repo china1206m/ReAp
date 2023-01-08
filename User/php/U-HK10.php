@@ -30,7 +30,7 @@
                 <option value="hour">時間</option>
             </select>
 
-            <input type="file" name="plan_image" class="plan_image" multiple/>
+            <input type="file" accept="image/jpeg,image/png" name="plan_image" class="plan_image" multiple/>
             </div>
 
             <input type="text" name="travel_time" class="travel_time" value="" placeholder="移動時間を入力" required>
