@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="POST">   
 <br>
 ユーザ名：
-<input type="text" name="eventuser_name" maxlength="30" required>
+<input type="text" name="eventuser_name" maxlength="30" id="user" required>
 <br>
 <br>
 <br>
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <br>
 <br>
 <br>
-<button type="submit" name="login" class="button-only">ログイン</button>
+<button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
       
 </div>
 </form>
@@ -93,6 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             this.classList.toggle('fa-eye-slash');
        }
   })
+</script>
+
+<script>
+  //ログイン出来なかったときにエラー表示する場所
+  //このif文はユーザ名があいうえおの時にエラー表示するようになっているのでif文自体は無視してください。
+  function regit(){
+    const textbox = document.getElementById("user");
+    const value = textbox.value
+    if(value=="あいうえお"){
+    alert('ユーザ名またはパスワードに誤りがあります。')
+    }
+  }
 </script>
 </body>
 </html>
