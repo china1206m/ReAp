@@ -23,13 +23,13 @@
     </tr>
     <tr>
       <td><input type='date' id='date1' name="post_date" class="post_date"></p></td>
-      <td><input type="file" name="event_image" class="event_image" multiple/></td>
+      <td><input type="file" name="event_image" class="event_image" accept="image/jpeg,image/png" multiple/></td>
     </tr>
 </table>
     
 
     <p><label for="title">題名</label></p>
-    <textarea name="event_title" class="event_title" minlength="1" maxlength="30" required></textarea>
+    <textarea name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
     
     <p><label for="place">開催場所</label></p>
     <textarea name="event_place" class="event_place" required></textarea>
@@ -41,12 +41,12 @@
 </tr>
 <tr>
   <td><input type="date" id="date" name="event_day" class="event_day" value="" required></td>
-  <td><input type="money" id="date" name="event_cost" class="event_cost"></td>
+  <td><input type="money" id="date" name="event_cost" class="event_cost" minlength="1"></td>
   </tr>
 </table>
 
 <p><label for="content">本文</label></p>
-<textarea name="event_content" class="event_content" minlength="1" maxlength="1000" required></textarea>
+<textarea name="event_content" class="event_content" minlength="1" maxlength="1000" placeholder="1000文字以内" required></textarea>
 
 <center>
 <button class="button-only" id="open-btn"  type="submit">投稿</button>
