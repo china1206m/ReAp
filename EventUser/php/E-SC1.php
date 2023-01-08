@@ -16,7 +16,7 @@
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
 
 
-        <p><label for="shop">開催場所</label></p>
+        <p><label for="event_place">開催場所</label></p>
         <select name="prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
@@ -82,7 +82,7 @@
           </optgroup>
         </select>
 
-        <p><label for="shop">開催期間</label></p>
+        <p><label for="event_day">開催期間</label></p>
         <input type="date" id="date" name="eventday" class="event-day" value="">
 
         <center>
