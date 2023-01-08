@@ -18,7 +18,7 @@
     <form action="E-AC3.php" method="POST">   
 <br>
 ユーザ名：
-<input type="text" name="user_name" maxlength="30" required>
+<input type="text" name="user_name" maxlength="30" id="user" required>
 <br>
 <br>
 <div class="form-wrapper">
@@ -26,7 +26,7 @@
 <input type="password" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
 <i id="eye" class="fa-solid fa-eye"></i></div>
 <br>
-<button type="submit" name="login" class="button-only">登録する</button>
+<button type="submit" name="login" class="button-only" onclick="regit()">登録する</button>
       
 </div>
 </form>
@@ -47,6 +47,18 @@
             this.classList.toggle('fa-eye-slash');
        }
   })
+</script>
+
+<script>
+  //ログイン出来なかったときにエラー表示する場所
+  //このif文はユーザ名があいうえおの時にエラー表示するようになっているのでif文自体は無視してください。
+  function regit(){
+    const textbox = document.getElementById("user");
+    const value = textbox.value
+    if(value=="あいうえお"){
+    alert('ユーザ名またはパスワードに誤りがあります。')
+    }
+  }
 </script>
 </body>
 </html>
