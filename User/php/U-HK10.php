@@ -13,17 +13,17 @@
 
     <form action="U-HK6.php" method="post" enctype="multipart/form-data">
     <div class="center">
-        <input type="text" name="plan_title" class="plan_title" value="" placeholder="タイトルを入力(30文字以内)" minlength="1" maxlength="30" required>
+        <input type="text" name="plan_title" class="plan_title" value="" placeholder="タイトルを入力(30文字以内)　必須" minlength="1" maxlength="30" required>
     </div>
 
     <ol id="place_list">
         <li>
             <div class="plan_information">
-            <input type="text" name="plan_place" class="plan_place" value="" placeholder="場所名を入力" required>
+            <input type="text" name="plan_place" class="plan_place" value="" placeholder="場所名を入力　必須" required>
 
-            <textarea name="plan_content" class="plan_content" minlength="1" maxlength="1000" placeholder="本文内容を入力(1000文字以内)" required></textarea>
+            <textarea name="plan_content" class="plan_content" minlength="1" maxlength="1000" placeholder="本文内容を入力(1000文字以内)　必須" required></textarea>
             
-            <input type="text" name="plan_time" class="plan_time" value="" placeholder="滞在時間を入力" required>
+            <input type="text" name="plan_time" class="plan_time" value="" placeholder="滞在時間を入力　必須" required>
 
             <select class="plan_time2" name="plan_time">
                 <option value="minutes">分</option>
@@ -33,7 +33,7 @@
             <input type="file" accept="image/jpeg,image/png" name="plan_image" class="plan_image" multiple/>
             </div>
 
-            <input type="text" name="travel_time" class="travel_time" value="" placeholder="移動時間を入力" required>
+            <input type="text" name="travel_time" class="travel_time" value="" placeholder="移動時間を入力　必須" required>
             <select class="plan_time2" name="plan_time2">
                 <option value="minutes">分</option>
                 <option value="hour">時間</option>
