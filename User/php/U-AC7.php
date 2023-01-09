@@ -1,3 +1,14 @@
+<?php
+/* セッション開始 */
+session_start();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        include "logout.php";
+        $logout = new logout();
+        $logout->logout("U-AC6.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +29,7 @@
         <br><br><br>
         
         <li><div>
-        <form action="U-AC6.php" method="POST">
+        <form action="" method="POST">
         <button type="submit"class="button-yes">はい</button>
         </form>
       
