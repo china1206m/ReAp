@@ -1,3 +1,45 @@
+<?php
+/* セッション開始 */
+session_start();
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['user_name'], $_POST['user_pass']) && $_POST['user_name'] !== '' && $_POST['user_pass'] !== '')  {
+    /* データベース接続 */
+    include "MC-01.php";
+    $db = getDB();
+ 
+    /* ユーザー認証 */
+    $stmt = $db->prepare('SELECT * FROM user WHERE user_name=? AND user_pass=?');
+    $stmt->bindValue(1, $_POST['user_name']);
+    $stmt->bindValue(2, $_POST['user_pass']);
+    $stmt->execute();
+ 
+    $result = $stmt->fetchAll();
+
+    // ログインが成功したら
+    if (count($result) === 1) {
+        // userIDを取得
+        $stmt = $db->prepare('SELECT user_id FROM user WHERE user_name=? AND user_pass=?');
+        $stmt->bindValue(1, $_POST['user_name']);
+        $stmt->bindValue(2, $_POST['user_pass']);
+        $stmt->execute();
+
+        // セッションでイベントユーザIDを保持
+        foreach ($stmt as $row) {
+            $_SESSION['user_id'] = $row['user_id'];
+            header('Location:E-AC3.php');
+            exit;
+        }
+    }
+  }
+  /* 正しくログインできなかった */
+  $_SESSION['login_message'] = '送信データが正しくありません';
+  header('Location:'.$_SERVER['PHP_SELF']);
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +57,7 @@
 <section>
 <center>
   <div class="box1">
-    <form action="E-AC3.php" method="POST">   
+    <form action="" method="POST">   
 <br>
 ユーザ名：
 <input type="text" name="user_name" maxlength="30" id="user" required>
