@@ -1,7 +1,7 @@
 /*スマホ用*/
 @media screen and (max-width:990px) {
 /*ボタンデザイン 背景：青、文字：白*/
-.button-only {
+  .button-only {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -18,17 +18,16 @@
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
-  
   }
 
   /* ホバー時（カーソルをのせた時）の見た目 */
-.button-only:hover {
+  .button-only:hover {
     background-color: #064fda; /* 背景色 */
   }
 
 
-/*ボタンデザイン 枠線：青、背景：白、文字：黒*/
-button {
+  /*ボタンデザイン 枠線：青、背景：白、文字：黒*/
+  button {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -51,7 +50,7 @@ button {
   }
 
   /* ホバー時（カーソルをのせた時）の見た目 */
-button:hover {
+  button:hover {
     background-color: #064fda; /* 背景色 */
   }
 }
@@ -77,12 +76,12 @@ button:hover {
       border: 0; /* 枠線を消す */
       transition: 0.3s; /* ホバーの変化を滑らかに */
     
-    }
+  }
   
     /* ホバー時（カーソルをのせた時）の見た目 */
   .button-only:hover {
       background-color: #064fda; /* 背景色 */
-    }
+  }
   
   
   /*ボタンデザイン 枠線：青、背景：白、文字：黒*/
@@ -106,10 +105,10 @@ button:hover {
       border-color: #1aa1ff;
       transition: 0.3s; /* ホバーの変化を滑らかに */
     
-    }
+  }
   
     /* ホバー時（カーソルをのせた時）の見た目 */
   button:hover {
       background-color: #064fda; /* 背景色 */
     }
-  }
+}
