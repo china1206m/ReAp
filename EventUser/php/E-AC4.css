@@ -17,3 +17,7 @@ section {
         display: grid;
         place-items: center;
     }
+
+.box_error{
+      color: red;
+}

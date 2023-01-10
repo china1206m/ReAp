@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="E_button.css">
   </head>
 <body bgcolor="#f0f8ff" >
-<!--if文はphp内で書くらしい-->
+
 <section>
 <center>
   <div class="box1">
@@ -71,8 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <br>
 <br>
+<div class="box_error">
+  <!--ここにかいてね-->
+  ユーザ名またはパスワードが異なります。
+</div>
 <br>
-<button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
+<button type="submit" name="login" class="button-only">ログイン</button>
       
 </div>
 </form>
@@ -95,17 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   })
 </script>
 
-<script>
-  //ログイン出来なかったときにエラー表示する場所
-  //このif文はユーザ名があいうえおの時にエラー表示するようになっているのでif文自体は無視してください。
-  function regit(){
-    const textbox = document.getElementById("user");
-    const value = textbox.value
-    if(value=="あいうえお"){
-    alert('ユーザ名またはパスワードに誤りがあります。')
-    }
-  }
-</script>
+
 </body>
 </html>
  
