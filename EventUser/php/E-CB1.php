@@ -1,3 +1,47 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* データベース接続 */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        include "MC-01.php";
+        $db = getDB();
+    } catch (PDOException $e) {
+      //echo $e->getMessage();
+      $_SESSION['register_message'] = 'データベース接続に失敗しました';
+      header('Location:'.$_SERVER['PHP_SELF']);
+      exit;
+    }
+    
+    $content = file_get_contents($_FILES['event_image']['tmp_name']);
+    $_SESSION['eventuser_id'] = 1;
+
+    // モジュールを使用したプログラム（上手くいかない ）
+    /*
+    include "MA.php";
+    $add = new MA();
+    $coloum = ['eventuser_id','event_content', 'event_place', 'event_cost', 'event_image', 'event_favorite_total', 'post_date', 'event_title'];
+    $post = [$_SESSION['eventuser_id'], $_POST['event_content'], $_POST['event_place'], $_POST['event_cost'], $content, 0, $_POST['post_date'], $_POST['event_title']];
+    $type = [0,1,1,0,0,0,0,1];
+    $add->ma("event", $coloum, $post, $type);
+    */
+       
+    $sql = 'INSERT INTO event (eventuser_id, event_content, event_place, event_cost, event_image, event_favorite_total, post_date, event_title)
+            VALUES (2,:event_content, :event_place, :event_cost, :event_image, 0,now(), :event_title)';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':event_content', $_POST['event_content']);
+    $stmt->bindValue(':event_place', $_POST['event_place']);
+    $stmt->bindValue(':event_cost', $_POST['event_cost']);
+    $stmt->bindValue(':event_image', $content);
+    $stmt->bindValue(':event_title', $_POST['event_title']);
+    $stmt->execute();
+
+    // 画面遷移　ホーム画面 
+    header("Location:E-EL1.html");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +57,7 @@
 
   
   
-  <form action="E-EL1.html" method="POST" enctype="multipart/form-data">
+  <form action="" method="POST" enctype="multipart/form-data">
    
     <table>
       
