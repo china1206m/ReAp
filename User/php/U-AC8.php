@@ -21,11 +21,15 @@
             </div><br>
 
             <form action="U-AC2.html" class="button-only">
+                <button type="submit" method="POST">
                 同意します
+                </button>
             </form>
     
             <form action="U-AC1.html" class="button-only">
-                同意しません
+                <button type="submit" method="POST">
+                同意します
+                </button>
             </form>
        
         
