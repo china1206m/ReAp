@@ -1,3 +1,25 @@
+<?php
+/* セッション開始 */
+session_start();
+
+  /* 退会処理 */
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+    /* 退会 */
+    include "MD.php";
+    $delete = new MD();
+  
+    $_SESSION['user_id'] = 1;
+
+    $type = [1];
+    $delete->md("user", "user_id", $_SESSION['user_id'], $type);
+   
+    session_destroy(); // セッションを破壊
+  
+    header('Location:U-AC2.php');
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
