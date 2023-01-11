@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="box1">
     <form action="" method="POST">   
 <br>
-ユーザ名：
-<input type="text" name="user_name" maxlength="30" id="user" required>
+メールアドレス：
+<input type="email" name="user_mail" maxlength="30" placeholder="〇〇＠△△" required>
 <br>
 <br>
 <div class="form-wrapper">
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <!--ここにかいてね-->
   ユーザ名またはパスワードが異なります。
 </div>
-<button type="submit" name="login" class="button-only" onclick="regit()">登録する</button>
+<button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
       
 </div>
 </form>
