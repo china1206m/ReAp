@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID M-CP2</title>
-  <meta charset=”UTF-8″>
+  <meta charset=”utf-8″>
   <link rel="stylesheet" href="M-CP2.css" type="text/css">
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
@@ -84,7 +84,7 @@
         </optgroup>
       </select></td>
     
-        <td><input type="text" class="prefectures-shop" name="coupon_name"></td>
+        <td><input type="text" class="prefectures-shop" name="coupon_place"></td>
     </tr>
     </table>
 
