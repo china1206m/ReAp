@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="box1">
     <form action="" method="POST">   
 <br>
-ユーザ名：
-<input type="text" name="eventuser_name" maxlength="30" id="user" required>
+メールアドレス：
+<input type="email" name="eventuser_mail" maxlength="30" placeholder="〇〇＠△△" required>
 <br>
 <br>
 <br>
