@@ -33,14 +33,14 @@ p {
 }
 
 .user_mail{
-    width: 300px;
+    width: 500px;
     height: 25px;
     font-size: 1.5em;
     margin-left: 50px;
 }
 
 .user_pass{
-    width: 300px;
+    width: 500px;
     height: 25px;
     font-size: 1.5em;
     margin-left: 50px;
@@ -71,7 +71,20 @@ p {
     background-color: white; /* 背景色 */
   }
 
-  .require{
+  .tarea{
+    display: inline-block;
+    width: 900px;
+    padding: 10px;
+    border: 1px solid ;
+    box-sizing: border-box;
+    background: white;
+    margin: 0em 0;
+    line-height: 1.5;
+    height: 12em;
+    margin-left: 0px;
+}
+
+.require{
     color: red;
     font-size: 0.6em;
     font-weight: bold;
