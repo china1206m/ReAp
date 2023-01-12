@@ -103,6 +103,10 @@
          .home-list {
           list-style:none;
         }
+
+        .right{
+          text-align: right;
+        }
         
   }
   
@@ -210,6 +214,10 @@
     
     background: white;
     border: solid thin white;
+  }
+
+  .right{
+    text-align: right;
   }
   
   }
