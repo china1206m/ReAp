@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>画面ID U-HK10</title>
+  <title>画面ID U-AC22</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="U-AC22.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　詳細</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
     <form action="U-HK6.php" method="post" enctype="multipart/form-data">
