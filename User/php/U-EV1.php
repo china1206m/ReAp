@@ -11,7 +11,7 @@
     <div align="right">
       <button class="btn" href="U-HK3.php"><img src="search.png"></button>
     </div>
-    <ul id="self_contribution">
+    <ul id="event-list">
     </ul>
   </main>
 
@@ -27,7 +27,7 @@
 
   <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
-    var ul = document.getElementById("self_contribution");
+    var ul = document.getElementById("event-list");
     for (var count = 0; count < 6; count++) {
         var li = document.createElement('li');
         li.classList.add("list");
@@ -62,7 +62,7 @@
         // もっと見るを作成
         var a = document.createElement('a');
         a.classList.add("more-see");
-        a.href = "U-HK7.php";
+        a.href = "U-EV2.php";
         a.innerText = "...もっと見る";
   
         ul.appendChild(li);
