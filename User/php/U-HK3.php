@@ -16,12 +16,12 @@
       <p>カテゴリ</p>
       <table align="center">
         <tr>
-          <td><input type="radio" name="plan_who" value="1" id="one"><label for="one">一人</label></td>
-          <td><input type="radio" name="paln_who" value="2" id="friend"><label for="friend">友達</label></td>
+          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
+          <td><input type="radio" name="paln_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
-          <td><input type="radio" name="plan_who" value="3" id="lover"><label for="lover">恋人</label></td>
-          <td><input type="radio" name="plan_who" value="4" id="family"><label for="family">家族</label></td>
+          <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
+          <td><input type="radio" name="plan_who" value="家族" id="family"><label for="family">家族</label></td>
         </tr>
       </table> 
   
