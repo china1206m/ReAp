@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID E-CP6</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E-CP6.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
   
