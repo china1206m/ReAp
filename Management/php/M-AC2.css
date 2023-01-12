@@ -1,0 +1,27 @@
+.box1 {
+    background:white; /*背景色の指定*/
+    padding:80px;
+    width: 400px;
+    border-radius: 10px;
+    margin-top: 300px;
+    }
+    .box1 p {
+    margin:10;
+    padding:0;
+    }
+
+  /* 真ん中寄せ */  
+section {
+        height: 100vh;
+        /* 真ん中寄せ */
+        display: grid;
+        place-items: center;
+    }
+
+    .sou{
+        border-color: blue;
+        background-color: white;
+        margin-top: 50px;
+        width: 150px;
+        height: 50px;
+    }
