@@ -12,9 +12,7 @@
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
     <form action="U-HK6.php" method="post" enctype="multipart/form-data">
-    <div class="center">
-        <input type="text" name="plan_title" class="plan_title" value="" placeholder="タイトルを入力(30文字以内)　必須" minlength="1" maxlength="30" required>
-    </div>
+    
 
     <ol id="place_list">
         <li>
