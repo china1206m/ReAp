@@ -6,29 +6,6 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   /* usernameとpasswordが定義されて、かつ空白ではない */
   if (isset($_POST['eventuser_name'], $_POST['eventuser_pass']) && $_POST['eventuser_name'] !== '' && $_POST['eventuser_pass'] !== '')  {
-    /* データベース接続 */
-    /*
-    try {
-        include "MC-01.php";
-        $db = getDB();
-    } catch (PDOException $e) {
-      //echo $e->getMessage();
-      $_SESSION['register_message'] = 'データベース接続に失敗しました';
-      header('Location:'.$_SERVER['PHP_SELF']);
-      exit;
-    }
- */
-    /* 重複チェック */
-    /*
-    $stmt = $db->prepare('SELECT * FROM test_users WHERE name=?');
-    $stmt->bindValue(1, $_POST['name']);
-    $stmt->execute();
-    if (count($stmt->fetchAll())) {
-      $_SESSION['register_message'] = 'このユーザーネームはすでに使われています';
-      header('Location:'.$_SERVER['PHP_SELF']);
-      exit;
-    }
-    */
 
     /* データ挿入 */
     // 呼び出し
@@ -48,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['eventuser_id'] = $add->ma_return("eventuser",$column, $post, $type);
 
-    $_SESSION['register_message'] = '会員登録が完了しました';
     header('Location:E-AC3.php');
     exit;
   } else {

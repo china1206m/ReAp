@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID U-HK10</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-HK10.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>

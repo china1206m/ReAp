@@ -3,15 +3,15 @@
 session_start();
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  /* usernameとpasswordが定義されて、かつ空白ではない */
-  if (isset($_POST['eventuser_name'], $_POST['eventuser_pass']) && $_POST['eventuser_name'] !== '' && $_POST['eventuser_pass'] !== '')  {
+  /* メールアドレスとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['eventuser_mail'], $_POST['eventuser_pass']) && $_POST['eventuser_mail'] !== '' && $_POST['eventuser_pass'] !== '')  {
     /* データベース接続 */
     include "MC-01.php";
     $db = getDB();
  
     /* ユーザー認証 */
-    $stmt = $db->prepare('SELECT * FROM eventuser WHERE eventuser_name=? AND eventuser_pass=?');
-    $stmt->bindValue(1, $_POST['eventuser_name']);
+    $stmt = $db->prepare('SELECT * FROM eventuser WHERE eventuser_mail=? AND eventuser_pass=?');
+    $stmt->bindValue(1, $_POST['eventuser_mail']);
     $stmt->bindValue(2, $_POST['eventuser_pass']);
     $stmt->execute();
  
@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ログインが成功したら
     if (count($result) === 1) {
         // eventuserIDを取得
-        $stmt = $db->prepare('SELECT eventuser_id FROM eventuser WHERE eventuser_name=? AND eventuser_pass=?');
-        $stmt->bindValue(1, $_POST['eventuser_name']);
+        $stmt = $db->prepare('SELECT eventuser_id FROM eventuser WHERE eventuser_mail=? AND eventuser_pass=?');
+        $stmt->bindValue(1, $_POST['eventuser_mail']);
         $stmt->bindValue(2, $_POST['eventuser_pass']);
         $stmt->execute();
 
@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="box1">
     <form action="" method="POST">   
 <br>
-ユーザ名：
-<input type="text" name="eventuser_name" maxlength="30" id="user" required>
+メールアドレス：
+<input type="email" name="eventuser_mail" maxlength="30" placeholder="〇〇＠△△" required>
 <br>
 <br>
 <br>
@@ -73,7 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <br>
 <div class="box_error">
   <!--ここにかいてね-->
-  ユーザ名またはパスワードが異なります。
+  <?php
+    if (isset($_SESSION['login_message'])) {
+      echo($_SESSION['login_message']);
+    }
+  ?>
 </div>
 <br>
 <button type="submit" name="login" class="button-only">ログイン</button>

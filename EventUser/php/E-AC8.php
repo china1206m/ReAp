@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -17,29 +17,52 @@
 <body>
     <main id="main">
         <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">アカウント情報変更</h3>
-   
-    <section>
+        <section>
+        <form action="E-AC3.php" method="post">
+
+        <table>
+                <tr>
+                    <td><p><label for="enterprise_name" >企業名<span class="require">必須</span></label></p></td>
+                    <td><p><label for="representative_name" >代表者名<span class="require">必須</span></label></p></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="user_mail" name="enterprise_name" value="" placeholder="１００文字以内" required></td>
+                    <td><input type="text" class="user_mail" name="representative_name" placeholder="３０文字以内" required></td>
+                </tr>
+                <tr>
+                    <td><p><label for="phone_number" >電話番号<span class="require">必須</span></label></p></td>
+                    <td><p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p></td>
+                </tr>
+                <tr>
+                    <td><input type="number" class="user_mail" name="phone_number" value="" placeholder="数字のみ" required></td>
+                    <td><input type="email" class="user_mail" name="user_mail" value="firstmail@gmail.com" required></td>
+                </tr>
+                
+            </table>
         
-            <form action="E-AC3.php" method="POST">
-                <p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p>
-                <input type="email" class="user_mail" name="user_mail" value="" placeholder="firstmail@gmail.com" required>
-               
-                <div class="form-group">
-                <p><label for="user_pass" >パスワード<span class="require">必須</span></label></p>
-                <input type="password" class="user_pass" class="form-control" name="user_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角英数字8-16文字" required>
-                </div>
-               
+                <p><label for="address" >住所<span class="require">必須</span></label></p>
+                <p><textarea class="tarea" name="address" placeholder="50文字以内"></textarea></p>
+            
+               <table>
+                <tr>
+                    <td><div class="form-group">
+                <p><label for="user_mail" >パスワード<span class="require">必須</span></label></p>
+                <input type="password" class="user_pass" class="form-control" name="user_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角英数字８-１６文字" required>
+                </div></td>
+               <td>
                 <div class="form-group" class="form-wrapper">
-                <p><label for="user_pass_admit" >パスワード（確認）<span class="require">必須</span></label></p>
-                <input type="password" class="user_pass" class="form-control" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" oninput="CheckPassword(this)" required>
+                <p><label for="user_mail" >パスワード（確認）<span class="require">必須</span></label></p>
+                <input type="password" class="user_pass" class="form-control" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$"  oninput="CheckPassword(this)" required>
                 <i id="eye" class="fa-solid fa-eye"></i>
                 </div>
-
-            </section>
+                </td>
+                </tr>
+                </table>
             <center>
                 <button type="submit" class="button-only">登録する</button>
-                </center>
-            </form>
+            </center>
+        </section>
+        </form>
     
 </main>
 
@@ -48,6 +71,7 @@
         <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-CB1.html"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-SE1.html"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-AC3.html"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
     </ul>
   </aside>

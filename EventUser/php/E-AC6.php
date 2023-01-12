@@ -1,3 +1,25 @@
+<?php
+/* セッション開始 */
+session_start();
+
+  /* 退会処理 */
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+    /* 退会 */
+    include "MD.php";
+    $delete = new MD();
+  
+    $_SESSION['eventuser_id'] = 1;
+
+    $type = [1];
+    $delete->md("eventuser", "eventuser_id", $_SESSION['eventuser_id'], $type);
+   
+    session_destroy(); // セッションを破壊
+  
+    header('Location:E-AC1.php');
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +53,7 @@
     </div></li>
 <br><br><br>
 <li><div>
-<form action="E-AC1.php" method="POST">
+<form action="" method="POST">
     <button type="submit" name="acountdelay-yes" class="button-yes">同意する</button>
 </form>
 

@@ -1,0 +1,104 @@
+.k1{
+    margin: 120px;
+  }
+  
+  .k2{
+    margin: 30px;
+    text-align: right;
+  }
+  
+  .wrap1{
+    display: flex;
+  }
+  
+  .wrap2{
+    display: flex;
+  }
+  
+  .coupon {
+    display: flex;
+    width: 100%;
+    max-width: 620px;
+    background: rgb(165, 171, 242);
+    margin-top: 150px;
+    margin: 75px;
+  }
+  .price {
+    font-size: 30px;
+    font-weight: 900;
+    color: #f56359;
+  }
+  .date {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .left {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+  }
+  .right {
+    position: relative;
+    display: flex;
+    width: 160px;
+    padding: 40px 20px;
+    border-left: 2px dashed #e0e6ef;
+    justify-content: center;
+  }
+  
+  /* circle-css */
+  
+  .right::before,
+  .right::after {
+    position: absolute;
+    display: block;
+    content: "";
+    border-radius: 100%;
+    background: #e0e6ef;
+    left: -12px;
+    width: 22px;
+    height: 22px;
+  }
+  .right::before {
+    top: -11px;
+  }
+  .right::after {
+    bottom: -11px;
+  }
+
+  .use{
+    width: 300px;
+  }
+
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  h3{
+    margin-left: 0;
+    font-size: 3em;
+  }
+  
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
+  }

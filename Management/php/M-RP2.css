@@ -1,0 +1,152 @@
+/*検索ボタン装飾*/ 
+button{
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    height: 0px;
+    width: 0px;
+    margin: 1em 2em; /* 前後の隙間 */
+    padding: 0.2em 1em; /* 塗りの余白 */
+    cursor: pointer; /* カーソルを指マークに */
+    border: solid thin #f0f8ff;
+    background-color: #f0f8ff;
+    
+    
+}
+
+/* 検索ボタンと投稿を横並びに設定 */
+div{
+  display: flex;
+  justify-content: center;
+  }
+
+
+/*ボタンの縦並び*/ 
+li{
+    list-style:none;
+    padding:16px;
+    margin:8px
+  }
+
+  /*ボタンの横配置*/ 
+.right {
+    text-align: right;
+  }
+
+  /*イベントの情報掲載デザイン*/ 
+  .event_information{
+    background:white; /*背景色の指定*/
+    padding:10px;
+    height: 400px;
+    width:700px;
+    position: relative;
+    }
+
+    /*もっと見るボタンのデザイン*/
+.more-see { 
+  color: gray;
+  text-decoration: none; 
+  font-weight: bold;
+  font-size: 1.1em;
+  position:absolute;
+  right: 0;
+  bottom: 0;
+  margin-left: 100px;
+  }
+
+  
+
+  h3{
+    margin-left: 60px;
+  }
+
+  .circle {
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .limit{
+    display: -webkit-box; /* 必須 */
+  -webkit-box-orient: vertical; /* 必須 */
+  -webkit-line-clamp: 15; /* 行数を制限 */
+  overflow: hidden; /* はみ出た部分を非表示 */
+  }
+
+  #overlay{
+    position: fixed;
+    top:0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.6);
+    transition: all 0.5s ease-out;
+  }
+  #overlay.overlay-on{
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .flex{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  #overlay-inner{
+    padding:10px 100px;
+    background-color:#FFF;
+    text-align:center;
+    display:inline-block;
+    display: inline;
+  }
+  
+  #open-btn{
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+  
+    /* 整える */
+    width: 400px;
+    height: 50px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 1em; /* フォントサイズ */
+    background-color: #1aa1ff; /* 背景色 */
+    color: #FFF; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+    
+  }
+
+  #close-btn{
+    display:inline;
+      width: 120px;
+      height: 40px;
+      margin: 10px auto;
+      padding: 10px 30px;
+      font-size: 1em; /* フォントサイズ */
+      background-color: #1aa1ff;
+      color: #FFF;
+      border:solid #ccc 0px;
+      border-radius: 3px; /* 角の丸み */
+      cursor: pointer;
+  }

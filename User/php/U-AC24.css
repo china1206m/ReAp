@@ -1,0 +1,83 @@
+.deco-radio { display: block; font-size: 24px; }
+.deco-radio:hover { cursor: pointer; }
+.deco-radio input { display: none; }
+.deco-radio input+.dummy {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3F51B5;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: text-top;
+}
+.deco-radio input:checked+.dummy:after {
+    content: "";
+    width: 70%;
+    height: 70%;
+    background-color: #3F51B5;
+    border-radius: 50%;
+}
+
+.box {
+    padding: 0.5em 1em;
+    margin: 50px;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+
+.size{
+    width: 200px;
+    height: 50px;
+    margin: 30px;
+    border-color: blueviolet;
+}
+
+.left{
+    margin-left: 220px;
+}
+
+.next{
+    border-color: blue;
+    background-color: white;
+    width: 300px;
+    height: 100px;
+    margin: 50px;
+    
+}
+
+.button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  h3{
+    margin-left: 0;
+    font-size: 3em;
+  }
+  
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
+  }

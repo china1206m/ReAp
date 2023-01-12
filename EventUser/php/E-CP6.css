@@ -1,0 +1,156 @@
+hr {
+    border: none;
+    background-color: black;
+    height: 2px;
+    width: 50%;
+  }
+
+/*戻るボタンのデザイン*/
+.button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+}
+
+/*中央配置*/
+section {
+    height:80vh;
+    display: grid;
+    place-items: center;
+}
+
+.top{
+    margin-top: 130px;
+}
+
+.under{
+    margin-top: 100px;
+}
+
+/* オーバレイの技術 */
+#overlay{
+    position: fixed;
+    top:0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.6);
+    transition: all 0.5s ease-out;
+  }
+  #overlay.overlay-on{
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .flex{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  #overlay-inner{
+    width: 500px;
+    height: 600px;
+    padding:10px 30px;
+    background-color:#FFF;
+    text-align:center;
+  }
+
+  #open-btn{
+    display:block;
+    height: 50px;
+    width: 200px;
+    padding:10px 30px;
+    font-size: 1em; /* フォントサイズ */
+    background-color:#1aa1ff;
+    color: #FFF; /* テキストカラー */
+    border:solid #ccc 0px;
+    border-radius: 3px; /* 角の丸み */
+    cursor: pointer;
+  }
+
+  #open-btn:hover {
+    background-color: #064fda; /* 背景色 */
+
+  }
+
+  #close-btn{
+    display:inline;
+    width: 150px;
+    height: 40px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    font-size: 1em; /* フォントサイズ */
+    background-color: #1aa1ff;
+    color: #FFF;
+    border:solid #ccc 0px;
+    border-radius: 3px; /* 角の丸み */
+    cursor: pointer;
+  }
+
+  #close-btn:hover {
+    background-color: #064fda; /* 背景色 */
+
+  }
+
+  h4{
+    margin-left: 100px;
+  }
+
+  /* 各ラベルの大きさ */
+p {
+    font-size: 1.5em;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
+.label-prefectures-shop{
+    display: inline;
+}
+
+.require{
+  color: red;
+  font-size: 0.6em;
+  font-weight: bold;
+  margin-left: 5px;
+}
+  
+.prefectures-shop{
+    width: 300px;
+    font-size: 1.5em;
+    color: gray;
+    margin-left: 200px;
+}
+
+
+.day{
+    width: 300px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
+
+
+
+.tarea{
+    width: 800px;
+    height: 100px;
+    font-size: 1.5em;
+    margin-left: 200px;
+}
