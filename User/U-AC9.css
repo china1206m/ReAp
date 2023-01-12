@@ -31,7 +31,7 @@
       }
     
     /*ボタンデザイン 枠線：青、背景：白、文字：黒*/
-    button {
+    .coupon {
         /* ブラウザ特有のスタイルを無効に */
         -moz-appearance: none;
         -webkit-appearance: none;
@@ -40,9 +40,9 @@
         /* 整える */
         width: 700px;
         height: auto;
-        margin: 1em 0; /* 前後の隙間 */
+        margin: 0.7em 0; /* 前後の隙間 */
         padding: 0.6em 1em; /* 塗りの余白 */
-        font-size: 1em; /* フォントサイズ */
+        font-size: 2em; /* フォントサイズ */
         background-color: white; /* 背景色 */
         color: black; /* テキストカラー */
         cursor: pointer; /* カーソルを指マークに */
@@ -54,7 +54,7 @@
       }
     
       /* ホバー時（カーソルをのせた時）の見た目 */
-    button:hover {
+    .coupon:hover {
         background-color: #064fda; /* 背景色 */
       }
   
