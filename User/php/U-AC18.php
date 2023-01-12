@@ -8,9 +8,11 @@
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <form action='U-AC21.php' method="POST" enctype="multipart/form-data">
     <ul id="ranking">
     </ul>
+  </form>
 </main>
 
 <aside id="sub">
@@ -105,7 +107,7 @@
         // もっと見るを作成
         var a = document.createElement('a');
         a.classList.add("more-see");
-        a.href = "U-HK7.php";
+        a.href = "U-AC21.php";
         a.innerText = "...もっと見る";
 
 
