@@ -1,0 +1,64 @@
+/*パソコン用*/
+@media screen and (min-width:990px) {
+    .user{
+        margin-left: 450px;
+        width: 300px;
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-left: 400px;
+        margin-top: 80px;
+    }
+    
+      /* 真ん中寄せ */  
+    section {
+            height: 100vh;
+            /* 真ん中寄せ */
+            display: grid;
+            place-items: center;
+        }
+
+        .require{
+            color: red;
+            font-size: 0.6em;
+            font-weight: bold;
+            margin-left: 5px;
+          }
+    }
+    
+    
+    /*スマホ用*/
+    @media screen and (max-width:990px) {
+
+    .user{
+        margin-left: 80px;
+        width: 250px;
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-left: 50px;
+        margin-top: 80px;
+    }
+        
+     /* 真ん中寄せ */  
+     section {
+        height: 100vh;
+        /* 真ん中寄せ */
+        display: grid;
+        place-items: center;
+    }
+
+    
+
+    .require{
+        color: red;
+        font-size: 0.6em;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+      
+    }
