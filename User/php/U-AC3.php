@@ -4,7 +4,9 @@
 
 //$id = 1;
 
-//$user = MG_01($id,"","","","","","");
+//$db = MG_01($id,"","","","","","");
+
+//$user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
