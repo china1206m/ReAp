@@ -1,3 +1,45 @@
+<?php
+/* セッション開始 */
+session_start();
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['administrator_name'], $_POST['administrator_pass']) && $_POST['administrator_name'] !== '' && $_POST['administrator_pass'] !== '')  {
+    /* データベース接続 */
+    include "MC-01.php";
+    $db = getDB();
+ 
+    /* ユーザー認証 */
+    $stmt = $db->prepare('SELECT * FROM administrator WHERE administrator_name=? AND administrator_pass=?');
+    $stmt->bindValue(1, $_POST['administrator_name']);
+    $stmt->bindValue(2, $_POST['administrator_pass']);
+    $stmt->execute();
+ 
+    $result = $stmt->fetchAll();
+
+    // ログインが成功したら
+    if (count($result) === 1) {
+        // eventuserIDを取得
+        $stmt = $db->prepare('SELECT administrator_id FROM administrator WHERE administrator_name=? AND administrator_pass=?');
+        $stmt->bindValue(1, $_POST['administrator_name']);
+        $stmt->bindValue(2, $_POST['administrator_pass']);
+        $stmt->execute();
+
+        // セッションでイベントユーザIDを保持
+        foreach ($stmt as $row) {
+            $_SESSION['administrator_id'] = $row['administrator_id'];
+            header('Location:M-HK1.html');
+            exit;
+        }
+    }
+  }
+  /* 正しくログインできなかった */
+  $_SESSION['login_message'] = '送信データが正しくありません';
+  header('Location:'.$_SERVER['PHP_SELF']);
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +60,13 @@
     <form action="" method="POST">   
 <br>
 ユーザ名：
-<input type="text" name="eventuser_name" maxlength="30" id="user" required>
+<input type="text" name="administrator_name" maxlength="30" id="user" required>
 <br>
 <br>
 <br>
 <div class="form-wrapper">
 パスワード：
-<input type="password" name="eventuser_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
+<input type="password" name="administrator_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" required>
 <i id="eye" class="fa-solid fa-eye"></i></div>
 
 <br>
