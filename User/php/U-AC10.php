@@ -1,3 +1,33 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    // 入力したいカラム名を指定
+    $column = ['coupon_prefectures'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_POST['coupon_prefectures']];
+
+    // 入力された値の型を定義
+    $type = [1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型
+    $add->ma("coupon",$column, $post, $type);
+
+    header('Location:U-AC11.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -11,7 +41,7 @@
         <main id="main">
         <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
-        <form action='U-AC11.php' method="POST" enctype="multipart/form-data">
+        <form action='' method="POST" enctype="multipart/form-data">
 
         <div align="center">
             <font size="+4">
