@@ -3,175 +3,89 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" media="screen" href="U-HK8.css">
+    <link rel="stylesheet" href="demoHK8.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
-    
     <title>U-HK8</title>
 </head>
 
 <body>
-    <main id="main">
-    <form action="#" method="post">
-        <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
-
-        
-        <p align="center">
-            <input type="text" name="plan_title" class="title" placeholder="タイトル">
-        </p>
-            
-
-
-        
-        <div align="cenetr" class="left">
-            <select id="region" class="size">
-                <option value="">地方</option>
-                <option value="hokkaido">北海道地方</option>
-                <option value="tohoku">東北地方</option>
-                <option value="kanto">関東地方</option>
-                <option value="tyubu">中部地方</option>
-                <option value="kansai">関西地方</option>
-                <option value="tyugoku">中国地方</option>
-                <option value="shikoku">四国地方</option>
-                <option value="kyushu-okinawa">九州・沖縄地方</option>
-            </select>
-            <select id="pref" class="size">
-                <option value="">都道府県</option>
-            </select>
+  <main id="main">
+    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
+        <div align="center">
+            <input type="search" name="plan_title" class="plan_search" placeholder="キーワードを入力">
         </div>
+      
+  
+      <p>カテゴリ</p>
+      <table align="center">
+        <tr>
+          <td><input type="radio" name="plan_who" value="1" id="one"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="2" id="friend"><label for="friend">友達</label></td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="plan_who" value="3" id="lover"><label for="lover">恋人</label></td>
+          <td><input type="radio" name="plan_who" value="4" id="family"><label for="family">家族</label></td>
+        </tr>
+      </table> 
+  
+      <p>都道府県</p>
+      <select id="region" class="region-select">
+        <option value="">選択してください</option>
+        <option value="hokkaido">北海道地方</option>
+        <option value="tohoku">東北地方</option>
+        <option value="kanto">関東地方</option>
+        <option value="tyubu">中部地方</option>
+        <option value="kansai">関西地方</option>
+        <option value="tyugoku">中国地方</option>
+        <option value="shikoku">四国地方</option>
+        <option value="kyushu-okinawa">九州・沖縄地方</option>
+      </select>
+      <select id="pref" class="pref-select" name="plan_prefectures">
+        <option value="">選択してください</option>
+      </select>
 
-       
+     
     
-        <div class="box">
-            <label class="deco-radio">
-                <input type="radio" name="sample_radio" value="0">
-                <span class="dummy"></span>
-                <span>
-                    <font size="+4" >
-                        一人
-                    </font>
-                </span>
-            </label>
-            <label class="deco-radio">
-                <input type="radio" name="sample_radio" value="1">
-                <span class="dummy"></span>
-                <span>
-                    <font size="+4" >
-                        友達
-                    </font>
-                </span>
-            </label>
-            <label class="deco-radio">
-                <input type="radio" name="sample_radio" value="2">
-                <span class="dummy"></span>
-                <span>
-                    <font size="+4" >
-                        恋人
-                    </font>
-                </span>
-            </label>
-            <label class="deco-radio">
-                <input type="radio" name="sample_radio" value="3">
-                <span class="dummy"></span>
-                <span>
-                    <font size="+4" >
-                        家族
-                    </font>
-                </span>
-            </label>
-        </div>
-
+      <p>費用</p>
+      
+      <div align="center">
+        <input type="cost" class="size" name="plan_cost">
+        <font size="+3">
+            ～
+        </font>
         
+        <input type="cost" class="size" name="plan_cost">
+        <font size="+3">
+            円
+        </font>
+    </div>
+      
+      
+  
+      <p>宿泊</p>
+      <div align="center">
+        <input type="cost" class="size" name="plan_day">
+        <font size="+3">
+            泊
+        </font>
         
-            
-
-            
-        
-            <div class="box">
-                <label class="deco-radio">
-                    <input type="radio" name="sample_radio" value="0">
-                    <span class="dummy"></span>
-                    <span>
-                        <font size="+4" >
-                            春
-                        </font>
-                    </span>
-                </label>
-                <label class="deco-radio">
-                    <input type="radio" name="sample_radio" value="1">
-                    <span class="dummy"></span>
-                    <span>
-                        <font size="+4" >
-                            夏
-                        </font>
-                    </span>
-                </label>
-                <label class="deco-radio">
-                    <input type="radio" name="sample_radio" value="2">
-                    <span class="dummy"></span>
-                    <span>
-                        <font size="+4" >
-                            秋
-                        </font>
-                    </span>
-                </label>
-                <label class="deco-radio">
-                    <input type="radio" name="sample_radio" value="3">
-                    <span class="dummy"></span>
-                    <span>
-                        <font size="+4" >
-                            冬
-                        </font>
-                    </span>
-                </label>
-            </div>
-
-            <p>
-                
-                <div align="center">
-                    <input type="cost" class="size">
-                    <font size="+3">
-                        ～
-                    </font>
-                    
-                    <input type="cost" class="size">
-                    <font size="+3">
-                        円
-                    </font>
-                </div>
-                
-            </p>
-
-            <p>
-                
-                <div align="center">
-                    <input type="cost" class="size">
-                    <font size="+3">
-                        泊
-                    </font>
-                    
-                    <input type="cost" class="size">
-                    <font size="+3">
-                        日
-                    </font>
-                </div>
-                
-            </p>
-    
-            <div align="right">
-                <button type="button" onclick="location.href='U-HK10.html'" class="next">
-                    <font size="+3">
-                        次へ
-                    </font>     
-                </button>
-            </div>
-        
-
-        
-        
+        <input type="cost" class="size" name="plan_day">
+        <font size="+3">
+            日
+        </font>
+    </div>
+  
+      <center>
+        <button type="submit" name="submit" onclick="location.href='demo22.html'" class="button-only">
+            <font size="+3">
+                次へ
+            </font>     
+        </button>
+      </center>
     </form>
-</main>
+  </main>
 
-<aside id="sub">
+  <aside id="sub">
     <ul class="menu">
         <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
@@ -180,9 +94,9 @@
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
-    
-    <script>
-        var array = new Array();
+  
+  <script>
+    var array = new Array();
         array[''] = new Array({cd:"0", label:"選択してください"});
         array["hokkaido"] = new Array(
             {cd:"1", label:"北海道"}
@@ -248,19 +162,36 @@
             {cd:"8", label:"沖縄県"}
         ];
 
-        document.getElementById('region').onchange = function(){
-            city = document.getElementById("pref");
-            city.options.length = 0
-            var changedPref = region.value;
-            for (let i = 0; i < array[changedPref].length; i++) {
-                var op = document.createElement("option");
-                value = array[changedPref][i]
-                op.value = value.cd;
-                op.text = value.label;
-                pref.appendChild(op);
-            }
+        function check () {
+  var prefectures = document.searchForm.plan_prefectures.value;
+  var plan_title = document.searchForm.plan_title.value;
+  
+  if ( prefectures == ""  && plan_title == "") {
+  alert ( "検索したい項目を入力してください。" );
+  document.searchForm.plan_title.focus();
+  return false;
+  }
+  
+  return true;
+  }
+
+
+    document.getElementById('region').onchange = function(){
+      city = document.getElementById("pref");
+      city.options.length = 0
+      var changedPref = region.value;
+        for (let i = 0; i < array[changedPref].length; i++) {
+          var op = document.createElement("option");
+          value = array[changedPref][i]
+          op.value = value.cd;
+          op.text = value.label;
+          pref.appendChild(op);
         }
-    </script>
+    }
+
+    
+  </script>
+    
 </body>
 
 </html>
