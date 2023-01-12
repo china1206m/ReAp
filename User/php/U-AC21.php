@@ -3,12 +3,23 @@
 <head>
   <title>U-AC21</title>
   <meta charset=”utf-8″>
-  <link rel="stylesheet" href="U-AC21.css" type="text/css">
+  <link rel="stylesheet" href="demo21.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
+
+    <div align="right">
+        <button type="button" onclick="location.href='U-AC24.php'" class="solid">
+            <img src="hensyu.png" alt="編集" width="50" height="50">
+        </button>
+        <button type="button" onclick="location.href='U-AC18.php'" class="solid">
+            <img src="gomibako.png" alt="ゴミ箱" width="50" height="50">
+        </button>
+    </div>
+    
+
     <ul id="ranking">
       <li class="home-list">
         <div class="ranking_information">
