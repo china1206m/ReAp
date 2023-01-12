@@ -1,3 +1,28 @@
+.button-only {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    width: 300px;
+    margin: 1em 0; /* 前後の隙間 */
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 2em; /* フォントサイズ */
+    background-color: #1aa1ff; /* 背景色 */
+    color: #FFF; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  
+  }
+
+  /* ホバー時（カーソルをのせた時）の見た目 */
+.button-only:hover {
+    background-color: #064fda; /* 背景色 */
+  }
+
 .roundbox{
     background-color: white;
     border: #2392f3 1px solid; /*境界線の指定*/
@@ -8,3 +33,88 @@
     width: 60%;
 }
 
+.profile {
+    background: #FFF;
+    margin: 100px;
+  }
+  
+  .profile__img {
+    width: 300px;
+    height: 300px;
+    border: radius 55px;
+    margin-top: 80px;
+  }
+  
+  .profile__change {
+    font-weight:bold;
+  }
+  
+  .profile__name {
+    border-radius: 10px;
+    border-color: blue;
+    width: 450px;
+    height: 60px;
+    font-size: xx-large;
+  }
+  
+  .profile__coment {
+    border-radius: 10px;
+    border-color: blue;
+    margin: 50px;
+    margin-bottom: 200px;
+    padding: 70px;
+  }
+  
+  .box1{
+    background-color: white;
+    border: rgb(255, 255, 255) 1px solid; /*境界線の指定*/
+    border-radius: 10px; /*角丸の指定*/
+    
+    width: 750px;
+    
+    
+  }
+  
+  .text{
+  padding: 5px;
+  }
+  
+  .register{
+  margin-top: 1000px;
+  }
+  
+  .require{
+  color: red;
+  font-size: 0.6em;
+  font-weight: bold;
+  margin-left: 5px;
+  }
+  
+  .button_back {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  /* 整える */
+  display: inline;
+  width: 10px;
+  margin-left: 30px;
+  padding: 0.6em 1em; /* 塗りの余白 */
+  font-weight: bold;
+  background-color: white; /* 背景色 */
+  color: black; /* テキストカラー */
+  cursor: pointer; /* カーソルを指マークに */
+  border-radius: 3px; /* 角の丸み */
+  border: 0; /* 枠線を消す */
+  transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  h3{
+  margin-left: 0;
+  font-size: xxx-large;
+  }
+  
+  .button_back:hover {
+  background-color: #ffffff; /* 背景色 */
+  }
