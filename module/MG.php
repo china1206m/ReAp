@@ -1,8 +1,10 @@
 <?php
 
-function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
+include "MC-01.php";
 
-  include "MC-01.php";
+//ユーザーテーブル
+
+function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
 
   $n = 1;
 
@@ -92,66 +94,9 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
+//イベントユーザーテーブル
 
-function MG_02($id1,$id2,$id3) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM get_coupon WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND get_coupon_id = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($id3)) {
-      $sql .= "AND coupon_id = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($id3)) {
-      $stmt->bindValue($n,$id3);
-      $n++;
-    }
-
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_03($id1,$name,$id2,$content,$deadline) {
-
-  include "MC-01.php";
+function MG_02($id,$mail,$pass,$name1,$name2,$number,$address,$name3,$image,$message) {
 
   $n = 1;
 
@@ -159,95 +104,25 @@ function MG_03($id1,$name,$id2,$content,$deadline) {
 
     $db = getDB();
 
-    $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
+    $sql = "SELECT * FROM eventuser WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
-      $sql .= "AND coupon_id = ? ";
-    }
-
-    if (!empty($name)) {
-      $sql .= "AND coupon_name = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND enterprise_id = ? ";
-    }
-
-    if (!empty($content)) {
-      $sql .= "AND coupon_content = ? ";
-    }
-
-    if (!empty($deadline)) {
-      $sql .= "AND coupon_deadline = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($name)) {
-      $stmt->bindValue($n,$name);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($content)) {
-      $stmt->bindValue($n,$content);
-      $n++;
-    }
-
-    if (!empty($deadline)) {
-      $stmt->bindValue($n,$deadline);
-      $n++;
-    }
-
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_04($id1,$mail,$pass,$name1,$number,$address,$name2) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM enterprise WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND enterprise_id = ? ";
+    if (!empty($id)) {
+      $sql .= "AND eventuser_id = ? ";
     }
 
     if (!empty($mail)) {
-      $sql .= "AND enterprise_mail = ? ";
+      $sql .= "AND eventuser_mail = ? ";
     }
 
     if (!empty($pass)) {
-      $sql .= "AND enterprise_pass = ? ";
+      $sql .= "AND eventuser_pass = ? ";
     }
 
     if (!empty($name1)) {
+      $sql .= "AND eventuser_name = ? ";
+    }
+
+    if (!empty($name2)) {
       $sql .= "AND representative_name = ? ";
     }
 
@@ -259,15 +134,23 @@ function MG_04($id1,$mail,$pass,$name1,$number,$address,$name2) {
       $sql .= "AND address = ? ";
     }
 
-    if (!empty($name2)) {
+    if (!empty($name3)) {
       $sql .= "AND enterprise_name = ? ";
+    }
+
+    if (!empty($image)) {
+      $sql .= "AND profile_image = ? ";
+    }
+
+    if (!empty($message)) {
+      $sql .= "AND profile_message = ? ";
     }
 
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
+    if (!empty($id)) {
+      $stmt->bindValue($n,$id);
       $n++;
     }
 
@@ -286,6 +169,11 @@ function MG_04($id1,$mail,$pass,$name1,$number,$address,$name2) {
       $n++;
     }
 
+    if (!empty($name2)) {
+      $stmt->bindValue($n,$name2);
+      $n++;
+    }
+
     if (!empty($number)) {
       $stmt->bindValue($n,$number);
       $n++;
@@ -295,9 +183,18 @@ function MG_04($id1,$mail,$pass,$name1,$number,$address,$name2) {
       $stmt->bindValue($n,$address);
       $n++;
     }
+    if (!empty($name3)) {
+      $stmt->bindValue($n,$name3);
+      $n++;
+    }
 
-    if (!empty($name2)) {
-      $stmt->bindValue($n,$name2);
+    if (!empty($image)) {
+      $stmt->bindValue($n,$image);
+      $n++;
+    }
+
+    if (!empty($message)) {
+      $stmt->bindValue($n,$message);
       $n++;
     }
 
@@ -315,9 +212,9 @@ function MG_04($id1,$mail,$pass,$name1,$number,$address,$name2) {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
-function MG_05($id,$pass,$name) {
+//管理者テーブル
 
-  include "MC-01.php";
+function MG_03($id,$pass,$name) {
 
   $n = 1;
 
@@ -372,9 +269,9 @@ function MG_05($id,$pass,$name) {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
-function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
+//計画テーブル
 
-  include "MC-01.php";
+function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,$image,$total,$favorite_season,$date) {
 
   $n = 1;
 
@@ -390,6 +287,22 @@ function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
 
     if (!empty($id2)) {
       $sql .= "AND user_id = ? ";
+    }
+
+    if (!empty($title)) {
+      $sql .= "AND plan_title = ? ";
+    }
+
+    if (!empty($who)) {
+      $sql .= "AND plan_who = ? ";
+    }
+
+    if (!empty($season)) {
+      $sql .= "AND plan_season = ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND plan_prefectures = ? ";
     }
 
     if (!empty($content)) {
@@ -412,7 +325,7 @@ function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
       $sql .= "AND plan_favorite_total = ? ";
     }
 
-    if (!empty($season)) {
+    if (!empty($favorite_season)) {
       $sql .= "AND plan_favorite_season = ? ";
     }
 
@@ -430,6 +343,26 @@ function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
 
     if (!empty($id2)) {
       $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($title)) {
+      $stmt->bindValue($n,$title);
+      $n++;
+    }
+
+    if (!empty($who)) {
+      $stmt->bindValue($n,$who);
+      $n++;
+    }
+
+    if (!empty($season)) {
+      $stmt->bindValue($n,$season);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
       $n++;
     }
 
@@ -458,8 +391,8 @@ function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
       $n++;
     }
 
-    if (!empty($season)) {
-      $stmt->bindValue($n,$season);
+    if (!empty($favorite_season)) {
+      $stmt->bindValue($n,$favorite_season);
       $n++;
     }
 
@@ -482,287 +415,9 @@ function MG_06($id1,$id2,$content,$place,$cost,$image,$total,$season,$date) {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
-function MG_07($id1,$id2,$id3,$content) {
+//イベントテーブル
 
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM plan_report WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND plan_report_id = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($id3)) {
-      $sql .= "AND plan_id = ? ";
-    }
-
-    if (!empty($content)) {
-      $sql .= "AND report_content = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($id3)) {
-      $stmt->bindValue($n,$id3);
-      $n++;
-    }
-
-    if (!empty($content)) {
-      $stmt->bindValue($n,$content);
-      $n++;
-    }
-
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_08($id1,$id2,$total,$date) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM stop_user WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND stop_user_id = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($total)) {
-      $sql .= "AND report_total = ? ";
-    }
-
-    if (!empty($date)) {
-      $sql .= "AND stop_date = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($total)) {
-      $stmt->bindValue($n,$total);
-      $n++;
-    }
-
-    if (!empty($date)) {
-      $stmt->bindValue($n,$date);
-      $n++;
-    }
-    
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_09($id1,$id2,$id3,$content) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM user_report WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND user_report_id = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($id3)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($content)) {
-      $sql .= "AND report_content = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($id3)) {
-      $stmt->bindValue($n,$id3);
-      $n++;
-    }
-
-    if (!empty($content)) {
-      $stmt->bindValue($n,$content);
-      $n++;
-    }
-    
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_10($id,$mail,$pass,$name,$image,$message) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM eventuser WHERE 1 = 1 ";
-
-    if (!empty($id)) {
-      $sql .= "AND eventuser_id = ? ";
-    }
-
-    if (!empty($mail)) {
-      $sql .= "AND eventuser_mail = ? ";
-    }
-
-    if (!empty($pass)) {
-      $sql .= "AND eventuser_pass = ? ";
-    }
-
-    if (!empty($name)) {
-      $sql .= "AND eventuser_name = ? ";
-    }
-
-    if (!empty($image)) {
-      $sql .= "AND profile_image = ? ";
-    }
-
-    if (!empty($message)) {
-      $sql .= "AND profile_message = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id)) {
-      $stmt->bindValue($n,$id);
-      $n++;
-    }
-
-    if (!empty($mail)) {
-      $stmt->bindValue($n,$mail);
-      $n++;
-    }
-
-    if (!empty($pass)) {
-      $stmt->bindValue($n,$pass);
-      $n++;
-    }
-
-    if (!empty($name)) {
-      $stmt->bindValue($n,$name);
-      $n++;
-    }
-
-    if (!empty($image)) {
-      $stmt->bindValue($n,$image);
-      $n++;
-    }
-
-    if (!empty($message)) {
-      $stmt->bindValue($n,$message);
-      $n++;
-    }
-
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) {
-
-  include "MC-01.php";
+function MG_05($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) {
 
   $n = 1;
 
@@ -778,6 +433,14 @@ function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) 
 
     if (!empty($id2)) {
       $sql .= "AND eventuser_id = ? ";
+    }
+
+    if (!empty($title)) {
+      $sql .= "AND event_title = ? ";
+    }
+
+    if (!empty($day)) {
+      $sql .= "AND event_day = ? ";
     }
 
     if (!empty($content)) {
@@ -804,14 +467,6 @@ function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) 
       $sql .= "AND post_date = ? ";
     }
 
-    if (!empty($title)) {
-      $sql .= "AND event_title = ? ";
-    }
-
-    if (!empty($day)) {
-      $sql .= "AND event_day = ? ";
-    }
-
     $stmt = $db->prepare($sql);
 
 
@@ -822,6 +477,16 @@ function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) 
 
     if (!empty($id2)) {
       $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($title)) {
+      $stmt->bindValue($n,$title);
+      $n++;
+    }
+
+    if (!empty($day)) {
+      $stmt->bindValue($n,$day);
       $n++;
     }
 
@@ -855,16 +520,6 @@ function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) 
       $n++;
     }
 
-    if (!empty($title)) {
-      $stmt->bindValue($n,$title);
-      $n++;
-    }
-
-    if (!empty($day)) {
-      $stmt->bindValue($n,$day);
-      $n++;
-    }
-
     $stmt->execute();
 
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -878,59 +533,3 @@ function MG_11($id1,$id2,$content,$place,$cost,$image,$total,$date,$title,$day) 
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-
-function MG_12($id1,$id2,$id3) {
-
-  include "MC-01.php";
-
-  $n = 1;
-
-  try{
-
-    $db = getDB();
-
-    $sql = "SELECT * FROM plan_favorite WHERE 1 = 1 ";
-
-    if (!empty($id1)) {
-      $sql .= "AND plan_favorite_id = ? ";
-    }
-
-    if (!empty($id2)) {
-      $sql .= "AND user_id = ? ";
-    }
-
-    if (!empty($id3)) {
-      $sql .= "AND plan_id = ? ";
-    }
-
-    $stmt = $db->prepare($sql);
-
-
-    if (!empty($id1)) {
-      $stmt->bindValue($n,$id1);
-      $n++;
-    }
-
-    if (!empty($id2)) {
-      $stmt->bindValue($n,$id2);
-      $n++;
-    }
-
-    if (!empty($id3)) {
-      $stmt->bindValue($n,$id3);
-      $n++;
-    }
-    
-    $stmt->execute();
-
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
-    
-  } catch(PDOException $e){
-    echo "DB接続失敗";
-  }
-
-}
-
-?>
