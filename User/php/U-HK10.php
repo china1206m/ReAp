@@ -23,7 +23,7 @@
             
             <input type="text" name="plan_time1" class="plan_time" value="" placeholder="滞在時間を入力　必須" required>
 
-            <select class="plan_time2" name="plan_time_mh1">
+            <select class="plan_time2" name="plan_time_">
                 <option value="minutes">分</option>
                 <option value="hour">時間</option>
             </select>
