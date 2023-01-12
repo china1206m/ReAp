@@ -13,7 +13,6 @@ $stmt->bindValue(1,$id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
-$count2 = 0;
 
 $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -74,7 +73,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       for ($i = 0; $i < $count1; $i++) :  
 
-      $plan_id = $plan[$count2]['plan_id']; 
+      $plan_id = $plan[$i]['plan_id']; 
       $db = MG_05("",$plan_id,"","","","","","","");
       $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
     ?>
@@ -91,7 +90,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php print($plan[$count2]['post_date']); ?>"
+      div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -100,20 +99,20 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       //題名追加
       var div_title = document.createElement('div');
       div_title.classList.add("title");
-      div_title.innerHTML = "<?php print($plan[$count2]['plan_title']); ?>";
+      div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
 
       var br = document.createElement('br');
 
       //条件追加
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
-      p_who.innerHTML = "<?php print($plan[$count2]['plan_who']); ?>"
+      p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "<?php print($plan[$count2]['plan_cost']); ?>"
+      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
-      p_day.innerHTML = "<?php print($plan[$count2]['plan_day']); ?>"
+      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>"
 
       //olの追加
       var ol = document.createElement('ol');
@@ -173,9 +172,6 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       div_home.appendChild(p_time);
       div_ranking.appendChild(p_travel);
       div_ranking.appendChild(a);
-
-
-      <?php $count2++; ?>
       
     <?php endfor; ?>
 
