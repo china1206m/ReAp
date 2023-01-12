@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td><input type="text" class="user_mail" name="enterprise_name" value="" placeholder="１００文字以内" required></td>
-                    <td><input type="text" class="user_mail" name="representative_name" placeholder="３０文字以内" required></td>
+                    <td><input type="text" class="user_mail" name="representative_name" placeholder="山田太郎" required></td>
                 </tr>
                 <tr>
                     <td><p><label for="phone_number" >電話番号<span class="require">必須</span></label></p></td>
@@ -41,7 +41,7 @@
             </table>
         
                 <p><label for="address" >住所<span class="require">必須</span></label></p>
-                <p><textarea class="tarea" name="address" placeholder="50文字以内"></textarea></p>
+                <p><textarea class="tarea" name="address" placeholder="東京都渋谷区神宮前一丁目二番三号"></textarea></p>
             
                <table>
                 <tr>

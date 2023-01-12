@@ -64,6 +64,7 @@ p {
 
 .tarea{
     display: inline-block;
+    resize: none;
     width: 500px;
     padding: 10px;
     border: 1px solid ;
