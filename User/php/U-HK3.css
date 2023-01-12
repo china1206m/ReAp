@@ -7,10 +7,11 @@ p {
 
 .plan_search{
   width: 550px;
-  height: 40px;
+  height: 70px;
   font-size: 1.5em;
   margin-top: 80px;
   margin-left: 200px;
+  border: 2px solid;
 }
 
 /*ボタンデザイン 背景：青、文字：白*/
@@ -38,17 +39,13 @@ p {
   background-color: #064fda; /* 背景色 */
 }
 
-.cost-from {
+.cost {
   width: 200px;
   height: 40px;
   font-size: 1.5em;
   margin-left: 250px;
-}
-
-.cost-to {
-  width: 200px;
-  height: 40px;
-  font-size: 1.5em;
+  padding: 0.5em;
+  border: 2px solid;
 }
 
 .stay-from {
@@ -56,12 +53,16 @@ p {
   height: 40px;
   font-size: 1.5em;
   margin-left: 250px;
+  padding: 0.5em;
+  border: 2px solid;
 }
 
 .stay-to {
   width: 200px;
   height: 40px;
   font-size: 1.5em;
+  padding: 0.5em;
+  border: 2px solid;
 }
 
 .region-select {
