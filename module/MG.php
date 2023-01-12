@@ -271,7 +271,7 @@ function MG_03($id,$pass,$name) {
 
 //計画テーブル
 
-function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,$image,$total,$favorite_season,$date) {
+function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$date) {
 
   $n = 1;
 
@@ -297,35 +297,23 @@ function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,
       $sql .= "AND plan_who = ? ";
     }
 
-    if (!empty($season)) {
-      $sql .= "AND plan_season = ? ";
-    }
-
     if (!empty($prefectures)) {
       $sql .= "AND plan_prefectures = ? ";
-    }
-
-    if (!empty($content)) {
-      $sql .= "AND plan_content = ? ";
-    }
-
-    if (!empty($place)) {
-      $sql .= "AND plan_place = ? ";
     }
 
     if (!empty($cost)) {
       $sql .= "AND plan_cost = ? ";
     }
 
-    if (!empty($image)) {
-      $sql .= "AND plan_image = ? ";
+    if (!empty($day)) {
+      $sql .= "AND plan_day = ? ";
     }
 
     if (!empty($total)) {
       $sql .= "AND plan_favorite_total = ? ";
     }
 
-    if (!empty($favorite_season)) {
+    if (!empty($season)) {
       $sql .= "AND plan_favorite_season = ? ";
     }
 
@@ -356,23 +344,8 @@ function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,
       $n++;
     }
 
-    if (!empty($season)) {
-      $stmt->bindValue($n,$season);
-      $n++;
-    }
-
     if (!empty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
-      $n++;
-    }
-
-    if (!empty($content)) {
-      $stmt->bindValue($n,$content);
-      $n++;
-    }
-
-    if (!empty($place)) {
-      $stmt->bindValue($n,$place);
       $n++;
     }
 
@@ -381,8 +354,8 @@ function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,
       $n++;
     }
 
-    if (!empty($image)) {
-      $stmt->bindValue($n,$image);
+    if (!empty($day)) {
+      $stmt->bindValue($n,$day);
       $n++;
     }
 
@@ -391,7 +364,7 @@ function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,
       $n++;
     }
 
-    if (!empty($favorite_season)) {
+    if (!empty($season)) {
       $stmt->bindValue($n,$favorite_season);
       $n++;
     }
@@ -415,9 +388,101 @@ function MG_04($id1,$id2,$title,$who,$season,$prefectures,$content,$place,$cost,
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
+//計画詳細テーブル
+
+function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM plan_detail WHERE 1 = 1 ";
+
+    if (!empty($id1)) {
+      $sql .= "AND plan_detail_id = ? ";
+    }
+
+    if (!empty($id2)) {
+      $sql .= "AND plan_id = ? ";
+    }
+
+    if (!empty($place)) {
+      $sql .= "AND plan_place = ? ";
+    }
+
+    if (!empty($content)) {
+      $sql .= "AND plan_content = ? ";
+    }
+
+    if (!empty($stay_time)) {
+      $sql .= "AND plan_stay_time = ? ";
+    }
+
+    if (!empty($image)) {
+      $sql .= "AND plan_image = ? ";
+    }
+
+    if (!empty($travel_time)) {
+      $sql .= "AND plan_travel_time = ? ";
+    }
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($id1)) {
+      $stmt->bindValue($n,$id1);
+      $n++;
+    }
+
+    if (!empty($id2)) {
+      $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($place)) {
+      $stmt->bindValue($n,$place);
+      $n++;
+    }
+
+    if (!empty($content)) {
+      $stmt->bindValue($n,$content);
+      $n++;
+    }
+
+    if (!empty($stay_time)) {
+      $stmt->bindValue($n,$stay_time);
+      $n++;
+    }
+
+    if (!empty($image)) {
+      $stmt->bindValue($n,$image);
+      $n++;
+    }
+
+    if (!empty($travel_time)) {
+      $stmt->bindValue($n,$travel_time);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $row;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
 //イベントテーブル
 
-function MG_05($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) {
+function MG_06($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) {
 
   $n = 1;
 
