@@ -208,5 +208,8 @@ li .home{
     list-style:none;
 }
 
+.right{
+    text-align: right;
+  }
 }
 

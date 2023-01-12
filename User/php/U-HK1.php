@@ -58,12 +58,15 @@
       var div_ranking = document.createElement('div');
       div_ranking.classList.add("all_information");
 
+      //投稿日の追加
+      var div_right = document.createElement('div');
+      div_right.classList.add("right");
+      div_right.innerText = "投稿日"
+
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
       div_yoko.classList.add("yoko");
-
-      
-      
+  
       //題名追加
       var div_title = document.createElement('div');
       div_title.classList.add("title");
@@ -124,6 +127,7 @@
       ul.appendChild(li);
       li.appendChild(p);
       li.appendChild(div_ranking);
+      div_ranking.appendChild(div_right);
       div_ranking.appendChild(div_yoko);
       div_yoko.appendChild(div_title);
       div_ranking.appendChild(br);

@@ -169,4 +169,8 @@
     .list{
         list-style:none;
     }
+
+    .right{
+      text-align: right;
+    }
 }
