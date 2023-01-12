@@ -19,26 +19,27 @@
             <form action="E-EL1.html" method="POST">
                 <div class="register-form" style="max-width:400px;">
                   <p>ユーザ名<span class="require">必須</span></p>
-                  <input type="text" name="name" maxlength="20" placeholder="20文字以内" required>
+                  <input type="text" name="eventuser_name" maxlength="20" placeholder="20文字以内" required>
                   <p>メールアドレス<span class="require">必須</span></p>
-                  <input type="email" name="mail" max-length="30" placeholder="example@email.com" required>
+                  <input type="email" name="eventuser_mail" max-length="30" placeholder="example@email.com" required>
                   <p>代表者名<span class="require">必須</span></p>
-                  <input type="text" name="name" maxlength="20" placeholder="山田太郎" required>
+                  <input type="text" name="representative_name" maxlength="20" placeholder="山田太郎" required>
                   <p>電話番号<span class="require">必須</span></p>
-                  <input type="tel" name="mail" max-length="10" placeholder="0120123456" required>
+                  <input type="tel" name="phone_number" max-length="10" placeholder="0120123456" required>
                   <p>住所<span class="require">必須</span></p>
-                  <textarea rows="2" cols="30" name="name" maxlength="50" placeholder="東京都渋谷区神宮前一丁目二番三号" required></textarea>
+                  <textarea rows="2" cols="30" name="address" maxlength="50" placeholder="東京都渋谷区神宮前一丁目二番三号" required></textarea>
                   <p>企業名<span class="require">必須</span></p>
-                  <textarea rows="3" cols="40" name="name" maxlength="100" placeholder="100文字以内" required></textarea>
+                  <textarea rows="3" cols="40" name="enterprise_name" maxlength="100" placeholder="100文字以内" required></textarea>
 
                   <div class="form-group" class="form-wrapper">
                   <p>パスワード<span class="require">必須</span></p>
-                  <input type="password" class="form-control" name="password" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角８～16文字" required>
+                  <input type="password" class="form-control" name="eventuser_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角８～16文字" required>
                   </div>
                  
                   <div class="form-group" class="form-wrapper">
                   <p>パスワード (再確認）<span class="require">必須</span></p>
-                  <input type="password" class="form-control" name="confirm" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角８～16文字" oninput="CheckPassword(this)" required><i id="eye" class="fa-solid fa-eye"></i>
+                  <input type="password" class="form-control" name="eventuser_pass" id="confirm" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角８～16文字" oninput="CheckPassword(this)" required>
+                  <i id="eye" class="fa-solid fa-eye"></i>
                   </div>
                 </div>
                 <button align="center" type="submit" class="button-only">登録する</button>
