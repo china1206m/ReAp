@@ -13,6 +13,7 @@
 
     <form action="U-HK6.php" method="post" enctype="multipart/form-data">
     
+    <input type="hidden" id="counter" name="counter" value="">
 
     <ol id="place_list">
         <li>
@@ -61,6 +62,11 @@ function addCount(){
     function place_add(){
 
         addCount();
+
+        var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = count;
+        console.log(counter.value);
 
         //olの追加
         var ol = document.getElementById("place_list");
