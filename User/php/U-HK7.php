@@ -6,6 +6,10 @@ $id = 1;
 $db = MG_04($id,"","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
+$user_id = $plan[0]['user_id']; 
+$db = MG_01($user_id,"","","","","","");
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+
 $db = getDB();
 $sql = "SELECT * FROM plan_detail WHERE plan_id = ? ORDER BY plan_detail_id ASC";
 $stmt = $db->prepare($sql);
@@ -34,7 +38,7 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <li class="home-list">
         <div class="ranking_information">
           <div class="yoko">
-            <img src="monky.png" class="circle" align="left" alt="アイコン">
+            <img src="monky.png" class="circle" align="left" alt="">
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div><br>
           <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
