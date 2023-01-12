@@ -1,3 +1,15 @@
+<?php
+
+//include "MG.php";
+
+//$id = 1;
+
+//$user = MG_01($id,"","","","","","");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +23,16 @@
   <h3>アカウント</h3>
 
     <div class="parent">
-      <div class="center">アカウント名</div>
+      <div class="center">
+        <?php //print($user[0]['user_name']); ?>
+      </div>
       <div class="left"><p class="image-circle"></p></div>
     </div>
     
     <center>
       <br>
       <div class="box">
-        一言コメント
+        <?php //print($user[0]['profile_message']); ?>
       </div>
       <br><a class="link" href="U-AC4.php">プロフィール編集</a>
     </center>
