@@ -1,3 +1,40 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['user_name'], $_POST['user_pass']) && $_POST['user_name'] !== '' && $_POST['user_pass'] !== '')  {
+
+    /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    // 入力したいカラム名を指定
+    $column = ['user_mail','user_pass', 'user_name', 'coupon_can_get', 'report_total'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_POST['user_mail'], $_POST['user_pass'], $_POST['user_name'], 0, 0];
+
+    // 入力された値の型を定義
+    $type = [1,1,1,0,0];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['user_id'] = $add->ma_return("user",$column, $post, $type);
+
+    header('Location:U-HK3.php');
+    exit;
+  } else {
+    $_SESSION['register_message'] = '送信データが正しくありません';
+    header('Location:'.$_SERVER['PHP_SELF']);
+    exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +52,7 @@
 
 
   
-    <form action="U-HK3.php" method="POST">  
+    <form action="" method="POST">  
 
         <center>
         <h3>アカウント登録</h3>
