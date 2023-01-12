@@ -1,140 +1,136 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
+<head>
+  <title>U-HK11</title>
+  <meta charset=”utf-8″>
+  <link rel="stylesheet" href="demoAC18.css" type="text/css">
+  <link rel="stylesheet" href="U-menu.css" type="text/css">
+</head>
+<body>
+  <main id="main">
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <ul id="ranking">
+    </ul>
+</main>
 
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" media="screen" href="U-AC18.css">
-    <link rel="stylesheet" href="U-menu.css" type="text/css">
-    <title>U-AC18</title>
-  </head>
+<aside id="sub">
+  <ul class="menu">
+      <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+    </ul>
+</aside>
 
-  <body>
-    <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3 class="button_back">＜</h3></button>
+<script>
+    var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
+    var ul = document.getElementById("ranking");
+    for (var count = 0; count < 6; count++) {
+        var li = document.createElement('li');
+        li.classList.add("home-list");
 
+        var p = document.createElement('p');
 
-    <div align="center">
-        <font size="+6">
-            投稿一覧
-        </font><br>
-    </div>
+        //ランキング情報のための四角追加
+        var div_ranking = document.createElement('div');
+        div_ranking.classList.add("ranking_information");
 
-    <font size="+3" class="kl">
-        計画
-    </font>
+        //アイコンと題名の横並びのためのクラス追加
+        var div_yoko = document.createElement('div');
+        div_yoko.classList.add("yoko");
 
-    <ol type="1" id="numberlist">
+        //アイコン追加
+        var img = document.createElement('img');
+        img.classList.add("circle");
+        img.src = 'monky.png';
+        img.align = 'left'
+        img.alt = 'アイコン'
         
-    </ol>
-  </main>
-    
-  <aside id="sub">
-    <ul class="menu">
-        <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
-      </ul>
-  </aside>
-  
-    
-    <script>
+        //題名追加
+        var div_title = document.createElement('div');
+        div_title.classList.add("title");
+        div_title.innerHTML = "題名";
 
-document.addEventListener('DOMContentLoaded', function(){
+        var br = document.createElement('br');
 
-// オーバレイを開閉する関数
-const overlay = document.getElementById('overlay');
-function overlayToggle() {
-  overlay.classList.toggle('overlay-on');
-}
-// 指定した要素に対して上記関数を実行するクリックイベントを設定
-const clickArea = document.getElementsByClassName('overlay-event');
-for(let i = 0; i < clickArea.length; i++) {
-  clickArea[i].addEventListener('click', overlayToggle, false);
-}
+        //条件追加
+        var p_who = document.createElement('p');
+        p_who.classList.add("condition");
+        p_who.innerHTML = "誰と"
+        var p_cost = document.createElement('p');
+        p_cost.classList.add("condition");
+        p_cost.innerHTML = "費用"
+        var p_day = document.createElement('p');
+        p_day.classList.add("condition");
+        p_day.innerHTML = "何日"
 
-// イベントに対してバブリングを停止
-function stopEvent(event) {
-  event.stopPropagation();
-}
-const overlayInner = document.getElementById('overlay-inner');
-overlayInner.addEventListener('click', stopEvent, false);
+        //olの追加
+        var ol = document.createElement('ol');
 
-}, false);
+        //ol内のliの追加
+        var li_ol = document.createElement('li');
 
-n=2;
-function disp() {
-    if(n == 1){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました</span>";
-    }else if(n == 2){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです</span>";
+        //場所の四角の追加
+        var div_home = document.createElement('div');
+        div_home.classList.add("home_information");
+
+        //場所名追加
+        var p_planname = document.createElement('p');
+        p_planname.classList.add("plan_content");
+        p_planname.innerHTML = "場所名"
+
+        //本文内容追加
+        var p_content = document.createElement('p');
+        p_content.classList.add("plan_content");
+        p_content.innerHTML = "本文内容"
+
+        //滞在時間追加
+        var p_time = document.createElement('p');
+        p_time.innerHTML = "滞在時間"
+        p_time.classList.add("plan_content");
+
+        
+
+        //移動時間追加
+        var p_travel = document.createElement('p');
+        p_travel.classList.add("travel_time");
+        p_travel.innerHTML = "移動時間"
+
+        // もっと見るを作成
+        var a = document.createElement('a');
+        a.classList.add("more-see");
+        a.href = "U-HK7.php";
+        a.innerText = "...もっと見る";
+
+
+        ul.appendChild(li);
+        li.appendChild(p);
+        li.appendChild(div_ranking);
+        div_ranking.appendChild(div_yoko);
+        div_yoko.appendChild(img);
+        div_yoko.appendChild(div_title);
+        div_ranking.appendChild(br);
+        div_ranking.appendChild(br);
+        div_ranking.appendChild(p_who);
+        div_ranking.appendChild(p_cost);
+        div_ranking.appendChild(p_day);
+        div_ranking.appendChild(ol);
+        ol.appendChild(li_ol);
+        li_ol.appendChild(div_home);
+        div_home.appendChild(p_planname);
+        div_home.appendChild(p_content);
+        div_home.appendChild(p_time);
+        div_ranking.appendChild(p_travel);
+        div_ranking.appendChild(a);
+
+
+
+
+        
     }
-}
 
-      // 四角の数を動的に変化
-      //文字列はphpで作成しそれを引っ張ってくる
-        var ol = document.getElementById("numberlist");
-                for(var count = 0; count < 4; count++){
-                    var li = document.createElement('li');
-                    li.classList.add("box");
+    
 
-                    var div1 = document.createElement('div');
-
-                    var a1 = document.createElement('a');
-                    a1.href = "U-AC22.html";
-                
-                    var img1 = document.createElement('img');
-                    img1.width = '20';
-                    img1.height = '20';
-                    img1.src = 'hensyu.png';
-                    img1.align = 'right';
-                    
-
-
-
-                    var div2 = document.createElement('div');
-
-                    var p = document.createElement('p');
-                    p.innerText = '投稿のやつ'
-
-                    var div3 = document.createElement('div');
-                    div3.classList.add("kt");
-
-                    var a2 = document.createElement('a');
-                    a2.classList.add("overlay-event");
-                    a2.type = 'buton';
-
-                    var img2 = document.createElement('img');
-                    img2.width = '20';
-                    img2.height = '20';
-                    img2.src = 'gomibako.png';
-                    img2.align = 'right';
-
-                    var a3 = document.createElement('a');
-                    a3.classList.add("more-see");
-                    a3.href = "U-AC21.html";
-                    a3.align = 'right';
-                    a3.innerText = "...もっと見る";
-                    
-
-                    
-
-
-                    ol.appendChild(li);
-                    li.appendChild(div1);
-                    div1.appendChild(a1);
-                    a1.appendChild(img1);
-                    li.appendChild(div2);
-                    div2.appendChild(p);
-                    li.appendChild(div3);
-                    div3.appendChild(a2);
-                    a2.appendChild(img2);
-                    li.appendChild(a3);
-                    
-
-                    
-    }
-    </script>
-  </body>
-</html>
+</script>
+</body>
