@@ -25,7 +25,7 @@
         </table> 
 
         <p>都道府県</p>
-        <select name="prefectures" class="prefectures">
+        <select name="plan_prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
           <optgroup label="東北">
@@ -90,23 +90,11 @@
           </optgroup>
         </select>
 
-        <p>季節</p>
-        <table align="center">
-          <tr>
-            <td><input type="radio" name="season" value="春" id="spring"><label for="spring">春</label></td>
-            <td><input type="radio" name="season" value="夏" id="summer"><label for="summer">夏</label></td>
-          </tr>
-          <tr>
-            <td><input type="radio" name="season" value="秋" id="autumn"><label for="autumn">秋</label></td>
-            <td><input type="radio" name="season" value="冬" id="winter"><label for="winter">冬</label></td>
-          </tr>
-        </table> 
-      
         <p>費用</p>
-        <input type="text" name="cost" class="cost-from"> ～ <input type="text" name="cost" class="cost-to">
+        <input type="number" name="plan_cost" class="cost"> 円
 
         <p>宿泊</p>
-        <input type="text" name="stay" class="stay-from"> 泊 <input type="text" name="stay" class="stay-to"> 日
+        <input type="number" name="plan_day" class="stay-from"> 泊 <input type="number" name="plan_day" class="stay-to"> 日
 
         <center>
           <br>
@@ -127,9 +115,9 @@
 
 <script>
 function check () {
-var prefectures = document.searchForm.prefectures.value;
-var eventday = document.searchForm.eventday.value;
-var eventsearch = document.searchForm.event_search.value;
+var prefectures = document.searchForm.plan_prefectures.value;
+var planday = document.searchForm.plan_day.value;
+var plansearch = document.searchForm.plan_search.value;
 
 if ( prefectures == "" && eventday == "" && eventsearch == "") {
 alert ( "検索したい項目を入力してください。" );
