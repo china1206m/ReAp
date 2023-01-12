@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="demoHK8.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
     <title>U-HK8</title>

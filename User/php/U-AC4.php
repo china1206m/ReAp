@@ -4,7 +4,7 @@
         <title>U-AC4</title>
         <meta charset = "UTF-8">
         <link rel="stylesheet" href = "button.css">
-        <link rel="stylesheet" href = "U-AC4.css">
+        <link rel="stylesheet" href = "demo4.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
     <body>
@@ -18,7 +18,7 @@
                 <div class="profile">
                     
                     <img class="profile__img" src="画像のURL"><br>
-                    <input type="file" name="profile_image">
+                    <input type="file" name="profile_image" accept="image/jpeg,image/png">
                 </div>
                 
                 <div class="box1" align="left">
