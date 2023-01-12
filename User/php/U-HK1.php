@@ -3,18 +3,19 @@
 include "MG.php";
 
 $id = 1;
-
 $db = MG_01($id,"","","","","","");
-
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
-$db = MG_04("",$id,"","","","","","","","");
+$db = getDB();
+$sql = "SELECT * FROM plan WHERE user_id = ? ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$id);
+$stmt->execute();
 
-$count1 = $db->rowCount();
-
+$count1 = $stmt->rowCount();
 $count2 = 0;
 
-$plan = $db->fetchAll(PDO::FETCH_ASSOC);
+$plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -74,7 +75,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       for ($i = 0; $i < $count1; $i++) :  
 
       $plan_id = $plan[$count2]['plan_id']; 
-      $db = MG_05("",$plan_id,"","","","","");
+      $db = MG_05("",$plan_id,"","","","","","","");
       $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
     ?>
     
@@ -136,7 +137,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "<?php print($plan_detail[0]['plan_stay_time']); ?>"
+      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
       p_time.classList.add("plan_content");
 
       
@@ -144,7 +145,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['plan_travel_time']); ?>"
+      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_minute']); ?>"
 
       // もっと見るを作成
       var a = document.createElement('a');
