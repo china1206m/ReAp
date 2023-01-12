@@ -50,9 +50,9 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       for ($i = 0; $i < $count1; $i++) :  
 
-      //$user_id = $plan[$i]['user_id']; 
-      //$db = MG_01($user_id,"","","","","","");
-      //$user = $db->fetchAll(PDO::FETCH_ASSOC);
+      $user_id = $plan[$i]['user_id']; 
+      $db = MG_01($user_id,"","","","","","");
+      $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
       $plan_id = $plan[$i]['plan_id']; 
       $db = MG_05("",$plan_id,"","","","","","","");
@@ -76,7 +76,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = 'アイコン'
+        img.alt = '<?php //print($user[0]['user_name']); ?>'
         
         //題名追加
         var div_title = document.createElement('div');
