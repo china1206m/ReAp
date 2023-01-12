@@ -1,3 +1,14 @@
+<?php
+/* セッション開始 */
+session_start();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        include "logout.php";
+        $logout = new logout();
+        $logout->logout("M-AC1.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
