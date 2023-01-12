@@ -11,6 +11,8 @@
         <main id="main">
         <button type="button" class="button_back" onclick="history.back()"><h3 class="button_back">＜</h3></button>
 
+        
+
         <div align="center">
 
             <font size="+4">
@@ -38,6 +40,7 @@
                 使用
             </button>
         </div>
+        </form>
     </main>
 
         <aside id="sub">
