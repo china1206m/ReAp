@@ -1,3 +1,23 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+
+$db = MG_01($id,"","","","","","");
+
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$db = MG_04("",$id,"","","","","","","","");
+
+$count1 = $db->rowCount();
+
+$count2 = 0;
+
+$plan = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +37,12 @@
     
     
       <div class="user_name">
-      ユーザ名
+      <?php print($user[0]['user_name']); ?>
       </div>
     </div>
 
     <div class="profiel_message">
-    一言メッセージ
+    <?php print($user[0]['profile_message']); ?>
     </div>
   </div>
 
@@ -48,7 +68,16 @@
 <script>
   var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
   var ul = document.getElementById("self_contribution");
-  for (var count = 0; count < 6; count++) {
+
+    <?php 
+
+      for ($i = 0; $i < $count1; $i++) :  
+
+      $plan_id = $plan[$count2]['plan_id']; 
+      $db = MG_05("",$plan_id,"","","","","");
+      $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+    
       var li = document.createElement('li');
       li.classList.add("list");
 
@@ -61,7 +90,7 @@
       //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "投稿日"
+      div_right.innerText = "<?php print($plan[$count2]['post_date']); ?>"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -70,20 +99,20 @@
       //題名追加
       var div_title = document.createElement('div');
       div_title.classList.add("title");
-      div_title.innerHTML = "題名";
+      div_title.innerHTML = "<?php print($plan[$count2]['plan_title']); ?>";
 
       var br = document.createElement('br');
 
       //条件追加
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
-      p_who.innerHTML = "誰と"
+      p_who.innerHTML = "<?php print($plan[$count2]['plan_who']); ?>"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "費用"
+      p_cost.innerHTML = "<?php print($plan[$count2]['plan_cost']); ?>"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
-      p_day.innerHTML = "何日"
+      p_day.innerHTML = "<?php print($plan[$count2]['plan_day']); ?>"
 
       //olの追加
       var ol = document.createElement('ol');
@@ -98,16 +127,16 @@
       //場所名追加
       var p_planname = document.createElement('p');
       p_planname.classList.add("plan_content");
-      p_planname.innerHTML = "場所名"
+      p_planname.innerHTML = "<?php print($plan_detail[0]['plan_place']); ?>"
 
       //本文内容追加
       var p_content = document.createElement('p');
       p_content.classList.add("plan_content");
-      p_content.innerHTML = "本文内容"
+      p_content.innerHTML = "<?php print($plan_detail[0]['plan_content']); ?>"
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "滞在時間"
+      p_time.innerHTML = "<?php print($plan_detail[0]['plan_stay_time']); ?>"
       p_time.classList.add("plan_content");
 
       
@@ -115,7 +144,7 @@
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "移動時間"
+      p_travel.innerHTML = "<?php print($plan_detail[0]['plan_travel_time']); ?>"
 
       // もっと見るを作成
       var a = document.createElement('a');
@@ -145,10 +174,9 @@
       div_ranking.appendChild(a);
 
 
-
-
+      <?php $count2++; ?>
       
-  }
+    <?php endfor; ?>
 
   
 
