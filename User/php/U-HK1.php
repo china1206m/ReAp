@@ -44,6 +44,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="profiel_message">
     <?php print($user[0]['profile_message']); ?>
     </div>
+    <button onclick="location.href='U-HK12.php'" class="report"><img src="U-report.png"></button>
   </div>
 
     <div class="plan">
@@ -91,6 +92,10 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       var div_right = document.createElement('div');
       div_right.classList.add("right");
       div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
+
+      //都道府県の追加
+      var div_pre = document.createElement('div');
+      div_pre.innerText = "都道府県"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -158,6 +163,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       li.appendChild(div_ranking);
       div_ranking.appendChild(div_right);
       div_ranking.appendChild(div_yoko);
+      div_ranking.appendChild(div_pre);
       div_yoko.appendChild(div_title);
       div_ranking.appendChild(br);
       div_ranking.appendChild(br);
