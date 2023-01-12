@@ -25,13 +25,16 @@ session_start();
     <head>
         <title>U-AC8</title>
         <meta charset = "UTF-8">
-        <link rel="stylesheet" href = "button.css">
         <link rel="stylesheet" href = "U-AC8.css">
+        <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
     <body>
+        <main id="main">
+
+            <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+
         <div align="center">
             <div class = "roundbox">
-                <p>
                 <font size="+4">
                     アカウント消去規約
                 </font><br>
@@ -39,23 +42,34 @@ session_start();
                 <font size="+2">
                     1.個人情報の取り扱いについて
                 </font>
-                </p>
             </div><br>
 
-            <form action="U-AC2.html" class="button-only">
-                <button type="submit" method="POST">
+            <form action=""  method="POST">
+                <button type="submit" class="button-only">
                 同意します
                 </button>
             </form>
     
-            <form action="U-AC1.html" class="button-only">
-                <button type="submit" method="POST">
-                同意します
+            <form action="U-AC1.html">
+                <button type="submit" class="button-only">
+                同意しません
                 </button>
             </form>
        
         
         </div>
+    </main>
+
+    <aside id="sub">
+        <ul class="menu">
+            <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+          </ul>
+      </aside>
+
     </body>
 
 </html> 

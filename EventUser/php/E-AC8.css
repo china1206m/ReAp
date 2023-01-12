@@ -73,6 +73,7 @@ p {
 
   .tarea{
     display: inline-block;
+    resize: none;
     width: 900px;
     padding: 10px;
     border: 1px solid ;

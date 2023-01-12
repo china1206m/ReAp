@@ -82,9 +82,7 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";
@@ -200,9 +198,7 @@ function MG_02($id,$mail,$pass,$name1,$name2,$number,$address,$name3,$image,$mes
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";
@@ -257,9 +253,7 @@ function MG_03($id,$pass,$name) {
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";
@@ -376,9 +370,7 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";
@@ -468,9 +460,7 @@ function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";

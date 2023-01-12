@@ -104,6 +104,9 @@
         list-style:none;
       }
       
+      .right{
+        text-align: right;
+      }
 }
 
 
@@ -210,6 +213,10 @@ ol{
   
   background: white;
   border: solid thin white;
+}
+
+.right{
+  text-align: right;
 }
 
 }

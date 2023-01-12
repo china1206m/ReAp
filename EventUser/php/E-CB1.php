@@ -78,15 +78,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p><label for="place">開催場所<span class="require">必須</span></label></p>
     <textarea name="event_place" class="event_place" required></textarea>
 
-<table>     
+    <table>     
 <tr>
-  <td><p><label for="day">開催日<span class="require">必須</span></label></p></td>
-  <td><p><label for="cost">費用</label></p></td>
+  <td><p><label for="day">開催開始日</label></p></td>
+  <td><p><label for="day">開催終了日</label></p></td>
 </tr>
 <tr>
-  <td><input type="date" id="date" name="event_day" class="event_day" value="" required></td>
-  <td><input type="money" id="date" name="event_cost" class="event_cost" minlength="1"></td>
+  <td><input type="date" id="date" name="event_day_first" class="event_day" value="" required></td>
+  <td><input type="date" id="date" name="event_day_end" class="event_day" value="" required></td>
   </tr>
+
+<tr>
+  <td><p><label for="cost">費用</label></p></td>
+</tr>
+
+<tr>
+  <td><input type="money" id="date" name="event_cost" class="event_cost" minlength="1"></td>
+ </tr>
 </table>
 
 <p><label for="content">本文<span class="require">必須</span></label></p>

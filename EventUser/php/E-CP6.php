@@ -1,3 +1,35 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    $_SESSION['eventuser_id'] = 1;
+
+    // 入力したいカラム名を指定
+    $column = ['coupon_name','eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
+
+    // 入力された値の型を定義
+    $type = [1,0,1,1,1,0];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['coupon_id'] = $add->ma_return("coupon",$column, $post, $type);
+ 
+    header('Location: ./list.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
