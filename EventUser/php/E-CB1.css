@@ -13,10 +13,9 @@ p {
     margin-left: 200px;
 }
 
-.post_date{
-    width: 300px;
-    font-size: 1.5em;
+.post_day{
     margin-left: 200px;
+    font-size: 1.2em;
 }
 
 .event_day{
@@ -34,9 +33,10 @@ p {
 
 .event_title{
     width: 800px;
-    height: 25px;
+    height: 40px;
     font-size: 1.5em;
     margin-left: 200px;
+    resize: none;
   }
 
 .event_place{
@@ -44,6 +44,7 @@ p {
     height: 200px;
     font-size: 1.5em;
     margin-left: 200px;
+    resize: none;
 }
 
 .event_content{
@@ -51,7 +52,13 @@ p {
     height: 400px;
     font-size: 1.5em;
     margin-left: 200px;
-    resize: none;
+}
+
+.prefectures{
+    width: 400px;
+    height: 40px;
+    font-size: 1.5em;
+    margin-left: 200px;
 }
 
 .require{
