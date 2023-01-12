@@ -41,20 +41,8 @@
         <option value="">選択してください</option>
       </select>
   
-      <p>季節</p>
-      <table align="center">
-        <tr>
-          <td><input type="radio" name="plan_season" value="1" id="spring"><label for="spring">春</label></td>
-          <td><input type="radio" name="plan_season" value="2" id="summer"><label for="summer">夏</label></td>
-        </tr>
-        <tr>
-          <td><input type="radio" name="plan_season" value="3" id="autumn"><label for="autumn">秋</label></td>
-          <td><input type="radio" name="plan_season" value="4" id="winter"><label for="winter">冬</label></td>
-        </tr>
-      </table> 
-    
       <p>費用</p>
-      <input type="text" name="plan_cost" class="cost-from"> ～ <input type="text" name="plan_cost" class="cost-to">
+      <input type="text" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
       <input type="text" name="plan_stay" class="stay-from"> 泊 <input type="text" name="plan_stay" class="stay-to"> 日
@@ -156,10 +144,21 @@
           pref.appendChild(op);
         }
     }
-
-    
   </script>
-    
+  <script>
+function check () {
+var prefectures = document.searchForm.plan_prefectures.value;
+var plansearch = document.searchForm.plan_search.value;
+
+if ( prefectures == "" && plansearch == "") {
+alert ( "検索したい項目を入力してください。" );
+document.searchForm.plan_search.focus();
+return false;
+}
+
+return true;
+}
+</script>
 </body>
 
 </html>
