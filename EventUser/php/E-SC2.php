@@ -40,6 +40,15 @@
 	var li = document.createElement('li');
   li.classList.add("event_information");
 
+  //投稿日の追加
+  var div_right = document.createElement('p');
+      div_right.classList.add("p_right");
+      div_right.innerText = "投稿日";
+
+  //都道府県の追加
+      var div_pre = document.createElement('p');
+      div_pre.innerText = "都道府県"
+
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
@@ -67,8 +76,10 @@
   
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
+  li.appendChild(div_right);
   li.appendChild(img);
   li.appendChild(div);
+  li.appendChild(div_pre);
   li.appendChild(p);
   li.appendChild(a);
 }
