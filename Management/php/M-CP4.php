@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID M-CP4</title>
-  <meta charset=”M-CP4″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="M-CP4.css" type="text/css">
   <link rel="stylesheet" href="M-menu.css" type="text/css">
   
