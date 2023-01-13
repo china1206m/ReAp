@@ -1,15 +1,34 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_SESSION['plan_search'] = $_POST['plan_search'];
+    $_SESSION['plan_who'] = $_POST['plan_who'];
+    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
+    $_SESSION['plan_cost'] = $_POST['plan_cost'];
+    $_SESSION['plan_stay'] = $_POST['plan_stay'];
+
+    // 画面遷移　計画検索結果画面
+    header('Location:M-SC3.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>M-SC1</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="M-SC1.css" type="text/css">
 </head>
 <body>
 <main id="main">
   <button type="button" class="button_back" onclick="history.back()">＜</button>
 
-  <form action="M-SC3.php" method="POST" name="searchForm" onSubmit="return check();">
+  <form action="" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
 
         <p>カテゴリ</p>
@@ -94,7 +113,7 @@
         <input type="number" name="plan_cost" class="cost"> 円
 
         <p>宿泊</p>
-        <input type="number" name="plan_stay_day" class="stay-from"> 泊 <input type="number" name="plan_day" class="stay-to"> 日
+        <input type="number" name="plan_stay" class="stay-from"> 泊 <input type="number" name="plan_stau_day" class="stay-to"> 日
 
         <center>
           <br>
