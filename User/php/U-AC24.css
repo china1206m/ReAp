@@ -1,83 +1,119 @@
-.deco-radio { display: block; font-size: 24px; }
-.deco-radio:hover { cursor: pointer; }
-.deco-radio input { display: none; }
-.deco-radio input+.dummy {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #3F51B5;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: text-top;
-}
-.deco-radio input:checked+.dummy:after {
-    content: "";
-    width: 70%;
-    height: 70%;
-    background-color: #3F51B5;
-    border-radius: 50%;
-}
-
-.box {
-    padding: 0.5em 1em;
-    margin: 50px;
-    font-weight: bold;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
-}
-.box p {
-    margin: 0; 
-    padding: 0;
-}
-
-.size{
-    width: 200px;
-    height: 50px;
-    margin: 30px;
-    border-color: blueviolet;
-}
-
-.left{
-    margin-left: 220px;
-}
-
-.next{
-    border-color: blue;
-    background-color: white;
-    width: 300px;
-    height: 100px;
-    margin: 50px;
-    
-}
-
-.button_back {
+/* 各ラベルの大きさ */
+p {
+    font-size: 2em;
+    margin-left: 150px;
+    margin-top: 100px;
+  }
+  
+  .plan_search{
+    width: 550px;
+    height: 70px;
+    font-size: 1.5em;
+    margin-top: 80px;
+    margin-left: 200px;
+    border: 2px solid;
+  }
+  
+  /*ボタンデザイン 背景：青、文字：白*/
+  .button-only {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
   
     /* 整える */
-    display: inline;
-    width: 10px;
-    margin-left: 30px;
-    padding: 0.6em 1em; /* 塗りの余白 */
-    font-weight: bold;
-    background-color: white; /* 背景色 */
-    color: black; /* テキストカラー */
+    width: 400px;
+    height: 100px;
+    margin: 5em 0; /* 前後の隙間 */
+    padding: 0.3em 1em; /* 塗りの余白 */
+    font-size: 3em; /* フォントサイズ */
+    background-color: #1aa1ff; /* 背景色 */
+    color: #FFF; /* テキストカラー */
     cursor: pointer; /* カーソルを指マークに */
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
+    
   }
   
-  h3{
-    margin-left: 0;
-    font-size: 3em;
+  /* ホバー時（カーソルをのせた時）の見た目 */
+  .button-only:hover {
+    background-color: #064fda; /* 背景色 */
   }
   
-  .button_back:hover {
-    background-color: #ffffff; /* 背景色 */
+  .cost {
+    width: 300px;
+    height: 60px;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
   }
+  
+  .stay-from {
+    width: 300px;
+    height: 60px;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+  }
+  
+  .stay-to {
+    width: 300px;
+    height: 60px;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+  }
+  
+  .region-select {
+    width: 300px;
+    height: 80px;
+    font-size: 1.2em;
+    border: solid 2px #006DD9;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .pref-select {
+    width: 300px;
+    height: 80px;
+    font-size: 1.2em;
+    border: solid 2px #006DD9;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  
+    /* ラジオボタン */
+    input[type=radio] {
+      display: none;
+    }
+      
+    label {
+      display: block; /* ブロックレベル要素化する */
+      float: left; /* 要素の左寄せ・回り込を指定する */
+      margin: 5px; /* ボックス外側の余白を指定する */
+      width: 300px; /* ボックスの横幅を指定する */
+      height: 70px; /* ボックスの高さを指定する */
+      padding: 5px;
+      font-size: 1.8em;
+      color: #006DD9; /* フォントの色を指定 */
+      text-align: center; /* テキストのセンタリングを指定する */
+      line-height: 70px; /* 行の高さを指定する */
+      cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+      border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+      border-radius: 5px; /* 角丸を指定する */
+    }
+  
+    input[type="radio"]:checked + label {
+      background: #006DD9;
+      color: #FFF;
+    }
+  
+    label:hover {
+      background-color: #E2EDF9;
+    }
+  
