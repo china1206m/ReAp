@@ -103,4 +103,12 @@ p {
     background-color: #064fda; /* 背景色 */
   }
 
+  .event_search{
+    width: 700px;
+    height: 40px;
+    font-size: 1.5em;
+    margin-top: 80px;
+    margin-left: 200px;
+}
+
   
