@@ -17,7 +17,7 @@
       <table align="center">
         <tr>
           <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
-          <td><input type="radio" name="paln_who" value="友達" id="friend"><label for="friend">友達</label></td>
+          <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
           <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
