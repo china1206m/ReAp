@@ -2,43 +2,36 @@
 /* セッション開始 */
 session_start();
 
-/* データベース接続 */
+/* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        include "MC-01.php";
-        $db = getDB();
-    } catch (PDOException $e) {
-      //echo $e->getMessage();
-      $_SESSION['register_message'] = 'データベース接続に失敗しました';
-      header('Location:'.$_SERVER['PHP_SELF']);
-      exit;
-    }
-    
-    $content = file_get_contents($_FILES['event_image']['tmp_name']);
+
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
     $_SESSION['eventuser_id'] = 1;
 
-    // モジュールを使用したプログラム（上手くいかない ）
-    /*
-    include "MA.php";
-    $add = new MA();
-    $coloum = ['eventuser_id','event_content', 'event_place', 'event_cost', 'event_image', 'event_favorite_total', 'post_date', 'event_title'];
-    $post = [$_SESSION['eventuser_id'], $_POST['event_content'], $_POST['event_place'], $_POST['event_cost'], $content, 0, $_POST['post_date'], $_POST['event_title']];
-    $type = [0,1,1,0,0,0,0,1];
-    $add->ma("event", $coloum, $post, $type);
-    */
-       
-    $sql = 'INSERT INTO event (eventuser_id, event_content, event_place, event_cost, event_image, event_favorite_total, post_date, event_title)
-            VALUES (2,:event_content, :event_place, :event_cost, :event_image, 0,now(), :event_title)';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':event_content', $_POST['event_content']);
-    $stmt->bindValue(':event_place', $_POST['event_place']);
-    $stmt->bindValue(':event_cost', $_POST['event_cost']);
-    $stmt->bindValue(':event_image', $content);
-    $stmt->bindValue(':event_title', $_POST['event_title']);
-    $stmt->execute();
+    // 現在時刻取得
+    $post_date = date('Y-m-d');
 
-    // 画面遷移　ホーム画面 
-    header("Location:E-EL1.html");
+    // 入力したいカラム名を指定
+    $column = ['eventuser_id','event_title', 'event_prefectures', 'event_day_first', 'event_day_end', 
+              'event_content', 'event_image', 'event_place', 'event_cost', 'event_favorite_total', 'post_date'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_SESSION['eventuser_id'], $_POST['event_title'], $_POST['event_prefectures'], $_POST['event_day_first'], $_POST['event_day_end'], 
+            $_POST['event_content'], $_FILES['event_image']['tmp_name'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
+
+    // 入力された値のデータ型を定義
+    $type = [0,1,1,1,1,1,1,1,0,0,1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['event_id'] = $add->ma_return("event",$column, $post, $type);
+
+    // 画面遷移　ホーム画面
+    header('Location:E-EL1.php');
+    exit;
 }
 ?>
 
