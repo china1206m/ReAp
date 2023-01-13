@@ -96,7 +96,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       //都道府県の追加
       var div_pre = document.createElement('div');
       div_pre.innerText = "都道府県"
-      
+      div_pre.classList.add("condition"); 
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
       p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
