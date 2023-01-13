@@ -1,3 +1,22 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_SESSION['plan_search'] = $_POST['plan_search'];
+    $_SESSION['plan_who'] = $_POST['plan_who'];
+    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
+    $_SESSION['plan_cost'] = $_POST['plan_cost'];
+    $_SESSION['plan_stay'] = $_POST['plan_stay'];
+
+    // 画面遷移　計画検索結果画面
+    header('Location:U-HK11.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,9 +29,8 @@
 
 <body>
   <main id="main">
-    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
-  
       <p>カテゴリ</p>
       <table align="center">
         <tr>
@@ -45,7 +63,7 @@
       <input type="text" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
-      <input type="text" name="plan_stay" class="stay-from"> 泊 <input type="text" name="plan_stay" class="stay-to"> 日
+      <input type="text" name="plan_stay" class="stay-from"> 泊 <input type="text" name="plan_stay_day" class="stay-to"> 日
   
       <center>
         <br>
@@ -69,12 +87,12 @@
     var array = new Array();
         array[''] = new Array({cd:"0", label:"選択してください"});
         array["hokkaido"] = new Array(
-            {cd:"1", label:"北海道"}
+            {cd:"北海道", label:"北海道"}
         );
         array["tohoku"] = [
-            {cd:"1", label:"青森県"},
-            {cd:"2", label:"岩手県"},
-            {cd:"3", label:"宮城県"},
+            {cd:"青森県", label:"青森県"},
+            {cd:"岩手県", label:"岩手県"},
+            {cd:"宮城県", label:"宮城県"},
             {cd:"4", label:"秋田県"},
             {cd:"5", label:"山形県"},
             {cd:"6", label:"福島県"}
