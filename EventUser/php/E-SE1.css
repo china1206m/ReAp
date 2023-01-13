@@ -89,3 +89,7 @@ li{
   -webkit-line-clamp: 15; /* 行数を制限 */
   overflow: hidden; /* はみ出た部分を非表示 */
   }
+
+  .p_right{
+    text-align: right;
+  }
