@@ -688,3 +688,78 @@ function MG_07($id1,$id2,$id3) {
   }
 
 }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//ユーザー通報テーブル
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//クーポンテーブル
+
+function MG_09($id1,$name,$id2,$place,$prefectures,$content,$deadline) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
+
+    if (!empty($id1)) {
+      $sql .= "AND coupon_id = ? ";
+    }
+
+    if (!empty($name)) {
+      $sql .= "AND coupon_name = ? ";
+    }
+
+    if (!empty($id2)) {
+      $sql .= "AND eventuser_id = ? ";
+    }
+
+    if (!empty($place)) {
+      $sql .= "AND coupon_place = ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND coupon_prefectures = ? ";
+    }
+
+    if (!empty($content)) {
+      $sql .= "AND coupon_content = ? ";
+    }
+
+    if (!empty($deadline)) {
+      $sql .= "AND coupon_deadline = ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($id1)) {
+      $stmt->bindValue($n,$id1);
+      $n++;
+    }
+
+    if (!empty($id2)) {
+      $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($id3)) {
+      $stmt->bindValue($n,$id3);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
