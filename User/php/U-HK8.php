@@ -2,85 +2,80 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="demoHK8.css" type="text/css">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="U-HK8.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
     <title>U-HK8</title>
 </head>
 
 <body>
   <main id="main">
-    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
-        <div align="center">
-            <input type="search" name="plan_title" class="plan_search" placeholder="キーワードを入力">
-        </div>
-      
-  
-      <p>カテゴリ</p>
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
+      <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
+      <p>
+        <font size="+4">カテゴリ</font>
+      </p>
       <table align="center">
         <tr>
-          <td><input type="radio" name="plan_who" value="1" id="one"><label for="one">一人</label></td>
-          <td><input type="radio" name="plan_who" value="2" id="friend"><label for="friend">友達</label></td>
+          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
-          <td><input type="radio" name="plan_who" value="3" id="lover"><label for="lover">恋人</label></td>
-          <td><input type="radio" name="plan_who" value="4" id="family"><label for="family">家族</label></td>
+          <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
+          <td><input type="radio" name="plan_who" value="家族" id="family"><label for="family">家族</label></td>
         </tr>
       </table> 
   
-      <p>都道府県</p>
-      <select id="region" class="region-select">
-        <option value="">選択してください</option>
-        <option value="hokkaido">北海道地方</option>
-        <option value="tohoku">東北地方</option>
-        <option value="kanto">関東地方</option>
-        <option value="tyubu">中部地方</option>
-        <option value="kansai">関西地方</option>
-        <option value="tyugoku">中国地方</option>
-        <option value="shikoku">四国地方</option>
-        <option value="kyushu-okinawa">九州・沖縄地方</option>
-      </select>
-      <select id="pref" class="pref-select" name="plan_prefectures">
-        <option value="">選択してください</option>
-      </select>
-
-     
-    
-      <p>費用</p>
+      <p>
+        <font size="+4">都道府県</font>
+      </p>
+      <div align="center">
+        <select id="region" class="region-select">
+            <option value="">選択してください</option>
+            <option value="hokkaido">北海道地方</option>
+            <option value="tohoku">東北地方</option>
+            <option value="kanto">関東地方</option>
+            <option value="tyubu">中部地方</option>
+            <option value="kansai">関西地方</option>
+            <option value="tyugoku">中国地方</option>
+            <option value="shikoku">四国地方</option>
+            <option value="kyushu-okinawa">九州・沖縄地方</option>
+          </select>
+          <select id="pref" class="pref-select" name="plan_prefectures">
+            <option value="">選択してください</option>
+          </select>
+      </div>
+      
+  
+      <p>
+        <font size="+4">費用</font>
+      </p>
       
       <div align="center">
-        <input type="cost" class="size" name="plan_cost">
-        <font size="+3">
-            ～
-        </font>
-        
-        <input type="cost" class="size" name="plan_cost">
+        <input type="text" name="plan_cost" class="cost"> 
         <font size="+3">
             円
         </font>
-    </div>
-      
+      </div>
       
   
-      <p>宿泊</p>
+      <p>
+        <font size="+4">宿泊</font>
+      </p>
       <div align="center">
-        <input type="cost" class="size" name="plan_day">
+        <input type="text" name="plan_stay" class="stay-from"> 
         <font size="+3">
-            泊
+            泊 
         </font>
-        
-        <input type="cost" class="size" name="plan_day">
+        <input type="text" name="plan_stay_day" class="stay-to"> 
         <font size="+3">
             日
         </font>
-    </div>
+      </div>
+      
   
       <center>
-        <button type="submit" name="submit" onclick="location.href='demo22.html'" class="button-only">
-            <font size="+3">
-                次へ
-            </font>     
-        </button>
+      <button type="submit" class="button-only" name="submit">検索</button>
       </center>
     </form>
   </main>
@@ -99,12 +94,12 @@
     var array = new Array();
         array[''] = new Array({cd:"0", label:"選択してください"});
         array["hokkaido"] = new Array(
-            {cd:"1", label:"北海道"}
+            {cd:"北海道", label:"北海道"}
         );
         array["tohoku"] = [
-            {cd:"1", label:"青森県"},
-            {cd:"2", label:"岩手県"},
-            {cd:"3", label:"宮城県"},
+            {cd:"青森県", label:"青森県"},
+            {cd:"岩手県", label:"岩手県"},
+            {cd:"宮城県", label:"宮城県"},
             {cd:"4", label:"秋田県"},
             {cd:"5", label:"山形県"},
             {cd:"6", label:"福島県"}
@@ -162,20 +157,6 @@
             {cd:"8", label:"沖縄県"}
         ];
 
-        function check () {
-  var prefectures = document.searchForm.plan_prefectures.value;
-  var plan_title = document.searchForm.plan_title.value;
-  
-  if ( prefectures == ""  && plan_title == "") {
-  alert ( "検索したい項目を入力してください。" );
-  document.searchForm.plan_title.focus();
-  return false;
-  }
-  
-  return true;
-  }
-
-
     document.getElementById('region').onchange = function(){
       city = document.getElementById("pref");
       city.options.length = 0
@@ -188,10 +169,21 @@
           pref.appendChild(op);
         }
     }
-
-    
   </script>
-    
+  <script>
+function check () {
+var prefectures = document.searchForm.plan_prefectures.value;
+var plansearch = document.searchForm.plan_search.value;
+
+if ( prefectures == "" && plansearch == "") {
+alert ( "検索したい項目を入力してください。" );
+document.searchForm.plan_search.focus();
+return false;
+}
+
+return true;
+}
+</script>
 </body>
 
 </html>
