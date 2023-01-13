@@ -1,3 +1,18 @@
+<?php
+
+include "MG.php";
+
+$event_id = 1;
+$db = MG_06($event_id,"","","","","","","","","","");
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$eventuser_id = $event[0]['eventuser_id'];
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -5,6 +20,7 @@
   <title>U-EV2</title>
   <meta charset=”UTF-8″>
   <link rel="stylesheet" href="U-EV2.css" type="text/css">
+  <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 
 <body bgcolor="#f0f8ff">
@@ -19,11 +35,11 @@
               <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
             </a>
             <div class="title">
-              題名
+              <?php print($event[0]['event_title']); ?>
             </div>
-            <p>本文</p>
-            <p>費用</p>
-            <p>開催場所</p>
+            <p><?php print($event[0]['event_content']); ?></p>
+            <p><?php print($event[0]['event_cost']); ?></p>
+            <p><?php print($event[0]['event_place']); ?></p>
             <center id="image_area"></center>
           </div>
         </li>
