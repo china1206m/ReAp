@@ -74,7 +74,7 @@
       }
   
   /*計画の情報掲載デザイン*/ 
-  .ranking_information{
+  .planlist_information{
       padding: 10px;
       background:white; /*背景色の指定*/
       width:94%;
@@ -103,7 +103,9 @@
        .home-list {
         list-style:none;
       }
-      
+      .right{
+        text-align: right;
+      }
 }
 
 
@@ -180,7 +182,7 @@ ol{
   }
 
 /*計画の情報掲載デザイン*/ 
-.ranking_information{
+.planlist_information{
   padding: 10px;
   background:white; /*背景色の指定*/
   width:94%;
@@ -199,8 +201,12 @@ ol{
   bottom: 0;
   margin-left: 100px;
   }
- .home-list {
+  .home-list {
   list-style:none;
+}
+
+.right{
+  text-align: right;
 }
 .btn {
   /* ブラウザ特有のスタイルを無効に */
