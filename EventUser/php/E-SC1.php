@@ -1,8 +1,25 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_SESSION['event_serch'] = $_POST['event_search'];
+    $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
+    $_SESSION['event_day'] = $_POST['event_day'];
+
+    // 画面遷移　イベント検索結果画面
+    header('Location:E-SC2.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>画面ID E-SC2</title>
-  <meta charset=”UTF-8″>
+  <title>画面ID E-SC1</title>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="E-SC1.css" type="text/css">
   <link rel="stylesheet" href="E_button.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
@@ -11,13 +28,12 @@
 <main id="main">
   <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">検索</h3>
 
-
-  <form action="E-SC2.php" method="POST" name="searchForm" onSubmit="return check();">
+  <form action="" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
 
 
         <p><label for="event_place">開催場所</label></p>
-        <select name="prefectures" class="prefectures">
+        <select name="event_prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
           <optgroup label="東北">
@@ -83,7 +99,7 @@
         </select>
 
         <p><label for="event_day">開催期間</label></p>
-        <input type="date" id="date" name="eventday" class="event-day" value="">
+        <input type="date" id="date" name="event_day" class="event-day" value="">
 
         <center>
           <br>
@@ -123,4 +139,3 @@ return true;
 
 </body>
 </html>
-    
