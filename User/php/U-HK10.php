@@ -1,3 +1,36 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    $_SESSION['plan_id'] = 2;
+    // 入力したいカラム名を指定
+    $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'travel_time_hour', 'travel_time_minute'];
+    
+    for($i=1; $i<=2; $i++) {
+        // 入力された値をpost配列に格納
+        $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], $_POST["travel_time_hour$i"], $_POST["travel_time_minute$i"]];
+
+        // 入力された値の型を定義
+        $type = [0,2,1,0,0,0,0];
+
+        // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+        $_SESSION['user_detail_id'] = $add->ma_return("plan_detail",$column, $post, $type);
+    }
+    
+    header('Location:U-HK6.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +44,9 @@
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　詳細</h3>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
-    <form action="U-HK6.php" method="post" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
     
-    <input type="hidden" id="counter" name="counter" value="">
+    <input type="hidden" id="counter" name="counter" value="1">
 
     <ol id="place_list">
         <li>
@@ -25,8 +58,8 @@
             <br>
             <label>滞在時間：</label>
             
-            <input type="number" name="stay_time_hour" class="plan_time" value="" placeholder="" required>　時間
-            <input type="number" name="stay_time_minute" class="plan_time" value="" placeholder="" required>　分
+            <input type="number" name="stay_time_hour1" class="plan_time" value="" placeholder="" required>　時間
+            <input type="number" name="stay_time_minute1" class="plan_time" value="" placeholder="" required>　分
             <input type="file" accept="image/jpeg,image/png" name="plan_image1" class="plan_image" multiple/>
             </div>
 
@@ -79,7 +112,7 @@ function addCount(){
 
         var input_traveltimeh = document.createElement('input');
         input_traveltimeh.type = "number";
-        input_traveltimeh.setAttribute('name','travel_time_hour' + count);
+        input_traveltimeh.setAttribute('name','travel_time_hour' + count-1);
         input_traveltimeh.classList.add("plan_time");  
         input_traveltimeh.required = true;
 
@@ -88,7 +121,7 @@ function addCount(){
 
         var input_traveltimem = document.createElement('input');
         input_traveltimem.type = "number";
-        input_traveltimem.setAttribute('name','travel_time_minute' + count);
+        input_traveltimem.setAttribute('name','travel_time_minute' + count-1);
         input_traveltimem.classList.add("plan_time");  
         input_traveltimem.required = true;
 
