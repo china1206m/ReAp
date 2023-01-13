@@ -51,7 +51,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       for ($i = 0; $i < $count1; $i++) :  
 
       $user_id = $plan[$i]['user_id']; 
-      $db = MG_01($user_id,"","","","","","");
+      $db = MG_01($user_id,"","","","","","","","");
       $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
       $plan_id = $plan[$i]['plan_id']; 

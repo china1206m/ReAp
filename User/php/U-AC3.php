@@ -1,12 +1,12 @@
 <?php
 
-//include "MG.php";
+include "MG.php";
 
-//$id = 1;
+$id = 1;
 
-//$db = MG_01($id,"","","","","","");
+$db = MG_01($id,"","","","","","","","");
 
-//$user = $db->fetchAll(PDO::FETCH_ASSOC);
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -26,7 +26,7 @@
 
     <div class="parent">
       <div class="center">
-        <?php //print($user[0]['user_name']); ?>
+        <?php print($user[0]['user_name']); ?>
       </div>
       <div class="left"><p class="image-circle"></p></div>
     </div>
@@ -34,7 +34,7 @@
     <center>
       <br>
       <div class="box">
-        <?php //print($user[0]['profile_message']); ?>
+        <?php print($user[0]['profile_message']); ?>
       </div>
       <br><a class="link" href="U-AC4.php">プロフィール編集</a>
     </center>

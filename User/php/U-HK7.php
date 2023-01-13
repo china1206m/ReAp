@@ -7,7 +7,7 @@ $db = MG_04($id,"","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $user_id = $plan[0]['user_id']; 
-$db = MG_01($user_id,"","","","","","");
+$db = MG_01($user_id,"","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
