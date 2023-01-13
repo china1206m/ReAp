@@ -94,7 +94,7 @@
         <input type="number" name="plan_cost" class="cost"> 円
 
         <p>宿泊</p>
-        <input type="number" name="plan_day" class="stay-from"> 泊 <input type="number" name="plan_day" class="stay-to"> 日
+        <input type="number" name="plan_stay_day" class="stay-from"> 泊 <input type="number" name="plan_day" class="stay-to"> 日
 
         <center>
           <br>
@@ -116,10 +116,10 @@
 <script>
 function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
-var planday = document.searchForm.plan_day.value;
+var planday = document.searchForm.plan_stay_day.value;
 var plansearch = document.searchForm.plan_search.value;
 
-if ( prefectures == "" && eventday == "" && eventsearch == "") {
+if ( prefectures == "" && planday == "" && plansearch == "") {
 alert ( "検索したい項目を入力してください。" );
 document.searchForm.event_search.focus();
 return false;
