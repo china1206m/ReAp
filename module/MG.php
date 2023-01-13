@@ -744,13 +744,33 @@ function MG_09($id1,$name,$id2,$place,$prefectures,$content,$deadline) {
       $n++;
     }
 
+    if (!empty($name)) {
+      $stmt->bindValue($n,$name);
+      $n++;
+    }
+
     if (!empty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($id3)) {
-      $stmt->bindValue($n,$id3);
+    if (!empty($place)) {
+      $stmt->bindValue($n,$place);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
+    if (!empty($content)) {
+      $stmt->bindValue($n,$content);
+      $n++;
+    }
+
+    if (!empty($deadline)) {
+      $stmt->bindValue($n,$deadline);
       $n++;
     }
 
