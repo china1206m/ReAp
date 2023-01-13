@@ -29,6 +29,11 @@ input[type=radio] {
   label:hover {
     background-color: #E2EDF9;
   }
+  .reason {
+    max-width: 650px;
+}
+
+
 }
 
 /*パソコン用*/
@@ -42,7 +47,7 @@ input[type=radio] {
     display: block; /* ブロックレベル要素化する */
     float: left; /* 要素の左寄せ・回り込を指定する */
     margin: auto; /* ボックス外側の余白を指定する */
-    width: 135px; /* ボックスの横幅を指定する */
+    width: 1200px; /* ボックスの横幅を指定する */
     height: 50px; /* ボックスの高さを指定する */
     padding: 12px;
     font-size: 2em;
@@ -60,6 +65,7 @@ input[type=radio] {
   label:hover {
     background-color: #E2EDF9;
   }
+
 }
 
 .box {
