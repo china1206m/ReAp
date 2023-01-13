@@ -95,6 +95,11 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       var br = document.createElement('br');
 
+      //都道府県の追加
+      var p_pre = document.createElement('p');
+      p_pre.classList.add("condition");
+      p_pre.innerText = "都道府県"
+
       //条件追加
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
@@ -143,15 +148,14 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       a.innerText = "...もっと見る";
 
       ul.appendChild(li);
-      li.appendChild(p);
       li.appendChild(div_planlist);
       div_planlist.appendChild(div_right);
       div_planlist.appendChild(div_yoko);
-      div_planlist.appendChild(div_pre);
       div_yoko.appendChild(img);
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
       div_planlist.appendChild(br);
+      div_planlist.appendChild(p_pre);
       div_planlist.appendChild(p_who);
       div_planlist.appendChild(p_cost);
       div_planlist.appendChild(p_day);
