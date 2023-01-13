@@ -49,6 +49,10 @@
       div_right.classList.add("right");
       div_right.innerText = "投稿日"
 
+      //都道府県の追加
+      var div_pre = document.createElement('div');
+      div_pre.innerText = "都道府県"
+
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
         div_yoko.classList.add("yoko");
@@ -123,6 +127,7 @@
         li.appendChild(div_ranking);
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
+        div_ranking.appendChild(div_pre);
         div_yoko.appendChild(img);
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
