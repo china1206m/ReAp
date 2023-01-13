@@ -45,7 +45,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </aside>
 
     <script>
-      var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
+      // var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
       var ul = document.getElementById("planlist");
       <?php 
 
@@ -131,8 +131,6 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
       p_time.classList.add("plan_content");
 
-        
-
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
@@ -144,11 +142,12 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       a.href = "U-HK7.php";
       a.innerText = "...もっと見る";
 
-
       ul.appendChild(li);
       li.appendChild(p);
       li.appendChild(div_planlist);
+      div_planlist.appendChild(div_right);
       div_planlist.appendChild(div_yoko);
+      div_planlist.appendChild(div_pre);
       div_yoko.appendChild(img);
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
