@@ -1,8 +1,29 @@
+<?php
+
+include "MG.php";
+
+$eventuser_id = 1;
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$db = getDB();
+$sql = "SELECT * FROM event WHERE eventuser_id = ? ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$eventuser_id);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>U-EV3</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-EV3.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -14,11 +35,11 @@
       <div class="yoko">
         <img src="U-menu-acount.png" align="left" alt="写真" class="circle">
         <div class="user_name">
-          ユーザ名
+          <?php print($eventuser[0]['eventuser_name']); ?>
         </div>
       </div>
       <div class="profiel_message">
-        一言メッセージ
+        <?php print($eventuser[0]['profile_message']); ?>
       </div>
     </div>
     <div class="plan">
@@ -41,7 +62,11 @@
   <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
     var ul = document.getElementById("self_contribution");
-    for (var count = 0; count < 6; count++) {
+    <?php 
+
+      for ($i = 0; $i < $count1; $i++) :  
+
+    ?>
         var li = document.createElement('li');
         li.classList.add("list");
   
@@ -56,14 +81,14 @@
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "題名";
+        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
   
         var br = document.createElement('br');
   
         //条件追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "本文"
+        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
 
   
         // もっと見るを作成
@@ -81,7 +106,8 @@
         div_ranking.appendChild(br);
         div_ranking.appendChild(p);
         div_ranking.appendChild(a);
-    }
+    
+        <?php endfor; ?>
   </script>
 </body>
 </html>

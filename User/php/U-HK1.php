@@ -95,7 +95,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       //都道府県の追加
       var div_pre = document.createElement('div');
-      div_pre.innerText = "都道府県"
+      div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
