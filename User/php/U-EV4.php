@@ -1,3 +1,20 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_SESSION['event_search'] = $_POST['event_search'];
+    $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
+    $_SESSION['event_day'] = $_POST['event_day'];
+
+    // 画面遷移　イベント検索結果画面
+    header('Location:U-EV6.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,7 +27,7 @@
 
 <body>
   <main id="main">
-    <form action="U-EV6.php" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
       <p>都道府県</p>
@@ -25,31 +42,31 @@
         <option value="shikoku">四国地方</option>
         <option value="kyushu-okinawa">九州・沖縄地方</option>
       </select>
-      <select id="pref" class="pref-select" name="event_place">
+      <select id="pref" class="pref-select" name="event_prefectures">
         <option value="">都道府県を選択</option>
       </select>
 
       <p>開催月</p>
       <table align="center">
         <tr>
-          <td><input type="checkbox" name="event_day" value="1">１月</td>
-          <td><input type="checkbox" name="event_day" value="2">２月</td>
-          <td><input type="checkbox" name="event_day" value="3">３月</td>
+          <td><input type="checkbox" name="event_day[]" value="1">１月</td>
+          <td><input type="checkbox" name="event_day[]" value="2">２月</td>
+          <td><input type="checkbox" name="event_day[]" value="3">３月</td>
         </tr>
         <tr>
-          <td><input type="checkbox" name="event_day" value="4">４月</td>
-          <td><input type="checkbox" name="event_day" value="5">５月</td>
-          <td><input type="checkbox" name="event_day" value="6">６月</td>
+          <td><input type="checkbox" name="event_day[]" value="4">４月</td>
+          <td><input type="checkbox" name="event_day[]" value="5">５月</td>
+          <td><input type="checkbox" name="event_day[]" value="6">６月</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="event_day" value="7">７月</td>
-            <td><input type="checkbox" name="event_day" value="8">８月</td>
-            <td><input type="checkbox" name="event_day" value="9">９月</td>
+            <td><input type="checkbox" name="event_day[]" value="7">７月</td>
+            <td><input type="checkbox" name="event_day[]" value="8">８月</td>
+            <td><input type="checkbox" name="event_day[]" value="9">９月</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="event_day" value="10">10月</td>
-            <td><input type="checkbox" name="event_day" value="11">11月</td>
-            <td><input type="checkbox" name="event_day" value="12">12月</td>
+            <td><input type="checkbox" name="event_day[]" value="10">10月</td>
+            <td><input type="checkbox" name="event_day[]" value="11">11月</td>
+            <td><input type="checkbox" name="event_day[]" value="12">12月</td>
         </tr>
       </table> 
 
