@@ -635,3 +635,56 @@ function MG_06($id1,$id2,$title,$prefectures,$day_first,$day_end,$content,$place
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
+
+//計画お気に入りテーブル
+
+function MG_07($id1,$id2,$id3) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM plan_favorite WHERE 1 = 1 ";
+
+    if (!empty($id1)) {
+      $sql .= "AND plan_favorite_id = ? ";
+    }
+
+    if (!empty($id2)) {
+      $sql .= "AND user_id = ? ";
+    }
+
+    if (!empty($id3)) {
+      $sql .= "AND plan_id = ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($id1)) {
+      $stmt->bindValue($n,$id1);
+      $n++;
+    }
+
+    if (!empty($id2)) {
+      $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($id3)) {
+      $stmt->bindValue($n,$id3);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
