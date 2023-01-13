@@ -1,0 +1,226 @@
+ /*戻るボタンのデザイン*/
+.button_back {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* 整える */
+  display: inline;
+  width: 10px;
+
+  margin-left: 30px;
+  padding: 0.6em 1em; /* 塗りの余白 */
+  font-weight: bold;
+  background-color: white; /* 背景色 */
+  color: black; /* テキストカラー */
+  cursor: pointer; /* カーソルを指マークに */
+  border-radius: 3px; /* 角の丸み */
+  border: 0; /* 枠線を消す */
+  transition: 0.3s; /* ホバーの変化を滑らかに */
+}
+
+
+.box1 {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 300px;
+  height: 100px;
+  margin-left: 200px;
+  padding: 5px;
+  cursor: pointer; /* カーソルを指マークに */
+  border: solid 2px black;
+  background-color: white;
+}
+
+.box2 {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 300px;
+  height: 100px;
+  margin-left: 100px;
+  padding: 5px;
+  cursor: pointer; /* カーソルを指マークに */
+  border: solid 2px black;
+  background-color: white;
+}
+
+
+.yoko-narabi{
+  display: flex;
+}
+
+/*ボタンの縦並び*/ 
+li{
+  list-style:none;
+  margin-top:50px
+}
+
+#open-btn{
+  display:block;
+  height: 50px;
+  width: 200px;
+  padding:10px 30px;
+  font-size: 1em; /* フォントサイズ */
+  background-color:#1aa1ff;
+  color: #FFF; /* テキストカラー */
+  border:solid #ccc 0px;
+  border-radius: 3px; /* 角の丸み */
+  cursor: pointer;
+}
+
+.together{
+  display: flex;
+  justify-content: center;
+  }
+  
+  /*ボタンの縦並び*/ 
+  li{
+    list-style:none;
+    padding:16px;
+    margin:8px;
+  }
+  
+  /*イベントの情報掲載デザイン*/ 
+  .event_information{
+    padding:10px;
+    height: 800px;
+    width:500px;
+    position: relative;
+    border: 1px solid;
+    }
+  
+  /*もっと見るボタンのデザイン*/
+  .more-see { 
+  color: gray;
+  text-decoration: none; 
+  font-weight: bold;
+  font-size: 1.1em;
+  right: 0;
+  bottom: 0;
+  margin-left: 100px;
+  }
+  
+  .circle {
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+  
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .limit{
+    display: -webkit-box; /* 必須 */
+  -webkit-box-orient: vertical; /* 必須 */
+  -webkit-line-clamp: 15; /* 行数を制限 */
+  overflow: hidden; /* はみ出た部分を非表示 */
+  }
+
+  .box{
+      background-color: white;
+      border: rgb(247, 9, 9) 1px solid; /*境界線の指定*/
+      border-radius: 6px; /*角丸の指定*/
+      padding: 30px;
+      width: 650px;
+      margin: 1rem auto 1rem;
+  }
+  
+  .box-frame{
+      padding: 0.5em 1em;
+      margin: 2em 0;
+      font-weight: bold;
+      color: #6091d3;/*文字色*/
+      background: rgb(255, 255, 255);
+      border: solid 3px #6091d3;/*線*/
+      border-radius: 10px;/*角の丸み*/
+  }
+  .box-frame p {
+      margin: 0; 
+      padding: 0;
+  }
+  
+  .kl{
+      margin-left: 100px;
+  }
+  
+  .kt{
+      margin-top: 50px;
+  }
+  
+  #overlay{
+      position: fixed;
+      top:0;
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      visibility: hidden;
+      opacity: 0;
+      background: rgba(0,0,0,0.6);
+      transition: all 0.5s ease-out;
+    }
+    #overlay.overlay-on{
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .flex{
+      width: 100%;
+      height:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+    }
+    #overlay-inner{
+      padding:10px 100px;
+      background-color:#FFF;
+      text-align:center;
+      display:inline;
+    }
+    
+    #open-btn{
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      
+    
+      /* 整える */
+      
+      color: #FFF; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+      margin-left: 62%;
+    }
+  
+    #close-btn{
+      display:inline;
+      width: 150px;
+      height: 40px;
+      margin: 20px auto;
+      padding: 10px 30px;
+      font-size: 1em; /* フォントサイズ */
+      background-color: #1aa1ff;
+      color: #FFF;
+      border:solid #ccc 0px;
+      border-radius: 3px; /* 角の丸み */
+      cursor: pointer;
+    }
+
+    .hensyu{
+      margin-top: 5px;
+    }

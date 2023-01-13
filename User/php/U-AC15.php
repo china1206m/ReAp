@@ -3,24 +3,23 @@
     <head>
         <title></U-AC15></title>
      <meta charset = "UTF-8">
-     <link rel="stylesheet" href = "button.css">
      <link rel="stylesheet" href = "U-AC15.css">
      <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
     <body>
       <main id="main">
-      <button type="button" class="button_back" onclick="history.back()"><h3 class="button_back">＜</h3></button>
+      <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
 
     <div align="center">
 
         <font size="+4" class="k1">
-            所持クーポン一覧
+            クーポン使用画面
         </font>
 
         <ol type="1" id="numberlist">
             <li>
-                <button type="button" class="coupon">
+                <button type="submit" class="coupon">
                     <div class="left">
                         <div class="price"></div>
                     </div>
@@ -35,7 +34,7 @@
     </div>
 
     <div align="right" class="k2">
-      <button id="open-btn" class="overlay-event" "type="button">
+      <button id="open-btn" class="overlay-event" type="submit">
           消去
       </button>
   </div>
@@ -47,10 +46,10 @@
             <font color = "red">
                 本当によろしいですか？
             </font><br></p>
-        <button onclick="disp()" id="close-btn"  type=button href = "U-AC14.html">
+        <button onclick="disp()" id="close-btn"  type="submit" href = "U-AC14.html">
             はい
         </button>
-        <button id="close-btn" class="overlay-event" type=button href = "U-AC15.html">
+        <button id="close-btn" class="overlay-event" type="submit" href = "U-AC15.html">
             いいえ
         </button>
       </div>

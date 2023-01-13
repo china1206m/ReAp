@@ -8,6 +8,7 @@
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
+    <form action="M-SC1.php M-HK4.php M-HK1.php" method="POST" enctype="multipart/form-data">
     <h3>投稿イベント</h3>
 
     <div>
@@ -19,11 +20,11 @@
       <div > 
         <ul>
             <li>
-                <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
-                <button type="button" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
+                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button type="submit" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
             </li>
             <li>
-                <button id="open-btn" class="overlay-event" "type="button">
+                <button class="button-only" type="submit">
                     お気に入り数リセット
                 </button>
             </li>
@@ -31,26 +32,8 @@
       </div>
     </div>
 
-    <span id="overlay" class="overlay-event">
-        <span class="flex">
-          <span id="overlay-inner">
-              <p>上記のクーポンを取得します。<br>
-                <font color = "red">
-                    本当によろしいですか？
-                </font><br>
-              </p>
-              <div>
-                  <button onclick="disp()" id="close-btn" type=button href = "U-AC14.html">
-                      はい
-                  </button>
-                  <button id="close-btn"  class="overlay-event" type=button href = "U-AC11.html">
-                      いいえ
-                  </button>
-              </div>
-            
-          </span>
-        </span>
-      </span>
+    
+    </form>
 </main>
 
 <aside id="sub">
@@ -67,36 +50,6 @@
 
 <script>
 
-                document.addEventListener('DOMContentLoaded', function(){
-    
-    // オーバレイを開閉する関数
-    const overlay = document.getElementById('overlay');
-    function overlayToggle() {
-      overlay.classList.toggle('overlay-on');
-    }
-    // 指定した要素に対して上記関数を実行するクリックイベントを設定
-    const clickArea = document.getElementsByClassName('overlay-event');
-    for(let i = 0; i < clickArea.length; i++) {
-      clickArea[i].addEventListener('click', overlayToggle, false);
-    }
-    
-    // イベントに対してバブリングを停止
-    function stopEvent(event) {
-      event.stopPropagation();
-    }
-    const overlayInner = document.getElementById('overlay-inner');
-    overlayInner.addEventListener('click', stopEvent, false);
-    
-  }, false);
-
-  n=2;
-function disp() {
-    if(n == 1){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました</span>";
-    }else if(n == 2){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです</span>";
-    }
-}
 
   // 四角の数を動的に変化
   //文字列はphpで作成しそれを引っ張ってくる

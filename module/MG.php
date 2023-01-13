@@ -4,7 +4,7 @@ include "MC-01.php";
 
 //ユーザーテーブル
 
-function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
+function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
 
   $n = 1;
 
@@ -42,6 +42,14 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
       $sql .= "AND coupon_can_get = ? ";
     }
 
+    if (!empty($report)) {
+      $sql .= "AND report_total = ? ";
+    }
+
+    if (!empty($stop)) {
+      $sql .= "AND stop_total = ? ";
+    }
+
     $stmt = $db->prepare($sql);
 
 
@@ -77,6 +85,16 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon) {
 
     if (!empty($coupon)) {
       $stmt->bindValue($n,$coupon);
+      $n++;
+    }
+
+    if (!empty($report)) {
+      $stmt->bindValue($n,$report);
+      $n++;
+    }
+
+    if (!empty($stop)) {
+      $stmt->bindValue($n,$stop);
       $n++;
     }
 
@@ -382,7 +400,7 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
 
 //計画詳細テーブル
 
-function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
+function MG_05($id1,$id2,$place,$content,$stay_time_hour,$stay_time_minute,$image,$travel_time_hour,$travel_time_minute) {
 
   $n = 1;
 
@@ -408,16 +426,24 @@ function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
       $sql .= "AND plan_content = ? ";
     }
 
-    if (!empty($stay_time)) {
-      $sql .= "AND plan_stay_time = ? ";
+    if (!empty($stay_time_hour)) {
+      $sql .= "AND stay_time_hour = ? ";
+    }
+
+    if (!empty($stay_time_minute)) {
+      $sql .= "AND stay_time_minute = ? ";
     }
 
     if (!empty($image)) {
       $sql .= "AND plan_image = ? ";
     }
 
-    if (!empty($travel_time)) {
-      $sql .= "AND plan_travel_time = ? ";
+    if (!empty($travel_time_hour)) {
+      $sql .= "AND travel_time_hour = ? ";
+    }
+
+    if (!empty($travel_time_minute)) {
+      $sql .= "AND travel_time_minute = ? ";
     }
 
     $stmt = $db->prepare($sql);
@@ -443,8 +469,13 @@ function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
       $n++;
     }
 
-    if (!empty($stay_time)) {
-      $stmt->bindValue($n,$stay_time);
+    if (!empty($stay_time_hour)) {
+      $stmt->bindValue($n,$stay_time_hour);
+      $n++;
+    }
+
+    if (!empty($stay_time_minute)) {
+      $stmt->bindValue($n,$stay_time_minute);
       $n++;
     }
 
@@ -453,8 +484,8 @@ function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
       $n++;
     }
 
-    if (!empty($travel_time)) {
-      $stmt->bindValue($n,$travel_time);
+    if (!empty($travel_time_hour)) {
+      $stmt->bindValue($n,$travel_time_minute);
       $n++;
     }
 
@@ -472,7 +503,7 @@ function MG_05($id1,$id2,$place,$content,$stay_time,$image,$travel_time) {
 
 //イベントテーブル
 
-function MG_06($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) {
+function MG_06($id1,$id2,$title,$prefectures,$day,$content,$place,$cost,$image,$total,$date) {
 
   $n = 1;
 
@@ -492,6 +523,10 @@ function MG_06($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) 
 
     if (!empty($title)) {
       $sql .= "AND event_title = ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND event_prefectures = ? ";
     }
 
     if (!empty($day)) {
@@ -540,6 +575,11 @@ function MG_06($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) 
       $n++;
     }
 
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
     if (!empty($day)) {
       $stmt->bindValue($n,$day);
       $n++;
@@ -577,9 +617,7 @@ function MG_06($id1,$id2,$title,$day,$content,$place,$cost,$image,$total,$date) 
 
     $stmt->execute();
 
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $row;
+    return $stmt;
     
   } catch(PDOException $e){
     echo "DB接続失敗";

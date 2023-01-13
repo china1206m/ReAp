@@ -1,3 +1,40 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /* usernameとpasswordが定義されて、かつ空白ではない */
+  if (isset($_POST['eventuser_name'], $_POST['eventuser_pass']) && $_POST['eventuser_name'] !== '' && $_POST['eventuser_pass'] !== '')  {
+
+    /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    // 入力したいカラム名を指定
+    $column = ['eventuser_mail','eventuser_pass', 'eventuser_name', 'representative_name', 'phone_number', 'address', 'enterprise_name'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_POST['eventuser_mail'], $_POST['eventuser_pass'], $_POST['eventuser_name'], $_POST['representative_name'], $_POST['phone_number'], $_POST['address'], $_POST['enterprise_name']];
+
+    // 入力された値の型を定義
+    $type = [1,1,1,1,0,1,1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['eventuser_id'] = $add->ma_return("eventuser",$column, $post, $type);
+
+    header('Location:E-EL1.php');
+    exit;
+  } else {
+    $_SESSION['register_message'] = '送信データが正しくありません';
+    header('Location:'.$_SERVER['PHP_SELF']);
+    exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -16,7 +53,7 @@
         <div class="box1"><h3 align="center">アカウント登録</h3></div>
 
         <div align="center" class="box2">
-            <form action="E-EL1.html" method="POST">
+            <form action="" method="POST">
                 <div class="register-form" style="max-width:400px;">
                   <p>ユーザ名<span class="require">必須</span></p>
                   <input type="text" name="eventuser_name" maxlength="20" placeholder="20文字以内" required>

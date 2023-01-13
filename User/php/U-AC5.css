@@ -34,81 +34,6 @@
         text-align: center;
     }
 
-    .place_add{
-        background: white;
-        border: none;
-    }
-
-    .place_add:hover {
-        background-color: white; /* 背景色 */
-      }
-
-    .right{
-        text-align: right;
-    }
-
-    ol{
-        font-size: 30px;
-        margin-left: 60px;
-    }
-    
-    .plan_information{
-        background:white; /*背景色の指定*/
-        width:92%;
-        border: solid thin black;
-        text-align: center;
-    }
-
-    .plan_title{
-        width: 85%;
-        text-align: center;
-        font-size: 35px;
-        border: solid medium;
-    }
-
-    .plan_place{
-        width: 85%;
-        text-align: center;
-        font-size: 30px;
-        border: solid medium;
-        margin-top: 10px;
-    }
-    
-    .plan_content{
-        display: inline-block;
-        width: 86%;
-        height: 200px;
-        font-size: 20px;
-        padding: 10px;
-        border: 1px solid ;
-        box-sizing: border-box;
-        background: white;
-        margin: 0.5em 0;
-        line-height: 1.5;
-        margin-left: 0px;
-        border: solid medium;
-    }
-    
-    .plan_time{
-        width: 40%;
-        font-size: 20px;
-        border: solid medium;
-    }
-    
-    .plan_time2{
-        width: 10%;
-        font-size: 20px;
-        border: solid medium;
-    }
-    
-    
-    .travel_time{
-        margin-top: 20px;
-        width: 70%;
-        text-align: center;
-        font-size: 20px;
-        border: solid medium;
-    }
     
     /*ボタンデザイン 背景：青、文字：白*/
   .button-only {
@@ -119,7 +44,7 @@
   
     /* 整える */
     width: 200px;
-    
+    margin: 1em 0; /* 前後の隙間 */
     padding: 0.6em 1em; /* 塗りの余白 */
     font-size: 1em; /* フォントサイズ */
     background-color: #1aa1ff; /* 背景色 */
@@ -128,7 +53,6 @@
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
-    margin-bottom: 300px;
   
   }
 
@@ -136,6 +60,53 @@
 .button-only:hover {
     background-color: #064fda; /* 背景色 */
   }
+
+  .user{
+    margin-left: 250px;
+    width: 550px;
+    font-size: 2.0em;
+}
+
+p {
+    font-size: 2.0em;
+    margin-left: 100px;
+    margin-top: 80px;
+}
+    
+ /* 真ん中寄せ */  
+ section {
+    height: 100vh;
+    /* 真ん中寄せ */
+    display: grid;
+    place-items: center;
+}
+
+/* パスワードの眼について */
+.form-wrapper {
+    display: inline;
+    justify-content: center;
+    gap: 40px;
+    margin: 5px 0;
+    width: 400px;
+
+}
+
+#eye {
+    display: inline;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+.require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
 
 }
 
@@ -150,17 +121,16 @@
         appearance: none;
       
         /* 整える */
-        width: 150px;
-        
+        width: 250px;
+        margin: 1em 0; /* 前後の隙間 */
         padding: 0.6em 1em; /* 塗りの余白 */
-        font-size: 0.5em; /* フォントサイズ */
+        font-size: 1.0em; /* フォントサイズ */
         background-color: #1aa1ff; /* 背景色 */
         color: #FFF; /* テキストカラー */
         cursor: pointer; /* カーソルを指マークに */
         border-radius: 3px; /* 角の丸み */
         border: 0; /* 枠線を消す */
         transition: 0.3s; /* ホバーの変化を滑らかに */
-        margin-bottom: 300px;
       
       }
     
@@ -197,84 +167,51 @@ h3{
     font-size: 3em;
   }
 
-.center{
-    text-align: center;
+  .user{
+    margin-left: 150px;
+    width: 550px;
+    font-size: 3.0em;
 }
 
-.place_add{
-    background: white;
-    border: none;
+p {
+    font-size: 3.0em;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+    
+ /* 真ん中寄せ */  
+ section {
+    height: 100vh;
+    /* 真ん中寄せ */
+    display: grid;
+    place-items: center;
 }
 
-.right{
-    text-align: right;
+/* パスワードの眼について */
+.form-wrapper {
+    display: inline;
+    justify-content: center;
+    gap: 40px;
+    margin: 5px 0;
+    width: 400px;
+
 }
 
-ol{
-    font-size: 40px;
-    margin-left: 20px;
-}
-
-.plan_information{
-    background:white; /*背景色の指定*/
-    width:92%;
-    border: solid thin black;
-    text-align: center;
-}
-
-
-
-.plan_title{
-    width: 90%;
-    text-align: center;
-    font-size: 50px;
-    border: solid medium;
-}
-
-.plan_place{
-    width: 90%;
-    text-align: center;
-    font-size: 40px;
-    border: solid medium;
-}
-
-.plan_content{
-    display: inline-block;
-    width: 90%;
-    height: 200px;
-    font-size: 30px;
-    padding: 10px;
-    border: 1px solid ;
-    box-sizing: border-box;
-    background: white;
-    margin: 0.5em 0;
-    line-height: 1.5;
-    margin-left: 0px;
-    border: solid medium;
-}
-
-.plan_time{
-    width: 40%;
-    font-size: 30px;
-    border: solid medium;
-}
-
-.plan_time2{
-    width: 10%;
-    font-size: 30px;
-    border: solid medium;
+#eye {
+    display: inline;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
 
-.travel_time{
-    margin-top: 20px;
-    width: 70%;
-    text-align: center;
-    font-size: 40px;
-    border: solid medium;
-}
-
-
+.require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+  }
 
 
 }

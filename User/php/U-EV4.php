@@ -3,31 +3,19 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="U-HK3.css" type="text/css">
+    <link rel="stylesheet" href="U-EV4.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
-    <title>U-HK3</title>
+    <title>U-EV4</title>
 </head>
 
 <body>
   <main id="main">
-    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
-      <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
-  
-      <p>カテゴリ</p>
-      <table align="center">
-        <tr>
-          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
-          <td><input type="radio" name="paln_who" value="友達" id="friend"><label for="friend">友達</label></td>
-        </tr>
-        <tr>
-          <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
-          <td><input type="radio" name="plan_who" value="家族" id="family"><label for="family">家族</label></td>
-        </tr>
-      </table> 
+    <form action="U-EV6.php" method="POST" name="searchForm" onSubmit="return check();">
+      <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
       <p>都道府県</p>
       <select id="region" class="region-select">
-        <option value="">選択してください</option>
+        <option value="">地方を選択</option>
         <option value="hokkaido">北海道地方</option>
         <option value="tohoku">東北地方</option>
         <option value="kanto">関東地方</option>
@@ -37,16 +25,34 @@
         <option value="shikoku">四国地方</option>
         <option value="kyushu-okinawa">九州・沖縄地方</option>
       </select>
-      <select id="pref" class="pref-select" name="plan_prefectures">
-        <option value="">選択してください</option>
+      <select id="pref" class="pref-select" name="event_place">
+        <option value="">都道府県を選択</option>
       </select>
-  
-      <p>費用</p>
-      <input type="text" name="plan_cost" class="cost"> 円
-  
-      <p>宿泊</p>
-      <input type="text" name="plan_stay" class="stay-from"> 泊 <input type="text" name="plan_stay" class="stay-to"> 日
-  
+
+      <p>開催月</p>
+      <table align="center">
+        <tr>
+          <td><input type="checkbox" name="event_day" value="1">１月</td>
+          <td><input type="checkbox" name="event_day" value="2">２月</td>
+          <td><input type="checkbox" name="event_day" value="3">３月</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="event_day" value="4">４月</td>
+          <td><input type="checkbox" name="event_day" value="5">５月</td>
+          <td><input type="checkbox" name="event_day" value="6">６月</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="event_day" value="7">７月</td>
+            <td><input type="checkbox" name="event_day" value="8">８月</td>
+            <td><input type="checkbox" name="event_day" value="9">９月</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="event_day" value="10">10月</td>
+            <td><input type="checkbox" name="event_day" value="11">11月</td>
+            <td><input type="checkbox" name="event_day" value="12">12月</td>
+        </tr>
+      </table> 
+
       <center>
         <br>
         <br>
@@ -144,21 +150,22 @@
           pref.appendChild(op);
         }
     }
-  </script>
-  <script>
-function check () {
-var prefectures = document.searchForm.plan_prefectures.value;
-var plansearch = document.searchForm.plan_search.value;
 
-if ( prefectures == "" && plansearch == "") {
+function check () {
+var prefectures = document.searchForm.event_prefectures.value;
+var eventday = document.searchForm.event_day.value;
+var eventsearch = document.searchForm.event_search.value;
+
+if ( prefectures == "" && eventday == "" && eventsearch == "") {
 alert ( "検索したい項目を入力してください。" );
-document.searchForm.plan_search.focus();
+document.searchForm.event_search.focus();
 return false;
 }
 
 return true;
 }
-</script>
+  </script>
+    
 </body>
 
 </html>

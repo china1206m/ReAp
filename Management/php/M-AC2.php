@@ -25,9 +25,11 @@ session_start();
             <font size="+3">
                 ログアウトしますか？
             </font>
-                <button  class="sou" type="button" onclick="location.href='M-AC1.php'">
+            <form action="" method="POST">   
+                <button  class="sou" type="submit">
                     はい
                 </button>
+            </form>
                 <button type="button" class="sou" onclick="location.href='M-AC2.php'">
                     いいえ
                 </button>

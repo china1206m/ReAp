@@ -173,4 +173,15 @@
     .right{
       text-align: right;
     }
+
+    .report{
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+      background-color: white;
+      border: solid thin white;
+      margin-left: 50%;
+    }
 }

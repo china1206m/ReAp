@@ -2,43 +2,36 @@
 /* セッション開始 */
 session_start();
 
-/* データベース接続 */
+/* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        include "MC-01.php";
-        $db = getDB();
-    } catch (PDOException $e) {
-      //echo $e->getMessage();
-      $_SESSION['register_message'] = 'データベース接続に失敗しました';
-      header('Location:'.$_SERVER['PHP_SELF']);
-      exit;
-    }
-    
-    $content = file_get_contents($_FILES['event_image']['tmp_name']);
+
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
     $_SESSION['eventuser_id'] = 1;
 
-    // モジュールを使用したプログラム（上手くいかない ）
-    /*
-    include "MA.php";
-    $add = new MA();
-    $coloum = ['eventuser_id','event_content', 'event_place', 'event_cost', 'event_image', 'event_favorite_total', 'post_date', 'event_title'];
-    $post = [$_SESSION['eventuser_id'], $_POST['event_content'], $_POST['event_place'], $_POST['event_cost'], $content, 0, $_POST['post_date'], $_POST['event_title']];
-    $type = [0,1,1,0,0,0,0,1];
-    $add->ma("event", $coloum, $post, $type);
-    */
-       
-    $sql = 'INSERT INTO event (eventuser_id, event_content, event_place, event_cost, event_image, event_favorite_total, post_date, event_title)
-            VALUES (2,:event_content, :event_place, :event_cost, :event_image, 0,now(), :event_title)';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':event_content', $_POST['event_content']);
-    $stmt->bindValue(':event_place', $_POST['event_place']);
-    $stmt->bindValue(':event_cost', $_POST['event_cost']);
-    $stmt->bindValue(':event_image', $content);
-    $stmt->bindValue(':event_title', $_POST['event_title']);
-    $stmt->execute();
+    // 現在時刻取得
+    $post_date = date('Y-m-d');
 
-    // 画面遷移　ホーム画面 
-    header("Location:E-EL1.html");
+    // 入力したいカラム名を指定
+    $column = ['eventuser_id','event_title', 'event_prefectures', 'event_day_first', 'event_day_end', 
+              'event_content', 'event_image', 'event_place', 'event_cost', 'event_favorite_total', 'post_date'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_SESSION['eventuser_id'], $_POST['event_title'], $_POST['event_prefectures'], $_POST['event_day_first'], $_POST['event_day_end'], 
+            $_POST['event_content'], $_FILES['event_image']['tmp_name'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
+
+    // 入力された値のデータ型を定義
+    $type = [0,1,1,1,1,1,1,1,0,0,1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['event_id'] = $add->ma_return("event",$column, $post, $type);
+
+    // 画面遷移　ホーム画面
+    header('Location:E-EL1.php');
+    exit;
 }
 ?>
 
@@ -66,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <td><img src="select_image.png" class="event_image" width="103px" height="85px"></td>
     </tr>
     <tr>
-      <td><input type='date' id='date1' name="post_date" class="post_date"></p></td>
+      <td><div id="current_date" name="post_day" class="post_day"></p></td>
       <td><input type="file" name="event_image" class="event_image" accept="image/jpeg,image/png" multiple/></td>
     </tr>
 </table>
@@ -74,6 +67,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <p><label for="title">題名<span class="require">必須</span></label></p>
     <textarea name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
+
+    <p><label for="shop">都道府県<span class="require">必須</span></label></p>
+        <select name="event_prefectures" class="prefectures" required>
+          <option value="">都道府県を選択</option>
+          <option value="北海道">北海道</option>
+          <optgroup label="東北">
+            <option value="青森県">青森県</option>
+            <option value="秋田県">秋田県</option>
+            <option value="岩手県">岩手県</option>
+            <option value="山形県">山形県</option>
+            <option value="宮城県">宮城県</option>
+            <option value="福島県">福島県</option>
+          </optgroup>
+          <optgroup label="関東">
+            <option value="茨城県">茨城県</option>
+            <option value="栃木県">栃木県</option>
+            <option value="群馬県">群馬県</option>
+            <option value="埼玉県">埼玉県</option>
+            <option value="千葉県">千葉県</option>
+            <option value="東京都">東京都</option>
+            <option value="神奈川県">神奈川県</option>
+          </optgroup>
+          <optgroup label="中部">
+            <option value="新潟県">新潟県</option>
+            <option value="富山県">富山県</option>
+            <option value="石川県">石川県</option>
+            <option value="福井県">福井県</option>
+            <option value="山梨県">山梨県</option>
+            <option value="長野県">長野県</option>
+            <option value="岐阜県">岐阜県</option>
+            <option value="静岡県">静岡県</option>
+            <option value="愛知県">愛知県</option>
+          </optgroup>
+          <optgroup label="近畿">
+            <option value="三重県">三重県</option>
+            <option value="滋賀県">滋賀県</option>
+            <option value="京都府">京都府</option>
+            <option value="大阪府">大阪府</option>
+            <option value="兵庫県">兵庫県</option>
+            <option value="奈良県">奈良県</option>
+            <option value="和歌山県">和歌山県</option>
+          </optgroup>
+          <optgroup label="中国">
+            <option value="岡山県">岡山県</option>
+            <option value="広島県">広島県</option>
+            <option value="鳥取県">鳥取県</option>
+            <option value="島根県">島根県</option>
+            <option value="山口県">山口県</option>
+          </optgroup>
+          <optgroup label="四国">
+            <option value="徳島県">徳島県</option>
+            <option value="香川県">香川県</option>
+            <option value="愛媛県">愛媛県</option>
+            <option value="高知県">高知県</option>
+          </optgroup>
+          <optgroup label="九州沖縄">
+            <option value="福岡県">福岡県</option>
+            <option value="佐賀県">佐賀県</option>
+            <option value="長崎県">長崎県</option>
+            <option value="熊本県">熊本県</option>
+            <option value="大分県">大分県</option>
+            <option value="宮崎県">宮崎県</option>
+            <option value="鹿児島県">鹿児島県</option>
+            <option value="沖縄県">沖縄県</option>
+          </optgroup>
+        </select>
     
     <p><label for="place">開催場所<span class="require">必須</span></label></p>
     <textarea name="event_place" class="event_place" required></textarea>
@@ -118,11 +177,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </aside>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const element = document.getElementById('date1');
-    const date = new Date();
-    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-    element.value = element.min = date.toJSON().match(/\d+-\d+-\d+/);
-  });
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
   </script>
 </body>

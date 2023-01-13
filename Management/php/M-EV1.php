@@ -8,6 +8,7 @@
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
+    <form action="M-EV2.php M-SC1.php" method="POST" enctype="multipart/form-data">
     <h3>投稿イベント</h3>
 
     <div>
@@ -17,13 +18,11 @@
     
     
       <div class="right"> 
-        
-                <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
-        
+                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
       </div>
     </div>
 
-    
+</form>
 </main>
 
 <aside id="sub">
@@ -77,7 +76,7 @@
   // もっと見るを作成
   var a = document.createElement('a');
   a.classList.add("more-see");
-  a.href = "E-SE4.php";
+  a.href = "M-EV2.php";
   a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加

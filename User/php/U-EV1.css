@@ -30,16 +30,6 @@
       font-size: 1em;
     }
 
-    .btn {
-      /* ブラウザ特有のスタイルを無効に */
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-      
-      background: white;
-      border: solid thin white;
-    }
-    
 }
 
 
@@ -110,7 +100,7 @@
       }
 
       .plan{
-      background: #faebd7; /*背景色の指定*/
+      background: #dae5f8; /*背景色の指定*/
       width:98%;
       height: 70px;
       font-size: 3em;
@@ -137,10 +127,10 @@
     font-size: 20px;
     }
     
-    .content{
+    .condition{
         display: inline;
         font-size: 20px;
-        margin-left: 100px;
+        margin-left: 150px;
     }
     
     ol{
@@ -157,7 +147,6 @@
     
     /*計画の情報掲載デザイン*/ 
     .all_information{
-      margin-top: 10px;
         padding: 10px;
         background:white; /*背景色の指定*/
         width:94%;
@@ -181,14 +170,18 @@
         list-style:none;
     }
 
-    .btn {
+    .right{
+      text-align: right;
+    }
+
+    .report{
       /* ブラウザ特有のスタイルを無効に */
       -moz-appearance: none;
       -webkit-appearance: none;
       appearance: none;
-      
-      background: white;
+
+      background-color: white;
       border: solid thin white;
+      margin-left: 50%;
     }
-    
 }

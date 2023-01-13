@@ -1,3 +1,36 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    /* データ挿入 */
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    $_SESSION['plan_id'] = 2;
+    // 入力したいカラム名を指定
+    $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'travel_time_hour', 'travel_time_minute'];
+    
+    for($i=1; $i<=2; $i++) {
+        // 入力された値をpost配列に格納
+        $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], $_POST["travel_time_hour$i"], $_POST["travel_time_minute$i"]];
+
+        // 入力された値の型を定義
+        $type = [0,2,1,0,0,0,0];
+
+        // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+        $_SESSION['user_detail_id'] = $add->ma_return("plan_detail",$column, $post, $type);
+    }
+    
+    header('Location:U-HK6.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,32 +44,28 @@
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　詳細</h3>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
-    <form action="U-HK6.php" method="post" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
     
+    <input type="hidden" id="counter" name="counter" value="1">
 
     <ol id="place_list">
         <li>
             <div class="plan_information">
-            <input type="text" name="plan_place1" class="plan_place" value="" placeholder="場所名を入力　必須" required>
+            <input type="text" name="plan_place1" class="plan_place" value="" placeholder="場所名を入力" required>
 
             <textarea name="plan_content1" class="plan_content" minlength="1" maxlength="1000" placeholder="本文内容を入力(1000文字以内)　必須" required></textarea>
+
+            <br>
+            <label>滞在時間：</label>
             
-            <input type="text" name="plan_time1" class="plan_time" value="" placeholder="滞在時間を入力　必須" required>
-
-            <select class="plan_time2" name="plan_time_">
-                <option value="minutes">分</option>
-                <option value="hour">時間</option>
-            </select>
-
+            <input type="number" name="stay_time_hour1" class="plan_time" value="" placeholder="" required>　時間
+            <input type="number" name="stay_time_minute1" class="plan_time" value="" placeholder="" required>　分
             <input type="file" accept="image/jpeg,image/png" name="plan_image1" class="plan_image" multiple/>
             </div>
 
-            <input type="text" name="travel_time1" class="travel_time" value="" placeholder="移動時間を入力　必須" required>
-            <select class="plan_time2" name="travel_time_mh1">
-                <option value="minutes">分</option>
-                <option value="hour">時間</option>
-            </select>
+            
         </li>
+
     </ol>
     <center>
     <button type="submit" class="button-only" name="contribution">投稿</button>
@@ -55,7 +84,8 @@
       </ul>
   </aside>
 
-<script>
+
+  <script>
 
 var count = 1;
 function addCount(){
@@ -66,8 +96,37 @@ function addCount(){
 
         addCount();
 
+        var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = count;
+        console.log(counter.value);
+
         //olの追加
         var ol = document.getElementById("place_list");
+
+        var center = document.createElement('center');
+
+        var label_travel = document.createElement('label');
+        label_travel.innerHTML="移動時間：";
+
+
+        var input_traveltimeh = document.createElement('input');
+        input_traveltimeh.type = "number";
+        input_traveltimeh.setAttribute('name','travel_time_hour' + count-1);
+        input_traveltimeh.classList.add("plan_time");  
+        input_traveltimeh.required = true;
+
+        var font_traveltime_h = document.createElement('font');
+        font_traveltime_h.innerHTML = "　時間";
+
+        var input_traveltimem = document.createElement('input');
+        input_traveltimem.type = "number";
+        input_traveltimem.setAttribute('name','travel_time_minute' + count-1);
+        input_traveltimem.classList.add("plan_time");  
+        input_traveltimem.required = true;
+
+        var font_traveltime_m = document.createElement('font');
+        font_traveltime_m.innerHTML = "　分";
 
         var li = document.createElement('li');
 
@@ -90,20 +149,32 @@ function addCount(){
         textarea_content.placeholder = "本文内容を入力(1000文字以内)";
         textarea_content.required = true;
 
-        var input_time = document.createElement('input');
-        input_time.type = "text";
-        input_time.setAttribute('name','plan_time' + count);
-        input_time.classList.add("plan_time");
-        input_time.placeholder = "場所名を入力";
-        input_time.required = true;
+        
 
-        var input_time2 = document.createElement('select');
-        input_time2.classList.add("plan_time2");
-        input_time2.setAttribute('name','plan_time_mh' + count);
-        var option_minutes = document.createElement('option');
-        option_minutes.text = "分";
-        var option_hour = document.createElement('option');
-        option_hour.text = "時";
+        var br1 = document.createElement('br');
+
+        var label_plan = document.createElement('label');
+        label_plan.innerHTML="滞在時間：";
+
+        var input_plantimeh = document.createElement('input');
+        input_plantimeh.type = "number";
+        input_plantimeh.setAttribute('name','stay_time_hour' + count);
+        input_plantimeh.classList.add("plan_time");  
+        input_plantimeh.required = true;
+
+        var font_plantime_h = document.createElement('font');
+        font_plantime_h.innerHTML = "　時間";
+
+        var input_plantimem = document.createElement('input');
+        input_plantimem.type = "number";
+        input_plantimem.setAttribute('name','stay_time_minute' + count);
+        input_plantimem.classList.add("plan_time");  
+        input_plantimem.required = true;
+
+        var font_plantime_m = document.createElement('font');
+        font_plantime_m.innerHTML = "　分";
+
+
 
         var input_img = document.createElement('input');
         input_img.type = "file";
@@ -111,35 +182,32 @@ function addCount(){
         input_img.classList.add("plan_image");  
         input_img.multiple = true;
 
-        var input_traveltime = document.createElement('input');
-        input_traveltime.type = "text";
-        input_traveltime.setAttribute('name','travel_time' + count);
-        input_traveltime.classList.add("travel_time");  
-        input_traveltime.placeholder = "移動時間を入力";
-        input_traveltime.required = true;
+        
 
-        var input_traveltime2 = document.createElement('select');
-        input_traveltime2.classList.add("plan_time2");
-        input_traveltime2.setAttribute('name','travel_time_mh' + count);
-        var option_minutes2 = document.createElement('option');
-        option_minutes2.text = "分";
-        var option_hour2 = document.createElement('option');
-        option_hour2.text = "時";
+       
 
 
+        ol.appendChild(center);
+        center.appendChild(label_travel);
+        center.appendChild(input_traveltimeh);
+        center.appendChild(font_traveltime_h);
+        center.appendChild(input_traveltimem);
+        center.appendChild(font_traveltime_m);
         ol.appendChild(li);
         li.appendChild(div);
         div.appendChild(input_place);
         div.appendChild(textarea_content);
-        div.appendChild(input_time);
-        div.appendChild(input_time2);
-        input_time2.appendChild(option_minutes);
-        input_time2.appendChild(option_hour);
+        div.appendChild(br1);
+        div.appendChild(label_plan);
+        div.appendChild(input_plantimeh);
+        div.appendChild(font_plantime_h);
+        div.appendChild(input_plantimem);
+        div.appendChild(font_plantime_m);
+
+
         div.appendChild(input_img);
-        li.appendChild(input_traveltime);
-        li.appendChild(input_traveltime2);
-        input_traveltime2.appendChild(option_minutes2);
-        input_traveltime2.appendChild(option_hour2);
+        
+        
 
 
     }

@@ -29,7 +29,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <button class="btn" href="U-HK3.php"><img src="search.png"></button>
     </div>
 
-    <ul id="ranking">
+    <ul id="planlist">
     </ul>
 </main>
 
@@ -45,14 +45,14 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
-    var ul = document.getElementById("ranking");
+    var ul = document.getElementById("planlist");
     <?php 
 
       for ($i = 0; $i < $count1; $i++) :  
 
-      //$user_id = $plan[$i]['user_id']; 
-      //$db = MG_01($user_id,"","","","","","");
-      //$user = $db->fetchAll(PDO::FETCH_ASSOC);
+      $user_id = $plan[$i]['user_id']; 
+      $db = MG_01($user_id,"","","","","","","","");
+      $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
       $plan_id = $plan[$i]['plan_id']; 
       $db = MG_05("",$plan_id,"","","","","","","");
@@ -64,8 +64,17 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         var p = document.createElement('p');
 
         //ランキング情報のための四角追加
-        var div_ranking = document.createElement('div');
-        div_ranking.classList.add("ranking_information");
+        var div_planlist = document.createElement('div');
+        div_ranking.classList.add("planlist_information");
+
+          //投稿日の追加
+      var div_right = document.createElement('div');
+      div_right.classList.add("right");
+      div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
+
+      //都道府県の追加
+      var div_pre = document.createElement('div');
+      div_pre.innerText = "都道府県"
 
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -76,7 +85,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = 'アイコン'
+        img.alt = '<?php //print($user[0]['user_name']); ?>'
         
         //題名追加
         var div_title = document.createElement('div');
@@ -138,22 +147,22 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ul.appendChild(li);
         li.appendChild(p);
         li.appendChild(div_ranking);
-        div_ranking.appendChild(div_yoko);
+        div_planlist.appendChild(div_yoko);
         div_yoko.appendChild(img);
         div_yoko.appendChild(div_title);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(p_who);
-        div_ranking.appendChild(p_cost);
-        div_ranking.appendChild(p_day);
-        div_ranking.appendChild(ol);
+        div_planlist.appendChild(br);
+        div_planlist.appendChild(br);
+        div_planlist.appendChild(p_who);
+        div_planlist.appendChild(p_cost);
+        div_planlist.appendChild(p_day);
+        div_planlist.appendChild(ol);
         ol.appendChild(li_ol);
         li_ol.appendChild(div_home);
         div_home.appendChild(p_planname);
         div_home.appendChild(p_content);
         div_home.appendChild(p_time);
-        div_ranking.appendChild(p_travel);
-        div_ranking.appendChild(a);
+        div_planlist.appendChild(p_travel);
+        div_planlist.appendChild(a);
 
         <?php endfor; ?>
 

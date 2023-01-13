@@ -4,10 +4,13 @@
         <title>U-AC11</title>
         <meta charset = "UTF-8">
         <link rel="stylesheet" href = "U-AC11.css">
+        <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
 
     <body>
-        <button type="button" class="button_back" onclick="history.back()"><h3 class="button_back">＜</h3></button>
+    <main id="main">
+
+        <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
             
         <div align="center">
 
@@ -17,7 +20,7 @@
 
             <ol type="1" id="numberlist">
                 <li>
-                    <button type="button" class="coupon">
+                    <button type="submit" class="coupon">
                         <div class="left">
                             <div class="price">内容</div>
                         </div>
@@ -32,7 +35,7 @@
         </div>
         
             <div align="center" class="k2">
-                <button id="open-btn" class="overlay-event" "type="button">
+                <button id="open-btn" class="overlay-event" type="submit">
                     決定
                 </button>
             </div>
@@ -46,10 +49,10 @@
                       </font><br>
                     </p>
                     <div>
-                        <button onclick="disp()" id="close-btn" type=button href = "U-AC14.html">
+                        <button onclick="disp()" id="close-btn" type="submit" href = "U-AC14.html">
                             はい
                         </button>
-                        <button id="close-btn"  class="overlay-event" type=button href = "U-AC11.html">
+                        <button id="close-btn"  class="overlay-event" type="submit" href = "U-AC11.html">
                             いいえ
                         </button>
                     </div>
@@ -57,6 +60,17 @@
                 </span>
               </span>
             </span>
+    </main>
+
+    <aside id="sub">
+        <ul class="menu">
+            <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+          </ul>
+      </aside>
             
     
     <script>
