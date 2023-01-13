@@ -32,7 +32,7 @@
 <script>
   // 四角の数を動的に変化
   //文字列はphpで作成しそれを引っ張ってくる
-  var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
+  
 
   var ul = document.getElementById("country_list");
   for (var count = 0; count < 3; count++) {
@@ -52,14 +52,12 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  var daimei = document.createTextNode(country[count]);
-  div.appendChild(daimei);
+  div.innerHTML = "題名"
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  var text = document.createTextNode(country[count]);
-  p.appendChild(text);
+  p.innerHTML = "本文";
 
   // もっと見るを作成
   var a = document.createElement('a');
