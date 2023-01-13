@@ -1,3 +1,14 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+$db = MG_02($id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +22,16 @@
   <h3>アカウント</h3>
 
     <div class="parent">
-      <div class="center">アカウント名</div>
+      <div class="center">
+        <?php print($eventuser[0]['eventuser_name']); ?>
+      </div>
       <div class="left"><p class="image-circle"></p></div>
     </div>
     
     <center>
       <br>
       <div class="box">
-        一言コメント
+        <?php print($eventuser[0]['profile_message']); ?>
       </div>
       <br><a href="E-AC7.php">プロフィール編集</a>
     </center>
