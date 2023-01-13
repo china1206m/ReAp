@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
 <body bgcolor="#f0f8ff">
+    <form action="M-SC1.php" method="POST" enctype="multipart/form-data">
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
+    <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
     
     
 
@@ -19,10 +20,10 @@
     
     
       <div class="right"> 
-                <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
       </div>
     </div>
-
+</form>
     
 </main>
 
@@ -73,12 +74,6 @@
   p.classList.add("limit");
   var text = document.createTextNode(country[count]);
   p.appendChild(text);
-
-  // もっと見るを作成
-  var a = document.createElement('a');
-  a.classList.add("more-see");
-  a.href = "E-SE4.php";
-  a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
