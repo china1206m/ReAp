@@ -58,7 +58,7 @@
   .condition{
       display: inline;
       font-size: 20px;
-      margin-left: 150px;
+      margin-left: 100px;
   }
   
   ol{
@@ -105,6 +105,10 @@
       }
       .right{
         text-align: right;
+      }
+
+      li {
+        list-style: none;
       }
 }
 
@@ -166,7 +170,7 @@ font-size: 20px;
 .condition{
   display: inline;
   font-size: 20px;
-  margin-left: 150px;
+  margin-left: 100px;
 }
 
 ol{
@@ -216,6 +220,10 @@ ol{
   
   background: white;
   border: solid thin white;
+}
+
+ul {
+  list-style: none;
 }
 
 }
