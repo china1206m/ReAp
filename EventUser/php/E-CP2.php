@@ -1,8 +1,26 @@
+<?php
+/* セッション開始 */
+session_start();
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_SESSION['coupon_prefectures'] = $_POST['coupon_prefectures'];
+    $_SESSION['coupon_place'] = $_POST['coupon_place'];
+    $_SESSION['coupon_deadline'] = $_POST['coupon_deadline'];
+    $_SESSION['plan_cost'] = $_POST['plan_cost'];
+
+    // 画面遷移　クーポン検索結果画面
+    header('Location:E-CP3.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>画面ID E-CP2</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E-CP2.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
@@ -11,7 +29,7 @@
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン検索</h3>
 
-    <form action="E-CP3.php" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <table>
         <tr>
             <td><p><label class="label-prefectures-shop" for="prefectures" >都道府県</label></p></td>
