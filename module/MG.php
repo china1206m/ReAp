@@ -783,3 +783,58 @@ function MG_09($id1,$name,$id2,$place,$prefectures,$content,$deadline) {
   }
 
 }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//取得済みテーブル
+
+function MG_10($id1,$id2,$id3) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM get_coupon WHERE 1 = 1 ";
+
+    if (!empty($id1)) {
+      $sql .= "AND get_coupon_id = ? ";
+    }
+
+    if (!empty($id2)) {
+      $sql .= "AND user_id = ? ";
+    }
+
+    if (!empty($id3)) {
+      $sql .= "AND coupon_id = ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($id1)) {
+      $stmt->bindValue($n,$id1);
+      $n++;
+    }
+
+    if (!empty($id2)) {
+      $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!empty($id3)) {
+      $stmt->bindValue($n,$id3);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
