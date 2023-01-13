@@ -503,7 +503,7 @@ function MG_05($id1,$id2,$place,$content,$stay_time_hour,$stay_time_minute,$imag
 
 //イベントテーブル
 
-function MG_06($id1,$id2,$title,$prefectures,$day,$content,$place,$cost,$image,$total,$date) {
+function MG_06($id1,$id2,$title,$prefectures,$day_first,$day_end,$content,$place,$cost,$image,$total,$date) {
 
   $n = 1;
 
@@ -529,8 +529,12 @@ function MG_06($id1,$id2,$title,$prefectures,$day,$content,$place,$cost,$image,$
       $sql .= "AND event_prefectures = ? ";
     }
 
-    if (!empty($day)) {
-      $sql .= "AND event_day = ? ";
+    if (!empty($day_first)) {
+      $sql .= "AND event_day_first = ? ";
+    }
+
+    if (!empty($day_end)) {
+      $sql .= "AND event_day_end = ? ";
     }
 
     if (!empty($content)) {
@@ -580,8 +584,13 @@ function MG_06($id1,$id2,$title,$prefectures,$day,$content,$place,$cost,$image,$
       $n++;
     }
 
-    if (!empty($day)) {
-      $stmt->bindValue($n,$day);
+    if (!empty($day_first)) {
+      $stmt->bindValue($n,$day_first);
+      $n++;
+    }
+
+    if (!empty($day_end)) {
+      $stmt->bindValue($n,$day_end);
       $n++;
     }
 

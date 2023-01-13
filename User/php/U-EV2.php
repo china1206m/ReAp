@@ -3,7 +3,7 @@
 include "MG.php";
 
 $event_id = 1;
-$db = MG_06($event_id,"","","","","","","","","","");
+$db = MG_06($event_id,"","","","","","","","","","","");
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $eventuser_id = $event[0]['eventuser_id'];
