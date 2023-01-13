@@ -1,22 +1,3 @@
-<?php
-
-include "MG.php";
-
-$id = 1;
-
-$db = getDB();
-$sql = "SELECT * FROM plan_favorite WHERE user_id = ? ORDER BY plan_favorite_id DESC LIMIT 50";
-$stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
-$stmt->execute();
-
-$count1 = $stmt->rowCount();
-
-$plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,24 +27,7 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
     var ul = document.getElementById("ranking");
-    
-    <?php
-
-      for ($i = 0; $i < $count1; $i++) :
-
-        $plan_id = $plan_favorite[$i]['plan_id']; 
-        $db = MG_04($plan_id,"","","","","","","","","");
-        $plan = $db->fetchAll(PDO::FETCH_ASSOC);
-
-        $user_id = $plan[0]['user_id'];
-        $db = MG_01($user_id,"","","","","","","","");
-        $user = $db->fetchAll(PDO::FETCH_ASSOC);
-
-        $db = MG_05("","$plan_id","","","","","","","");
-        $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
-
-    ?>
-
+    for (var count = 0; count < 6; count++) {
         var li = document.createElement('li');
         li.classList.add("home-list");
 
@@ -76,7 +40,7 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php print($plan[0]['post_date']); ?>"
+      div_right.innerText = "投稿日"
 
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -87,25 +51,28 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = '<?php print($user[0]['user_name']); ?>'
+        img.alt = 'アイコン'
         
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($plan[0]['plan_title']); ?>";
+        div_title.innerHTML = "題名";
 
         var br = document.createElement('br');
 
         //条件追加
         var p_who = document.createElement('p');
         p_who.classList.add("condition");
-        p_who.innerHTML = "<?php print($plan[0]['plan_who']); ?>"
+        p_who.innerHTML = "誰と"
         var p_cost = document.createElement('p');
         p_cost.classList.add("condition");
-        p_cost.innerHTML = "<?php print($plan[0]['plan_cost']); ?>"
+        p_cost.innerHTML = "費用"
         var p_day = document.createElement('p');
         p_day.classList.add("condition");
-        p_day.innerHTML = "<?php print($plan[0]['plan_day']); ?>"
+        p_day.innerHTML = "何日"
+        var p_prefectures = document.createElement('p');
+        p_prefectures.classList.add("condition");
+        p_prefectures.innerHTML = "都道府県"
 
         //olの追加
         var ol = document.createElement('ol');
@@ -120,16 +87,16 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //場所名追加
         var p_planname = document.createElement('p');
         p_planname.classList.add("plan_content");
-        p_planname.innerHTML = "<?php print($plan_detail[0]['plan_place']); ?>"
+        p_planname.innerHTML = "場所名"
 
         //本文内容追加
         var p_content = document.createElement('p');
         p_content.classList.add("plan_content");
-        p_content.innerHTML = "<?php print($plan_detail[0]['plan_content']); ?>"
+        p_content.innerHTML = "本文内容"
 
         //滞在時間追加
         var p_time = document.createElement('p');
-        p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
+        p_time.innerHTML = "滞在時間"
         p_time.classList.add("plan_content");
 
         
@@ -137,7 +104,7 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //移動時間追加
         var p_travel = document.createElement('p');
         p_travel.classList.add("travel_time");
-        p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_minute']); ?>"
+        p_travel.innerHTML = "移動時間"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -152,9 +119,10 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
         div_yoko.appendChild(img);
-        div_yoko.appendChild(div_title);
+        div_yoko.appendChild(div_title); 
         div_ranking.appendChild(br);
         div_ranking.appendChild(br);
+        div_ranking.appendChild(p_prefectures);
         div_ranking.appendChild(p_who);
         div_ranking.appendChild(p_cost);
         div_ranking.appendChild(p_day);
@@ -171,7 +139,7 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
         
-      <?php endfor; ?>
+    }
 
     
 

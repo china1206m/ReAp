@@ -58,7 +58,8 @@
     .condition{
         display: inline;
         font-size: 20px;
-        margin-left: 150px;
+        width: 600px;
+        
     }
     
     ol{
@@ -107,6 +108,7 @@
         .right{
           text-align: right;
         }
+        
         
   }
   
