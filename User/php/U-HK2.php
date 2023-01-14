@@ -28,6 +28,9 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <ul id="ranking">
     </ul>
+
+    <div class="box1">
+    </div>
 </main>
 
 <aside id="sub">
