@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <ol id="place_list">
         <li>
             <div class="plan_information">
-            <input type="text" name="plan_place1" class="plan_place" value="" placeholder="場所名を入力" required>
+            <input type="text" name="plan_place1" class="plan_place" value="" minlength="1" maxlength="50" placeholder="場所名を入力(５０文字以内)　必須" required>
 
             <textarea name="plan_content1" class="plan_content" minlength="1" maxlength="1000" placeholder="本文内容を入力(1000文字以内)　必須" required></textarea>
 
@@ -138,7 +138,9 @@ function addCount(){
         input_place.setAttribute('name','plan_place' + count);
         input_place.classList.add("plan_place"); 
         input_place.value = "";
-        input_place.placeholder = "場所名を入力";
+        input_place.minLength = "1";
+        input_place.maxLength = "50";
+        input_place.placeholder = "場所名を入力(50文字以内)　必須";
         input_place.required = true;
 
         var textarea_content = document.createElement('textarea');
@@ -181,7 +183,7 @@ function addCount(){
         input_img.setAttribute('name','plan_image' + count);
         input_img.classList.add("plan_image");  
         input_img.multiple = true;
-
+        input_img.accept = "image/jpeg,image/png";
         
 
        
