@@ -58,7 +58,7 @@
   .condition {
     display: inline;
     font-size: 20px;
-    margin-left: 80px;
+    margin-left: 200px;
   }
   
   ol {
@@ -136,7 +136,7 @@
   .condition{
     display: inline;
     font-size: 20px;
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
   ol{
@@ -151,6 +151,4 @@
     width:92%;
     border: solid thin black;
   }
-
-  
 }
