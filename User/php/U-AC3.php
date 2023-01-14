@@ -16,7 +16,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID E-AC3</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="U-AC3.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
