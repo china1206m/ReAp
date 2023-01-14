@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['eventuser_id'] = $add->ma_return("eventuser",$column, $post, $type);
 
-    header('Location:E-EL1.php');
+    header('Location:E-EL1.html');
     exit;
   } else {
     $_SESSION['register_message'] = '送信データが正しくありません';
