@@ -24,7 +24,7 @@
 
         <div class="form-group" class="form-wrapper">
             <p><label for="user_mail" >パスワード（確認）<span class="require">必須</span></label></p>
-            <input type="password" class="user" class="form-control" name="user_pass" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$"  oninput="CheckPassword(this)" required>
+            <input type="password" class="user" class="form-control" name="user_pass" id="confirm" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$"  oninput="CheckPassword(this)" required>
             <i id="eye" class="fa-solid fa-eye"></i>
         </div>
 
@@ -46,6 +46,19 @@
       </ul>
   </aside>
 
+  <script>
+    function CheckPassword(confirm){
+        // 入力値取得
+        var input1 = password.value;
+        var input2 = confirm.value;
+        // パスワード比較
+        if(input1 != input2){
+            confirm.setCustomValidity("入力値が一致しません。");
+        }else{
+            confirm.setCustomValidity('');
+        }
+    }
+  </script>
 
 <!--パスワードの目隠しについて-->
 <script>
