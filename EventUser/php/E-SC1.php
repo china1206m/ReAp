@@ -5,7 +5,7 @@ session_start();
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_SESSION['event_serch'] = $_POST['event_search'];
+    $_SESSION['event_search'] = $_POST['event_search'];
     $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
     $_SESSION['event_day'] = $_POST['event_day'];
 
