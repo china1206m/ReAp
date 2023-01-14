@@ -283,7 +283,7 @@ function MG_03($id,$pass,$name) {
 
 //計画テーブル
 
-function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$date) {
+function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$date1,$day,$total,$season,$date2) {
 
   $n = 1;
 
@@ -317,6 +317,10 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $sql .= "AND plan_cost = ? ";
     }
 
+    if (!empty($date1)) {
+      $sql .= "AND plan_date = ? ";
+    }
+
     if (!empty($day)) {
       $sql .= "AND plan_day = ? ";
     }
@@ -329,7 +333,7 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $sql .= "AND plan_favorite_season = ? ";
     }
 
-    if (!empty($date)) {
+    if (!empty($date2)) {
       $sql .= "AND post_date = ? ";
     }
 
@@ -366,6 +370,11 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $n++;
     }
 
+    if (!empty($date1)) {
+      $stmt->bindValue($n,$date1);
+      $n++;
+    }
+
     if (!empty($day)) {
       $stmt->bindValue($n,$day);
       $n++;
@@ -381,8 +390,8 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $n++;
     }
 
-    if (!empty($date)) {
-      $stmt->bindValue($n,$date);
+    if (!empty($date2)) {
+      $stmt->bindValue($n,$date2);
       $n++;
     }
 
@@ -826,6 +835,71 @@ function MG_10($id1,$id2,$id3) {
 
     if (!empty($id3)) {
       $stmt->bindValue($n,$id3);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//E-SC2テーブル
+
+function MG_11($search,$prefectures,$day_first,$day_end) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM event WHERE 1 = 1 ";
+
+    if (!empty($search)) {
+      $sql .= "AND event_title LIKE ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND event_prefectures = ? ";
+    }
+
+    if (!empty($day_first)) {
+      $sql .= "AND event_day_end >= ? ";
+    }
+    
+    if (!empty($day_end)) {
+      $sql .= "AND event_day_first <= ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($search)) {
+      $search = '%'.$search.'%';
+      $stmt->bindValue($n,$search);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
+    if (!empty($day_first)) {
+      $stmt->bindValue($n,$day_first);
+      $n++;
+    }
+
+    if (!empty($day_end)) {
+      $stmt->bindValue($n,$day_end);
       $n++;
     }
 
