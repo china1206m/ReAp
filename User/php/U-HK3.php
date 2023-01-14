@@ -1,20 +1,20 @@
 <?php
 /* セッション開始 */
-session_start();
+//session_start();
 
 /* POSTで送信されている */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_SESSION['plan_search'] = $_POST['plan_search'];
-    $_SESSION['plan_who'] = $_POST['plan_who'];
-    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
-    $_SESSION['plan_cost'] = $_POST['plan_cost'];
-    $_SESSION['plan_stay'] = $_POST['plan_stay'];
+    //$_SESSION['plan_search'] = $_POST['plan_search'];
+    //$_SESSION['plan_who'] = $_POST['plan_who'];
+    //$_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
+    //$_SESSION['plan_cost'] = $_POST['plan_cost'];
+    //$_SESSION['plan_stay'] = $_POST['plan_stay'];
 
     // 画面遷移　計画検索結果画面
-    header('Location:U-HK11.php');
-    exit;
-}
+    //header('Location:U-HK11.php');
+    //exit;
+//}
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <main id="main">
-    <form action="" method="POST" name="searchForm" onSubmit="return check();">
+  <button type="button" class="button_back" onclick="history.back()">＜</button>
+    <form action=U-HK11.php"" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
+
       <p>カテゴリ</p>
       <table align="center">
         <tr>
@@ -58,12 +60,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <select id="pref" class="pref-select" name="plan_prefectures">
         <option value="">選択してください</option>
       </select>
+
+      <p>開催期間</p>
+        <table>
+        <tr>
+        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><div class="kara">～</div></td>
+        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
+        </tr>
+      </table>
   
       <p>費用</p>
-      <input type="text" name="plan_cost" class="cost"> 円
+      <input type="number" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
-      <input type="text" name="plan_stay" class="stay-from"> 泊 <input type="text" name="plan_stay_day" class="stay-to"> 日
+      <input type="number" name="plan_stay" class="stay-from"> 泊 <input type="number" name="plan_stay_day" class="stay-to"> 日
   
       <center>
         <br>
@@ -93,61 +104,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             {cd:"青森県", label:"青森県"},
             {cd:"岩手県", label:"岩手県"},
             {cd:"宮城県", label:"宮城県"},
-            {cd:"4", label:"秋田県"},
-            {cd:"5", label:"山形県"},
-            {cd:"6", label:"福島県"}
+            {cd:"秋田県", label:"秋田県"},
+            {cd:"山形県", label:"山形県"},
+            {cd:"福島県", label:"福島県"}
         ];
         array["kanto"] = [
-            {cd:"1", label:"茨城県"},
-            {cd:"2", label:"栃木県"},
-            {cd:"3", label:"群馬県"},
-            {cd:"4", label:"埼玉県"},
-            {cd:"5", label:"千葉県"},
-            {cd:"6", label:"東京都"},
-            {cd:"7", label:"神奈川県"}
+            {cd:"茨城県", label:"茨城県"},
+            {cd:"栃木県", label:"栃木県"},
+            {cd:"群馬県", label:"群馬県"},
+            {cd:"埼玉県", label:"埼玉県"},
+            {cd:"千葉県", label:"千葉県"},
+            {cd:"東京都", label:"東京都"},
+            {cd:"神奈川県", label:"神奈川県"}
         ];
         array["tyubu"] = [
-            {cd:"1", label:"新潟県"},
-            {cd:"2", label:"富山県"},
-            {cd:"3", label:"石川県"},
-            {cd:"4", label:"福井県"},
-            {cd:"5", label:"山梨県"},
-            {cd:"6", label:"長野県"},
-            {cd:"7", label:"岐阜県"},
-            {cd:"8", label:"静岡県"},
-            {cd:"9", label:"愛知県"}
+            {cd:"新潟県", label:"新潟県"},
+            {cd:"富山県", label:"富山県"},
+            {cd:"石川県", label:"石川県"},
+            {cd:"福井県", label:"福井県"},
+            {cd:"山梨県", label:"山梨県"},
+            {cd:"長野県", label:"長野県"},
+            {cd:"岐阜県", label:"岐阜県"},
+            {cd:"静岡県", label:"静岡県"},
+            {cd:"愛知県", label:"愛知県"}
         ];
         array["kansai"] = [
-            {cd:"1", label:"三重県"},
-            {cd:"2", label:"滋賀県"},
-            {cd:"3", label:"京都府"},
-            {cd:"4", label:"大阪府"},
-            {cd:"5", label:"兵庫県"},
-            {cd:"6", label:"奈良県"},
-            {cd:"7", label:"和歌山県"}
+            {cd:"三重県", label:"三重県"},
+            {cd:"滋賀県", label:"滋賀県"},
+            {cd:"京都府", label:"京都府"},
+            {cd:"大阪府", label:"大阪府"},
+            {cd:"兵庫県", label:"兵庫県"},
+            {cd:"奈良県", label:"奈良県"},
+            {cd:"和歌山県", label:"和歌山県"}
         ];
         array["tyugoku"] = [
-            {cd:"1", label:"鳥取県"},
-            {cd:"2", label:"島根県"},
-            {cd:"3", label:"岡山県"},
-            {cd:"4", label:"広島県"},
-            {cd:"5", label:"山口県"}
+            {cd:"鳥取県", label:"鳥取県"},
+            {cd:"島根県", label:"島根県"},
+            {cd:"岡山県", label:"岡山県"},
+            {cd:"広島県", label:"広島県"},
+            {cd:"山口県", label:"山口県"}
         ];
         array["shikoku"] = [
-            {cd:"1", label:"香川県"},
-            {cd:"2", label:"徳島県"},
-            {cd:"3", label:"愛媛県"},
-            {cd:"4", label:"高知県"}
+            {cd:"香川県", label:"香川県"},
+            {cd:"徳島県", label:"徳島県"},
+            {cd:"愛媛県", label:"愛媛県"},
+            {cd:"高知県", label:"高知県"}
         ];
         array["kyushu-okinawa"] = [
-            {cd:"1", label:"福岡県"},
-            {cd:"2", label:"佐賀県"},
-            {cd:"3", label:"長崎県"},
-            {cd:"4", label:"熊本県"},
-            {cd:"5", label:"大分県"},
-            {cd:"6", label:"宮崎県"},
-            {cd:"7", label:"鹿児島県"},
-            {cd:"8", label:"沖縄県"}
+            {cd:"福岡県", label:"福岡県"},
+            {cd:"佐賀県", label:"佐賀県"},
+            {cd:"長崎県", label:"長崎県"},
+            {cd:"熊本県", label:"熊本県"},
+            {cd:"大分県", label:"大分県"},
+            {cd:"宮崎県", label:"宮崎県"},
+            {cd:"鹿児島県", label:"鹿児島県"},
+            {cd:"沖縄県", label:"沖縄県"}
         ];
 
     document.getElementById('region').onchange = function(){
@@ -168,8 +179,8 @@ function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
 var plansearch = document.searchForm.plan_search.value;
 
-if ( prefectures == "" && plansearch == "") {
-alert ( "検索したい項目を入力してください。" );
+if ( prefectures == "" && plansearch == "" ) {
+alert ( "キーワードを入力、または都道府県を選択してください。" );
 document.searchForm.plan_search.focus();
 return false;
 }
