@@ -184,4 +184,13 @@
       border: solid thin white;
       margin-left: 50%;
     }
+
+    .box1{
+      /*計画内の場所の情報掲載デザイン*/ 
+      height: 300px;
+      background:white; /*背景色の指定*/
+      width:92%;
+      border: solid thin white;
+      
+    }
 }
