@@ -28,7 +28,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="center">
         <?php print($user[0]['user_name']); ?>
       </div>
-      <div class="left"><p class="image-circle"></p></div>
+      <div class="left"><img src="U-menu-acount.png" class="image-circle"></div>
     </div>
     
     <center>
