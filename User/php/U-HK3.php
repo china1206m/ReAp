@@ -61,12 +61,12 @@
         <option value="">選択してください</option>
       </select>
 
-      <p>開催期間</p>
+      <p>期間</p>
         <table>
         <tr>
-        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><input type="date" id="date" name="plan_search_first" class="event-day" value=""></td>
         <td><div class="kara">～</div></td>
-        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
+        <td><input type="date" id="date" name="plan_search_end" class="event-day2" value=""></td>
         </tr>
       </table>
   
@@ -74,8 +74,7 @@
       <input type="number" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
-      <input type="number" name="plan_stay" class="stay-from"> 泊 <input type="number" name="plan_stay_day" class="stay-to"> 日
-  
+      <input type="number" name="plan_day" class="stay"> 泊
       <center>
         <br>
         <br>
@@ -178,9 +177,11 @@
 function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
 var plansearch = document.searchForm.plan_search.value;
+var date_first = document.searchForm.plan_search_first.value;
+var date_end = document.searchForm.plan_search_end.value;
 
-if ( prefectures == "" && plansearch == "" ) {
-alert ( "キーワードを入力、または都道府県を選択してください。" );
+if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
+alert ( "検索したい項目を入力してください。" );
 document.searchForm.plan_search.focus();
 return false;
 }
