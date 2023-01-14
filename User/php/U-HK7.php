@@ -3,7 +3,7 @@
 include "MG.php";
 
 $id = 1;
-$db = MG_04($id,"","","","","","","","","");
+$db = MG_04($id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $user_id = $plan[0]['user_id']; 
