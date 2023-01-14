@@ -5,7 +5,7 @@ session_start();
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_SESSION['event_serch'] = $_POST['event_search'];
+    $_SESSION['event_search'] = $_POST['event_search'];
     $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
     $_SESSION['event_day'] = $_POST['event_day'];
 
@@ -99,7 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select>
 
         <p><label for="event_day">開催期間</label></p>
-        <input type="date" id="date" name="event_day" class="event-day" value="">
+        <table>
+        <tr>
+        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><div class="kara">～</div></td>
+        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
+        </tr>
+      </table>
 
         <center>
           <br>

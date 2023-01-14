@@ -31,7 +31,7 @@
         <br>
         <br>
         <center>
-            <button type="submit" class="button-only">登録する</button>
+            <button type="submit" class="button-only">変更する</button>
         </center>
     </form>
 </main>

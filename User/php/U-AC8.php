@@ -50,7 +50,7 @@ session_start();
                 </button>
             </form>
     
-            <form action="U-AC1.html">
+            <form action="U-AC3.php">
                 <button type="submit" class="button-only">
                 同意しません
                 </button>

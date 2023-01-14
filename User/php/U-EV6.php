@@ -1,8 +1,26 @@
+<?php 
+
+include "MG.php";
+
+$event_search = "";
+$event_prefectures = "";
+$event_day_first = "";
+$event_day_end = "";
+
+$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+
+$count1 = $db->rowCount();
+
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>U-EV6</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-EV6.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -26,7 +44,13 @@
   <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
     var ul = document.getElementById("self_contribution");
-    for (var count = 0; count < 6; count++) {
+    
+    <?php
+
+      for ($i = 0; $i < $count1; $i++) :
+
+    ?>
+
         var li = document.createElement('li');
         li.classList.add("list");
   
@@ -48,14 +72,14 @@
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "題名";
+        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
   
         var br = document.createElement('br');
   
         //条件追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "本文"
+        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -72,7 +96,9 @@
         div_ranking.appendChild(br);
         div_ranking.appendChild(p);
         div_ranking.appendChild(a);
-    }
+    
+        <?php endfor; ?>
+
   </script>
 </body>
 </html>

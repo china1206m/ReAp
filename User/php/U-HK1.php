@@ -22,7 +22,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID U-HK1</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-HK1.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -54,6 +54,8 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <ul id="self_contribution">
     </ul>
 
+    <div class="box1">
+      </div>
 </main>
 
 <aside id="sub">
@@ -141,7 +143,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
+      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
       p_time.classList.add("plan_content");
 
       
@@ -149,7 +151,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_minute']); ?>"
+      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
       // もっと見るを作成
       var a = document.createElement('a');
