@@ -48,19 +48,11 @@ p {
   border: 2px solid;
 }
 
-.stay-from {
+.stay {
   width: 200px;
   height: 40px;
   font-size: 1.5em;
   margin-left: 250px;
-  padding: 0.5em;
-  border: 2px solid;
-}
-
-.stay-to {
-  width: 200px;
-  height: 40px;
-  font-size: 1.5em;
   padding: 0.5em;
   border: 2px solid;
 }
