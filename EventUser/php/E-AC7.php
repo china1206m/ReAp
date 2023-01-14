@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>画面ID E-AC7</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E-AC7.css" type="text/css">
   <link rel="stylesheet" href="E_button.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
@@ -19,13 +19,13 @@
     </center>
 
               <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
-              <input type="text" class="txt" name="user_name" maxlength="20" value="登録情報" placeholder="20文字以内" required>
+              <input type="text" class="txt" name="user_name" maxlength="20" placeholder="20文字以内" required>
                 
               <p><label for="message" >一言コメント</label></p>
                 <p><textarea class="tarea" name="profiel_message">テキストエリア</textarea></p>
                 
     <center>
-               <button type="submit" class="button-only">登録する</button>
+               <button type="submit" class="button-only">変更する</button>
             </form>
     </center>
   </main>
