@@ -1,15 +1,15 @@
 <?php
 
-include "MG.php";
+//include "MG.php";
 
-$db = getDB();
-$sql = "SELECT * FROM event ORDER BY post_date DESC LIMIT 50";
-$stmt = $db->prepare($sql);
-$stmt->execute();
+//$db = getDB();
+//$sql = "SELECT * FROM event ORDER BY post_date DESC LIMIT 50";
+//$stmt = $db->prepare($sql);
+//$stmt->execute();
 
-$count1 = $stmt->rowCount();
+//$count1 = $stmt->rowCount();
 
-$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -25,7 +25,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <div align="right">
-      <button class="btn" href="U-HK3.php"><img src="search.png"></button>
+      <button class="btn" onclick="location.href='U-EV4.php'"><img src="search.png"></button>
     </div>
     <ul id="event-list">
     </ul>
@@ -46,25 +46,32 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
     var ul = document.getElementById("event-list");
     <?php 
 
-      for ($i = 0; $i < $count1; $i++) :  
+      //for ($i = 0; $i < $count1; $i++) :  
 
-        $eventuser_id = $event[$i]['eventuser_id']; 
-        $db = MG_02($eventuser_id,"","","","","","","","","");
-        $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+        //$eventuser_id = $event[$i]['eventuser_id']; 
+        //$db = MG_02($eventuser_id,"","","","","","","","","");
+        //$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
     ?>
-        var li = document.createElement('li');
-        li.classList.add("list");
+
+    for (var i = 0; i < 3; i++) {
+      var li = document.createElement('li');
+        li.classList.add("event_list");
   
-        //ランキング情報のための四角追加
-        var div_ranking = document.createElement('div');
-        div_ranking.classList.add("all_information");
+        //イベント情報のための四角追加
+        var div_eventlist = document.createElement('div');
+        div_eventlist.classList.add("all_information");
+
+        //投稿日の追加
+      var div_right = document.createElement('div');
+      div_right.classList.add("right");
+      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
 
         //アイコン追加
         var img = document.createElement('img');
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
+        img.alt = '<?php //print($eventuser[0]['eventuser_name']) ?>yu-za-mei'
   
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -73,14 +80,14 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
+        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?> taitoru";
   
         var br = document.createElement('br');
   
-        //条件追加
+        //イベント内容追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>naiyou"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -89,17 +96,17 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         a.innerText = "...もっと見る";
   
         ul.appendChild(li);
-        li.appendChild(div_ranking);
-        div_ranking.appendChild(div_yoko);
+        li.appendChild(div_eventlist);
+        div_eventlist.appendChild(div_right);
+        div_eventlist.appendChild(div_yoko);
         div_yoko.appendChild(img);
         div_yoko.appendChild(div_title);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(p);
-        div_ranking.appendChild(a);
-    
-
-        <?php endfor; ?>
+        div_eventlist.appendChild(br);
+        div_eventlist.appendChild(br);
+        div_eventlist.appendChild(p);
+        div_eventlist.appendChild(a);
+    }
+        <?php //endfor; ?>
 
   </script>
 </body>
