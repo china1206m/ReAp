@@ -17,7 +17,7 @@ class MU{
     }
 
 
-    function mu($table, $column, $post, $type, $column_id, $id){
+    function mu($table, $column, $post, $type, $id_name, $id){
     
         $sum = $table." set ";
     
@@ -61,9 +61,11 @@ class MU{
         }
         
         $sum = "plan set plan_favorite_total = plan_favorite_total".$num."plan_favorite_season = plan_favorite_total".$num." WHERE plan_id = ".$id;
+        $this->db($sum);
     }
 
     function reset(){
         $sum = "plan set plan_favorite_season = 0";
+        $this->db($sum);
     }
 }
