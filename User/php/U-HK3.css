@@ -81,6 +81,25 @@ p {
   background-color: white;
 }
 
+.event-day{
+  width: 300px;
+  height: 40px;
+  font-size: 1.5em;
+  margin-left: 200px;
+}
+
+.kara{
+  font-size: 50px;
+  margin-left: 100px;
+}
+
+.event-day2{
+  width: 300px;
+  height: 40px;
+  font-size: 1.5em;
+  margin-left: 100px;
+}
+
 @media screen and (max-width:990px) {
   /* ラジオボタン */
   input[type=radio] {
@@ -112,3 +131,55 @@ p {
     background-color: #E2EDF9;
   }
 }
+
+/*パソコン用*/
+@media screen and (min-width:990px) {
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 1.2em;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  /* ホバー時（カーソルをのせた時）の見た目 */
+  .button_back:hover {
+    background-color: white; /* 背景色 */
+  }
+}
+
+/*スマホ用*/
+@media screen and (max-width:990px) {
+  /*戻るボタンのデザイン*/
+    .button_back {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+  
+      /* 整える */
+      display: inline;
+      width: 10px;
+      margin-left: 30px;
+      padding: 0.6em 1em; /* 塗りの余白 */
+      font-weight: bold;
+      background-color: white; /* 背景色 */
+      color: black; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+  }
