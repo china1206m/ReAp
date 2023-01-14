@@ -52,7 +52,7 @@ $plan_favorite = $stmt->fetchAll(PDO::FETCH_ASSOC);
       for ($i = 0; $i < $count1; $i++) :  
 
       $plan_id = $plan_favorite[$i]['plan_id']; 
-      $db = MG_04($plan_id,"","","","","","","","","");
+      $db = MG_04($plan_id,"","","","","","","","","","");
       $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
       $db = MG_05("",$plan_id,"","","","","","","");
