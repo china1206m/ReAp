@@ -36,7 +36,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
     <p><?php print($event[0]['event_content']) ?></p>
     <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
-    <p><?php print($event[0]['event_cost']) ?></p>
+    <p><?php print($event[0]['event_cost']) ?>円</p>
     <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_place']) ?></p>
     <center id="image_area">
