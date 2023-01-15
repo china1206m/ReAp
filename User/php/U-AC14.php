@@ -3,13 +3,13 @@
     <head>
         <title>U-AC14</title>
         <meta charset = "UTF-8">
-        <link rel="stylesheet" href = "button.css">
         <link rel="stylesheet" href = "U-AC14.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
     <body>
         <main id="main">
-        <button type="button" class="button_back" onclick="history.back()"><h3 class="button_back">＜</h3></button>
+            <form action="" method="POST" name="searchForm" onSubmit="return check();"></form>
+        <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
         
 
@@ -21,26 +21,21 @@
 
             <ol type="1" id="numberlist">
                 <li>
-                    <button type="button" class="coupon">
+                    <a type="submit" class="button" onclick="location.href='U-AC15.php'">
                         <div class="left">
-                            <div class="price"></div>
+                            <div class="price" name="coupon_content">内容</div>
                         </div>
                     
                         <div class="right">
-                            <div class="date">有効期限 年 月 日</div>
+                            <div class="date" name="coupon_deadline">有効期限 年 月 日</div>
                         </div> 
-                    </button>  
+                    </a>  
                 </li>
             </ol>
                     
         </div>
 
-        <div class="k2">
-            <button "type="button" onclick="location.href='U-AC15.html'" class="button-only">
-                使用
-            </button>
-        </div>
-        </form>
+    </form>
     </main>
 
         <aside id="sub">
@@ -58,15 +53,17 @@
                 for(var count = 0; count < 3; count++){
                     var li = document.createElement('li');
                     
-                    var button = document.createElement('button');
-                    button.classList.add("coupon");
-                    button.type = 'button;'
+                    var a = document.createElement('a');
+                    a.classList.add("button");
+                    a.href = 'U-AC15.php';
+                    a.type = 'submit';
 
                     var div1 = document.createElement('div');
                     div1.classList.add("left");
 
                     var div2 = document.createElement('div');
                     div2.classList.add("price");
+                    div2.innerText = "内容";
 
                     var div3 = document.createElement('div');
                     div3.classList.add("right");
@@ -77,10 +74,10 @@
                     
 
                     ol.appendChild(li);
-                    li.appendChild(button);
-                    button.appendChild(div1);
+                    li.appendChild(a);
+                    a.appendChild(div1);
                     div1.appendChild(div2);
-                    button.appendChild(div3);
+                    a.appendChild(div3);
                     div3.appendChild(div4);
                 }
         </script>

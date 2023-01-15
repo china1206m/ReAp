@@ -127,3 +127,23 @@
 .button-only:hover {
     background-color: #064fda; /* 背景色 */
   }
+
+  .button {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: flex;
+    width: 100%;
+    max-width: 620px;
+    background: rgb(165, 171, 242);
+    margin-top: 150px;
+    margin: 75px;
+  }
+
+  /* ホバー時（カーソルをのせた時）の見た目 */
+button:hover {
+    background-color: #064fda; /* 背景色 */
+  }
