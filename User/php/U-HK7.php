@@ -36,7 +36,7 @@
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     <ul id="plan">
       <li class="plan_list">
-        <div class="home_information">
+        <div class="plan_information">
           <p align="right">toukoubi</p>
           <div class="yoko">
             <img src="monkey.png" class="circle" align="left" alt="">
@@ -78,7 +78,7 @@ var li_ol = document.createElement('li');
 
 //場所の四角の追加
 var div_home = document.createElement('div');
-div_home.classList.add("home_information");
+div_home.classList.add("plan_information");
 
 //場所名追加
 var p_placename = document.createElement('p');
