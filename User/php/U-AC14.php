@@ -8,7 +8,7 @@
     </head>
     <body>
         <main id="main">
-            <form action="" method="POST" name="searchForm" onSubmit="return check();"></form>
+        <form action="" method="POST" name="searchForm" onSubmit="return check();">
         <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
         
