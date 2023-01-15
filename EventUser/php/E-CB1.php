@@ -139,8 +139,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <table>     
 <tr>
-  <td><p><label for="day">開催開始日</label></p></td>
-  <td><p><label for="day">開催終了日</label></p></td>
+  <td><p><label for="day">開催開始日<span class="require">必須</span></label></p></td>
+  <td><p><label for="day">開催終了日<span class="require">必須</span></label></p></td>
 </tr>
 <tr>
   <td><input type="date" id="date" name="event_day_first" class="event_day" value="" required></td>
@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </tr>
 
 <tr>
-  <td><input type="money" id="date" name="event_cost" class="event_cost" minlength="1"></td>
+  <td><input type="number" id="date" name="event_cost" class="event_cost" minlength="1"></td>
  </tr>
 </table>
 
