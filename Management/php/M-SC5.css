@@ -1,0 +1,205 @@
+/*パソコン用*/
+@media screen and (min-width:990px) {
+  .button_back {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    
+      /* 整える */
+      display: inline;
+      width: 10px;
+      margin-left: 30px;
+      padding: 0.6em 1em; /* 塗りの余白 */
+      font-size: 1.2em;
+      background-color: #f0f8ff; /* 背景色 */
+      color: black; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+  
+    /* ホバー時（カーソルをのせた時）の見た目 */
+  .button_back:hover {
+      background-color: #f0f8ff; /* 背景色 */
+    }
+  
+  h3{
+      margin-left: 0;
+      font-size: 1em;
+    }
+
+    .btn {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      
+      background: white;
+      border: solid thin white;
+    }
+
+      .circle {
+        width:100px;
+        height:100px;
+        border: 1px solid;
+        border-radius: 50%;
+      }
+
+      .title {
+        margin: 0 0 0 20px;
+        padding: 0;
+        font-weight: bold;
+        font-size: 40px;
+        text-align: center;
+      }
+    
+    .content{
+        display: inline;
+        font-size: 20px;
+        margin-left: 100px;
+    }
+    
+    ol{
+        font-size: 40px;
+        margin-left: 20px;
+    }
+    
+    /*計画の情報掲載デザイン*/ 
+    .all_information{
+      margin-top: 10px;
+        padding: 10px;
+        background:white; /*背景色の指定*/
+        width:94%;
+        position: relative;
+        border: solid medium #dae5f8;
+        }
+    
+    /*もっと見るボタンのデザイン*/
+    .more-see { 
+        color: gray;
+        text-decoration: none; 
+        font-weight: bold;
+        font-size: 1.1em;
+        position:absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 100px;
+        }
+    
+    .list{
+        list-style:none;
+    }
+
+    .right {
+      text-align: right;
+    }
+}
+
+
+/*スマホ用*/
+@media screen and (max-width:990px) {
+  /*戻るボタンのデザイン*/
+  .button_back {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    
+      /* 整える */
+      display: inline;
+      width: 10px;
+      margin-left: 30px;
+      padding: 0.6em 1em; /* 塗りの余白 */
+      font-weight: bold;
+      background-color: white; /* 背景色 */
+      color: black; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+  
+  h3{
+      margin-left: 0;
+      font-size: 3em;
+    }
+
+    /*計画内の場所の情報掲載デザイン*/ 
+    .account_information{
+      background:white; /*背景色の指定*/
+      width:98%;
+      border: solid thin black;
+      margin-left: 8px;
+      text-align: center;
+      }
+
+      .circle {
+        width:100px;
+        height:100px;
+        border: 1px solid;
+        border-radius: 50%;
+      }
+
+
+      .plan{
+      background: #faebd7; /*背景色の指定*/
+      width:98%;
+      height: 70px;
+      font-size: 3em;
+      border: solid thin black;
+      margin-left: 8px;
+      text-align: center;
+      }
+    
+    .content{
+        display: inline;
+        font-size: 20px;
+        margin-left: 100px;
+    }
+    
+    ol{
+        font-size: 40px;
+        margin-left: 20px;
+    }
+    
+    /*計画の情報掲載デザイン*/ 
+    .all_information{
+      margin-top: 10px;
+        padding: 10px;
+        background:white; /*背景色の指定*/
+        width:94%;
+        position: relative;
+        border: solid medium #dae5f8;
+        }
+    
+    /*もっと見るボタンのデザイン*/
+    .more-see { 
+        color: gray;
+        text-decoration: none; 
+        font-weight: bold;
+        font-size: 1.1em;
+        position:absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 100px;
+        }
+    
+    .list{
+        list-style:none;
+    }
+
+    .btn {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      
+      background: white;
+      border: solid thin white;
+    }
+    .right {
+      text-align: right;
+    }
+}
