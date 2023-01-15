@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
   
       <center>
-      <button type="submit" class="button-only" name="submit">投稿</button>
+      <button type="submit" class="button-only" name="submit">次へ</button>
       </center>
     </form>
   </main>
