@@ -1,14 +1,14 @@
 <?php
 
-//include "MG.php";
+include "MG.php";
 
-//$event_id = 1;
-//$db = MG_06($event_id,"","","","","","","","","","","");
-//$event = $db->fetchAll(PDO::FETCH_ASSOC);
+$event_id = 1;
+$db = MG_06($event_id,"","","","","","","","","","","");
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
-//$eventuser_id = $event[0]['eventuser_id'];
-//$db = MG_02($eventuser_id,"","","","","","","","","");
-//$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+$eventuser_id = $event[0]['eventuser_id'];
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -48,7 +48,7 @@
             </div>
             <center id="image_area"></center>
             <p><?php print($event[0]['event_content']); ?></p>
-            <p><?php print($event[0]['event_cost']); ?></p>
+            <p><?php print($event[0]['event_cost']); ?>円</p>
           </div>
         </li>
       </ul>
