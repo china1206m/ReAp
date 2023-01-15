@@ -8,7 +8,7 @@
 </head>
 <body>
 <main id="main">
-  <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back"></h3>
+  <button type="button" class="button_back" onclick="history.back()">＜</button>
 
 
   <form action="E-SC2.php" method="post" name="searchForm" onSubmit="return check();">
@@ -81,8 +81,14 @@
           </optgroup>
         </select>
 
-        <p><label for="shop">開催期間</label></p>
-        <input type="date" id="date" name="eventday" class="event-day" value="">
+        <p><label for="event_day">開催期間</label></p>
+        <table>
+        <tr>
+        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><div class="kara">～</div></td>
+        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
+        </tr>
+      </table>
 
         <center>
           <br>
@@ -103,13 +109,14 @@
     </ul>
   </aside>
 
-<script>
+  <script>
 function check () {
 var prefectures = document.searchForm.prefectures.value;
-var eventday = document.searchForm.eventday.value;
 var eventsearch = document.searchForm.event_search.value;
+var date_first = document.searchForm.event_search_first.value;
+var date_end = document.searchForm.event_search_end.value;
 
-if ( prefectures == "" && eventday == "" && eventsearch == "") {
+if ( prefectures == "" && eventsearch == "" && date_first == "" && date_end == "" ) {
 alert ( "検索したい項目を入力してください。" );
 document.searchForm.event_search.focus();
 return false;
