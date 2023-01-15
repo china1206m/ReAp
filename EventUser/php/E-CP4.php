@@ -1,3 +1,15 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+
+$db = MG_09($id,"","","","","","");
+$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +28,13 @@
     <center>
     
     <hr class="top">
-    <p class="coupon">都道府県：</p>
+    <p class="coupon">都道府県：<?php print($coupon[0]['coupon_prefectures']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　店名：</p>
+    <p class="coupon">　　店名：<?php print($coupon[0]['coupon_place']); ?></p>
     <hr class="middle">
-    <p class="coupon">使用期限：</p>
+    <p class="coupon">使用期限：<?php print($coupon[0]['coupon_deadline']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　詳細：</p>
+    <p class="coupon">　　詳細：<?php print($coupon[0]['coupon_content']); ?></p>
 
     <hr class="under">
     
