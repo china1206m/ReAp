@@ -1,3 +1,24 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+$db = MG_02($id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$db = getDB();
+$sql = "SELECT * FROM event WHERE eventuser_id = ? ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$id);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +62,13 @@
   
 
   var ul = document.getElementById("country_list");
-  for (var count = 0; count < 3; count++) {
+  
+  <?php 
+
+      for ($i = 0; $i < $count1; $i++) :
+
+  ?>
+
 	// li要素を作成
 	var li = document.createElement('li');
   li.classList.add("event_information");
@@ -49,15 +76,15 @@
   //投稿日の追加
   var div_right = document.createElement('p');
       div_right.classList.add("p_right");
-      div_right.innerText = "投稿日";
+      div_right.innerText = "<?php print($event[$i]['post_date']) ?>";
 
   //都道府県の追加
       var div_pre = document.createElement('p');
-      div_pre.innerText = "都道府県"
+      div_pre.innerText = "<?php print($event[$i]['event_prefectures']) ?>"
 
   //開始日の追加
   var div_first = document.createElement('p');
-      div_first.innerText = "開催開始日"
+      div_first.innerText = "<?php print($event[$i]['event_day_first']) ?>"
       div_first.classList.add("yoko");
 
   //~の追加
@@ -68,11 +95,11 @@
   //終了日の追加
   var div_end = document.createElement('p');
       div_end.classList.add("yoko");
-      div_end.innerText = "開催終了日"
+      div_end.innerText = "<?php print($event[$i]['event_day_end']) ?>"
 
   //場所の追加
   var div_place = document.createElement('p');
-      div_place.innerText = "場所"
+      div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
 
   // アイコンを作成
   var img = document.createElement('img');
@@ -86,12 +113,12 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  div.innerHTML = "題名"
+  div.innerHTML = "<?php print($event[$i]['event_title']) ?>"
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  p.innerHTML = "本文";
+  p.innerHTML = "<?php print($event[$i]['event_content']) ?>";
 
   // もっと見るを作成
   var a = document.createElement('a');
@@ -111,6 +138,8 @@
   li.appendChild(div_place);
   li.appendChild(p);
   li.appendChild(a);
-}
+
+        <?php endfor; ?>
+
 </Script>
 </body>
