@@ -29,9 +29,9 @@
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()">＜</button>
+  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <form action=U-HK11.php"" method="POST" name="searchForm" onSubmit="return check();">
-      <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
+      <input type="search" name="plan_search" class="plan_search" maxlength="32" placeholder="キーワードを入力">
 
       <p>カテゴリ</p>
       <table align="center">
@@ -64,9 +64,9 @@
       <p>期間</p>
         <table>
         <tr>
-        <td><input type="date" id="date" name="plan_search_first" class="event-day" value=""></td>
+        <td><input type="date" id="date" name="plan_search_first" class="plan-day" value=""></td>
         <td><div class="kara">～</div></td>
-        <td><input type="date" id="date" name="plan_search_end" class="event-day2" value=""></td>
+        <td><input type="date" id="date" name="plan_search_end" class="plan-day2" value=""></td>
         </tr>
       </table>
   
@@ -85,7 +85,7 @@
 
   <aside id="sub">
     <ul class="menu">
-        <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
@@ -181,7 +181,7 @@ var date_first = document.searchForm.plan_search_first.value;
 var date_end = document.searchForm.plan_search_end.value;
 
 if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
-alert ( "検索したい項目を入力してください。" );
+alert ( "キーワードを入力するか、都道府県または期間を選択してください" );
 document.searchForm.plan_search.focus();
 return false;
 }
