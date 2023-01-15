@@ -47,12 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
+
+      <p>
+        <font size="+4">タイトル</font>
+      </p>
+      <div align="center">
+        <input type="text" name="plan_title" class="title" required placeholder="タイトル">
+      </div>
+
       <p>
         <font size="+4">カテゴリ</font>
       </p>
       <table align="center">
         <tr>
-          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="一人" id="one" required="required"><label for="one">一人</label></td>
           <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
@@ -65,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <font size="+4">都道府県</font>
       </p>
       <div align="center">
-        <select id="region" class="region-select">
+        <select id="region" class="region-select" required>
             <option value="">選択してください</option>
             <option value="hokkaido">北海道地方</option>
             <option value="tohoku">東北地方</option>
@@ -76,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="shikoku">四国地方</option>
             <option value="kyushu-okinawa">九州・沖縄地方</option>
           </select>
-          <select id="pref" class="pref-select" name="plan_prefectures">
+          <select id="pref" class="pref-select" name="plan_prefectures" required>
             <option value="">選択してください</option>
           </select>
       </div>
@@ -87,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </p>
       
       <div align="center">
-        <input type="number" name="plan_cost" class="cost"> 
+        <input type="number" name="plan_cost" class="cost" required> 
         <font size="+3">
             円
         </font>
@@ -98,11 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <font size="+4">宿泊</font>
       </p>
       <div align="center">
-        <input type="number" name="plan_day" class="stay-from"> 
+        <input type="number" name="plan_day" class="stay-from" required> 
         <font size="+3">
             泊 
         </font>
-        <input type="number" name="plan_day" class="stay-to"> 
+        <input type="number" name="plan_day" class="stay-to" required> 
         <font size="+3">
             日
         </font>
@@ -207,15 +215,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </script>
   <script>
 function check () {
+var title = document.searchForm.plan_title.value;
 var who = document.searchForm.plan_who.value;
 var prefectures = document.searchForm.plan_prefectures.value;
 var cost = document.searchForm.plan_cost.value;
 var day = document.searchForm.plan_day.value;
 
 
-if ( who == "" || prefectures == "" || cost == "" || day == "") {
+if ( title == "" && who == "" && prefectures == "" && cost == "" && day == "") {
 alert ( "投稿したい項目を入力してください。" );
-document.searchForm.plan_prefectures.focus();
+document.searchForm.plan_title.focus();
 return false;
 }
 
