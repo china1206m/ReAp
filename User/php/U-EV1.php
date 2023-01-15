@@ -83,6 +83,11 @@
         div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?> taitoru";
   
         var br = document.createElement('br');
+
+        //都道府県の追加
+      var p_pre = document.createElement('p');
+      p_pre.classList.add("pref");
+      p_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
   
         //イベント内容追加
         var p = document.createElement('p');
@@ -103,6 +108,7 @@
         div_yoko.appendChild(div_title);
         div_eventlist.appendChild(br);
         div_eventlist.appendChild(br);
+        div_eventlist.appendChild(p_pre);
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
     }
