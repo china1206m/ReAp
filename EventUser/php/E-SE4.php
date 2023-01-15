@@ -1,3 +1,17 @@
+<?php
+
+include "MG.php";
+
+$id = 2;
+$db = MG_06($id,"","","","","","","","","","","");
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$eventuser_id = $event[0]['eventuser_id']; 
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,21 +24,21 @@
 <body bgcolor="#f0f8ff">
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿イベント</h3>
-    <p class="post_day">投稿日</p>
+    <p class="post_day"><?php print($event[0]['post_date']) ?></p>
 <div class="yoko">
   <ul>
   <li><div class="event_information">
     <img src = 'monkt.png' class="circle" align="left" alt="アイコン" width="100%" height="100%">
     
     <div class="title">
-    題名
+      <?php print($event[0]['event_title']) ?>
     </div>
 
-    <p>本文の内容</p>
+    <p><?php print($event[0]['event_content']) ?></p>
     <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
-    <p>費用</p>
-    <p>開催日時</p>
-    <p>開催場所</p>
+    <p><?php print($event[0]['event_cost']) ?></p>
+    <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
+    <p><?php print($event[0]['event_place']) ?></p>
     <center id="image_area">
     </center>
 
