@@ -1,3 +1,19 @@
+<?php
+
+include "MG.php";
+
+$db = getDB();
+$sql = "SELECT * FROM event ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,10 +60,19 @@
 
   // 四角の数を動的に変化
   //文字列はphpで作成しそれを引っ張ってくる
-  var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
+  //var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
 
   var ul = document.getElementById("country_list");
-  for (var count = 0; count < 3; count++) {
+
+  <?php 
+
+    for ($i = 0; $i < $count1; $i++) :  
+
+      $eventuser_id = $event[$i]['eventuser_id']; 
+      $db = MG_02($eventuser_id,"","","","","","","","","");
+      $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+  ?>
+
 	// li要素を作成
 	var li = document.createElement('li');
   li.classList.add("event_information");
@@ -64,13 +89,13 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  var daimei = document.createTextNode(country[count]);
+  var daimei = document.createTextNode("<?php print($event[$i]['event_title']); ?>");
   div.appendChild(daimei);
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  var text = document.createTextNode(country[count]);
+  var text = document.createTextNode("<?php print($event[$i]['event_content']); ?>");
   p.appendChild(text);
 
   // もっと見るを作成
@@ -85,6 +110,8 @@
   li.appendChild(div);
   li.appendChild(p);
   li.appendChild(a);
-}
+
+      <?php endfor; ?>
+
 </Script>
 </body>
