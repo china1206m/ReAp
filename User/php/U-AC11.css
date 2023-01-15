@@ -186,3 +186,94 @@ input[type="radio"]:checked + label {
 label:hover {
   background-color: #E2EDF9;
 }
+
+hr {
+  border: none;
+  background-color: black;
+  height: 2px;
+  width: 50%;
+}
+
+.top{
+  margin-top: 150px;
+}
+
+.middle{
+margin-top: 30px;
+}
+
+.under{
+  margin-top: 100px;
+}
+
+
+.box1 {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 300px;
+  height: 100px;
+  margin-left: 200px;
+  padding: 5px;
+  cursor: pointer; /* カーソルを指マークに */
+  border: solid 2px black;
+  background-color: white;
+}
+
+.box2 {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 300px;
+  height: 100px;
+  margin-left: 100px;
+  padding: 5px;
+  cursor: pointer; /* カーソルを指マークに */
+  border: solid 2px black;
+  background-color: white;
+}
+
+
+.yoko-narabi{
+  display: flex;
+}
+
+/*ボタンの縦並び*/ 
+li{
+  list-style:none;
+  margin-top:50px
+}
+
+.coupon {
+  display: flex;
+  width: 400px;
+  max-width: 500px;
+  background: rgb(165, 171, 242);
+  margin-top: 150px;
+  margin: 75px;
+}
+.price {
+  font-size: 16px;
+  font-weight: 900;
+  color: #f56359;
+}
+
+.shop{
+  font-size: 14px;
+  font-weight: 900;
+  color: #f56359;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
