@@ -8,11 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['user_name'], $_POST['user_pass']) && $_POST['user_name'] !== '' && $_POST['user_pass'] !== '')  {
 
     /* 重複チェック */
-    $stmt = $pdo->prepare('SELECT * FROM user WHERE user_mail=?');
-    $stmt->bindValue(1, $_POST['user_mail']);
-    $stmt->execute();
-    if (count($stmt->fetchAll())) {
-      $_SESSION['register_message'] = 'このメールアドレスはすでに使われています';
+    include "MG.php";
+    $user_mail = $_POST['user_mail'];
+    $stmt = MG_01("",$_POST['user_mail'],"","","","","","","","");
+    $count = $stmt->rowCount();
+    
+    if ($count >= 1) {
+      $_SESSION['register_message'] = '入力されたメールアドレスはすでに使用されています。';
       header('Location:'.$_SERVER['PHP_SELF']);
       exit;
     }
@@ -75,7 +77,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <td><p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p></td>
         <input type="email" class="user" name="user_mail" value="" maxlength="30" placeholder="〇〇〇＠△△△" required>
 
-        <br><div class="error">入力されたメールアドレスはすでに使用されています。</div>
+        <br><div class="error">
+          <?php 
+            if (isset($_SESSION['register_message'])) {
+              echo($_SESSION['register_message']);
+            }
+          ?>
+      </div>
         
         
         <p><label for="user_pass" >パスワード<span class="require">必須</span></label></p>
@@ -125,3 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </script>
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['register_message'] = '';
+?>
