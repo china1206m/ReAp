@@ -74,6 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <td><p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p></td>
         <input type="email" class="user" name="user_mail" value="" maxlength="30" placeholder="〇〇〇＠△△△" required>
+
+        <br><div class="error">入力されたメールアドレスはすでに使用されています。</div>
         
         
         <p><label for="user_pass" >パスワード<span class="require">必須</span></label></p>

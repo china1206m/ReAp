@@ -60,5 +60,11 @@
         font-weight: bold;
         margin-left: 5px;
       }
+
+      .error{
+        color: red;
+        font-size: 0.5em;
+        margin-left: 100px;
+      }
       
     }
