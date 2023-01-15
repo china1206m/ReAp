@@ -61,6 +61,13 @@
     height: 25px;
     cursor: pointer;
   }
+
+  .require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+  }
   
   /*スマホ用*/
   @media screen and (max-width:990px) {
