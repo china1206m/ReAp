@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>M-SC2</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="M-SC2.css" type="text/css">
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
