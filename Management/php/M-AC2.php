@@ -1,14 +1,3 @@
-<?php
-/* セッション開始 */
-session_start();
-
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        include "logout.php";
-        $logout = new logout();
-        $logout->logout("M-AC1.php");
-  }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,21 +8,24 @@ session_start();
   
 </head>
 
+
 <body bgcolor="#f0f8ff" >
+<main id="main">
+        <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <center>
         <div class="box1">
             <font size="+3">
                 ログアウトしますか？
             </font>
-            <form action="" method="POST">   
-                <button  class="sou" type="submit">
+                <button  class="sou" type="button" onclick="location.href='M-AC1.php'">
                     はい
                 </button>
-            </form>
-                <button type="button" class="sou" onclick="location.href='M-AC2.php'">
+                <button type="button" class="sou" onclick="location.href='M-HK1.php'">
                     いいえ
                 </button>
         </div>       
     </center>
+        </form>
+</main>
 </body>
 </html>
