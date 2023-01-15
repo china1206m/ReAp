@@ -190,5 +190,7 @@
       background: white;
       border: solid thin white;
     }
-    
+    .right {
+      text-align: right;
+    }
 }
