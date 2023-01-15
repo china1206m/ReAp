@@ -32,7 +32,7 @@ p {
 }
 
 .plan_search{
-  width: 800px;
+  width: 600px;
   height: 40px;
   font-size: 1.5em;
   margin-top: 80px;
@@ -79,17 +79,30 @@ p {
   margin-left: 300px;
 }
 
-.stay-from {
+.stay {
   width: 200px;
   height: 40px;
   font-size: 1.5em;
   margin-left: 300px;
 }
 
-.stay-to {
-  width: 200px;
+.event-day{
+  width: 300px;
   height: 40px;
   font-size: 1.5em;
+  margin-left: 200px;
+}
+
+.kara{
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.event-day2{
+      width: 300px;
+      height: 40px;
+      font-size: 1.5em;
+      margin-left: 50px;
 }
 
 @media screen and (min-width:990px) {
@@ -108,7 +121,7 @@ label{
   font-size: 2em;
   color: #006DD9; /* フォントの色を指定 */
   text-align: center; /* テキストのセンタリングを指定する */
-  line-height: 60px; /* 行の高さを指定する */
+  line-height: 50px; /* 行の高さを指定する */
   cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
   border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
   border-radius: 5px; /* 角丸を指定する */
