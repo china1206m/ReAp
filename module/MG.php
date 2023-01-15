@@ -57,11 +57,11 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
       $sql .= "AND coupon_can_get = ? ";
     }
 
-    if (!empty($report)) {
+    if (!is_nullorempty($report)) {
       $sql .= "AND report_total = ? ";
     }
 
-    if (!empty($stop)) {
+    if (!is_nullorempty($stop)) {
       $sql .= "AND stop_total = ? ";
     }
 
@@ -103,12 +103,12 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
       $n++;
     }
 
-    if (!empty($report)) {
+    if (!is_nullorempty($report)) {
       $stmt->bindValue($n,$report);
       $n++;
     }
 
-    if (!empty($stop)) {
+    if (!is_nullorempty($stop)) {
       $stmt->bindValue($n,$stop);
       $n++;
     }
@@ -877,7 +877,7 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
 
     $sql = "SELECT * FROM event WHERE 1 = 1 ";
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $sql .= "AND event_title LIKE ? ";
     }
 
@@ -897,7 +897,7 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
       $stmt->bindValue($n,$search);
       $n++;
@@ -942,7 +942,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
 
     $sql = "SELECT * FROM plan WHERE 1 = 1 ";
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $sql .= "AND plan_title LIKE ? ";
     }
 
@@ -954,7 +954,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $sql .= "AND plan_prefectures = ? ";
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $sql .= "AND plan_cost >= ? AND plan_cost <= ? ";
     }
 
@@ -966,7 +966,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $sql .= "AND plan_date <= ? ";
     }
 
-    if (!empty($day)) {
+    if (!is_nullorempty($day)) {
       $sql .= "AND plan_day = ? ";
     }
 
@@ -974,7 +974,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
       $stmt->bindValue($n,$search);
       $n++;
@@ -990,7 +990,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $n++;
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $cost_interval = 1;
       $cost_before = $cost - $cost_interval;
       $cost_after = $cost + $cost_interval;
@@ -1010,7 +1010,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $n++;
     }
 
-    if (!empty($day)) {
+    if (!is_nullorempty($day)) {
       $stmt->bindValue($n,$day);
       $n++;
     }
@@ -1039,7 +1039,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
 
     $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $sql .= "AND coupon_name LIKE ? ";
     }
 
@@ -1047,7 +1047,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $sql .= "AND coupon_prefectures = ? ";
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $sql .= "AND coupon_place LIKE ? ";
     }
 
@@ -1059,7 +1059,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($search)) {
+    if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
       $stmt->bindValue($n,$search);
       $n++;
@@ -1070,7 +1070,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $n++;
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $place = '%'.$place.'%';
       $stmt->bindValue($n,$place);
       $n++;
@@ -1092,3 +1092,4 @@ function MG_13($search,$prefectures,$place,$deadline) {
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
+
