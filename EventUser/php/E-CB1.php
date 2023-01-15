@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['event_id'] = $add->ma_return("event",$column, $post, $type);
 
     // 画面遷移　ホーム画面
-    header('Location:E-EL1.php');
+    header('Location:E-EL1.html');
     exit;
 }
 ?>
