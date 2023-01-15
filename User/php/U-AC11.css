@@ -87,14 +87,7 @@
   display: flex;
 }
 
-.coupon {
-  display: flex;
-  width: 100%;
-  max-width: 620px;
-  background: rgb(165, 171, 242);
-  margin-top: 150px;
-  margin: 75px;
-}
+
 .price {
   font-size: 30px;
   font-weight: 900;
@@ -171,4 +164,25 @@ h3{
 
 .button_back:hover {
   background-color: #ffffff; /* 背景色 */
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label{
+  display: flex;
+  width: 100%;
+  max-width: 620px;
+  background: rgb(129, 161, 228);
+  margin-top: 150px;
+  margin: 75px;
+  
+}
+input[type="radio"]:checked + label {
+  background: #006DD9;
+  color: #FFF;
+}
+label:hover {
+  background-color: #E2EDF9;
 }

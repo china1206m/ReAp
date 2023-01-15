@@ -9,7 +9,7 @@
 
     <body>
     <main id="main">
-
+        <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
         <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
             
         <div align="center">
@@ -20,15 +20,18 @@
 
             <ol type="1" id="numberlist">
                 <li>
-                    <button type="submit" class="coupon">
-                        <div class="left">
-                            <div class="price">内容</div>
-                        </div>
                     
-                        <div class="right">
-                            <div class="date">有効期限 年 月 日</div>
-                        </div> 
-                    </button>  
+                        <label type="submit" >
+                            <div class="left">
+                                <div class="price" name="coupon_content">内容</div>
+                            </div>
+                        
+                            <div class="right">
+                                <div class="date" name="coupon_deadline">有効期限 年 月 日</div>
+                            </div> 
+                        </label> 
+                    
+                    
                 </li>
             </ol>
                     
@@ -60,6 +63,7 @@
                 </span>
               </span>
             </span>
+        </form>
     </main>
 
     <aside id="sub">
@@ -111,9 +115,8 @@ function disp() {
                 for(var count = 0; count < 2; count++){
                     var li = document.createElement('li');
                     
-                    var button = document.createElement('button');
-                    button.classList.add("coupon");
-                    button.type = 'button;'
+                    var label = document.createElement('label');
+                    label.type = 'submit;'
 
                     var div1 = document.createElement('div');
                     div1.classList.add("left");
@@ -131,10 +134,10 @@ function disp() {
                     
 
                     ol.appendChild(li);
-                    li.appendChild(button);
-                    button.appendChild(div1);
+                    li.appendChild(label);
+                    label.appendChild(div1);
                     div1.appendChild(div2);
-                    button.appendChild(div3);
+                    label.appendChild(div3);
                     div3.appendChild(div4);
                 }
             
