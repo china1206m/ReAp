@@ -8,7 +8,8 @@
     </head>
     <body>
       <main id="main">
-      <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+        <form action="" method="POST" name="searchForm" onSubmit="return check();">
+      <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
 
     <div align="center">
@@ -17,19 +18,19 @@
             クーポン使用画面
         </font>
 
-        <ol type="1" id="numberlist">
+        <ul type="1" id="numberlist">
             <li>
-                <button type="submit" class="coupon">
-                    <div class="left">
-                        <div class="price"></div>
-                    </div>
-                
-                    <div class="right">
-                        <div class="date">有効期限 年 月 日</div>
-                    </div> 
-                </button>  
+              <a type="submit" class="button">
+                <div class="left">
+                    <div class="price" name="coupon_content">内容</div>
+                </div>
+            
+                <div class="right">
+                    <div class="date" name="coupon_deadline">有効期限 年 月 日</div>
+                </div> 
+            </a> 
             </li>
-        </ol>
+        </ul>
                 
     </div>
 
@@ -55,6 +56,7 @@
       </div>
     </div>
   </div>
+</form>
 </main>
 
 <aside id="sub">
