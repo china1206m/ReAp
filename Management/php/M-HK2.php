@@ -1,3 +1,28 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+$db = MG_04($id,"","","","","","","","","","");
+$plan = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$user_id = $plan[0]['user_id']; 
+$db = MG_01($user_id,"","","","","","","","");
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$db = getDB();
+$sql = "SELECT * FROM plan_detail WHERE plan_id = ? ORDER BY plan_detail_id ASC";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$id);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +37,15 @@
     <ul id="ranking">
       <li class="home-list">
         <div class="ranking_information">
-          <p align="right">投稿日時</p>
+          <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
             <img src="monky.png" class="circle" align="left" alt="アイコン">
-            <div class="title">題名</div>
+            <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div><br>
-          <p class="condition">都道府県</p>
-          <p class="condition">誰と</p>
-          <p class="condition">費用</p>
-          <p class="condition">何泊何日</p>
+          <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
+          <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
+          <p class="condition"><?php print($plan[0]['plan_cost']); ?></p>
+          <p class="condition"><?php print($plan[0]['plan_day']); ?></p>
           <ol id="plan-detail"></ol>
         </div>
         <p align="right" class="favorite">お気に入り数</p>
@@ -41,7 +66,13 @@
 <script>
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
     var ol = document.getElementById("plan-detail");
-    for (var count = 0; count < 6; count++) {
+    
+    <?php
+
+      for ($i = 0; $i < $count1; $i++) : 
+
+    ?>
+
         //ol内のliの追加
         var li_ol = document.createElement('li');
 
@@ -52,22 +83,22 @@
         //場所名追加
         var p_planname = document.createElement('p');
         p_planname.classList.add("plan_content");
-        p_planname.innerHTML = "場所名"
+        p_planname.innerHTML = "<?php print($plan_detail[$i]['plan_place']); ?>"
 
         //本文内容追加
         var p_content = document.createElement('p');
         p_content.classList.add("plan_content");
-        p_content.innerHTML = "本文内容"
+        p_content.innerHTML = "<?php print($plan_detail[$i]['plan_content']); ?>"
 
         //滞在時間追加
         var p_time = document.createElement('p');
-        p_time.innerHTML = "滞在時間"
+        p_time.innerHTML = "<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
         p_time.classList.add("plan_content");
 
         //移動時間追加
         var p_travel = document.createElement('p');
         p_travel.classList.add("travel_time");
-        p_travel.innerHTML = "移動時間"
+        p_travel.innerHTML = "<?php print($plan_detail[$i]['travel_time_hour']); ?>時間<?php print($plan_detail[$i]['travel_time_minute']); ?>分"
 
         ol.appendChild(li_ol);
         li_ol.appendChild(div_home);
@@ -75,9 +106,8 @@
         div_home.appendChild(p_content);
         div_home.appendChild(p_time);
         li_ol.appendChild(p_travel);
-    }
 
-    
+        <?php endfor; ?>
 
 </script>
 </body>
