@@ -1,14 +1,14 @@
 <?php
 
-include "MG.php";
+//include "MG.php";
 
-$event_id = 1;
-$db = MG_06($event_id,"","","","","","","","","","","");
-$event = $db->fetchAll(PDO::FETCH_ASSOC);
+//$event_id = 1;
+//$db = MG_06($event_id,"","","","","","","","","","","");
+//$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
-$eventuser_id = $event[0]['eventuser_id'];
-$db = MG_02($eventuser_id,"","","","","","","","","");
-$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+//$eventuser_id = $event[0]['eventuser_id'];
+//$db = MG_02($eventuser_id,"","","","","","","","","");
+//$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -57,12 +57,12 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
   <aside id="sub">
     <ul class="menu">
-      <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
-    </ul>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+      </ul>
   </aside>
 
   <script>

@@ -1,15 +1,15 @@
 <?php
 
-include "MG.php";
+//include "MG.php";
 
-$db = getDB();
-$sql = "SELECT * FROM event ORDER BY post_date DESC LIMIT 50";
-$stmt = $db->prepare($sql);
-$stmt->execute();
+//$db = getDB();
+//$sql = "SELECT * FROM event ORDER BY post_date DESC LIMIT 50";
+//$stmt = $db->prepare($sql);
+//$stmt->execute();
 
-$count1 = $stmt->rowCount();
+//$count1 = $stmt->rowCount();
 
-$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -33,12 +33,12 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <aside id="sub">
     <ul class="menu">
-      <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
-    </ul>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+      </ul>
   </aside>
 
   <script>
@@ -46,11 +46,11 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
     var ul = document.getElementById("event-list");
     <?php 
 
-      for ($i = 0; $i < $count1; $i++) :  
+      /* for ($i = 0; $i < $count1; $i++) :  
 
         $eventuser_id = $event[$i]['eventuser_id']; 
         $db = MG_02($eventuser_id,"","","","","","","","","");
-        $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+        $eventuser = $db->fetchAll(PDO::FETCH_ASSOC); */
     ?>
       var li = document.createElement('li');
         li.classList.add("event_list");
@@ -62,14 +62,14 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
+      div_right.innerText = "<?php //print($event[$i]['post_date']); ?>投稿日時"
 
         //アイコン追加
         var img = document.createElement('img');
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = '<?php //print($eventuser[0]['eventuser_name']) ?>アイコン'
+        img.alt = '<?php //print($eventuser[0]['eventuser_name']) ?>ユーザー名'
   
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -78,19 +78,19 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
+        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?>タイトル";
   
         var br = document.createElement('br');
 
         //都道府県の追加
       var p_pre = document.createElement('p');
       p_pre.classList.add("pref");
-      p_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
+      p_pre.innerText = "<?php //print($event[$i]['event_prefectures']); ?>都道府県"
   
         //イベント内容追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>内容"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -110,7 +110,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
         
-        <?php endfor; ?>
+        <?php //endfor; ?>
 
   </script>
 </body>
