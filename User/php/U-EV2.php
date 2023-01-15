@@ -1,14 +1,14 @@
 <?php
 
-include "MG.php";
+//include "MG.php";
 
-$event_id = 1;
-$db = MG_06($event_id,"","","","","","","","","","","");
-$event = $db->fetchAll(PDO::FETCH_ASSOC);
+//$event_id = 1;
+//$db = MG_06($event_id,"","","","","","","","","","","");
+//$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
-$eventuser_id = $event[0]['eventuser_id'];
-$db = MG_02($eventuser_id,"","","","","","","","","");
-$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+//$eventuser_id = $event[0]['eventuser_id'];
+//$db = MG_02($eventuser_id,"","","","","","","","","");
+//$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -19,6 +19,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <title>U-EV2</title>
   <meta charset=”UTF-8″>
+  <link rel="stylesheet" href="U-EV2.css" type="text/css">
   <link rel="stylesheet" href="U-EV2.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -31,16 +32,23 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
       <ul>
         <li>
           <div class="event_information">
-            <a href="U-EV3.html" style="text-decoration:none;">
-              <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
-            </a>
-            <div class="title">
-              <?php print($event[0]['event_title']); ?>
+            <p align="right">投稿日時</p>
+            <div class="yoko">
+              <a href="U-EV3.html" style="text-decoration:none;">
+                <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
+              </a>
+              <div class="title">
+                <?php //print($event[0]['event_title']); ?>taitoru
+              </div>
             </div>
-            <p><?php print($event[0]['event_content']); ?></p>
-            <p><?php print($event[0]['event_cost']); ?></p>
-            <p><?php print($event[0]['event_place']); ?></p>
+            <p class="event_info">開始日　～　終了日</p>
+            <div class="event_info">
+              <p>都道府県</p>
+              <p><?php //print($event[0]['event_place']); ?>開催場所</p>
+            </div>
             <center id="image_area"></center>
+            <p><?php //print($event[0]['event_content']); ?>naiyou</p>
+            <p><?php //print($event[0]['event_cost']); ?>hiyou</p>
           </div>
         </li>
       </ul>
@@ -61,13 +69,11 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
   //画像の文字列はphpで用意する
   const images = ['neko.jpg', 'naruto.jpg'];
   const content_area = document.getElementById("image_area");
-  for (var count = 0; count < 2; count++) {
     let img_add = document.createElement('img');
-    img_add.src = images[count];
+    img_add.src = 'monky.png';
     img_add.alt = 'さいくん'; // 代替テキスト
     img_add.width = 400; // 横サイズ（px）
     content_area.appendChild(img_add);
-  }
   </script>
 
 </body>
