@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">検索</h3>
 
   <form action="" method="POST" name="searchForm" onSubmit="return check();">
-        <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
+        <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力" maxlength="32">
 
 
         <p><label for="event_place">開催場所</label></p>
@@ -129,16 +129,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
 function check () {
-var prefectures = document.searchForm.prefectures.value;
-var eventday = document.searchForm.eventday.value;
+var prefectures = document.searchForm.event_prefectures.value;
+var eventday = document.searchForm.event_search_first.value;
+var eventday2 = document.searchForm.event_search_end.value;
 var eventsearch = document.searchForm.event_search.value;
 
-if ( prefectures == "" && eventday == "" && eventsearch == "") {
+if ( prefectures == "" && eventday == "" && eventsearch == "" && eventday2 == "") {
 alert ( "検索したい項目を入力してください。" );
-document.searchForm.event_search.focus();
+document.searchForm.event_prefectures.focus();
 return false;
 }
-
+if(eventday != "" && eventday2 == ""){
+  alert ( "開催期間の終了日を選択してください" );
+document.searchForm.event_search_end.focus();
+return false;
+}
+if(eventday2 != "" && eventday == ""){
+  alert ( "開催期間の開始日を選択してください" );
+document.searchForm.event_search_first.focus();
+return false;
+}
 return true;
 }
 </script>
