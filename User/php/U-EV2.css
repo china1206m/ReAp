@@ -23,7 +23,7 @@
      .event_information{
       background:white; /*背景色の指定*/
       padding:10px;
-      height: 1000px;
+
       width:900px;
       }
   
@@ -42,13 +42,14 @@
         text-align: center;
       }
     
-  
- 
-    
-  /* 検索ボタンと投稿を横並びに設定 */
-  div.yoko{
+  /* アイコンとタイトルを横並びに設定 */
+  .yoko{
     display: flex;
-    justify-content: center;
+    }
+
+    .event_info {
+      font-size: 1.5em;
+
     }
     
   /*ボタンの縦並び*/ 
@@ -57,42 +58,6 @@
     padding:16px;
     margin:8px
   }
-    #open-btn{
-      display:block;
-      height: 50px;
-      width: 200px;
-      padding:10px 30px;
-      font-size: 1em; /* フォントサイズ */
-      background-color:#1aa1ff;
-      color: #FFF; /* テキストカラー */
-      border:solid #ccc 0px;
-      border-radius: 3px; /* 角の丸み */
-      cursor: pointer;
-    }
-  
-    #open-btn:hover {
-      background-color: #064fda; /* 背景色 */
-  
-    }
-  
-    #close-btn{
-      display:inline;
-      width: 150px;
-      height: 40px;
-      margin: 20px auto;
-      padding: 10px 30px;
-      font-size: 1em; /* フォントサイズ */
-      background-color: #1aa1ff;
-      color: #FFF;
-      border:solid #ccc 0px;
-      border-radius: 3px; /* 角の丸み */
-      cursor: pointer;
-    }
-  
-    #close-btn:hover {
-      background-color: #064fda; /* 背景色 */
-  
-    }
   
     .image{
       width: 40%;
@@ -105,4 +70,8 @@
   
     a {
       color: black;
+    }
+
+    h3 {
+      font-size: 3em;
     }
