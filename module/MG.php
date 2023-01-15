@@ -2,6 +2,21 @@
 
 include "MC-01.php";
 
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//0と""の判定モジュール
+
+function is_nullorempty($obj) {
+            if($obj === 0 || $obj === "0"){
+                return false;
+            }
+
+            return empty($obj);
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+
 //ユーザーテーブル
 
 function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
@@ -1010,3 +1025,70 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
 
 }
 
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//クーポン検索モジュール
+
+function MG_13($search,$prefectures,$place,$deadline) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
+
+    if (!empty($search)) {
+      $sql .= "AND coupon_name LIKE ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND coupon_prefectures = ? ";
+    }
+
+    if (!empty($place)) {
+      $sql .= "AND coupon_place LIKE ? ";
+    }
+
+    if (!empty($deadline)) {
+      $sql .= "AND coupon_deadline <= ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($search)) {
+      $search = '%'.$search.'%';
+      $stmt->bindValue($n,$search);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
+    if (!empty($place)) {
+      $place = '%'.$place.'%';
+      $stmt->bindValue($n,$place);
+      $n++;
+    }
+
+    if (!empty($deadline)) {
+      $stmt->bindValue($n,$deadline);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
