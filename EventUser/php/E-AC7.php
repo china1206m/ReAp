@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <input type="text" class="txt" name="user_name" maxlength="20" placeholder="20文字以内" required>
                 
               <p><label for="message" >一言コメント</label></p>
-                <p><textarea class="tarea" name="profiel_message">テキストエリア</textarea></p>
+                <p><textarea class="tarea" name="profiel_message" placeholder="200文字以内" maxlength="200"></textarea></p>
                 
     <center>
                <button type="submit" class="button-only">変更する</button>
