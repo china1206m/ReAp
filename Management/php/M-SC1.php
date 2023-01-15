@@ -1,50 +1,32 @@
-<?php
-/* セッション開始 */
-session_start();
-
-/* POSTで送信されている */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $_SESSION['plan_search'] = $_POST['plan_search'];
-    $_SESSION['plan_who'] = $_POST['plan_who'];
-    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
-    $_SESSION['plan_cost'] = $_POST['plan_cost'];
-    $_SESSION['plan_stay'] = $_POST['plan_stay'];
-
-    // 画面遷移　計画検索結果画面
-    header('Location:M-SC3.php');
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>M-SC1</title>
-  <meta charset="UTF-8">
+  <meta charset=”UTF-8″>
   <link rel="stylesheet" href="M-SC1.css" type="text/css">
+  <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
 <body>
 <main id="main">
   <button type="button" class="button_back" onclick="history.back()">＜</button>
 
-  <form action="" method="POST" name="searchForm" onSubmit="return check();">
+  <form action="M-SC3.php" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
 
         <p>カテゴリ</p>
-        <table align="center">
-          <tr>
-            <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
-            <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
-          </tr>
-          <tr>
-            <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
-            <td><input type="radio" name="plan_who" value="家族" id="family"><label for="family">家族</label></td>
-          </tr>
-        </table> 
+      <table align="center">
+        <tr>
+          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
+          <td><input type="radio" name="plan_who" value="家族" id="family"><label for="family">家族</label></td>
+        </tr>
+      </table> 
 
         <p>都道府県</p>
-        <select name="plan_prefectures" class="prefectures">
+        <select name="prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
           <optgroup label="東北">
@@ -109,11 +91,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </optgroup>
         </select>
 
-        <p>費用</p>
-        <input type="number" name="plan_cost" class="cost"> 円
-
-        <p>宿泊</p>
-        <input type="number" name="plan_stay" class="stay-from"> 泊 <input type="number" name="plan_stau_day" class="stay-to"> 日
+        <p>期間</p>
+        <table>
+        <tr>
+        <td><input type="date" id="date" name="plan_search_first" class="event-day" value=""></td>
+        <td><div class="kara">～</div></td>
+        <td><input type="date" id="date" name="plan_search_end" class="event-day2" value=""></td>
+        </tr>
+      </table>
+      
+      <p>費用</p>
+      <input type="number" name="plan_cost" class="cost"> 円
+  
+      <p>宿泊</p>
+      <input type="number" name="plan_day" class="stay"> 泊
 
         <center>
           <br>
@@ -132,15 +123,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </aside>
 
-<script>
+  <script>
 function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
-var planday = document.searchForm.plan_stay_day.value;
 var plansearch = document.searchForm.plan_search.value;
+var date_first = document.searchForm.plan_search_first.value;
+var date_end = document.searchForm.plan_search_end.value;
 
-if ( prefectures == "" && planday == "" && plansearch == "") {
+if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
 alert ( "検索したい項目を入力してください。" );
-document.searchForm.event_search.focus();
+document.searchForm.plan_search.focus();
 return false;
 }
 
