@@ -1,20 +1,20 @@
 <?php
 
-//include "MG.php";
+include "MG.php";
 
-//$eventuser_id = 1;
-//$db = MG_02($eventuser_id,"","","","","","","","","");
-//$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+$eventuser_id = 1;
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
-//$db = getDB();
-//$sql = "SELECT * FROM event WHERE eventuser_id = ? ORDER BY post_date DESC LIMIT 50";
-//$stmt = $db->prepare($sql);
-//$stmt->bindValue(1,$eventuser_id);
-//$stmt->execute();
+$db = getDB();
+$sql = "SELECT * FROM event WHERE eventuser_id = ? ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$eventuser_id);
+$stmt->execute();
 
-//$count1 = $stmt->rowCount();
+$count1 = $stmt->rowCount();
 
-//$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -35,11 +35,11 @@
       <div class="yoko">
         <img src="U-menu-acount.png" align="left" alt="写真" class="circle">
         <div class="user_name">
-          <?php //print($eventuser[0]['eventuser_name']); ?>
+          <?php print($eventuser[0]['eventuser_name']); ?>
         </div>
       </div>
       <div class="profiel_message">
-        <?php //print($eventuser[0]['profile_message']); ?>
+        <?php print($eventuser[0]['profile_message']); ?>
       </div>
     </div>
     <div class="plan">
@@ -64,7 +64,7 @@
     var ul = document.getElementById("self_contribution");
     <?php 
 
-      /*for ($i = 0; $i < $count1; $i++) :  */
+      for ($i = 0; $i < $count1; $i++) :
 
     ?>
       var li = document.createElement('li');
@@ -77,7 +77,7 @@
          //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
+      div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
   
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -86,18 +86,18 @@
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?>taitoru";
+        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
 
         //都道府県の追加
       var div_pre = document.createElement('div');
-      div_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
+      div_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
   
         var br = document.createElement('br');
   
         //内容追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>naiyou"
+        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
 
   
         // もっと見るを作成
@@ -118,9 +118,7 @@
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
     
-       
-    
-        <?php //endfor; ?>
+        <?php endfor; ?>
   </script>
 </body>
 </html>
