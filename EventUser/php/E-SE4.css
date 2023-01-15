@@ -25,6 +25,7 @@
     padding:10px;
     height: 1000px;
     width:900px;
+    margin-left: 50px;
     }
 
     .circle {
@@ -132,6 +133,9 @@ li{
   }
 
   .post_day{
-    margin-left: 100px;
+    text-align: right;
   }
   
+  .day_yoko{
+    display: inline;
+  }
