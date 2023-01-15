@@ -1,3 +1,18 @@
+<?php
+
+include "MG.php";
+
+$event_id = 2;
+$db = MG_06($event_id,"","","","","","","","","","","");
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+$eventuser_id = $event[0]['eventuser_id'];
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,10 +61,12 @@
 
   // 四角の数を動的に変化
   //文字列はphpで作成しそれを引っ張ってくる
-  var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
+  //var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
 
   var ul = document.getElementById("country_list");
-  for (var count = 0; count < 1; count++) {
+
+
+
 	// li要素を作成
 	var li = document.createElement('li');
   li.classList.add("event_information");
@@ -66,13 +83,13 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  var daimei = document.createTextNode(country[count]);
+  var daimei = document.createTextNode("<?php print($event[0]['event_title']); ?>");
   div.appendChild(daimei);
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  var text = document.createTextNode(country[count]);
+  var text = document.createTextNode("<?php print($event[0]['event_content']); ?>");
   p.appendChild(text);
   
   // それぞれの要素を追加したい場所へ追加
@@ -80,7 +97,6 @@
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(p);
-  
-}
+
 </Script>
 </body>
