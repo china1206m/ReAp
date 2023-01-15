@@ -1,3 +1,16 @@
+<?php
+// セッション開始
+session_start();
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $_SESSION['event_search'] = $_POST['event_search'];
+  $_SESSION['prefectures'] = $_POST['prefectures'];
+  $_SESSION['event_search_first'] = $_POST['event_search_first'];
+  $_SESSION['event_search_end'] = $_POST['event_search_end'];
+  // 検索結果画面
+  header(('Location:E-SC2.php'));
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +24,12 @@
   <button type="button" class="button_back" onclick="history.back()">＜</button>
 
 
-  <form action="E-SC2.php" method="post" name="searchForm" onSubmit="return check();">
+  <form action="" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
 
 
         <p><label for="shop">開催場所</label></p>
+
         <select name="prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
@@ -128,4 +142,3 @@ return true;
 
 </body>
 </html>
-    
