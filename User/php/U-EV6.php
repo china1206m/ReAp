@@ -1,17 +1,17 @@
 <?php 
 
-include "MG.php";
+//include "MG.php";
 
-$event_search = "";
-$event_prefectures = "";
-$event_day_first = "";
-$event_day_end = "";
+//$event_search = "";
+//$event_prefectures = "";
+//$event_day_first = "";
+//$event_day_end = "";
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+//$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
 
-$count1 = $db->rowCount();
+//$count1 = $db->rowCount();
 
-$event = $db->fetchAll(PDO::FETCH_ASSOC);
+//$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -33,12 +33,12 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 
   <aside id="sub">
     <ul class="menu">
-      <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
-    </ul>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
+      </ul>
   </aside>
 
   <script>
@@ -47,7 +47,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
     
     <?php
 
-      for ($i = 0; $i < $count1; $i++) :
+      /*for ($i = 0; $i < $count1; $i++) :*/
 
     ?>
 
@@ -61,7 +61,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
+      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
 
         //アイコン追加
         var img = document.createElement('img');
@@ -77,19 +77,19 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
+        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?>taitoru";
   
         var br = document.createElement('br');
 
         //都道府県の追加
       var p_pre = document.createElement('p');
       p_pre.classList.add("pref");
-      p_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
+      p_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
   
         //条件追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>naiyou"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -109,7 +109,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
     
-        <?php endfor; ?>
+        <?php //endfor; ?>
 
   </script>
 </body>
