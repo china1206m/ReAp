@@ -1,17 +1,17 @@
 <?php 
 
-include "MG.php";
+//include "MG.php";
 
-$event_search = "";
-$event_prefectures = "";
-$event_day_first = "";
-$event_day_end = "";
+//$event_search = "";
+//$event_prefectures = "";
+//$event_day_first = "";
+//$event_day_end = "";
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+//$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
 
-$count1 = $db->rowCount();
+//$count1 = $db->rowCount();
 
-$event = $db->fetchAll(PDO::FETCH_ASSOC);
+//$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -47,7 +47,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
     
     <?php
 
-      for ($i = 0; $i < $count1; $i++) :
+      /*for ($i = 0; $i < $count1; $i++) :*/
 
     ?>
 
@@ -55,8 +55,13 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         li.classList.add("list");
   
         //ランキング情報のための四角追加
-        var div_ranking = document.createElement('div');
-        div_ranking.classList.add("all_information");
+        var div_eventlist = document.createElement('div');
+        div_eventlist.classList.add("all_information");
+
+        //投稿日の追加
+      var div_right = document.createElement('div');
+      div_right.classList.add("right");
+      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
 
         //アイコン追加
         var img = document.createElement('img');
@@ -72,14 +77,19 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
+        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?>taitoru";
   
         var br = document.createElement('br');
+
+        //都道府県の追加
+      var p_pre = document.createElement('p');
+      p_pre.classList.add("pref");
+      p_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
   
         //条件追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>naiyou"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -88,16 +98,18 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         a.innerText = "...もっと見る";
   
         ul.appendChild(li);
-        li.appendChild(div_ranking);
-        div_ranking.appendChild(div_yoko);
+        li.appendChild(div_eventlist);
+        div_eventlist.appendChild(div_right);
+        div_eventlist.appendChild(div_yoko);
         div_yoko.appendChild(img);
         div_yoko.appendChild(div_title);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(br);
-        div_ranking.appendChild(p);
-        div_ranking.appendChild(a);
+        div_eventlist.appendChild(br);
+        div_eventlist.appendChild(br);
+        div_eventlist.appendChild(p_pre);
+        div_eventlist.appendChild(p);
+        div_eventlist.appendChild(a);
     
-        <?php endfor; ?>
+        <?php //endfor; ?>
 
   </script>
 </body>
