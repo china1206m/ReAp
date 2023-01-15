@@ -9,7 +9,7 @@
 <body>
   <main id="main">
     <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <form action='U-AC21.php' method="POST" enctype="multipart/form-data">
+    <form action='' method="POST" enctype="multipart/form-data">
     <ul id="ranking">
     </ul>
   </form>
@@ -62,6 +62,9 @@
         var br = document.createElement('br');
 
         //条件追加
+        var p_prefectures = document.createElement('p');
+        p_prefectures.classList.add("condition");
+        p_prefectures.innerHTML = "都道府県"
         var p_who = document.createElement('p');
         p_who.classList.add("condition");
         p_who.innerHTML = "誰と"
@@ -120,6 +123,7 @@
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
         div_ranking.appendChild(br);
+        div_ranking.appendChild(p_prefectures);
         div_ranking.appendChild(p_who);
         div_ranking.appendChild(p_cost);
         div_ranking.appendChild(p_day);
