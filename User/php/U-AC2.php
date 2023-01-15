@@ -7,6 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   /* usernameとpasswordが定義されて、かつ空白ではない */
   if (isset($_POST['user_name'], $_POST['user_pass']) && $_POST['user_name'] !== '' && $_POST['user_pass'] !== '')  {
 
+    /* 重複チェック */
+    $stmt = $pdo->prepare('SELECT * FROM user WHERE user_mail=?');
+    $stmt->bindValue(1, $_POST['user_mail']);
+    $stmt->execute();
+    if (count($stmt->fetchAll())) {
+      $_SESSION['register_message'] = 'このメールアドレスはすでに使われています';
+      header('Location:'.$_SERVER['PHP_SELF']);
+      exit;
+    }
+
     /* データ挿入 */
     // 呼び出し
     include "MA.php";
