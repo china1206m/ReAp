@@ -4,28 +4,39 @@ session_start();
  
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    /* データ挿入 */
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
 
     $_SESSION['plan_id'] = 2;
-    // 入力したいカラム名を指定
-    $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'travel_time_hour', 'travel_time_minute'];
+
+    // 計画を追加した回数
+    $count = $_POST['counter'];
     
-    for($i=1; $i<=2; $i++) {
-        // 入力された値をpost配列に格納
-        $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], $_POST["travel_time_hour$i"], $_POST["travel_time_minute$i"]];
-
-        // 入力された値の型を定義
-        $type = [0,2,1,0,0,0,0];
-
+    for($i = 1; $i <= $count; $i++) {
+        if($i == 1) {
+            // 入力したいカラム名を指定
+            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'plan_image'];
+            // 入力された値をpost配列に格納
+            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
+            $_FILES["plan_image$i"]['tmp_name']];
+            // 入力された値の型を定義
+            $type = [0,1,1,0,0,1];
+        } else {
+            // 入力したいカラム名を指定
+            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'plan_image', 
+            'travel_time_hour', 'travel_time_minute'];
+            // 入力された値をpost配列に格納
+            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
+            $_FILES["plan_image$i"]['tmp_name'], $_POST["travel_time_hour2"], $_POST["travel_time_minute2"]];
+            // 入力された値の型を定義
+            $type = [0,1,1,0,0,1,0,0];
+        }
         // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-        $_SESSION['user_detail_id'] = $add->ma_return("plan_detail",$column, $post, $type);
+        $_SESSION['user_detail_id'] = $add->ma_return("plan_detail",$column, $post, $type);        
     }
-    
+    // ホーム画面
     header('Location:U-HK6.php');
     exit;
 }
@@ -51,7 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <ol id="place_list">
         <li>
             <div class="plan_information">
-            <input type="text" name="plan_place1" class="plan_place" value="" minlength="1" maxlength="50" placeholder="場所名を入力(５０文字以内)　必須" required>
+
+            <input type="text" name="plan_place1" class="plan_place" value="" placeholder="場所名を入力" required>
 
             <textarea name="plan_content1" class="plan_content" minlength="1" maxlength="1000" placeholder="本文内容を入力(1000文字以内)　必須" required></textarea>
 
@@ -94,7 +106,7 @@ function addCount(){
 
     function place_add(){
 
-        addCount();
+        addCount();        
 
         var counter = document.getElementById("counter");
         console.log(counter.value);
@@ -112,7 +124,7 @@ function addCount(){
 
         var input_traveltimeh = document.createElement('input');
         input_traveltimeh.type = "number";
-        input_traveltimeh.setAttribute('name','travel_time_hour' + count-1);
+        input_traveltimeh.setAttribute('name','travel_time_hour' + count);
         input_traveltimeh.classList.add("plan_time");  
         input_traveltimeh.required = true;
 
@@ -121,12 +133,14 @@ function addCount(){
 
         var input_traveltimem = document.createElement('input');
         input_traveltimem.type = "number";
-        input_traveltimem.setAttribute('name','travel_time_minute' + count-1);
+        input_traveltimem.setAttribute('name','travel_time_minute' + count);
         input_traveltimem.classList.add("plan_time");  
         input_traveltimem.required = true;
 
         var font_traveltime_m = document.createElement('font');
         font_traveltime_m.innerHTML = "　分";
+
+
 
         var li = document.createElement('li');
 
@@ -138,9 +152,7 @@ function addCount(){
         input_place.setAttribute('name','plan_place' + count);
         input_place.classList.add("plan_place"); 
         input_place.value = "";
-        input_place.minLength = "1";
-        input_place.maxLength = "50";
-        input_place.placeholder = "場所名を入力(50文字以内)　必須";
+        input_place.placeholder = "場所名を入力";
         input_place.required = true;
 
         var textarea_content = document.createElement('textarea');
@@ -183,7 +195,7 @@ function addCount(){
         input_img.setAttribute('name','plan_image' + count);
         input_img.classList.add("plan_image");  
         input_img.multiple = true;
-        input_img.accept = "image/jpeg,image/png";
+
         
 
        
@@ -219,3 +231,8 @@ function addCount(){
 
   </body>
   </html>
+
+  <?php
+/* セッションの初期化 */
+$_SESSION['for'] = '';
+?>
