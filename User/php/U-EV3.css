@@ -62,7 +62,7 @@
     }
 
     /*計画内の場所の情報掲載デザイン*/ 
-    .acount_information{
+    .account_information{
       background:white; /*背景色の指定*/
       width:98%;
       border: solid thin black;
