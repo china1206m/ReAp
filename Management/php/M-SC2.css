@@ -47,10 +47,22 @@
 }
 
 .event-day{
-    width: 300px;
-    height: 40px;
-    font-size: 1.5em;
-    margin-left: 200px;
+  width: 300px;
+  height: 40px;
+  font-size: 1.5em;
+  margin-left: 200px;
+}
+
+.kara{
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.event-day2{
+      width: 300px;
+      height: 40px;
+      font-size: 1.5em;
+      margin-left: 50px;
 }
 
     /*ボタンデザイン 背景：黄色、文字：黒*/
