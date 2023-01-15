@@ -1,14 +1,14 @@
 <?php
 
-//include "MG.php";
+include "MG.php";
 
-//$event_id = 1;
-//$db = MG_06($event_id,"","","","","","","","","","","");
-//$event = $db->fetchAll(PDO::FETCH_ASSOC);
+$event_id = 1;
+$db = MG_06($event_id,"","","","","","","","","","","");
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
-//$eventuser_id = $event[0]['eventuser_id'];
-//$db = MG_02($eventuser_id,"","","","","","","","","");
-//$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+$eventuser_id = $event[0]['eventuser_id'];
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -32,23 +32,23 @@
       <ul>
         <li>
           <div class="event_information">
-            <p align="right">投稿日時</p>
+            <p align="right"><?php print($event[0]['post_date']); ?></p>
             <div class="yoko">
               <a href="U-EV3.html" style="text-decoration:none;">
                 <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
               </a>
               <div class="title">
-                <?php //print($event[0]['event_title']); ?>taitoru
+                <?php print($event[0]['event_title']); ?>
               </div>
             </div>
-            <p class="event_info">開始日　～　終了日</p>
+            <p class="event_info"><?php print($event[0]['event_day_first']); ?>　～　<?php print($event[0]['event_day_end']); ?></p>
             <div class="event_info">
-              <p>都道府県</p>
-              <p><?php //print($event[0]['event_place']); ?>開催場所</p>
+              <p><?php print($event[0]['event_prefectures']); ?></p>
+              <p><?php print($event[0]['event_place']); ?></p>
             </div>
             <center id="image_area"></center>
-            <p><?php //print($event[0]['event_content']); ?>naiyou</p>
-            <p><?php //print($event[0]['event_cost']); ?>hiyou</p>
+            <p><?php print($event[0]['event_content']); ?></p>
+            <p><?php print($event[0]['event_cost']); ?></p>
           </div>
         </li>
       </ul>
