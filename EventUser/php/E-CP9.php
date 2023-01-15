@@ -1,3 +1,24 @@
+<?php
+
+include "MG.php";
+
+$id = 1;
+
+$today = date("Y-m-d");
+
+$db = getDB();
+$sql = "SELECT * FROM coupon WHERE eventuser_id = ? AND coupon_deadline <= ? LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(1,$id);
+$stmt->bindValue(2,$today);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,12 +81,18 @@
 //nは表示数
     var n=8;
     // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
-  var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
-  var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
-  var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
+  //var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
+  //var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
+  //var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
 var ul1 = document.getElementById("coupon_list1");
-for (var count = 0; count < n; count=count+2) {
+
+  <?php 
+
+    for ($i = 0; $i < $count1; $i=$i + 2) :
+
+  ?>
+
     // li要素を作成
     var li1 = document.createElement('li');
 
@@ -90,9 +117,9 @@ for (var count = 0; count < n; count=count+2) {
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode(shop[count]);
-    var date = document.createTextNode(day[count]);
-    var cont = document.createTextNode(content[count]);
+    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -113,10 +140,16 @@ for (var count = 0; count < n; count=count+2) {
     div_date.appendChild(br3);
     div_date.appendChild(date);
    
-}
+      <?php endfor; ?>
 
 var ul2 = document.getElementById("coupon_list2");
-for (var count = 1; count < n; count=count+2) {
+
+  <?php 
+
+    for ($i = 1; $i < $count1; $i=$i + 2) :
+
+  ?>
+
     // li要素を作成
     var li1 = document.createElement('li');
 
@@ -141,9 +174,9 @@ for (var count = 1; count < n; count=count+2) {
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode(shop[count]);
-    var date = document.createTextNode(day[count]);
-    var cont = document.createTextNode(content[count]);
+    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -163,7 +196,9 @@ for (var count = 1; count < n; count=count+2) {
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-}
+
+      <?php endfor; ?>
+
 </script>
 
 
