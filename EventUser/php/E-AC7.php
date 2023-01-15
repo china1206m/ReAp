@@ -1,7 +1,42 @@
+<?php
+
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  include "MU.php";
+
+  $update = new MU();
+
+  $column = ['profiel_image', 'eventuser_name', 'profiel_message'];
+  
+  $post = [$_FILES['profiel_image']['tmp_name'], $_POST['eventuser_name'], $_POST['profiel_message']];
+  
+  $type = [1, 1, 1];
+
+  $id_name = "eventuser_id";
+
+  //$id = $_SESSION['eventuser_id'];
+  $id = 1;
+
+  $update->mu("eventuser", $column, $post, $type, $id_name, $id);
+
+  //$_SESSION['register_message'] = '登録しました';
+  //header('Location:E-AC3.php');
+  exit;
+}else{
+  //header('Location:E-AC3.php');
+}
+
+
+?>
 <html>
 <head>
   <title>画面ID E-AC7</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E-AC7.css" type="text/css">
   <link rel="stylesheet" href="E_button.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
@@ -19,13 +54,13 @@
     </center>
 
               <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
-              <input type="text" class="txt" name="user_name" maxlength="20" value="登録情報" placeholder="20文字以内" required>
+              <input type="text" class="txt" name="user_name" maxlength="20" placeholder="20文字以内" required>
                 
               <p><label for="message" >一言コメント</label></p>
                 <p><textarea class="tarea" name="profiel_message">テキストエリア</textarea></p>
                 
     <center>
-               <button type="submit" class="button-only">登録する</button>
+               <button type="submit" class="button-only">変更する</button>
             </form>
     </center>
   </main>

@@ -283,7 +283,7 @@ function MG_03($id,$pass,$name) {
 
 //計画テーブル
 
-function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$date) {
+function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$date1,$day,$total,$season,$date2) {
 
   $n = 1;
 
@@ -317,6 +317,10 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $sql .= "AND plan_cost = ? ";
     }
 
+    if (!empty($date1)) {
+      $sql .= "AND plan_date = ? ";
+    }
+
     if (!empty($day)) {
       $sql .= "AND plan_day = ? ";
     }
@@ -329,7 +333,7 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $sql .= "AND plan_favorite_season = ? ";
     }
 
-    if (!empty($date)) {
+    if (!empty($date2)) {
       $sql .= "AND post_date = ? ";
     }
 
@@ -366,6 +370,11 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $n++;
     }
 
+    if (!empty($date1)) {
+      $stmt->bindValue($n,$date1);
+      $n++;
+    }
+
     if (!empty($day)) {
       $stmt->bindValue($n,$day);
       $n++;
@@ -381,8 +390,8 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$day,$total,$season,$dat
       $n++;
     }
 
-    if (!empty($date)) {
-      $stmt->bindValue($n,$date);
+    if (!empty($date2)) {
+      $stmt->bindValue($n,$date2);
       $n++;
     }
 
@@ -838,3 +847,166 @@ function MG_10($id1,$id2,$id3) {
   }
 
 }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//event検索モジュール
+
+function MG_11($search,$prefectures,$day_first,$day_end) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM event WHERE 1 = 1 ";
+
+    if (!empty($search)) {
+      $sql .= "AND event_title LIKE ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND event_prefectures = ? ";
+    }
+
+    if (!empty($day_first)) {
+      $sql .= "AND event_day_end >= ? ";
+    }
+    
+    if (!empty($day_end)) {
+      $sql .= "AND event_day_first <= ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($search)) {
+      $search = '%'.$search.'%';
+      $stmt->bindValue($n,$search);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
+    if (!empty($day_first)) {
+      $stmt->bindValue($n,$day_first);
+      $n++;
+    }
+
+    if (!empty($day_end)) {
+      $stmt->bindValue($n,$day_end);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//計画検索モジュール
+
+function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM plan WHERE 1 = 1 ";
+
+    if (!empty($search)) {
+      $sql .= "AND plan_title LIKE ? ";
+    }
+
+    if (!empty($who)) {
+      $sql .= "AND plan_who = ? ";
+    }
+
+    if (!empty($prefectures)) {
+      $sql .= "AND plan_prefectures = ? ";
+    }
+
+    if (!empty($cost)) {
+      $sql .= "AND plan_cost >= ? AND plan_cost <= ? ";
+    }
+
+    if (!empty($date_first)) {
+      $sql .= "AND plan_date >= ? ";
+    }
+    
+    if (!empty($date_end)) {
+      $sql .= "AND plan_date <= ? ";
+    }
+
+    if (!empty($day)) {
+      $sql .= "AND plan_day = ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!empty($search)) {
+      $search = '%'.$search.'%';
+      $stmt->bindValue($n,$search);
+      $n++;
+    }
+
+    if (!empty($who)) {
+      $stmt->bindValue($n,$who);
+      $n++;
+    }
+
+    if (!empty($prefectures)) {
+      $stmt->bindValue($n,$prefectures);
+      $n++;
+    }
+
+    if (!empty($cost)) {
+      $cost_interval = 1;
+      $cost_before = $cost - $cost_interval;
+      $cost_after = $cost + $cost_interval;
+      $stmt->bindValue($n,$cost_before);
+      $n++;
+      $stmt->bindValue($n,$cost_after);
+      $n++;
+    }
+
+    if (!empty($date_first)) {
+      $stmt->bindValue($n,$date_first);
+      $n++;
+    }
+
+    if (!empty($date_end)) {
+      $stmt->bindValue($n,$date_end);
+      $n++;
+    }
+
+    if (!empty($day)) {
+      $stmt->bindValue($n,$day);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+

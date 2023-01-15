@@ -1,7 +1,6 @@
 /*パソコン用*/
 @media screen and (min-width:990px) {
 .image-circle {
-    background-image:url('hokkaido.png');  /*画像のURL*/
     width:100px;  /*表示する横幅(縦幅と同じ値)*/
     height:92px;  /*表示する縦幅(横幅と同じ値)*/
     border-radius:50%;  /*丸く表示*/

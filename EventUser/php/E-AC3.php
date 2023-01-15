@@ -13,7 +13,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID E-AC3</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="E-AC3.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
@@ -25,7 +25,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="center">
         <?php print($eventuser[0]['eventuser_name']); ?>
       </div>
-      <div class="left"><p class="image-circle"></p></div>
+      <div class="left"><img src="E-menu-acount.png" class="image-circle"></div>
     </div>
     
     <center>

@@ -1,3 +1,21 @@
+<?php
+
+include "MG.php";
+
+$event_search = "";
+$event_prefectures = "";
+$event_day_first = "";
+$event_day_end = "";
+
+$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+
+$count1 = $db->rowCount();
+
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +53,13 @@
   
 
   var ul = document.getElementById("country_list");
-  for (var count = 0; count < 3; count++) {
+
+  <?php
+
+      for ($i = 0; $i < $count1; $i++) :
+
+    ?>
+
 	// li要素を作成
 	var li = document.createElement('li');
   li.classList.add("event_information");
@@ -43,11 +67,11 @@
   //投稿日の追加
   var div_right = document.createElement('p');
       div_right.classList.add("p_right");
-      div_right.innerText = "投稿日";
+      div_right.innerText = "<?php print($event[$i]['post_date']); ?>";
 
   //都道府県の追加
       var div_pre = document.createElement('p');
-      div_pre.innerText = "都道府県"
+      div_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
 
   // アイコンを作成
   var img = document.createElement('img');
@@ -61,12 +85,12 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  div.innerHTML = "題名"
+  div.innerHTML = "<?php print($event[$i]['event_title']); ?>"
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  p.innerHTML = "本文";
+  p.innerHTML = "<?php print($event[$i]['event_content']); ?>";
 
   // もっと見るを作成
   var a = document.createElement('a');
@@ -82,7 +106,9 @@
   li.appendChild(div_pre);
   li.appendChild(p);
   li.appendChild(a);
-}
+
+        <?php endfor; ?>
+
 </Script>
 </body>
 </html>

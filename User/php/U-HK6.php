@@ -1,15 +1,15 @@
 <?php
 
-include "MG.php";
+//include "MG.php";
 
-$db = getDB();
-$sql = "SELECT * FROM plan ORDER BY post_date DESC LIMIT 50";
-$stmt = $db->prepare($sql);
-$stmt->execute();
+//$db = getDB();
+//$sql = "SELECT * FROM plan ORDER BY post_date DESC LIMIT 50";
+//$stmt = $db->prepare($sql);
+//$stmt->execute();
 
-$count1 = $stmt->rowCount();
+//$count1 = $stmt->rowCount();
 
-$plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -25,9 +25,9 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <body>
     <main id="main">
       <div align="right">
-        <button class="btn" href="U-HK2.php"><img src="crown.png"></button>
-        <button class="btn" href="U-HK5.html"><img src="post.png"></button>    
-        <button class="btn" href="U-HK3.php"><img src="search.png"></button>
+        <button class="btn" onclick="location.href='U-HK2.php'"><img src="crown.png" alt="ranking"></button>
+        <button class="btn" onclick="location.href='U-HK5.php'"><img src="post.png" alt="post"></button>    
+        <button class="btn" onclick="location.href='U-HK3.php'"><img src="search.png" alt="search"></button>
       </div>
 
       <ul id="planlist">
@@ -49,7 +49,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       var ul = document.getElementById("planlist");
       <?php 
 
-        for ($i = 0; $i < $count1; $i++) :  
+        /*for ($i = 0; $i < $count1; $i++) :  
 
           $user_id = $plan[$i]['user_id']; 
           $db = MG_01($user_id,"","","","","","","","");
@@ -57,25 +57,21 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
           $plan_id = $plan[$i]['plan_id']; 
           $db = MG_05("",$plan_id,"","","","","","","");
-          $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
+          $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);*/
       ?>
       var li = document.createElement('li');
       li.classList.add("home-list");
 
       var p = document.createElement('p');
 
-      //ランキング情報のための四角追加
+      //計画情報のための四角追加
       var div_planlist = document.createElement('div');
       div_planlist.classList.add("planlist_information");
 
       //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
-
-      //都道府県の追加
-      var div_pre = document.createElement('div');
-      div_pre.innerText = "都道府県"
+      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -86,30 +82,30 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       img.classList.add("circle");
       img.src = 'monky.png';
       img.align = 'left'
-      img.alt = '<?php //print($user[0]['user_name']); ?>'
+      img.alt = '<?php //print($user[0]['user_name']); ?>yu-za-mei'
         
       //題名追加
       var div_title = document.createElement('div');
       div_title.classList.add("title");
-      div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
+      div_title.innerHTML = "<?php //print($plan[$i]['plan_title']); ?>daimei";
 
       var br = document.createElement('br');
 
       //都道府県の追加
       var p_pre = document.createElement('p');
       p_pre.classList.add("condition");
-      p_pre.innerText = "都道府県"
+      p_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
 
       //条件追加
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
-      p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
+      p_who.innerHTML = "<?php //print($plan[$i]['plan_who']); ?>dareto"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>"
+      p_cost.innerHTML = "<?php //print($plan[$i]['plan_cost']); ?>hiyou"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
-      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>"
+      p_day.innerHTML = "<?php //print($plan[$i]['plan_day']); ?>nanniti"
 
       //olの追加
       var ol = document.createElement('ol');
@@ -124,22 +120,22 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       //場所名追加
       var p_planname = document.createElement('p');
       p_planname.classList.add("plan_content");
-      p_planname.innerHTML = "<?php print($plan_detail[0]['plan_place']); ?>"
+      p_planname.innerHTML = "<?php //print($plan_detail[0]['plan_place']); ?>bashomei"
 
       //本文内容追加
       var p_content = document.createElement('p');
       p_content.classList.add("plan_content");
-      p_content.innerHTML = "<?php print($plan_detail[0]['plan_content']); ?>"
+      p_content.innerHTML = "<?php //print($plan_detail[0]['plan_content']); ?>naiyou"
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
+      p_time.innerHTML = "<?php //print($plan_detail[0]['stay_time_hour']); ?>aaa時間<?php //print($plan_detail[0]['stay_time_minute']); ?>bbb分"
       p_time.classList.add("plan_content");
 
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_minute']); ?>"
+      p_travel.innerHTML = "<?php //print($plan_detail[0]['travel_time_hour']); ?>ccc時間<?php //print($plan_detail[0]['travel_time_minute']); ?>ddd分"
 
       // もっと見るを作成
       var a = document.createElement('a');
@@ -168,7 +164,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       div_planlist.appendChild(p_travel);
       div_planlist.appendChild(a);
 
-        <?php endfor; ?>
+        <?php //endfor; ?>
 
     </script>
   </body>

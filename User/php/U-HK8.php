@@ -1,3 +1,39 @@
+<?php
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    $_SESSION['user_id'] = 1;
+
+    // 現在時刻取得
+    $post_date = date('Y-m-d');
+
+    // 入力したいカラム名を指定
+    $column = ['user_id','plan_title', 'plan_who', 'plan_prefectures', 
+              'plan_cost', 'plan_day', 'plan_favorite_total', 'plan_favorite_season', 'post_date'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_SESSION['user_id'], $_POST['plan_title'], $_POST['plan_who'], $_POST['plan_prefectures'], 
+            $_POST['plan_cost'], $_POST['plan_day'], 0, 0, $post_date];
+
+    // 入力された値の型を定義
+    $type = [0,1,1,1,0,0,0,0,1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['plan_id'] = $add->ma_return("plan",$column, $post, $type);
+
+    // 計画投稿（計画詳細）画面
+    header('Location:U-HK10.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 

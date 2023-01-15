@@ -1,3 +1,38 @@
+<?php
+
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  include "MU.php";
+
+  $update = new MU();
+
+  $column = ['profiel_image', 'user_name', 'profiel_message'];
+  
+  $post = [$_FILES['profiel_image']['tmp_name'], $_POST['user_name'], $_POST['profiel_message']];
+  
+  $type = [1, 2, 2];
+
+  $id_name = "user_id";
+
+  $id = $_SESSION['user_id'];
+  //$id = 1;
+
+  $update->mu("user", $column, $post, $type, $id_name, $id);
+
+  //$_SESSION['register_message'] = '登録しました';
+  //header('Location:U-AC3.php');
+  exit;
+}else{
+  //header('Location:U-AC3.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -13,7 +48,7 @@
                 
             
             
-            <form action='U-AC3.html' method="POST" enctype="multipart/form-data">
+            <form action='' method="POST" enctype="multipart/form-data">
             <div align="center">
                 <div class="profile">
                     
@@ -23,7 +58,7 @@
                 
                 <div class="box1" align="left">
                         <font size="+5">
-                            <p><label for="user_mail" >ユーザ名<span class="require">必須</span></label></p>
+                            <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
                
                         </font>
                         <br>
