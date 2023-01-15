@@ -1,3 +1,42 @@
+<?php
+
+include "MG.php";
+
+$user_id = "";
+$user_name = "";
+$user_mail = "";
+$report_total = "";
+$stop_total = "";
+
+$db = MG_01($user_id,$user_mail,"",$user_name,"","","",$report_total,$stop_total);
+$count1 = $db->rowCount();
+
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+
+//-------------------------------------------------------------------------------------------------
+
+$eventuser_id = "";
+$eventuser_name = "";
+$eventuser_mail = "";
+
+$db = MG_02($eventuser_id,$eventuser_mail,"",$eventuser_name,"","","","","","");
+$count2 = $db->rowCount();
+
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+//-------------------------------------------------------------------------------------------------
+
+$administrator_id = "";
+$administrator_name = "";
+
+$db = MG_03($administrator_id,"",$administrator_name);
+$count3 = $db->rowCount();
+
+$administrator = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,30 +217,38 @@
 
 <script>
     //一覧表示のためのscript（利用者）
-for (var count = 1; count < 6; count++) {
+
+    <?php 
+
+      for ($i = 0; $i < $count1; $i++) :
+
+        $count = $i + 1;
+
+    ?>
+
     var ul_id1 = document.getElementById("user_id");
     var li_id1 = document.createElement('li');
-    li_id1.innerText = "佐藤猛"
+    li_id1.innerText = "<?php print($user[$i]['user_id']); ?>"
     li_id1.classList.add("list_u");
 
     var ul_name1 = document.getElementById("user_name");
     var li_name1 = document.createElement('li');
-    li_name1.innerText = "佐藤猛"
+    li_name1.innerText = "<?php print($user[$i]['user_name']); ?>"
     li_name1.classList.add("list_u");
 
     var ul_mail1 = document.getElementById("user_mail");
     var li_mail1 = document.createElement('li');
-    li_mail1.innerText = "佐藤猛"
+    li_mail1.innerText = "<?php print($user[$i]['user_mail']); ?>"
     li_mail1.classList.add("list_u");
 
     var ul_report1 = document.getElementById("report_count_u");
     var li_report1 = document.createElement('li');
-    li_report1.innerText = "佐藤猛"
+    li_report1.innerText = "<?php print($user[$i]['report_total']); ?>"
     li_report1.classList.add("list_u");
 
     var ul_stop1 = document.getElementById("stop_count_u");
     var li_stop1 = document.createElement('li');
-    li_stop1.innerText = "佐藤猛"
+    li_stop1.innerText = "<?php print($user[$i]['stop_total']); ?>"
     li_stop1.classList.add("list_u");
 
     var ul_condition1 = document.getElementById("condition_u");
@@ -209,23 +256,23 @@ for (var count = 1; count < 6; count++) {
 
     var input_revival = document.createElement('input');
     input_revival.type = "radio";
-    input_revival.name = "situation_u"+count;
+    input_revival.name = "situation_u"+<?php print($count) ?>;
     input_revival.value = "1";
-    input_revival.id = "revival_u"+count;
+    input_revival.id = "revival_u"+<?php print($count) ?>;
     var label_revival = document.createElement('label');
-    label_revival.innerText = "復活"+count;
+    label_revival.innerText = "復活"+<?php print($count) ?>;
     label_revival.classList.add("situation");
-    label_revival.htmlFor ="revival_u"+count;
+    label_revival.htmlFor ="revival_u"+<?php print($count) ?>;
 
     var input_suspension = document.createElement('input');
     input_suspension.type = "radio";
-    input_suspension.name = "situation_u"+count;
+    input_suspension.name = "situation_u"+<?php print($count) ?>;
     input_suspension.value = "2";
-    input_suspension.id  = "suspension_u"+count;
+    input_suspension.id  = "suspension_u"+<?php print($count) ?>;
     var label_suspension = document.createElement('label');
-    label_suspension.innerText = "停止"+count;
+    label_suspension.innerText = "停止"+<?php print($count) ?>;
     label_suspension.classList.add("situation");
-    label_suspension.htmlFor = "suspension_u"+count;
+    label_suspension.htmlFor = "suspension_u"+<?php print($count) ?>;
 
     var button_delete = document.createElement('button');
     button_delete.type = "submit";
@@ -246,9 +293,7 @@ for (var count = 1; count < 6; count++) {
     li_condition1.appendChild(label_suspension);
     li_condition1.appendChild(button_delete);
     
-    
-    
-}
+        <?php endfor; ?>
 </script>
 
 <script>
@@ -286,20 +331,24 @@ const len = elements.length;
 
 <script>
     //一覧表示のためのscript（イベント投稿者）
-    for (var count = 1; count < 6; count++) {
+    <?php 
+
+      for ($i = 0; $i < $count2; $i++) :  
+
+    ?>
         var ul_id1 = document.getElementById("event_id");
         var li_id1 = document.createElement('li');
-        li_id1.innerText = "佐藤猛"
+        li_id1.innerText = "<?php print($eventuser[$i]['eventuser_id']); ?>"
         li_id1.classList.add("list_u");
 
         var ul_name1 = document.getElementById("event_name");
         var li_name1 = document.createElement('li');
-        li_name1.innerText = "佐藤猛"
+        li_name1.innerText = "<?php print($eventuser[$i]['eventuser_name']); ?>"
         li_name1.classList.add("list_u");
 
         var ul_mail1 = document.getElementById("event_mail");
         var li_mail1 = document.createElement('li');
-        li_mail1.innerText = "佐藤猛"
+        li_mail1.innerText = "<?php print($eventuser[$i]['eventuser_mail']); ?>"
         li_mail1.classList.add("list_u");
 
         var ul_report1 = document.getElementById("report_count_e");
@@ -330,22 +379,28 @@ const len = elements.length;
         ul_condition1.appendChild(li_condition1);
         li_condition1.appendChild(button_delete);
 
-    }
+    <?php endfor; ?>
     </script>
 
 
 
 <script>
     //一覧表示のためのscript（管理者）
-    for (var count = 1; count < 6; count++) {
+
+    <?php 
+
+      for ($i = 0; $i < $count3; $i++) :  
+
+    ?>
+
         var ul_id1 = document.getElementById("manage_id");
         var li_id1 = document.createElement('li');
-        li_id1.innerText = "佐藤猛"
+        li_id1.innerText = "<?php print($administrator[$i]['administrator_id']); ?>"
         li_id1.classList.add("list_u");
 
         var ul_name1 = document.getElementById("manage_name");
         var li_name1 = document.createElement('li');
-        li_name1.innerText = "佐藤猛"
+        li_name1.innerText = "<?php print($administrator[$i]['administrator_name']); ?>"
         li_name1.classList.add("list_u");
 
         var ul_mail1 = document.getElementById("manage_mail");
@@ -381,7 +436,8 @@ const len = elements.length;
         ul_stop1.appendChild(li_stop1);
         ul_condition1.appendChild(li_condition1);
         li_condition1.appendChild(button_delete);
-    }
+
+        <?php endfor; ?>
     </script>
 
 <script>
