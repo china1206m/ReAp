@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>画面ID E-SE1</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="E-SE1.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
@@ -55,6 +55,25 @@
       var div_pre = document.createElement('p');
       div_pre.innerText = "都道府県"
 
+  //開始日の追加
+  var div_first = document.createElement('p');
+      div_first.innerText = "開催開始日"
+      div_first.classList.add("yoko");
+
+  //~の追加
+  var div_heniyo = document.createElement('p');
+      div_heniyo.innerText = "～"
+      div_heniyo.classList.add("yoko");
+
+  //終了日の追加
+  var div_end = document.createElement('p');
+      div_end.classList.add("yoko");
+      div_end.innerText = "開催終了日"
+
+  //場所の追加
+  var div_place = document.createElement('p');
+      div_place.innerText = "場所"
+
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
@@ -86,6 +105,10 @@
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(div_pre);
+  li.appendChild(div_first);
+  li.appendChild(div_heniyo);
+  li.appendChild(div_end);
+  li.appendChild(div_place);
   li.appendChild(p);
   li.appendChild(a);
 }

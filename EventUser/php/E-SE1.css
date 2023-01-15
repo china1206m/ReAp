@@ -48,6 +48,7 @@ li{
     height: 400px;
     width:700px;
     position: relative;
+    margin-left: 100px;
     }
 
     /*もっと見るボタンのデザイン*/
@@ -92,4 +93,8 @@ li{
 
   .p_right{
     text-align: right;
+  }
+
+  .yoko{
+    display: inline;
   }
