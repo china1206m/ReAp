@@ -1,3 +1,15 @@
+<?php
+// セッション開始
+session_start();
+// POSTで送信されたら
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  $_SESSION['coupon_prefectures'] = $_POST['ccoupon_prefectures'];
+  // 取得クーポン一覧画面
+  header('Location:U-AC11.php');
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -11,7 +23,7 @@
         <main id="main">
         <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
-        <form action='U-AC11.php' method="POST" enctype="multipart/form-data">
+        <form action='' method="POST" enctype="multipart/form-data">
 
         <div align="center">
             <font size="+4">
