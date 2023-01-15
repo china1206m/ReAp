@@ -35,7 +35,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <br><a href="E-AC7.php">プロフィール編集</a>
     </center>
-    <a href="E-AC7.php"><p class="acount-menu">アカウント情報変更</p></a>
+    <a href="E-AC8.php"><p class="acount-menu">アカウント情報変更</p></a>
     <a href="E-AC5.php"><p class="acount-menu">アカウントログアウト</p></a>
     <a href="E-AC6.php"><p class="acount-menu">アカウント消去</p></a>
 </main>
