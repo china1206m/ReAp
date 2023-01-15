@@ -102,10 +102,10 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>"
+      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>円"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
-      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>"
+      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>泊<?php print($plan[$i]['plan_day'] + 1); ?>日"
 
       //olの追加
       var ol = document.createElement('ol');

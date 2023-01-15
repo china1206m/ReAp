@@ -45,8 +45,8 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <br>
           <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
           <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
-          <p class="condition"><?php print($plan[0]['plan_cost']); ?></p>
-          <p class="condition"><?php print($plan[0]['plan_day']); ?></p>
+          <p class="condition"><?php print($plan[0]['plan_cost']); ?>円</p>
+          <p class="condition"><?php print($plan[0]['plan_day']); ?>泊<?php print($plan[0]['plan_day'] + 1); ?>日</p>
           <ol id="plan-detail"></ol>
         </div>
       </li>
