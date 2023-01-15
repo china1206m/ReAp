@@ -1,3 +1,15 @@
+<?php
+
+include "MG.php";
+
+$id = "1";
+
+$db = MG_09($id,"","","","","","");
+$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -101,12 +113,11 @@ function disp() {
  
 var n=8;
     // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
-  var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
-  var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
-  var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
+  //var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
+  //var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
+  //var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
 var ul1 = document.getElementById("coupon_list1");
-for (var count = 0; count < 1; count++) {
     // li要素を作成
     var li1 = document.createElement('li');
 
@@ -131,9 +142,9 @@ for (var count = 0; count < 1; count++) {
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode(shop[count]);
-    var date = document.createTextNode(day[count]);
-    var cont = document.createTextNode(content[count]);
+    var shopname = document.createTextNode("<?php print($coupon[0]['coupon_place']) ?>");
+    var date = document.createTextNode("<?php print($coupon[0]['coupon_deadline']) ?>");
+    var cont = document.createTextNode("<?php print($coupon[0]['coupon_content']) ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -153,8 +164,6 @@ for (var count = 0; count < 1; count++) {
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-   
-}
             
 
     </script>
