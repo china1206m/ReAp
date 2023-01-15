@@ -106,10 +106,10 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>"
+      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>円"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
-      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>"
+      p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>泊<?php print($plan[$i]['plan_day'] + 1); ?>日"
 
       //olの追加
       var ol = document.createElement('ol');
@@ -133,13 +133,13 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_minute']); ?>"
+      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
       p_time.classList.add("plan_content");
 
       //移動時間追加
       var p_travel = document.createElement('p');
       p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_minute']); ?>"
+      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
       // もっと見るを作成
       var a = document.createElement('a');
