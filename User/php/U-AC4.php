@@ -48,7 +48,7 @@
     
                 
             <button type="submit" class="button-only" class="register">
-                    登録する
+                    変更する
             </button>
             </div>
         </form>
