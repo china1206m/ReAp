@@ -60,11 +60,11 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
     <form action="M-UM1.php" method="POST" name="searchForm1" onSubmit="return check1();">
         <!--検索のための表示場所-->
         ユーザID：
-        <input type="text" name="user_id" class="search_user" value="">
+        <input type="number" name="user_id" class="search_user" value="">
         ユーザ名：
-        <input type="text" name="user_name" class="search_user" maxlength="30" placeholder="30文字以内">
+        <input type="text" name="user_name" class="search_user" maxlength="20" placeholder="２0文字以内">
         メールアドレス：
-        <input type="email" name="user_mail" class="search_user" placeholder="〇〇〇＠△△">
+        <input type="email" name="user_mail" class="search_user" maxlength="30" placeholder="〇〇〇＠△△">
         <p>
         投稿通報回数：
         <input type="number" name="report_total" class="search_count" >
@@ -91,11 +91,11 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
         <form action="M-UM1.php" method="POST" name="searchForm2" onSubmit="return check2();">
         <!--検索のための表示場所-->
         ユーザID：
-        <input type="text" name="eventuser_id" class="search_user" value="">
+        <input type="number" name="eventuser_id" class="search_user" value="">
         ユーザ名：
-        <input type="text" name="eventuser_name" class="search_user" maxlength="30" placeholder="30文字以内">
+        <input type="text" name="eventuser_name" class="search_user" maxlength="20" placeholder="２0文字以内">
         メールアドレス：
-        <input type="email" name="eventuser_mail" class="search_user" placeholder="〇〇〇＠△△">
+        <input type="email" name="eventuser_mail" class="search_user" maxlength="30" placeholder="〇〇〇＠△△">
         <button type="submit" class="button-only">検索</button>
         </form>
 
@@ -117,9 +117,9 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
         <form action="M-UM1.php" method="POST" name="searchForm3" onSubmit="return check3();">
         <!--検索のための表示場所-->
         管理者ID：
-        <input type="text" name="administator_id" class="search_user" value="">
+        <input type="number" name="administator_id" class="search_user" value="">
         管理者名：
-        <input type="text" name="administator_name" class="search_user" maxlength="30" placeholder="30文字以内">
+        <input type="text" name="administator_name" class="search_user" maxlength="20" placeholder="２０文字以内">
         <button type="submit" class="button-only">検索</button>
         </form>
 
@@ -353,12 +353,12 @@ const len = elements.length;
 
         var ul_report1 = document.getElementById("report_count_e");
         var li_report1 = document.createElement('li');
-        li_report1.innerText = "佐藤猛"
+        li_report1.innerText = "-"
         li_report1.classList.add("list_u");
 
         var ul_stop1 = document.getElementById("stop_count_e");
         var li_stop1 = document.createElement('li');
-        li_stop1.innerText = "佐藤猛"
+        li_stop1.innerText = "-"
         li_stop1.classList.add("list_u");
         
     
@@ -405,17 +405,17 @@ const len = elements.length;
 
         var ul_mail1 = document.getElementById("manage_mail");
         var li_mail1 = document.createElement('li');
-        li_mail1.innerText = "佐藤猛"
+        li_mail1.innerText = "-"
         li_mail1.classList.add("list_u");
 
         var ul_report1 = document.getElementById("report_count_m");
         var li_report1 = document.createElement('li');
-        li_report1.innerText = "佐藤猛"
+        li_report1.innerText = "-"
         li_report1.classList.add("list_u");
 
         var ul_stop1 = document.getElementById("stop_count_m");
         var li_stop1 = document.createElement('li');
-        li_stop1.innerText = "佐藤猛"
+        li_stop1.innerText = "-"
         li_stop1.classList.add("list_u");
         
     
