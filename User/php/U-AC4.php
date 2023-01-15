@@ -1,49 +1,15 @@
-<?php
-
-/* セッション開始 */
-session_start();
- 
-/* POSTで送信されている */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-  include "MU.php";
-
-  $update = new MU();
-
-  $column = ['profiel_image', 'user_name', 'profiel_message'];
-  
-  $post = [$_FILES['profiel_image']['tmp_name'], $_POST['user_name'], $_POST['profiel_message']];
-  
-  $type = [1, 2, 2];
-
-  $id_name = "user_id";
-
-  $id = $_SESSION['user_id'];
-  //$id = 1;
-
-  $update->mu("user", $column, $post, $type, $id_name, $id);
-
-  //$_SESSION['register_message'] = '登録しました';
-  //header('Location:U-AC3.php');
-  exit;
-}else{
-  //header('Location:U-AC3.php');
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
         <title>U-AC4</title>
         <meta charset = "UTF-8">
         <link rel="stylesheet" href = "button.css">
-        <link rel="stylesheet" href = "demo4.css">
+        <link rel="stylesheet" href = "U-AC4.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
     </head>
     <body>
         <main id="main">
+
             <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back"></h3>
                 
             
@@ -58,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <div class="box1" align="left">
                         <font size="+5">
-                            <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
+                            <p><label for="user_mail" require>ユーザ名</label></p>
                
                         </font>
                         <br>
                         <div align="center" class="text">
-                            <input type=”text” name=”user_name” class="profile__name" placeholder="20文字以内" required>
+                            <input type=”text” maxlength="20" name=”user_name” class="profile__name" placeholder="20文字以内" required>
                         </div>
                         
                 </div><br>
@@ -84,10 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="button-only" class="register">
                     登録する
             </button>
-        </form>
-            
-    
             </div>
+        </form>
         </main>
         
         
