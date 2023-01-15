@@ -15,7 +15,7 @@ session_start();
    
     session_destroy(); // セッションを破壊
   
-    header('Location:E-AC1.php');
+    header('Location:E-AC1.html');
     exit;
   }
 ?>
