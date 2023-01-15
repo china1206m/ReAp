@@ -11,20 +11,37 @@ p {
   font-size: 1.5em;
   margin-top: 80px;
   margin-left: 200px;
+  border: 2px solid;
 }
 
-.event-month {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.event-month-select {
-  margin-left: 200px;
-}
-
-table{
+.event-day{
+  width: 200px;
+  height: 40px;
   font-size: 1.5em;
-  border-spacing: 80px 30px;
+  margin-left: 200px;
+  border: 2px solid;
+}
+
+.kara{
+  font-size: 50px;
+  margin-left: 40px;
+}
+
+.event-day2{
+  width: 200px;
+  height: 40px;
+  font-size: 1.5em;
+  margin-left: 40px;
+  border: 2px solid;
+}
+
+.cost {
+  width: 200px;
+  height: 40px;
+  font-size: 1.5em;
+  margin-left: 250px;
+  padding: 0.5em;
+  border: 2px solid;
 }
 
 /*ボタンデザイン 背景：青、文字：白*/
@@ -52,38 +69,13 @@ table{
     background-color: #064fda; /* 背景色 */
   }
   
-  .cost-from {
-    width: 200px;
-    height: 40px;
-    font-size: 1.5em;
-    margin-left: 250px;
-  }
-  
-  .cost-to {
-    width: 200px;
-    height: 40px;
-    font-size: 1.5em;
-  }
-  
-  .stay-from {
-    width: 200px;
-    height: 40px;
-    font-size: 1.5em;
-    margin-left: 250px;
-  }
-  
-  .stay-to {
-    width: 200px;
-    height: 40px;
-    font-size: 1.5em;
-  }
-  
   .region-select {
     width: 200px;
     height: 60px;
     font-size: 1.2em;
     margin-left: 250px;
     background-color: white;
+    border: 2px solid;
   }
   
   .pref-select {
@@ -92,6 +84,7 @@ table{
     font-size: 1.2em;
     margin-left: 20px;
     background-color: white;
+    border: 2px solid;
   }
   
   @media screen and (max-width:990px) {

@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <main id="main">
+  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
@@ -46,29 +47,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option value="">都道府県を選択</option>
       </select>
 
-      <p>開催月</p>
-      <table align="center">
+      <p>開催期間</p>
+        <table>
         <tr>
-          <td><input type="checkbox" name="event_day[]" value="1">１月</td>
-          <td><input type="checkbox" name="event_day[]" value="2">２月</td>
-          <td><input type="checkbox" name="event_day[]" value="3">３月</td>
+        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><div class="kara">～</div></td>
+        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
         </tr>
-        <tr>
-          <td><input type="checkbox" name="event_day[]" value="4">４月</td>
-          <td><input type="checkbox" name="event_day[]" value="5">５月</td>
-          <td><input type="checkbox" name="event_day[]" value="6">６月</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="event_day[]" value="7">７月</td>
-            <td><input type="checkbox" name="event_day[]" value="8">８月</td>
-            <td><input type="checkbox" name="event_day[]" value="9">９月</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="event_day[]" value="10">10月</td>
-            <td><input type="checkbox" name="event_day[]" value="11">11月</td>
-            <td><input type="checkbox" name="event_day[]" value="12">12月</td>
-        </tr>
-      </table> 
+      </table>
+
+      <p>費用</p>
+      <input type="number" name="plan_cost" class="cost"> 円
 
       <center>
         <br>
@@ -80,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <aside id="sub">
     <ul class="menu">
-        <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
