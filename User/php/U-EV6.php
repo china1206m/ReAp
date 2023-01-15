@@ -1,17 +1,17 @@
 <?php 
 
-//include "MG.php";
+include "MG.php";
 
-//$event_search = "";
-//$event_prefectures = "";
-//$event_day_first = "";
-//$event_day_end = "";
+$event_search = "";
+$event_prefectures = "";
+$event_day_first = "";
+$event_day_end = "";
 
-//$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
 
-//$count1 = $db->rowCount();
+$count1 = $db->rowCount();
 
-//$event = $db->fetchAll(PDO::FETCH_ASSOC);
+$event = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -47,7 +47,7 @@
     
     <?php
 
-      /*for ($i = 0; $i < $count1; $i++) :*/
+      for ($i = 0; $i < $count1; $i++) :
 
     ?>
 
@@ -61,7 +61,7 @@
         //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
-      div_right.innerText = "<?php //print($plan[$i]['post_date']); ?>toukoubi"
+      div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
 
         //アイコン追加
         var img = document.createElement('img');
@@ -77,19 +77,19 @@
         //題名追加
         var div_title = document.createElement('div');
         div_title.classList.add("title");
-        div_title.innerHTML = "<?php //print($event[$i]['event_title']); ?>taitoru";
+        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
   
         var br = document.createElement('br');
 
         //都道府県の追加
       var p_pre = document.createElement('p');
       p_pre.classList.add("pref");
-      p_pre.innerText = "<?php //print($plan[$i]['plan_prefectures']); ?>todouhuken"
+      p_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
   
         //条件追加
         var p = document.createElement('p');
         p.classList.add("content");
-        p.innerHTML = "<?php //print($event[$i]['event_content']); ?>naiyou"
+        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
 
         // もっと見るを作成
         var a = document.createElement('a');
@@ -109,7 +109,7 @@
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
     
-        <?php //endfor; ?>
+        <?php endfor; ?>
 
   </script>
 </body>
