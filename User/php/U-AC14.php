@@ -8,7 +8,7 @@
     </head>
     <body>
         <main id="main">
-        <form action="" method="POST" name="searchForm" onSubmit="return check();">
+        <form action="" method="POST" name="searchForm" onSubmit="return check();"></form>
         <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
         
@@ -19,19 +19,10 @@
                 所持クーポン一覧
             </font>
 
-            <ol type="1" id="numberlist">
+            <ul id="coupon_list1">
                 <li>
-                    <a type="submit" class="button" onclick="location.href='U-AC15.php'">
-                        <div class="left">
-                            <div class="price" name="coupon_content">内容</div>
-                        </div>
                     
-                        <div class="right">
-                            <div class="date" name="coupon_deadline">有効期限 年 月 日</div>
-                        </div> 
-                    </a>  
-                </li>
-            </ol>
+            </ul>
                     
         </div>
 
@@ -49,36 +40,62 @@
           </aside>
 
         <script>
-            var ol = document.getElementById("numberlist");
-                for(var count = 0; count < 3; count++){
-                    var li = document.createElement('li');
-                    
-                    var a = document.createElement('a');
-                    a.classList.add("button");
-                    a.href = 'U-AC15.php';
-                    a.type = 'submit';
+            var n=8;
+    // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
+  var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
+  var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
+  var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
-                    var div1 = document.createElement('div');
-                    div1.classList.add("left");
+var ul1 = document.getElementById("coupon_list1");
+for (var count = 0; count < 6; count++) {
+    // li要素を作成
+    var li1 = document.createElement('li');
 
-                    var div2 = document.createElement('div');
-                    div2.classList.add("price");
-                    div2.innerText = "内容";
+    var a = document.createElement('a');
+    a.classList.add("coupon");
+    a.href = "U-AC15.php";
 
-                    var div3 = document.createElement('div');
-                    div3.classList.add("right");
 
-                    var div4 = document.createElement('div');
-                    div4.classList.add("date");
-                    div4.innerText = "有効期限 年 月 日";
-                    
+    var div_left = document.createElement('div');
+    div_left.classList.add("left");
 
-                    ol.appendChild(li);
-                    li.appendChild(a);
-                    a.appendChild(div1);
-                    div1.appendChild(div2);
-                    a.appendChild(div3);
-                    div3.appendChild(div4);
+    var div_shop = document.createElement('div');
+    div_shop.classList.add("shop");
+
+    var div_price = document.createElement('div');
+    div_price.classList.add("price");
+
+    var div_right = document.createElement('div');
+    div_right.classList.add("right");
+
+    var div_date = document.createElement('div');
+    div_date.classList.add("date");
+    div_date.innerText = "有効期限";
+
+
+    // テキスト情報を作成
+    var shopname = document.createTextNode(shop[count]);
+    var date = document.createTextNode(day[count]);
+    var cont = document.createTextNode(content[count]);
+    var br1 = document.createElement('br');
+    var br2 = document.createElement('br');
+    var br3 = document.createElement('br');
+    
+
+    // ul要素に追加
+    ul1.appendChild(li1);
+    li1.appendChild(a);
+    a.appendChild(div_left);
+    div_left.appendChild(div_shop);
+    div_shop.appendChild(shopname);
+    div_left.appendChild(div_price);
+    div_price.appendChild(br1);
+    div_price.appendChild(br2);
+    div_price.appendChild(cont);
+    a.appendChild(div_right);
+    div_right.appendChild(div_date);
+    div_date.appendChild(br3);
+    div_date.appendChild(date);
                 }
         </script>
 
