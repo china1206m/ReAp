@@ -29,31 +29,31 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
 
     $sql = "SELECT * FROM user WHERE 1 = 1 ";
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $sql .= "AND user_id = ? ";
     }
 
-    if (!empty($mail)) {
+    if (!is_nullorempty($mail)) {
       $sql .= "AND user_mail = ? ";
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $sql .= "AND user_pass = ? ";
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $sql .= "AND user_name = ? ";
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $sql .= "AND profile_image = ? ";
     }
 
-    if (!empty($message)) {
+    if (!is_nullorempty($message)) {
       $sql .= "AND profile_message = ? ";
     }
 
-    if (!empty($coupon)) {
+    if (!is_nullorempty($coupon)) {
       $sql .= "AND coupon_can_get = ? ";
     }
 
@@ -68,37 +68,37 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $stmt->bindValue($n,$id);
       $n++;
     }
 
-    if (!empty($mail)) {
+    if (!is_nullorempty($mail)) {
       $stmt->bindValue($n,$mail);
       $n++;
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $stmt->bindValue($n,$pass);
       $n++;
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $stmt->bindValue($n,$name);
       $n++;
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $stmt->bindValue($n,$image);
       $n++;
     }
 
-    if (!empty($message)) {
+    if (!is_nullorempty($message)) {
       $stmt->bindValue($n,$message);
       $n++;
     }
 
-    if (!empty($coupon)) {
+    if (!is_nullorempty($coupon)) {
       $stmt->bindValue($n,$coupon);
       $n++;
     }
@@ -137,94 +137,94 @@ function MG_02($id,$mail,$pass,$name1,$name2,$number,$address,$name3,$image,$mes
 
     $sql = "SELECT * FROM eventuser WHERE 1 = 1 ";
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $sql .= "AND eventuser_id = ? ";
     }
 
-    if (!empty($mail)) {
+    if (!is_nullorempty($mail)) {
       $sql .= "AND eventuser_mail = ? ";
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $sql .= "AND eventuser_pass = ? ";
     }
 
-    if (!empty($name1)) {
+    if (!is_nullorempty($name1)) {
       $sql .= "AND eventuser_name = ? ";
     }
 
-    if (!empty($name2)) {
+    if (!is_nullorempty($name2)) {
       $sql .= "AND representative_name = ? ";
     }
 
-    if (!empty($number)) {
+    if (!is_nullorempty($number)) {
       $sql .= "AND phone_number = ? ";
     }
 
-    if (!empty($address)) {
+    if (!is_nullorempty($address)) {
       $sql .= "AND address = ? ";
     }
 
-    if (!empty($name3)) {
+    if (!is_nullorempty($name3)) {
       $sql .= "AND enterprise_name = ? ";
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $sql .= "AND profile_image = ? ";
     }
 
-    if (!empty($message)) {
+    if (!is_nullorempty($message)) {
       $sql .= "AND profile_message = ? ";
     }
 
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $stmt->bindValue($n,$id);
       $n++;
     }
 
-    if (!empty($mail)) {
+    if (!is_nullorempty($mail)) {
       $stmt->bindValue($n,$mail);
       $n++;
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $stmt->bindValue($n,$pass);
       $n++;
     }
 
-    if (!empty($name1)) {
+    if (!is_nullorempty($name1)) {
       $stmt->bindValue($n,$name1);
       $n++;
     }
 
-    if (!empty($name2)) {
+    if (!is_nullorempty($name2)) {
       $stmt->bindValue($n,$name2);
       $n++;
     }
 
-    if (!empty($number)) {
+    if (!is_nullorempty($number)) {
       $stmt->bindValue($n,$number);
       $n++;
     }
 
-    if (!empty($address)) {
+    if (!is_nullorempty($address)) {
       $stmt->bindValue($n,$address);
       $n++;
     }
-    if (!empty($name3)) {
+    if (!is_nullorempty($name3)) {
       $stmt->bindValue($n,$name3);
       $n++;
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $stmt->bindValue($n,$image);
       $n++;
     }
 
-    if (!empty($message)) {
+    if (!is_nullorempty($message)) {
       $stmt->bindValue($n,$message);
       $n++;
     }
@@ -253,15 +253,15 @@ function MG_03($id,$pass,$name) {
 
     $sql = "SELECT * FROM administrator WHERE 1 = 1 ";
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $sql .= "AND administrator_id = ? ";
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $sql .= "AND administrator_pass = ? ";
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $sql .= "AND administrator_name = ? ";
     }
 
@@ -269,17 +269,17 @@ function MG_03($id,$pass,$name) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id)) {
+    if (!is_nullorempty($id)) {
       $stmt->bindValue($n,$id);
       $n++;
     }
 
-    if (!empty($pass)) {
+    if (!is_nullorempty($pass)) {
       $stmt->bindValue($n,$pass);
       $n++;
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $stmt->bindValue($n,$name);
       $n++;
     }
@@ -308,104 +308,104 @@ function MG_04($id1,$id2,$title,$who,$prefectures,$cost,$date1,$day,$total,$seas
 
     $sql = "SELECT * FROM plan WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND plan_id = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND user_id = ? ";
     }
 
-    if (!empty($title)) {
+    if (!is_nullorempty($title)) {
       $sql .= "AND plan_title = ? ";
     }
 
-    if (!empty($who)) {
+    if (!is_nullorempty($who)) {
       $sql .= "AND plan_who = ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND plan_prefectures = ? ";
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $sql .= "AND plan_cost = ? ";
     }
 
-    if (!empty($date1)) {
+    if (!is_nullorempty($date1)) {
       $sql .= "AND plan_date = ? ";
     }
 
-    if (!empty($day)) {
+    if (!is_nullorempty($day)) {
       $sql .= "AND plan_day = ? ";
     }
 
-    if (!empty($total)) {
+    if (!is_nullorempty($total)) {
       $sql .= "AND plan_favorite_total = ? ";
     }
 
-    if (!empty($season)) {
+    if (!is_nullorempty($season)) {
       $sql .= "AND plan_favorite_season = ? ";
     }
 
-    if (!empty($date2)) {
+    if (!is_nullorempty($date2)) {
       $sql .= "AND post_date = ? ";
     }
 
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($title)) {
+    if (!is_nullorempty($title)) {
       $stmt->bindValue($n,$title);
       $n++;
     }
 
-    if (!empty($who)) {
+    if (!is_nullorempty($who)) {
       $stmt->bindValue($n,$who);
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $stmt->bindValue($n,$cost);
       $n++;
     }
 
-    if (!empty($date1)) {
+    if (!is_nullorempty($date1)) {
       $stmt->bindValue($n,$date1);
       $n++;
     }
 
-    if (!empty($day)) {
+    if (!is_nullorempty($day)) {
       $stmt->bindValue($n,$day);
       $n++;
     }
 
-    if (!empty($total)) {
+    if (!is_nullorempty($total)) {
       $stmt->bindValue($n,$total);
       $n++;
     }
 
-    if (!empty($season)) {
+    if (!is_nullorempty($season)) {
       $stmt->bindValue($n,$favorite_season);
       $n++;
     }
 
-    if (!empty($date2)) {
+    if (!is_nullorempty($date2)) {
       $stmt->bindValue($n,$date2);
       $n++;
     }
@@ -434,81 +434,81 @@ function MG_05($id1,$id2,$place,$content,$stay_time_hour,$stay_time_minute,$imag
 
     $sql = "SELECT * FROM plan_detail WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND plan_detail_id = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND plan_id = ? ";
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $sql .= "AND plan_place = ? ";
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $sql .= "AND plan_content = ? ";
     }
 
-    if (!empty($stay_time_hour)) {
+    if (!is_nullorempty($stay_time_hour)) {
       $sql .= "AND stay_time_hour = ? ";
     }
 
-    if (!empty($stay_time_minute)) {
+    if (!is_nullorempty($stay_time_minute)) {
       $sql .= "AND stay_time_minute = ? ";
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $sql .= "AND plan_image = ? ";
     }
 
-    if (!empty($travel_time_hour)) {
+    if (!is_nullorempty($travel_time_hour)) {
       $sql .= "AND travel_time_hour = ? ";
     }
 
-    if (!empty($travel_time_minute)) {
+    if (!is_nullorempty($travel_time_minute)) {
       $sql .= "AND travel_time_minute = ? ";
     }
 
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $stmt->bindValue($n,$place);
       $n++;
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $stmt->bindValue($n,$content);
       $n++;
     }
 
-    if (!empty($stay_time_hour)) {
+    if (!is_nullorempty($stay_time_hour)) {
       $stmt->bindValue($n,$stay_time_hour);
       $n++;
     }
 
-    if (!empty($stay_time_minute)) {
+    if (!is_nullorempty($stay_time_minute)) {
       $stmt->bindValue($n,$stay_time_minute);
       $n++;
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $stmt->bindValue($n,$image);
       $n++;
     }
 
-    if (!empty($travel_time_hour)) {
+    if (!is_nullorempty($travel_time_hour)) {
       $stmt->bindValue($n,$travel_time_minute);
       $n++;
     }
@@ -537,113 +537,113 @@ function MG_06($id1,$id2,$title,$prefectures,$day_first,$day_end,$content,$place
 
     $sql = "SELECT * FROM event WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND event_id = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND eventuser_id = ? ";
     }
 
-    if (!empty($title)) {
+    if (!is_nullorempty($title)) {
       $sql .= "AND event_title = ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND event_prefectures = ? ";
     }
 
-    if (!empty($day_first)) {
+    if (!is_nullorempty($day_first)) {
       $sql .= "AND event_day_first = ? ";
     }
 
-    if (!empty($day_end)) {
+    if (!is_nullorempty($day_end)) {
       $sql .= "AND event_day_end = ? ";
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $sql .= "AND event_content = ? ";
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $sql .= "AND event_place = ? ";
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $sql .= "AND event_cost = ? ";
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $sql .= "AND event_image = ? ";
     }
 
-    if (!empty($total)) {
+    if (!is_nullorempty($total)) {
       $sql .= "AND event_favorite_total = ? ";
     }
 
-    if (!empty($date)) {
+    if (!is_nullorempty($date)) {
       $sql .= "AND post_date = ? ";
     }
 
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($title)) {
+    if (!is_nullorempty($title)) {
       $stmt->bindValue($n,$title);
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
 
-    if (!empty($day_first)) {
+    if (!is_nullorempty($day_first)) {
       $stmt->bindValue($n,$day_first);
       $n++;
     }
 
-    if (!empty($day_end)) {
+    if (!is_nullorempty($day_end)) {
       $stmt->bindValue($n,$day_end);
       $n++;
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $stmt->bindValue($n,$content);
       $n++;
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $stmt->bindValue($n,$place);
       $n++;
     }
 
-    if (!empty($cost)) {
+    if (!is_nullorempty($cost)) {
       $stmt->bindValue($n,$cost);
       $n++;
     }
 
-    if (!empty($image)) {
+    if (!is_nullorempty($image)) {
       $stmt->bindValue($n,$image);
       $n++;
     }
 
-    if (!empty($total)) {
+    if (!is_nullorempty($total)) {
       $stmt->bindValue($n,$total);
       $n++;
     }
 
-    if (!empty($date)) {
+    if (!is_nullorempty($date)) {
       $stmt->bindValue($n,$date);
       $n++;
     }
@@ -672,15 +672,15 @@ function MG_07($id1,$id2,$id3) {
 
     $sql = "SELECT * FROM plan_favorite WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND plan_favorite_id = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND user_id = ? ";
     }
 
-    if (!empty($id3)) {
+    if (!is_nullorempty($id3)) {
       $sql .= "AND plan_id = ? ";
     }
 
@@ -688,17 +688,17 @@ function MG_07($id1,$id2,$id3) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($id3)) {
+    if (!is_nullorempty($id3)) {
       $stmt->bindValue($n,$id3);
       $n++;
     }
@@ -731,31 +731,31 @@ function MG_09($id1,$name,$id2,$place,$prefectures,$content,$deadline) {
 
     $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND coupon_id = ? ";
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $sql .= "AND coupon_name = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND eventuser_id = ? ";
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $sql .= "AND coupon_place = ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND coupon_prefectures = ? ";
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $sql .= "AND coupon_content = ? ";
     }
 
-    if (!empty($deadline)) {
+    if (!is_nullorempty($deadline)) {
       $sql .= "AND coupon_deadline = ? ";
     }
 
@@ -763,37 +763,37 @@ function MG_09($id1,$name,$id2,$place,$prefectures,$content,$deadline) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($name)) {
+    if (!is_nullorempty($name)) {
       $stmt->bindValue($n,$name);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($place)) {
+    if (!is_nullorempty($place)) {
       $stmt->bindValue($n,$place);
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
 
-    if (!empty($content)) {
+    if (!is_nullorempty($content)) {
       $stmt->bindValue($n,$content);
       $n++;
     }
 
-    if (!empty($deadline)) {
+    if (!is_nullorempty($deadline)) {
       $stmt->bindValue($n,$deadline);
       $n++;
     }
@@ -822,15 +822,15 @@ function MG_10($id1,$id2,$id3) {
 
     $sql = "SELECT * FROM get_coupon WHERE 1 = 1 ";
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $sql .= "AND get_coupon_id = ? ";
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $sql .= "AND user_id = ? ";
     }
 
-    if (!empty($id3)) {
+    if (!is_nullorempty($id3)) {
       $sql .= "AND coupon_id = ? ";
     }
 
@@ -838,17 +838,17 @@ function MG_10($id1,$id2,$id3) {
     $stmt = $db->prepare($sql);
 
 
-    if (!empty($id1)) {
+    if (!is_nullorempty($id1)) {
       $stmt->bindValue($n,$id1);
       $n++;
     }
 
-    if (!empty($id2)) {
+    if (!is_nullorempty($id2)) {
       $stmt->bindValue($n,$id2);
       $n++;
     }
 
-    if (!empty($id3)) {
+    if (!is_nullorempty($id3)) {
       $stmt->bindValue($n,$id3);
       $n++;
     }
@@ -881,17 +881,19 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
       $sql .= "AND event_title LIKE ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND event_prefectures = ? ";
     }
 
-    if (!empty($day_first)) {
+    if (!is_nullorempty($day_first)) {
       $sql .= "AND event_day_end >= ? ";
     }
     
-    if (!empty($day_end)) {
+    if (!is_nullorempty($day_end)) {
       $sql .= "AND event_day_first <= ? ";
     }
+
+    $sql .= "LIMIT 50";
 
 
     $stmt = $db->prepare($sql);
@@ -903,17 +905,17 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
 
-    if (!empty($day_first)) {
+    if (!is_nullorempty($day_first)) {
       $stmt->bindValue($n,$day_first);
       $n++;
     }
 
-    if (!empty($day_end)) {
+    if (!is_nullorempty($day_end)) {
       $stmt->bindValue($n,$day_end);
       $n++;
     }
@@ -946,11 +948,11 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $sql .= "AND plan_title LIKE ? ";
     }
 
-    if (!empty($who)) {
+    if (!is_nullorempty($who)) {
       $sql .= "AND plan_who = ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND plan_prefectures = ? ";
     }
 
@@ -958,17 +960,19 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $sql .= "AND plan_cost >= ? AND plan_cost <= ? ";
     }
 
-    if (!empty($date_first)) {
+    if (!is_nullorempty($date_first)) {
       $sql .= "AND plan_date >= ? ";
     }
     
-    if (!empty($date_end)) {
+    if (!is_nullorempty($date_end)) {
       $sql .= "AND plan_date <= ? ";
     }
 
     if (!is_nullorempty($day)) {
       $sql .= "AND plan_day = ? ";
     }
+
+    $sql .= "LIMIT 50";
 
 
     $stmt = $db->prepare($sql);
@@ -980,12 +984,12 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $n++;
     }
 
-    if (!empty($who)) {
+    if (!is_nullorempty($who)) {
       $stmt->bindValue($n,$who);
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
@@ -1000,12 +1004,12 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
       $n++;
     }
 
-    if (!empty($date_first)) {
+    if (!is_nullorempty($date_first)) {
       $stmt->bindValue($n,$date_first);
       $n++;
     }
 
-    if (!empty($date_end)) {
+    if (!is_nullorempty($date_end)) {
       $stmt->bindValue($n,$date_end);
       $n++;
     }
@@ -1043,7 +1047,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $sql .= "AND coupon_name LIKE ? ";
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $sql .= "AND coupon_prefectures = ? ";
     }
 
@@ -1051,8 +1055,8 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $sql .= "AND coupon_place LIKE ? ";
     }
 
-    if (!empty($deadline)) {
-      $sql .= "AND coupon_deadline <= ? ";
+    if (!is_nullorempty($deadline)) {
+      $sql .= "AND coupon_deadline >= ? ";
     }
 
 
@@ -1065,7 +1069,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $n++;
     }
 
-    if (!empty($prefectures)) {
+    if (!is_nullorempty($prefectures)) {
       $stmt->bindValue($n,$prefectures);
       $n++;
     }
@@ -1076,7 +1080,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
       $n++;
     }
 
-    if (!empty($deadline)) {
+    if (!is_nullorempty($deadline)) {
       $stmt->bindValue($n,$deadline);
       $n++;
     }
