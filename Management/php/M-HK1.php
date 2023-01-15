@@ -1,3 +1,19 @@
+<?php
+
+include "MG.php";
+
+$db = getDB();
+$sql = "SELECT * FROM plan ORDER BY post_date DESC LIMIT 50";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+
+$count1 = $stmt->rowCount();
+
+$plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +72,20 @@
   var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
 
   var ul = document.getElementById("country_list");
-  for (var count = 0; count < 3; count++) {
+  
+  <?php 
+
+    for ($i = 0; $i < $count1; $i++) :  
+
+    $user_id = $plan[$i]['user_id']; 
+    $db = MG_01($user_id,"","","","","","","","");
+    $user = $db->fetchAll(PDO::FETCH_ASSOC);
+
+    $plan_id = $plan[$i]['plan_id']; 
+    $db = MG_05("",$plan_id,"","","","","","","");
+    $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
+  ?>
+
 	// li要素を作成
 	var li = document.createElement('li');
   li.classList.add("event_information");
@@ -73,13 +102,13 @@
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  var daimei = document.createTextNode(country[count]);
+  var daimei = document.createTextNode("<?php print($plan[$i]['plan_title']); ?>");
   div.appendChild(daimei);
 
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  var text = document.createTextNode(country[count]);
+  var text = document.createTextNode("<?php print($plan_detail[0]['plan_content']); ?>");
   p.appendChild(text);
 
   // もっと見るを作成
@@ -94,6 +123,8 @@
   li.appendChild(div);
   li.appendChild(p);
   li.appendChild(a);
-}
+
+      <?php endfor; ?>
+
 </Script>
 </body>
