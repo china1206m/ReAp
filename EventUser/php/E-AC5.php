@@ -34,7 +34,7 @@ session_start();
       <button type="submit"class="button-yes" onclick="location.href='' ">はい</button>
     </form>
   
-   <button type="submit"class="button-yes" onclick="location.href='E-AC3.html'">いいえ</button>
+   <button type="submit"class="button-yes" onclick="location.href='E-AC3.php'">いいえ</button>
     </div></li>
   </ul>
 </center>
