@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン発行</h3>
 
 
-    <form action="#" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="#" method="POST" name="searchForm" id="form1" onsubmit="return check()">
         <table>
             <tr>
                 <td><p><label class="label-prefectures-shop" for="prefectures">都道府県<span class="require">必須</span></label></p></td>
@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tr>
         
             <tr>
-                <td><select name="coupon_prefectures" class="prefectures-shop" required>
+            <td>
+            <select name="coupon_prefectures" class="prefectures-shop" required>
             <option value="">都道府県を選択</option>
             <option value="北海道">北海道</option>
             <optgroup label="東北">
@@ -116,29 +117,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="鹿児島県">鹿児島県</option>
               <option value="沖縄県">沖縄県</option>
             </optgroup>
-          </select></td>
+            </select>
+            </td>
         
             <td><input type="text" class="prefectures-shop" name="coupon_place" maxlength="30" placeholder="30文字以内" required></td>
-        </tr>
+            </tr>
         </table>
     
         <p><label for="shop">使用期限<span class="require">必須</span></label></p>
-        <input type="date" id="date" name="coupon_deadline" class="day" value="" required>
+        <input type="date" id="date" name="coupon_deadline" class="day" required>
     
         <p><label for="shop">詳細<span class="require">必須</span></label></p>
         <textarea class="tarea" name="coupon_content" maxlength="1000" placeholder="1000文字以内" required></textarea>
     
-        <center>
+     
         
-        
 
-
-    <button id="open-btn" class="overlay-event">発行する</button>
-
-
-    <div style="display: block;" id="overlay">
-      <div class="flex">
-        <div id="overlay-inner">
+      <center>
+        <button id="open-btn" class="overlay-event">発行する</button>
+      </center>
+    </form>  
+   
+      <div style="display: block;" id="overlay">
+        <div class="flex">
+          <div id="overlay-inner">
             <hr class="top">
             都道府県
             <hr>
@@ -149,14 +151,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             詳細
             <hr class="under">
           <!--idはデザイン-->
-          <button id="close-btn" type="submit" onClick="disp()">はい</button>
-        </form>
+          <button id="close-btn1" class="close" value="" disabled>はい</button>
           <!--はいを押したら消去機能呼び出し-->
-          <button id="close-btn" class="close" type=button>いいえ</button>
+          <button id="close-btn2" class="close" type="button" disabled>いいえ</button>
+          </div>
         </div>
       </div>
-    </div>
-    </center>
+   
+  
 
 
 
@@ -173,21 +175,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </aside>
 
 <script>
-  function check () {
+  var open = document.getElementById("open-btn");
+  var close = document.getElementById("close-btn1");
+  var close2 = document.getElementById("close-btn2");
+  const overlay = document.getElementById('overlay');
+  function overlayToggle() {
+    overlay.classList.toggle('overlay-on');
+  }
 
-    // オーバレイを開閉する関数
-    const overlay = document.getElementById('overlay');
-    function overlayToggle() {
-      overlay.classList.toggle('overlay-on');
+
+  function check(){ // formが送信される直前に実行
+    if(close.value==1){ // 'はい'が押されたとき
+      history.pushState(null, null, null);
+
+    window.addEventListener("popstate", function() {
+        history.pushState(null, null, null);
+    });
+      return true;
     }
+    open.setAttribute("disabled","");
+    close.removeAttribute("disabled");
+    close2.removeAttribute("disabled");
     overlayToggle();
-  
-    const clickArea = document.getElementsByClassName('close');
-    for(let i = 0; i < clickArea.length; i++) {
-      clickArea[i].addEventListener('click', overlayToggle, false);
-    }
     return false;
-}
+  }
+  
+  close2.addEventListener('click', function(){
+    close2.setAttribute("disabled","");
+    open.removeAttribute("disabled");
+    overlayToggle();
+  }, false);
+
+  close.addEventListener('click', function(){
+    close.value = "1";
+    close.setAttribute("disabled","");
+    document.forms.form1.submit();
+  }, false);
 
 
 </script>
