@@ -8,6 +8,7 @@
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
+    <form action='' method="POST" enctype="multipart/form-data">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
    
 
@@ -22,7 +23,7 @@
       </div>
     </div>
 
-    
+</form>
 </main>
 
 <aside id="sub">
@@ -50,40 +51,24 @@
     for (var count = 0; count < 3; count++) {
       // li要素を作成
       var li = document.createElement('li');
-    li.classList.add("event_information");
+        li.classList.add("box");
   
-    // アイコンを作成
-    var img = document.createElement('img');
-    img.classList.add("circle");
-    img.src = 'monky.png';
-    img.align = 'left'
-    img.alt = 'アイコン'
-    img.width = 100;
-    img.height = 100;
+    var p1 = document.createElement('p');
+    p1.innerText = "ユーザID:"
+
+    var p2 = document.createElement('p');
+    p2.innerText = "ユーザ名:"
+
+    var p3 = document.createElement('p');
+    p3.innerText = "メールアドレス:"
   
-    // 題名を作成
-    var div = document.createElement('div');
-    div.className = 'title';
-    var daimei = document.createTextNode(country[count]);
-    div.appendChild(daimei);
-  
-    // 本文を作成
-    var p = document.createElement('p');
-    p.classList.add("limit");
-    var text = document.createTextNode(country[count]);
-    p.appendChild(text);
-  
-    // もっと見るを作成
-    var a = document.createElement('a');
-    a.classList.add("more-see");
-    a.href = "E-SE4.php";
-    a.innerText = "...もっと見る";
+    
     
     // それぞれの要素を追加したい場所へ追加
     ul.appendChild(li);
-    li.appendChild(img);
-    li.appendChild(div);
-    li.appendChild(p);
+    li.appendChild(p1);
+    li.appendChild(p2);
+    li.appendChild(p3);
     
   }
   </Script>
