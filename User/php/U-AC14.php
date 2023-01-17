@@ -1,16 +1,3 @@
-<?php
-
-include "MG.php";
-
-$id = "";
-
-$db = MG_10("",$id,"");
-$count1 = $db->rowCount();
-$get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
-
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -33,7 +20,7 @@ $get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
             </font>
 
             <ul id="coupon_list1">
-                <li>
+                
                     
             </ul>
                     
@@ -55,29 +42,19 @@ $get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
         <script>
             var n=8;
     // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
-  //var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
-  //var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
-  //var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
+  var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
+  var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
+  var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
 var ul1 = document.getElementById("coupon_list1");
-
-    <?php 
-
-        for ($i = 0; $i < $count1; $i++) :
-
-        $coupon_id = $get_coupon[$i]['coupon_id'];
-        $db = MG_09($coupon_id,"","","","","","");
-        $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
-
-    ?>
-
+for (var count = 0; count < 6; count++) {
     // li要素を作成
     var li1 = document.createElement('li');
 
-    var a = document.createElement('a');
-    a.classList.add("coupon");
-    a.href = "U-AC15.php";
-
+    var button1 = document.createElement('a');
+    button1.type = "button";
+    button1.classList.add("coupon");
+    button1.href = 'U-AC15.php';
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -97,9 +74,9 @@ var ul1 = document.getElementById("coupon_list1");
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode("<?php print($coupon[0]['coupon_place']); ?>");
-    var date = document.createTextNode("<?php print($coupon[0]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[0]['coupon_content']); ?>");
+    var shopname = document.createTextNode(shop[count]);
+    var date = document.createTextNode(day[count]);
+    var cont = document.createTextNode(content[count]);
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -107,21 +84,19 @@ var ul1 = document.getElementById("coupon_list1");
 
     // ul要素に追加
     ul1.appendChild(li1);
-    li1.appendChild(a);
-    a.appendChild(div_left);
+    li1.appendChild(button1);
+    button1.appendChild(div_left);
     div_left.appendChild(div_shop);
     div_shop.appendChild(shopname);
     div_left.appendChild(div_price);
     div_price.appendChild(br1);
     div_price.appendChild(br2);
     div_price.appendChild(cont);
-    a.appendChild(div_right);
+    button1.appendChild(div_right);
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-
-            <?php endfor; ?>
-
+                }
         </script>
 
         

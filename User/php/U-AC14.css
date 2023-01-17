@@ -128,7 +128,7 @@
     background-color: #064fda; /* 背景色 */
   }
 
-  .button {
+  button {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
