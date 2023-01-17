@@ -1,3 +1,45 @@
+<?php
+
+/* セッション開始 */
+session_start();
+ 
+//フォームの初期値に編集前の情報格納
+include "MG.php";
+
+$id = 1;
+$db = MG_02($id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  include "MU.php";
+
+  $update = new MU();
+
+  $column = ['profiel_image', 'user_name', 'profiel_message'];
+  
+  $post = [$_FILES['profiel_image']['tmp_name'], $_POST['user_name'], $_POST['profiel_message']];
+  
+  $type = [1, 1, 1];
+
+  $id_name = "user_id";
+
+  $id = $_SESSION['user_id'];
+
+
+  $update->mu("user", $column, $post, $type, $id_name, $id);
+
+  //$_SESSION['register_message'] = '登録しました';
+  //header('Location:E-AC3.php');
+  exit;
+}else{
+  //header('Location:E-AC3.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
