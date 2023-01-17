@@ -196,7 +196,7 @@ h3{
 
 /* ホバー時（カーソルをのせた時）の見た目 */
 .button-only:hover {
-  background-color: #064fda; /* 背景色 */
+  background-color: #4f82e0; /* 背景色 */
 }
 
 .button {
@@ -216,7 +216,7 @@ margin-top: 300px;
 
 /* ホバー時（カーソルをのせた時）の見た目 */
 button:hover {
-  background-color: #064fda; /* 背景色 */
+  background-color: #98b6ef; /* 背景色 */
 }
 
 .box1 {
