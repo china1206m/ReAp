@@ -66,5 +66,12 @@
         font-size: 0.5em;
         margin-left: 100px;
       }
+
+      .already{
+        color: blue;
+        text-align: right;
+        margin-left: 65%;
+        font-size: 0.7em;
+      }
       
     }

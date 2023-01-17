@@ -66,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     <form action="" method="POST">  
 
+    <a class="already" href="U-AC6.php">登録済の方はこちらから</a>
+
         <center>
         <h3>アカウント登録</h3>
         </center>

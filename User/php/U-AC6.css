@@ -53,4 +53,10 @@ section {
     color: red;
   }
   
+  .already{
+    color: blue;
+    text-align: right;
+    margin-left: 60%;
+    font-size: 0.7em;
+  }
 }

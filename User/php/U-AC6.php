@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ユーザ名またはパスワードが異なります。
 </div>
 <button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
+<a class="already" href="U-AC2.php">新規登録の方はこちらから</a>
       
 </div>
 </form>
