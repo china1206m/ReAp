@@ -26,7 +26,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main id="main">
       <div align="right">
         <button class="btn" onclick="location.href='U-HK2.php'"><img src="crown.png" alt="ranking"></button>
-        <button class="btn" onclick="location.href='U-HK5.php'"><img src="post.png" alt="post"></button>    
+        <button class="btn" onclick="location.href='U-HK5.html'"><img src="post.png" alt="post"></button>    
         <button class="btn" onclick="location.href='U-HK3.php'"><img src="search.png" alt="search"></button>
       </div>
 
