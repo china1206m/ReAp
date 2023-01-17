@@ -52,6 +52,10 @@
     <section>
         <div class="box1"><h3 align="center">アカウント登録</h3></div>
 
+        <br>
+        <br>
+        <a class="already" href="E-AC4.php">登録済の方はこちらから</a>   
+
         <div align="center" class="box2">
             <form action=".php"E-AC2 method="POST">
                 <div class="register-form" style="max-width:400px;">

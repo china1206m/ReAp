@@ -81,6 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <br>
 <button type="submit" name="login" class="button-only">ログイン</button>
+
+<br>
+<br>
+<a class="already" href="E-AC2.php">新規登録の方はこちらから</a>   
       
 </div>
 </form>
