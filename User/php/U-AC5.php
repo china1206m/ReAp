@@ -1,7 +1,42 @@
+<?php
+
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  include "MU.php";
+
+  $update = new MU();
+
+  $column = ['user_mali', 'user_pass'];
+  
+  $post = [$_POST['user_mail'], $_POST['user_pass']];
+  
+  $type = [1, 1, 1];
+
+  $id_name = "ser_id";
+
+  $id = $_SESSION['user_id'];
+
+
+  $update->mu("user", $column, $post, $type, $id_name, $id);
+
+  //$_SESSION['register_message'] = '登録しました';
+  //header('Location:E-AC3.php');
+  exit;
+}else{
+  //header('Location:E-AC3.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>画面ID U-HK10</title>
+  <title>画面ID U-AC5</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
