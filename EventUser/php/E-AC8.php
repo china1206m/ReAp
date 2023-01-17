@@ -3,7 +3,13 @@
 /* セッション開始 */
 session_start();
 
+//フォームの初期値に編集前の情報格納
+include "MG.php";
 
+$id = 1;
+$db = MG_02($id,"","","","","","","","","");
+$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+ 
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
