@@ -75,3 +75,8 @@
     h3 {
       font-size: 3em;
     }
+
+  .box {
+    height: 180px;
+    border: 0;
+  }  
