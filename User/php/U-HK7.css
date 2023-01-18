@@ -151,4 +151,9 @@
     width:92%;
     border: solid thin black;
   }
+
+  .box {
+    height: 180px;
+    border: 0;
+  }
 }
