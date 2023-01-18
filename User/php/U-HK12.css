@@ -197,8 +197,8 @@ input[type=radio] {
       
         /* 整える */
         width: 700px;
-        height auto
-        margin 1em 0; /* 前後の隙間 */
+        height: auto;
+        margin: 1em 0; /* 前後の隙間 */
         padding: 0.6em 2em; /* 塗りの余白 */
         font-size: 1.7em; /* フォントサイズ */
         background-color: white; /* 背景色 */
@@ -216,4 +216,3 @@ input[type=radio] {
         background-color: #064fda; /* 背景色 */
       }
     }
-  
