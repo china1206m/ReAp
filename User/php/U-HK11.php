@@ -22,7 +22,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
   <head>
-    <title>U-HK6</title>
+    <title>U-HK11</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="U-HK6.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
@@ -32,6 +32,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
       <ul id="planlist">
       </ul>
+      <div class="box"></div>
     </main>
 
     <aside id="sub">
@@ -39,7 +40,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -59,7 +60,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
           $db = MG_05("",$plan_id,"","","","","","","");
           $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
       ?>
-      var li = document.createElement('li');
+        var li = document.createElement('li');
       li.classList.add("home-list");
 
       var p = document.createElement('p');
@@ -72,10 +73,6 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       var div_right = document.createElement('div');
       div_right.classList.add("right");
       div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
-
-      //都道府県の追加
-      var div_pre = document.createElement('div');
-      div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
 
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -167,6 +164,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       div_home.appendChild(p_time);
       div_planlist.appendChild(p_travel);
       div_planlist.appendChild(a);
+      
 
         <?php endfor; ?>
 
