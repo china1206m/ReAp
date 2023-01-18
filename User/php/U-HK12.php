@@ -3,6 +3,7 @@
 session_start();
  
 /* POSTで送信されている */
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['user_id'] = 1;
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>通報理由</h2>
         </div>
     
-        <form action="" method="POST" name="reportForm" onSubmit="return check();">
+        <form action="U-HK7.php" method="POST" name="reportForm" onSubmit="return check();">
             <div class="reason-select" align="center">
                 <div class="button-box">
                     <div class="reason" style="max-width:650px;">
@@ -67,9 +68,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
+  <script>
+function check () {
+var reason = document.reportForm.report_content.value;
+
+if ( reason == "" ) {
+alert ( "通報理由を選択してください。" );
+
+return false;
+}
+
+return true;
+}
+</script>
 </body>
 </html>
