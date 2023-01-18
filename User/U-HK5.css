@@ -1,0 +1,260 @@
+/*パソコン用*/
+@media screen and (min-width:990px) {
+    .button_back {
+        /* ブラウザ特有のスタイルを無効に */
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+      
+        /* 整える */
+        display: inline;
+        width: 10px;
+        margin-left: 30px;
+        padding: 0.6em 1em; /* 塗りの余白 */
+        font-size: 1.2em;
+        background-color: white; /* 背景色 */
+        color: black; /* テキストカラー */
+        cursor: pointer; /* カーソルを指マークに */
+        border-radius: 3px; /* 角の丸み */
+        border: 0; /* 枠線を消す */
+        transition: 0.3s; /* ホバーの変化を滑らかに */
+      }
+    
+      /* ホバー時（カーソルをのせた時）の見た目 */
+    .button_back:hover {
+        background-color: white; /* 背景色 */
+      }
+    
+    h3{
+        margin-left: 0;
+        font-size: 1em;
+      }
+    
+    .circle {
+        width:50px;
+        height:50px;
+        border: 1px solid;
+        border-radius: 50%;
+        margin-left: 20px;
+      }
+    
+    .title {
+        margin: 0 0 0 20px;
+        padding: 0;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+      }
+    
+    .plan_content{
+        font-size: 20px;
+    }
+    
+    .travel_time{
+    text-align: center;
+    font-size: 20px;
+    }
+    
+    .condition{
+        display: inline;
+        font-size: 20px;
+        margin-left: 150px;
+    }
+    
+    ol{
+        font-size: 30px;
+        margin-left: 20px;
+    }
+    
+    /*計画内の場所の情報掲載デザイン*/ 
+    .home_information{
+        background:white; /*背景色の指定*/
+        width:92%;
+        border: solid thin black;
+        }
+    
+    /*計画の情報掲載デザイン*/ 
+    .ranking_information{
+        padding: 10px;
+        background:white; /*背景色の指定*/
+        width:94%;
+        position: relative;
+        border: solid medium #dae5f8;
+        margin-left: 10px;
+        }
+    
+    /*もっと見るボタンのデザイン*/
+    .more-see { 
+        color: gray;
+        text-decoration: none; 
+        font-weight: bold;
+        font-size: 1.1em;
+        position:absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 100px;
+        }
+  
+        ul {
+          list-style:none;
+          margin-top: 100px;
+        }
+        
+         .home-list {
+          list-style:none;
+        }
+
+        .buse1{
+          width: 500px;
+          height: 100px;
+          border: solid 3px blue;/*線*/
+          border-radius: 15px;
+          border-color: blue;
+          background-color: rgb(169, 195, 237);
+          margin-top: 200px;
+          font-size: xx-large;
+      }
+      
+      .buse2{
+          width: 500px;
+          height: 100px;
+          border: solid 3px blue;/*線*/
+          border-radius: 15px;
+          border-color: blue;
+          background-color: rgb(169, 195, 237);
+          margin: 200px;
+          font-size: xx-large;
+        }
+        
+  }
+  
+  
+  
+  /*スマホ用*/
+  @media screen and (max-width:990px) {
+  /*戻るボタンのデザイン*/
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  h3{
+    margin-left: 0;
+    font-size: 3em;
+  }
+  
+  .circle {
+    width:100px;
+    height:100px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+  
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  .plan_content{
+    font-size: 20px;
+  }
+  
+  .travel_time{
+  text-align: center;
+  font-size: 20px;
+  }
+  
+  .condition{
+    display: inline;
+    font-size: 20px;
+    margin-left: 150px;
+  }
+  
+  ol{
+    font-size: 40px;
+    margin-left: 20px;
+  }
+  
+  /*計画内の場所の情報掲載デザイン*/ 
+  .home_information{
+    background:white; /*背景色の指定*/
+    width:92%;
+    border: solid thin black;
+    }
+  
+  /*計画の情報掲載デザイン*/ 
+  .ranking_information{
+    padding: 10px;
+    background:white; /*背景色の指定*/
+    width:94%;
+    position: relative;
+    border: solid medium #dae5f8;
+    }
+  
+  /*もっと見るボタンのデザイン*/
+  .more-see { 
+    color: gray;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 1.1em;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 100px;
+    }
+   .home-list {
+    list-style:none;
+  }
+  .btn {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    background: white;
+    border: solid thin white;
+  }
+
+  .buse1{
+    width: 500px;
+    height: 100px;
+    border: solid 3px blue;/*線*/
+    border-radius: 15px;
+    border-color: blue;
+    background-color: rgb(169, 195, 237);
+    margin-top: 500px;
+    font-size: xx-large;
+}
+
+.buse2{
+    width: 500px;
+    height: 100px;
+    border: solid 3px blue;/*線*/
+    border-radius: 15px;
+    border-color: blue;
+    background-color: rgb(169, 195, 237);
+    margin: 200px;
+    font-size: xx-large;
+  }
+}
+  
+  
