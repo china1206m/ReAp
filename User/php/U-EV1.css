@@ -38,6 +38,7 @@
         width:94%;
         position: relative;
         border: solid medium #dae5f8;
+        margin-bottom: 5px;
         }
     
     /*もっと見るボタンのデザイン*/
@@ -76,5 +77,14 @@
     .pref {
       text-align: center;
       font-size: 1.5em;
+    }
+
+    .box {
+      height: 180px;
+      border: 0;
+    }
+
+    ul {
+      list-style: none;
     }
 }
