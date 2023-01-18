@@ -34,7 +34,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
           <div class="event_information">
             <p align="right"><?php print($event[0]['post_date']); ?></p>
             <div class="yoko">
-              <a href="U-EV3.html" style="text-decoration:none;">
+              <a href="U-EV3.php" style="text-decoration:none;">
                 <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
               </a>
               <div class="title">
@@ -53,6 +53,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
         </li>
       </ul>
     </div>
+    <div class="box"></div>
   </main>
 
   <aside id="sub">
@@ -60,7 +61,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>

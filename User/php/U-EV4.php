@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
   <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <form action="U-EV6.php" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
       <p>都道府県</p>

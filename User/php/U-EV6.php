@@ -29,6 +29,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <ul id="self_contribution">
     </ul>
+    <div class="box"></div>
   </main>
 
   <aside id="sub">
@@ -36,7 +37,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -50,8 +51,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
       for ($i = 0; $i < $count1; $i++) :
 
     ?>
-
-        var li = document.createElement('li');
+  var li = document.createElement('li');
         li.classList.add("list");
   
         //ランキング情報のための四角追加
@@ -68,7 +68,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
-        img.alt = 'アイコン'
+        img.alt = 'username'
   
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -108,6 +108,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         div_eventlist.appendChild(p_pre);
         div_eventlist.appendChild(p);
         div_eventlist.appendChild(a);
+        
     
         <?php endfor; ?>
 
