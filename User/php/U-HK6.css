@@ -192,6 +192,7 @@ ol{
   width:94%;
   position: relative;
   border: solid medium #dae5f8;
+  margin-bottom: 5px;
   }
 
 /*もっと見るボタンのデザイン*/
@@ -224,6 +225,11 @@ ol{
 
 ul {
   list-style: none;
+}
+
+.box {
+  height: 180px;
+  border: 0;
 }
 
 }
