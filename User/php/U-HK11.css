@@ -226,5 +226,10 @@ ul {
   list-style: none;
 }
 
+.box {
+  height: 180px;
+  border: 0;
+}
+
 }
 
