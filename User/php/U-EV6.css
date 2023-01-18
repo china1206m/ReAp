@@ -193,4 +193,8 @@
     .right {
       text-align: right;
     }
+    .box {
+      height: 180px;
+      border: 0;
+    }
 }
