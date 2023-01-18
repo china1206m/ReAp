@@ -1,20 +1,20 @@
 <?php
 /* セッション開始 */
-//session_start();
+session_start();
 
 /* POSTで送信されている */
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    //$_SESSION['plan_search'] = $_POST['plan_search'];
-    //$_SESSION['plan_who'] = $_POST['plan_who'];
-    //$_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
-    //$_SESSION['plan_cost'] = $_POST['plan_cost'];
-    //$_SESSION['plan_stay'] = $_POST['plan_stay'];
+    $_SESSION['plan_search'] = $_POST['plan_search'];
+    $_SESSION['plan_who'] = $_POST['plan_who'];
+    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
+    $_SESSION['plan_cost'] = $_POST['plan_cost'];
+    $_SESSION['plan_stay'] = $_POST['plan_stay'];
 
     // 画面遷移　計画検索結果画面
-    //header('Location:U-HK11.php');
-    //exit;
-//}
+    header('Location:U-HK11.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
 <body>
   <main id="main">
   <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <form action=U-HK11.php"" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="plan_search" class="plan_search" maxlength="32" placeholder="キーワードを入力">
 
       <p>カテゴリ</p>
@@ -88,7 +88,7 @@
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
