@@ -51,6 +51,7 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </li>
     </ul>
+    <div class="box"></div>
   </main>
 
   <aside id="sub">
@@ -58,7 +59,7 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
