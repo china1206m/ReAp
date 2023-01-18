@@ -128,3 +128,32 @@ p {
   label:hover {
     background-color: #E2EDF9;
   }
+
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+
+  h3{
+  
+    font-size: 3em;
+  }
+  
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
+  }
