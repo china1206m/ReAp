@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
   <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <form action="" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="U-EV6.php" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
       <p>都道府県</p>
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -159,10 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function check () {
 var prefectures = document.searchForm.event_prefectures.value;
-var eventday = document.searchForm.event_day.value;
 var eventsearch = document.searchForm.event_search.value;
+var event_first = document.searchForm.event_search_first.value;
+var event_end = document.searchForm.event_search_end.value;
 
-if ( prefectures == "" && eventday == "" && eventsearch == "") {
+if ( prefectures == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
 alert ( "検索したい項目を入力してください。" );
 document.searchForm.event_search.focus();
 return false;
