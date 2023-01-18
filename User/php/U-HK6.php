@@ -32,6 +32,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       <ul id="planlist">
       </ul>
+      <div class="box"></div>
     </main>
 
     <aside id="sub">
@@ -39,7 +40,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -59,7 +60,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
           $db = MG_05("",$plan_id,"","","","","","","");
           $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
       ?>
-      var li = document.createElement('li');
+        var li = document.createElement('li');
       li.classList.add("home-list");
 
       var p = document.createElement('p');
@@ -82,7 +83,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       img.classList.add("circle");
       img.src = 'monky.png';
       img.align = 'left'
-      img.alt = '<?php //print($user[0]['user_name']); アイコン?>'
+      img.alt = '<?php print($user[0]['user_name']); ?>'
         
       //題名追加
       var div_title = document.createElement('div');
@@ -163,6 +164,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       div_home.appendChild(p_time);
       div_planlist.appendChild(p_travel);
       div_planlist.appendChild(a);
+      
 
         <?php endfor; ?>
 
