@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ?>
 </div>
 <button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
-<a class="already" href="U-AC2.php">新規登録の方はこちらから</a>
+<a class="already" href="U-AC1.html">新規登録の方はこちらから</a>
       
 </div>
 </form>
