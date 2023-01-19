@@ -8,7 +8,7 @@
 </head>
 <body>
   <main id="main">
-    <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　編集</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　編集</h3>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
     <form action="U-AC18.css" method="post" enctype="multipart/form-data">
@@ -43,10 +43,10 @@
 
 <aside id="sub">
     <ul class="menu">
-      <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -148,6 +148,7 @@ function addCount(){
         input_img.setAttribute('name','plan_image' + count);
         input_img.classList.add("plan_image");  
         input_img.multiple = true;
+        input_img.accept = "image/jpeg,image/png";
 
         
 
