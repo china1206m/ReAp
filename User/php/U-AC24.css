@@ -24,7 +24,7 @@ p {
     /* 整える */
     width: 400px;
     height: 100px;
-    margin: 5em 0; /* 前後の隙間 */
+    margin: 30px;
     padding: 0.3em 1em; /* 塗りの余白 */
     font-size: 3em; /* フォントサイズ */
     background-color: #1aa1ff; /* 背景色 */
@@ -39,6 +39,16 @@ p {
   /* ホバー時（カーソルをのせた時）の見た目 */
   .button-only:hover {
     background-color: #064fda; /* 背景色 */
+  }
+
+  .title{
+    width: 600px;
+    height: 80px;
+    font-size: 2em;
+    padding: 0.5em;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+    margin: 50px;
   }
   
   .cost {
@@ -95,7 +105,7 @@ p {
     label {
       display: block; /* ブロックレベル要素化する */
       float: left; /* 要素の左寄せ・回り込を指定する */
-      margin: 5px; /* ボックス外側の余白を指定する */
+      margin: 2px; /* ボックス外側の余白を指定する */
       width: 300px; /* ボックスの横幅を指定する */
       height: 70px; /* ボックスの高さを指定する */
       padding: 5px;
@@ -115,5 +125,34 @@ p {
   
     label:hover {
       background-color: #E2EDF9;
+    }
+
+    .button_back {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    
+      /* 整える */
+      display: inline;
+      width: 10px;
+      margin-left: 30px;
+      padding: 0.6em 1em; /* 塗りの余白 */
+      font-weight: bold;
+      background-color: white; /* 背景色 */
+      color: black; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+  
+    h3{
+    
+      font-size: 3em;
+    }
+    
+    .button_back:hover {
+      background-color: #ffffff; /* 背景色 */
     }
   

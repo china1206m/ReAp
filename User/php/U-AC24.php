@@ -10,14 +10,22 @@
 
 <body>
   <main id="main">
-    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
-      <input type="search" name="plan_search" class="plan_search" placeholder="キーワードを入力">
+    <form action="U-HK22.php" method="POST" name="searchForm" onSubmit="return check();">
+      <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+      
+      <p>
+        <font size="+4">タイトル</font>
+      </p>
+      <div align="center">
+        <input type="text" name="plan_title" class="title" required placeholder="タイトル">
+      </div>
+
   
       <p>カテゴリ</p>
       <table align="center">
         <tr>
           <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
-          <td><input type="radio" name="paln_who" value="友達" id="friend"><label for="friend">友達</label></td>
+          <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
           <td><input type="radio" name="plan_who" value="恋人" id="lover"><label for="lover">恋人</label></td>
@@ -27,7 +35,7 @@
   
       <p>都道府県</p>
       <div align="center">
-        <select id="region" class="region-select">
+        <select id="region" class="region-select" required>
             <option value="">選択してください</option>
             <option value="hokkaido">北海道地方</option>
             <option value="tohoku">東北地方</option>
@@ -46,7 +54,7 @@
   
       <p>費用</p>
       <div align="center">
-        <input type="text" name="plan_cost" class="cost"><font size="+3">円</font>
+        <input type="text" name="plan_cost" class="cost" required><font size="+3">円</font>
       </div>
       
   
@@ -66,17 +74,17 @@
       <center>
         <br>
         <br>
-      <button type="submit" class="button-only" name="submit">検索</button>
+      <button type="submit" class="button-only" name="submit">次へ</button>
       </center>
     </form>
   </main>
 
   <aside id="sub">
     <ul class="menu">
-        <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
       </ul>
   </aside>
@@ -163,12 +171,16 @@
   </script>
   <script>
 function check () {
+var title = document.searchForm.plan_title.value;
+var who = document.searchForm.plan_who.value;
 var prefectures = document.searchForm.plan_prefectures.value;
-var plansearch = document.searchForm.plan_search.value;
+var cost = document.searchForm.plan_cost.value;
+var day = document.searchForm.plan_day.value;
 
-if ( prefectures == "" && plansearch == "") {
-alert ( "検索したい項目を入力してください。" );
-document.searchForm.plan_search.focus();
+
+if ( title == "" && who == "" && prefectures == "" && cost == "" && day == "") {
+alert ( "投稿したい項目を入力してください。" );
+document.searchForm.plan_title.focus();
 return false;
 }
 
