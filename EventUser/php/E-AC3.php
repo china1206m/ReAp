@@ -1,9 +1,10 @@
 <?php
-
+// セッション開始
+session_start();
 include "MG.php";
 
-$id = 1;
-$db = MG_02($id,"","","","","","","","","");
+$eventuser_id = $_SESSION['eventuser_id'];
+$db = MG_02($eventuser_id,"","","","","","","","","");
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
