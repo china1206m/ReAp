@@ -103,7 +103,7 @@ section {
 
   }
 
-  #close-btn{
+  .close{
     display:inline;
     width: 150px;
     height: 40px;
