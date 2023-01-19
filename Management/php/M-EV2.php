@@ -22,9 +22,9 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
 <body bgcolor="#f0f8ff">
-    <form action="M-SC1.php" method="POST" enctype="multipart/form-data">
+    
   <main id="main">
-    <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
     
     
 
@@ -35,7 +35,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
     
     
       <div class="right"> 
-                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button type="button" onclick="location.href='M-SC2.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
       </div>
     </div>
 </form>
@@ -45,11 +45,11 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 <aside id="sub">
   
   <ul>
-    <li class="menu-list"><a class="menu-button" href="M-HK1.php.html"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-PL1.php"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
+  <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-EV1.php"><img src="M-menu-event.png" width="45" height="43">　イベント</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-RP1.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-CP1.php"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-RP2.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-CP1.html"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
   </ul>
 </aside>
