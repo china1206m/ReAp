@@ -1,16 +1,14 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
 
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
-
-    $_SESSION['eventuser_id'] = 1;
 
     // 現在時刻取得
     $post_date = date('Y-m-d');
