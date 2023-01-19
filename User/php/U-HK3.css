@@ -178,4 +178,12 @@ p {
       border: 0; /* 枠線を消す */
       transition: 0.3s; /* ホバーの変化を滑らかに */
     }
+
+    h3 {
+      font-size: 3em;
+    }
+
+    .screenname {
+      margin-left:35%;
+    }
   }
