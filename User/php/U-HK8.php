@@ -10,8 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // addインスタンス生成
     $add = new MA();
 
-    $_SESSION['user_id'] = 1;
-
     // 現在時刻取得
     $post_date = date('Y-m-d');
 
