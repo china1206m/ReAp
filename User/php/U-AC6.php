@@ -4,31 +4,25 @@ session_start();
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   /* usernameとpasswordが定義されて、かつ空白ではない */
-  if (isset($_POST['user_name'], $_POST['user_pass']) && $_POST['user_name'] !== '' && $_POST['user_pass'] !== '')  {
+  if (isset($_POST['user_mail'], $_POST['user_pass']) && $_POST['user_mail'] !== '' && $_POST['user_pass'] !== '')  {
     /* データベース接続 */
     include "MC-01.php";
     $db = getDB();
  
     /* ユーザー認証 */
-    $stmt = $db->prepare('SELECT * FROM user WHERE user_name=? AND user_pass=?');
-    $stmt->bindValue(1, $_POST['user_name']);
-    $stmt->bindValue(2, $_POST['user_pass']);
-    $stmt->execute();
+    include "MGvG.php";
+    $post = [null,$_POST['user_mail'],$_POST['user_pass']];
+    $stmt = MG("user",$post);
  
-    $result = $stmt->fetchAll();
+    $count = $stmt->rowCount();
 
     // ログインが成功したら
-    if (count($result) === 1) {
+    if ($count == 1) {
         // userIDを取得
-        $stmt = $db->prepare('SELECT user_id FROM user WHERE user_name=? AND user_pass=?');
-        $stmt->bindValue(1, $_POST['user_name']);
-        $stmt->bindValue(2, $_POST['user_pass']);
-        $stmt->execute();
-
         // セッションでイベントユーザIDを保持
         foreach ($stmt as $row) {
             $_SESSION['user_id'] = $row['user_id'];
-            header('Location:E-AC3.php');
+            header('Location:U-HK6.php');
             exit;
         }
     }
@@ -70,7 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <br>
 <div class="box_error">
   <!--ここにかいてね-->
-  ユーザ名またはパスワードが異なります。
+  <?php
+    if (isset($_SESSION['login_message'])) {
+      echo($_SESSION['login_message']);
+    }
+  ?>
 </div>
 <button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
 <a class="already" href="U-AC2.php">新規登録の方はこちらから</a>
@@ -99,3 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['login_message'] = '';
+?>
