@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+  <font size="+4" class="screenname">検索条件</font>
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
@@ -164,11 +165,20 @@ var event_first = document.searchForm.event_search_first.value;
 var event_end = document.searchForm.event_search_end.value;
 
 if ( prefectures == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
-alert ( "検索したい項目を入力してください。" );
-document.searchForm.event_search.focus();
-return false;
+  alert ( "検索したい項目を入力してください。" );
+  document.searchForm.event_prefectures.focus();
+  return false;
 }
-
+if(eventday != "" && eventday2 == ""){
+  alert ( "開催期間の終了日を選択してください" );
+  document.searchForm.event_search_end.focus();
+  return false;
+}
+if(eventday2 != "" && eventday == ""){
+  alert ( "開催期間の開始日を選択してください" );
+  document.searchForm.event_search_first.focus();
+  return false;
+}
 return true;
 }
   </script>
