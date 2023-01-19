@@ -24,7 +24,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
-    <form action="M-SC1.php M-HK4.php M-HK1.php" method="POST" enctype="multipart/form-data">
+   
     <h3>投稿イベント</h3>
 
     <div>
@@ -36,11 +36,11 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div > 
         <ul>
             <li>
-                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
-                <button type="submit" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
+                <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button type="button" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
             </li>
             <li>
-                <button class="button-only" type="submit">
+                <button class="button-only" type="button">
                     お気に入り数リセット
                 </button>
             </li>
@@ -49,17 +49,17 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     
-    </form>
+    
 </main>
 
 <aside id="sub">
   
   <ul>
-    <li class="menu-list"><a class="menu-button" href="M-HK1.php.html"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-PL1.php"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
+  <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-EV1.php"><img src="M-menu-event.png" width="45" height="43">　イベント</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-RP1.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-CP1.php"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-RP2.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-CP1.html"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
   </ul>
 </aside>
