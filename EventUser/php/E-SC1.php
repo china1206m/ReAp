@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
     $_SESSION['event_day_first'] = $_POST['event_day_first'];
     $_SESSION['event_day_end'] = $_POST['event_day_end'];
+    $_SESSION['event_cost'] = $_POST['event_cost'];
 
     // 画面遷移　イベント検索結果画面
     header('Location:E-SC2.php');
