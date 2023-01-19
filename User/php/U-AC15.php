@@ -10,7 +10,7 @@
     <body>
     <main id="main">
     <form action='' method="POST" enctype="multipart/form-data">
-        <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+        <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
             
         <div align="center">
 
