@@ -1,8 +1,9 @@
 <?php
-/* セッション開始 */
+/*
+// セッション開始 
 session_start();
 
-/* POSTで送信されている */
+// POSTで送信されている
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['plan_search'] = $_POST['plan_search'];
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 画面遷移　計画検索結果画面
     header('Location:U-HK11.php');
     exit;
-}
+} */
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+  <font size="+4" class="screenname">検索条件</font>
+
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="plan_search" class="plan_search" maxlength="32" placeholder="キーワードを入力">
 
