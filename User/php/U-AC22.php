@@ -11,7 +11,7 @@
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　編集</h3>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
-    <form action="U-AC18.css" method="post" enctype="multipart/form-data">
+    <form action="U-AC18.php" method="post" enctype="multipart/form-data">
     
     <input type="hidden" id="counter" name="counter" value="">
 
