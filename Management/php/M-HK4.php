@@ -31,7 +31,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </ul>
 </main>
 
-<aside id="sub">
+<aside id="sub"> 
   <ul>
   <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
