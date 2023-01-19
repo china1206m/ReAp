@@ -10,8 +10,13 @@
 
 <body>
   <main id="main">
-    <form action="U-HK22.php" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="U-HK11.php" method="POST" name="searchForm" onSubmit="return check();">
       <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+        <font size="+4" class="screenname">
+          投稿編集
+        </font>
+
+      
       
       <p>
         <font size="+4">タイトル</font>

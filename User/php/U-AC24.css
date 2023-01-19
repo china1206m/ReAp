@@ -155,4 +155,8 @@ p {
     .button_back:hover {
       background-color: #ffffff; /* 背景色 */
     }
+
+    .screenname{
+      margin-left: 20%;
+    }
   
