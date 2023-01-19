@@ -24,7 +24,7 @@ p {
   /* 整える */
   width: 400px;
   height: 150px;
-  margin: 1em 0; /* 前後の隙間 */
+  margin-bottom: 200px;
   padding: 0.6em 1em; /* 塗りの余白 */
   font-size: 3em; /* フォントサイズ */
   background-color: #1aa1ff; /* 背景色 */
@@ -156,4 +156,20 @@ p {
   
   .button_back:hover {
     background-color: #ffffff; /* 背景色 */
+  }
+
+  .screenname{
+    margin-left: 25%;
+  }
+
+  .require{
+    color: red;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 5px;
+    }
+
+  .post_day{
+    margin-left: 40%;
+    font-size: xx-large;
   }

@@ -45,11 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
 
-    <form action="" method="POST" name="searchForm" onSubmit="return check();">
-    <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-
+    <form action="U-AC24.html" method="POST" name="searchForm" onSubmit="return check();">
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <font size="+4" class="screenname">
+      投稿
+    </font>
+    <p><font size="+4" for="post_day" >投稿日</font></p>
+    <div id="current_date" name="post_date" class="post_day"></div>
       <p>
-        <font size="+4">タイトル</font>
+        <font size="+4">タイトル<span class="require">必須</span></font>
       </p>
       <div align="center">
         <input type="text" name="plan_title" class="title" required placeholder="タイトル">
@@ -70,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </table> 
   
       <p>
-        <font size="+4">都道府県</font>
+        <font size="+4">都道府県<span class="require">必須</span></font>
       </p>
       <div align="center">
         <select id="region" class="region-select" required>
@@ -91,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
   
       <p>
-        <font size="+4">費用</font>
+        <font size="+4">費用<span class="require">必須</span></font>
       </p>
       
       <div align="center">
@@ -231,6 +235,13 @@ return false;
 return true;
 }
 </script>
+<script>
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+  </script>
 </body>
 
 </html>
