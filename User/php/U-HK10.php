@@ -195,6 +195,7 @@ function addCount(){
         input_img.setAttribute('name','plan_image' + count);
         input_img.classList.add("plan_image");  
         input_img.multiple = true;
+        input_img.accept = "image/jpeg,image/png";
 
         
 
