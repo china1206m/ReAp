@@ -10,7 +10,7 @@
     <body>
     <main id="main">
     <form action='' method="POST" enctype="multipart/form-data">
-        <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+        <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
             
         <div align="center">
 
@@ -53,10 +53,10 @@
 
     <aside id="sub">
         <ul class="menu">
-            <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
             <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
             <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-            <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
             <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
           </ul>
       </aside>

@@ -25,7 +25,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <div align="right">
-      <button class="btn" onclick="location.href='U-EV4.php'"><img src="search.png"></button>
+      <button class="btn" onclick="location.href='U-EV4.php'"><img src="serch.png" alt="search"></button>
     </div>
     <ul id="event-list">
     </ul>
