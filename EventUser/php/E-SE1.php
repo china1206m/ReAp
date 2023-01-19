@@ -31,6 +31,11 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <main id="main">
     <h3>投稿イベント</h3>
 
+    <!--ここに追加してね-->
+    <p class="non">
+    投稿したイベントはありません
+    </p>
+
     <div>
       <ul id="country_list">
           
@@ -51,7 +56,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
   </ul>
 </aside>
