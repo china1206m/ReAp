@@ -1,8 +1,8 @@
 <?php
 
 include "MG.php";
-
-$id = 1;
+session_start(); // セッション開始
+$id = $_SESSION['eventuser_id'];
 $db = MG_02($id,"","","","","","","","","");
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
