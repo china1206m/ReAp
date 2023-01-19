@@ -1,45 +1,3 @@
-<?php
-
-/* セッション開始 */
-session_start();
- 
-//フォームの初期値に編集前の情報格納
-include "MG.php";
-
-$id = 1;
-$db = MG_02($id,"","","","","","","","","");
-$eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
-
-/* POSTで送信されている */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-  include "MU.php";
-
-  $update = new MU();
-
-  $column = ['profiel_image', 'user_name', 'profiel_message'];
-  
-  $post = [$_FILES['profiel_image']['tmp_name'], $_POST['user_name'], $_POST['profiel_message']];
-  
-  $type = [1, 1, 1];
-
-  $id_name = "user_id";
-
-  $id = $_SESSION['user_id'];
-
-
-  $update->mu("user", $column, $post, $type, $id_name, $id);
-
-  //$_SESSION['register_message'] = '登録しました';
-  //header('Location:E-AC3.php');
-  exit;
-}else{
-  //header('Location:E-AC3.php');
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -66,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <div class="box1" align="left">
                         <font size="+5">
-                            <p><label for="user_mail" require>ユーザ名</label></p>
+                            <p><label for="user_mail" require>ユーザ名<span class="require">必須</span></label></p>
                
                         </font>
                         <br>
@@ -90,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
                 
             <button type="submit" class="button-only" class="register">
-                    変更する
+                    登録する
             </button>
             </div>
         </form>
@@ -99,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <aside id="sub">
             <ul class="menu">
-                <li class="menu-list"><a class="menu-button" href="U-HK1.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
+                <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-                <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+                <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
               </ul>
           </aside>
