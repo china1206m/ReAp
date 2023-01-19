@@ -9,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // addインスタンス生成
     $add = new MA();
 
-    $_SESSION['plan_id'] = 2;
-
     // 計画を追加した回数
     $count = $_POST['counter'];
     
