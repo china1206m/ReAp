@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $_SESSION['event_search_first'] = $_POST['event_search_first'];
   $_SESSION['event_search_end'] = $_POST['event_search_end'];
   // 検索結果画面
-  header(('Location:E-SC2.php'));
+  header(('Location:E-SC5.php'));
   exit;
 }
 ?>
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <main id="main">
   <button type="button" class="button_back" onclick="history.back()">＜</button>
-
+  <font size="+3" class="screenname">検索条件</font>
 
   <form action="" method="POST" name="searchForm" onSubmit="return check();">
         <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <p><label for="shop">開催場所</label></p>
 
-        <select name="prefectures" class="prefectures">
+        <select name="event_prefectures" class="prefectures">
           <option value="">都道府県を選択</option>
           <option value="北海道">北海道</option>
           <optgroup label="東北">
@@ -113,29 +113,39 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </main>
 
-<aside id="sub">
-  
-    <ul>
-      <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
-    </ul>
-  </aside>
+<aside id="sub"> 
+  <ul>
+  <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-EV1.php"><img src="M-menu-event.png" width="45" height="43">　イベント</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-RP2.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-CP1.html"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
+  </ul>
+</aside>
 
   <script>
 function check () {
-var prefectures = document.searchForm.prefectures.value;
+var prefectures = document.searchForm.event_prefectures.value;
 var eventsearch = document.searchForm.event_search.value;
 var date_first = document.searchForm.event_search_first.value;
 var date_end = document.searchForm.event_search_end.value;
 
 if ( prefectures == "" && eventsearch == "" && date_first == "" && date_end == "" ) {
-alert ( "検索したい項目を入力してください。" );
-document.searchForm.event_search.focus();
-return false;
+  alert ( "検索したい項目を入力してください。" );
+  document.searchForm.event_prefectures.focus();
+  return false;
 }
-
+if(date_first != "" && date_end == ""){
+  alert ( "開催期間の終了日を選択してください" );
+  document.searchForm.event_search_end.focus();
+  return false;
+}
+if(date_end != "" && date_first == ""){
+  alert ( "開催期間の開始日を選択してください" );
+  document.searchForm.event_search_first.focus();
+  return false;
+}
 return true;
 }
 </script>
