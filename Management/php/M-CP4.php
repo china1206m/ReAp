@@ -40,7 +40,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
     
 
     <div class="delay">
-    <button id="open-btn" class="overlay-event" name="coupon_delay" type="button">消去する</button>
+    <button id="open-btn" name="coupon_delay" type="button" onClick="check()">消去する</button>
     </div>
 
     <div id="overlay" class="overlay-event">
@@ -50,9 +50,9 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
           <p>選択した投稿を消去します。</p>
           <p>本当によろしいですか。</p>
           <!--idはデザイン-->
-          <button id="close-btn" type=button onClick="disp()">はい</button>
+          <button id="close-btn1" class="close" disabled>はい</button>
           <!--はいを押したら消去機能呼び出し-->
-          <button id="close-btn" class="overlay-event" type=button>いいえ</button>
+          <button id="close-btn2" class="close" type=button disabled>いいえ</button>
         </div>
       </form>
     </center>
@@ -87,27 +87,37 @@ function disp() {
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    
-    // オーバレイを開閉する関数
-    const overlay = document.getElementById('overlay');
-    function overlayToggle() {
-      overlay.classList.toggle('overlay-on');
-    }
-    // 指定した要素に対して上記関数を実行するクリックイベントを設定
-    const clickArea = document.getElementsByClassName('overlay-event');
-    for(let i = 0; i < clickArea.length; i++) {
-      clickArea[i].addEventListener('click', overlayToggle, false);
-    }
-    
-    // イベントに対してバブリングを停止
-    function stopEvent(event) {
-      event.stopPropagation();
-    }
-    const overlayInner = document.getElementById('overlay-inner');
-    overlayInner.addEventListener('click', stopEvent, false);
-    
+  var open = document.getElementById("open-btn");
+  var close1 = document.getElementById("close-btn1");
+  var close2 = document.getElementById("close-btn2");
+  //オーバーレイ開閉の関数
+  const overlay = document.getElementById('overlay');
+  function overlayToggle() {
+    overlay.classList.toggle('overlay-on');
+  }
+
+  function check(){
+    overlayToggle();
+    open.setAttribute("disabled","");
+    close1.removeAttribute("disabled");
+    close2.removeAttribute("disabled");
+   
+  }
+
+  //'いいえ'が押されたとき
+  close2.addEventListener('click', function(){
+    // ダブルクリック防止
+    close2.setAttribute("disabled","");
+    open.removeAttribute("disabled");
+    //オーバーレイ閉じる
+    overlayToggle();
   }, false);
-  </script>
+
+  //'はい'が押されたとき
+  close.addEventListener('click', function(){
+    // ダブルクリック防止
+    close.setAttribute("disabled","");
+  }, false);
+</script>
 
 </body>
