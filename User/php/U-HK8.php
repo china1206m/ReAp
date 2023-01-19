@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </p>
       <table align="center">
         <tr>
-          <td><input type="radio" name="plan_who" value="一人" id="one" required="required"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
           <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
@@ -241,6 +241,35 @@ return true;
   month = date.getMonth() + 1;
   day = date.getDate();
   document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+  </script>
+  <script>
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+const clearRadioButton = (radioButton) => {
+  setTimeout(func =()=>{
+    radioButton.checked = false;
+  },100)
+}
+
+radioButtons.forEach(radioButton => {
+  let queryStr = 'label[for="' + radioButton.id + '"]'
+  let label = document.querySelector(queryStr)
+
+  radioButton.addEventListener("mouseup", func=()=>{
+    if(radioButton.checked){
+      clearRadioButton(radioButton)
+    }
+  });
+
+  if(label){
+    label.addEventListener("mouseup", func=()=>{
+      if(radioButton.checked){
+        clearRadioButton(radioButton)
+      }
+    });
+  }
+
+});
   </script>
 </body>
 
