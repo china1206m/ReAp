@@ -39,8 +39,10 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="plan_information">
           <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
-            <img src="monkey.png" class="circle" align="left" alt="">
-            <div class="title"><?php print($plan[0]['plan_title']); ?></div>
+            <a href="U-HK1.php" style="text-decoration:none;">
+              <img src="monkey.png" alt="" height="100%" width="100%" class="circle" align="left">
+            </a>
+            <div class="title">タイトル<?php print($plan[0]['plan_title']); ?></div>
           </div>
           <br>
           <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
