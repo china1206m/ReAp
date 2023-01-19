@@ -181,11 +181,20 @@ var date_first = document.searchForm.plan_search_first.value;
 var date_end = document.searchForm.plan_search_end.value;
 
 if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
-alert ( "キーワードを入力するか、都道府県または期間を選択してください" );
-document.searchForm.plan_search.focus();
-return false;
+  alert ( "検索したい項目を入力してください。" );
+  document.searchForm.event_prefectures.focus();
+  return false;
 }
-
+if(eventday != "" && eventday2 == ""){
+  alert ( "開催期間の終了日を選択してください" );
+  document.searchForm.event_search_end.focus();
+  return false;
+}
+if(eventday2 != "" && eventday == ""){
+  alert ( "開催期間の開始日を選択してください" );
+  document.searchForm.event_search_first.focus();
+  return false;
+}
 return true;
 }
 </script>
