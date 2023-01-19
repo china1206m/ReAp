@@ -68,4 +68,9 @@ class MU{
         $sum = "plan set plan_favorite_season = 0";
         $this->db($sum);
     }
+
+    function report_count($id){
+        $sum = "user set report_total = report_total + 1 WHERE user_id = ".$id;
+        $this->db($sum);
+    }
 }
