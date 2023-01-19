@@ -1,3 +1,38 @@
+<?php
+
+/* セッション開始 */
+session_start();
+ 
+/* POSTで送信されている */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  include "MU.php";
+
+  $update = new MU();
+
+  $column = ['plan_title', 'plan_who', 'plan_prefectures', 'plan_cost', 'plan_stay'];
+  
+  $post = [$_POST['plan_title'], $_POST['plan_who'], $_POST['plan_prefectures'], $_POST['plan_cost'], $_POST['plan_stay']];
+  
+  $type = [2, 2, 2, 0, 0];
+
+  $id_name = "plan_id";
+
+  $id = $_SESSION['plan_id'];
+  //$id = 1;
+
+  $update->mu("plan", $column, $post, $type, $id_name, $id);
+
+  //$_SESSION['register_message'] = '登録しました';
+  //header('Location:E-AC3.php');
+  exit;
+}else{
+  //header('Location:E-AC3.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
