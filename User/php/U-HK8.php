@@ -110,11 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <font size="+4">宿泊</font>
       </p>
       <div align="center">
-        <input type="number" name="plan_day" class="stay-from" required> 
+        <input type="number" name="plan_day" class="stay-from"> 
         <font size="+3">
             泊 
         </font>
-        <input type="number" name="plan_day" class="stay-to" required> 
+        <input type="number" name="plan_day" class="stay-to"> 
         <font size="+3">
             日
         </font>
