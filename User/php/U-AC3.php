@@ -1,5 +1,5 @@
 <?php
-
+/*
 include "MG.php";
 
 $id = 1;
@@ -7,7 +7,12 @@ $id = 1;
 $db = MG_01($id,"","","","","","","","");
 
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
-
+*/
+session_start(); // セッション開始
+include "MGvG.php";
+$post = [$_SESSION['user_id']];
+$db = MG("user",$post);
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
