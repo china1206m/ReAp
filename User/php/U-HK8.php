@@ -1,8 +1,8 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 呼び出し
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['plan_cost'], $_POST['plan_day'], 0, 0, $post_date];
 
     // 入力された値の型を定義
-    $type = [0,1,1,1,0,0,0,0,1];
+    $type = [0, 2, 2, 2, 0, 1, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['plan_id'] = $add->ma_return("plan",$column, $post, $type);
