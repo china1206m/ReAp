@@ -1,0 +1,14 @@
+/* 中央寄せ */  
+section {
+    height: 100vh;
+    /* 真ん中寄せ */
+    display: grid;
+    place-items: center;
+}
+
+/* 等間隔に並べる */  
+li{
+    list-style:none;
+    padding:16px;
+    margin:8px
+  }
