@@ -1,11 +1,12 @@
 <?php
 
 include "MG.php";
-
-$event_search = "";
-$event_prefectures = "";
-$event_day_first = "";
-$event_day_end = "";
+session_start();
+$event_search = $_SESSION['event_search'];
+$event_prefectures = $_SESSION['event_prefectures'];
+$event_day_first = $_SESSION['event_day_first'];
+$event_day_end = $_SESSION['event_day_end'];
+$event_cost = $_SESSION['event_cost'];
 
 $db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
 
