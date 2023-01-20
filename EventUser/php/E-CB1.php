@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['event_content'], $_FILES['event_image']['tmp_name'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
 
     // 入力された値のデータ型を定義
-    $type = [0,1,1,1,1,1,1,1,0,0,1];
+    $type = [0, 2, 2, 1, 1, 2, 1, 2, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['event_id'] = $add->ma_return("event",$column, $post, $type);
