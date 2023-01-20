@@ -1,5 +1,4 @@
 <?php
-/*
 // セッション開始 
 session_start();
 
@@ -15,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 画面遷移　計画検索結果画面
     header('Location:U-HK11.php');
     exit;
-} */
+} 
 ?>
 
 <!DOCTYPE html>
