@@ -39,7 +39,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
       <br><a class="link" href="U-AC4.php">プロフィール編集</a>
     </center>
     <a class="link" href="U-AC18.php"><p class="acount-menu">過去の投稿閲覧</p></a>
-    <a class="link" href="U-AC9.php"><p class="acount-menu">クーポン</p></a>
+    <a class="link" href="U-AC9.html"><p class="acount-menu">クーポン</p></a>
     <a class="link" href="U-AC5.php"><p class="acount-menu">アカウント情報変更</p></a>
     <a class="link" href="U-AC7.php"><p class="acount-menu">アカウントログアウト</p></a>
     <a class="link" href="U-AC8.php"><p class="acount-menu">アカウント消去</p></a>
