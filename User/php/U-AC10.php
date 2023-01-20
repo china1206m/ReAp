@@ -1,6 +1,15 @@
 <?php
 // セッション開始
 session_start();
+include "MGvG.php";
+$post = [null, null, null, null, null, null, $_SESSION['user_id']];
+$db = MG("user", $post);
+$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+$coupn_count = $coupon[0]['coupon_can_get'];
+if($coupn_count == 0) {
+   header('Location:U-AC9.html');
+    exit;
+}
 // POSTで送信されたら
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
   $_SESSION['coupon_prefectures'] = $_POST['ccoupon_prefectures'];
