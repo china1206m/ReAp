@@ -1,13 +1,15 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
 
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['event_search'] = $_POST['event_search'];
     $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
-    $_SESSION['event_day'] = $_POST['event_day'];
+    $_SESSION['event_day_first'] = $_POST['event_day_first'];
+    $_SESSION['event_day_end'] = $_POST['event_day_end'];
+    $_SESSION['event_cost'] = $_POST['event_cost'];
 
     // 画面遷移　イベント検索結果画面
     header('Location:U-EV6.php');
