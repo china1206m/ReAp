@@ -1,9 +1,9 @@
 <?php
-
+session_start(); // セッション開始
 include "MG.php";
 
-$id = 1;
-$db = MG_04($id,"","","","","","","","","","");
+$plan_id = $_SESSION['plan_id'];
+$db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $user_id = $plan[0]['user_id']; 
@@ -13,7 +13,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 $db = getDB();
 $sql = "SELECT * FROM plan_detail WHERE plan_id = ? ORDER BY plan_detail_id ASC";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$plan_id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
