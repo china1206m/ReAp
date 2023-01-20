@@ -31,17 +31,18 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <main id="main">
     <h3>投稿イベント</h3>
 
-    <!--ここに追加してね-->
-    <p class="non">
-    投稿したイベントはありません
-    </p>
+  
 
     <div>
       <ul id="country_list">
           
       </ul>
     
-    
+    <!--ここに追加してね-->
+    <p class="non">
+        投稿したイベントはありません
+    </p>
+
       <div class="right"> 
         <button type="button" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
     
