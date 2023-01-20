@@ -75,9 +75,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       div_right.classList.add("right");
       div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
 
-      //都道府県の追加
-      var div_pre = document.createElement('div');
-      div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
+      
 
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -98,6 +96,10 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         var br = document.createElement('br');
 
         //条件追加
+        //都道府県の追加
+        var div_pre = document.createElement('p');
+        div_pre.classList.add("condition");
+        div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
         var p_who = document.createElement('p');
         p_who.classList.add("condition");
         p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
@@ -153,11 +155,11 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         li.appendChild(div_ranking);
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
-        div_ranking.appendChild(div_pre);
         div_yoko.appendChild(img);
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
         div_ranking.appendChild(br);
+        div_ranking.appendChild(div_pre);
         div_ranking.appendChild(p_who);
         div_ranking.appendChild(p_cost);
         div_ranking.appendChild(p_day);
