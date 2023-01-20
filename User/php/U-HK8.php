@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
 
-    <form action="U-AC24.html" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <font size="+4" class="screenname">
       投稿
