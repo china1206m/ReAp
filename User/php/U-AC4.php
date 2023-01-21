@@ -1,3 +1,19 @@
+<?php
+session_start();
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include "MU.php";
+
+    $update = new MU();
+    $column = ["user_name", "profile_message"];
+    $post = [$_POST['user_name'], $_POST['profile_message']];
+    $type = [2, 2];
+    $column_name = "user_id";
+    $id = $_SESSION['user_id'];
+    $update->mu("user", $column, $post, $type, $column_name, $id);
+    header('Location:U-AC3.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -29,7 +45,7 @@
                         </font>
                         <br>
                         <div align="center" class="text">
-                            <input type=”text” maxlength="20" name=”user_name” class="profile__name" placeholder="20文字以内" required>
+                            <input type=”text” maxlength="20" name="user_name" class="profile__name" placeholder="20文字以内" required>
                         </div>
                         
                 </div><br>
@@ -41,14 +57,14 @@
                         </font>
                     </div><br>
                     <div>
-                        <textarea name=”profile_message” cols="50" rows="10" class="profile__coment"></textarea><br>
+                        <textarea name="profile_message" cols="50" rows="10" class="profile__coment"></textarea><br>
                     </div>
                     
                 </div>
     
                 
             <button type="submit" class="button-only" class="register">
-                    登録する
+                    変更する
             </button>
             </div>
         </form>
