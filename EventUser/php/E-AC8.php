@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $update = new MU();
 
-  $column = ['enterprise_name', 'representative_name', 'phone_number', 'eventuser_mail', 'address', 'eventuer_pass'];
+  $column = ['enterprise_name', 'representative_name', 'phone_number', 'eventuser_mail', 'address', 'eventuser_pass'];
   
-  $post = [$_POST['enterprise_name'], $_POST['representative_name'], $_POST['phone_number'], $_POST['eventuser_mail'], $_POST['address'], $_POST['eventuer_pass']];
+  $post = [$_POST['enterprise_name'], $_POST['representative_name'], $_POST['phone_number'], $_POST['eventuser_mail'], $_POST['address'], $_POST['eventuser_pass']];
   
   $type = [2, 2, 0, 1, 2, 1];
 
@@ -29,14 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   $update->mu("eventuser", $column, $post, $type, $id_name, $id);
 
-  //$_SESSION['register_message'] = '登録しました';
-  //header('Location:E-AC3.php');
+  header('Location:E-AC3.php');
   exit;
-}else{
-  //header('Location:E-AC3.php');
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -57,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main id="main">
         <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">アカウント情報変更</h3>
         <section>
-        <form action="E-AC3.php" method="post">
+        <form action="" method="post">
 
         <table>
                 <tr>
@@ -74,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tr>
                 <tr>
                     <td><input type="tel" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" class="user_mail" name="phone_number" value="" placeholder="数字のみ" required></td>
-                    <td><input type="email" class="user_mail" name="user_mail" value="" placeholder="first@mail.com" maxlength="30" required></td>
+                    <td><input type="email" class="user_mail" name="eventuser_mail" value="" placeholder="first@mail.com" maxlength="30" required></td>
                 </tr>
                 
             </table>
@@ -86,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <tr>
                     <td><div class="form-group">
                 <p><label for="user_mail" >パスワード<span class="require">必須</span></label></p>
-                <input type="password" class="user_pass" class="form-control" name="user_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角英数字８-１６文字" required>
+                <input type="password" class="user_pass" class="form-control" name="eventuser_pass" id="password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" placeholder="半角英数字８-１６文字" required>
                 </div></td>
                <td>
                 <div class="form-group" class="form-wrapper">
@@ -98,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tr>
                 </table>
             <center>
-                <button type="submit" class="button-only">登録する</button>
+                <button type="submit" class="button-only">変更する</button>
             </center>
         </section>
         </form>
