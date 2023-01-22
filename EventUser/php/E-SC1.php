@@ -135,8 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script>
 function check () {
 var prefectures = document.searchForm.event_prefectures.value;
-var eventday = document.searchForm.event_search_first.value;
-var eventday2 = document.searchForm.event_search_end.value;
+var eventday = document.searchForm.event_day_first.value;
+var eventday2 = document.searchForm.event_day_end.value;
 var eventsearch = document.searchForm.event_search.value;
 var cost = document.searchForm.event_cost.value;
 
