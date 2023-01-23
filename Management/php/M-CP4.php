@@ -7,6 +7,17 @@ $id = 2;
 $db = MG_09($id,"","","","","","");
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
+//form送信後
+//MD
+//完了画面出すなら
+    //モジュールでエラーのとき特定の数字を返り値として渡してほしい
+    $result = ;
+    if($result==-1){
+      //error
+      header('');
+    }else{
+      //正常時処理 完了画面
+    }
 ?>
 
 
@@ -47,7 +58,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="flex">
       <form action="#" method="POST">
         <div id="overlay-inner">
-          <p>選択した投稿を消去します。</p>
+          <p>クーポンを消去します。</p>
           <p>本当によろしいですか。</p>
           <!--idはデザイン-->
           <button id="close-btn1" class="close" disabled>はい</button>
@@ -55,6 +66,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
           <button id="close-btn2" class="close" type=button disabled>いいえ</button>
         </div>
       </form>
+      </div>
+    </div>
     </center>
 
 
@@ -72,17 +85,6 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
     <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
     </ul>
 </aside>
-
-<script>
-  n=2;
-function disp() {
-  if(n == 1){
-      document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました</span><br><button id=close-btn type=button onclick=location.href='M-CP1.html'>完了</button>";
-  }else if(n == 2){
-      document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです.<br>ページを再読み込みします。</span><br><button id=close-btn type=button onclick=location.href='M-CP4.php'>再読み込み</button>";
-  }
-}      
-  </script>
 
 
 
