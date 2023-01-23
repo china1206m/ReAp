@@ -1,27 +1,28 @@
 <?php
-// セッション開始 
+/* セッション開始 */
 session_start();
  
-// POSTで送信されている 
+/* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // データ挿入 
+      /* データ挿入 */
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
 
+    $_SESSION['eventuser_id'] = 1;
+
     // 入力したいカラム名を指定
-    $column = ['coupon_name','eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
+    $column = ['eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
     
     // 入力された値をpost配列に格納
-    $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
+    $post = [ $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
 
     // 入力された値の型を定義
-    $type = [2, 0, 2, 2, 2, 1];
+    $type = [1,0,1,1,1,0];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-
     $result = $add->ma_return("coupon",$column, $post, $type);
     if($result==-1){
       header('Location:E-AC7.php');
@@ -29,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['coupon_id'] = $result;
       //header('Location: ./list.php');
     }
-
 
     exit;
 }
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン発行</h3>
 
 
-    <form action="#" method="POST" name="searchForm" id="form1" onsubmit="return check()">
+    <form action="" method="POST" name="searchForm" id="form1" onsubmit="return check()">
         <table>
             <tr>
                 <td><p><label class="label-prefectures-shop" for="prefectures">都道府県<span class="require">必須</span></label></p></td>
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
 </ul>
 </aside>
@@ -183,8 +183,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   var open = document.getElementById("open-btn");
   var close = document.getElementById("close-btn1");
   var close2 = document.getElementById("close-btn2");
-
-  //オーバーレイ開閉の関数
   const overlay = document.getElementById('overlay');
   function overlayToggle() {
     overlay.classList.toggle('overlay-on');
@@ -193,29 +191,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   function check(){ // formが送信される直前に実行
     if(close.value==1){ // 'はい'が押されたとき
+      history.pushState(null, null, null);
+
+    window.addEventListener("popstate", function() {
+        history.pushState(null, null, null);
+    });
       return true;
     }
     open.setAttribute("disabled","");
     close.removeAttribute("disabled");
     close2.removeAttribute("disabled");
-    //オーバーレイ開く
     overlayToggle();
     return false;
   }
-  //'いいえ'が押されたとき
+  
   close2.addEventListener('click', function(){
-    // ダブルクリック防止
     close2.setAttribute("disabled","");
     open.removeAttribute("disabled");
-    //オーバーレイ閉じる
     overlayToggle();
   }, false);
 
   close.addEventListener('click', function(){
     close.value = "1";
-    // ダブルクリック防止
     close.setAttribute("disabled","");
-    //フォーム送信
     document.forms.form1.submit();
   }, false);
 
