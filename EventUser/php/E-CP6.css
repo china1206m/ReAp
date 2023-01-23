@@ -91,7 +91,7 @@ section {
 
   }
 
-  #close-btn{
+  .close{
     display:inline;
     width: 150px;
     height: 40px;
@@ -105,7 +105,7 @@ section {
     cursor: pointer;
   }
 
-  #close-btn:hover {
+  .close:hover {
     background-color: #064fda; /* 背景色 */
 
   }
