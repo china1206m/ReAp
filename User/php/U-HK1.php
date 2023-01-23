@@ -154,7 +154,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
       // もっと見るを作成
-      var a = document.createElement('button');
+      var a = document.createElement('a');
       a.classList.add("more-see");
       a.setAttribute('name','more_see' + i);
       a.setAttribute('id', i);
