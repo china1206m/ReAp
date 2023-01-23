@@ -125,7 +125,7 @@ for (var count = 0; count < 6; count++) {
    
 }
 
-  var overlayev = document.getElementsByClassName("coupon");
+  var overlayev = document.getElementsByClassName("overlay-event");
   var send = document.getElementsByClassName("send-btn");
   var close = document.getElementsByClassName("close");
 
