@@ -29,6 +29,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
+    <input type="hidden" id="counter" name="counter" value="0">
   
   
     <div class="acount_information">
@@ -192,7 +193,10 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
  function button(clicked_id)
   {
     var s = clicked_id;
-    alert(s);
+    var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = s;
+        console.log(counter.value);
   }
   </script>
 
