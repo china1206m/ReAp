@@ -23,9 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [1,0,1,1,1,0];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $_SESSION['coupon_id'] = $add->ma_return("coupon",$column, $post, $type);
- 
-    header('Location: ./list.php');
+    $result = $add->ma_return("coupon",$column, $post, $type);
+    if($result==-1){
+      header('Location:E-AC7.php');
+    }else{
+      $_SESSION['coupon_id'] = $result;
+      //header('Location: ./list.php');
+    }
+
     exit;
 }
 ?>
@@ -178,6 +183,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   var open = document.getElementById("open-btn");
   var close = document.getElementById("close-btn1");
   var close2 = document.getElementById("close-btn2");
+
+  //オーバーレイ開閉の関数
   const overlay = document.getElementById('overlay');
   function overlayToggle() {
     overlay.classList.toggle('overlay-on');
@@ -186,29 +193,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   function check(){ // formが送信される直前に実行
     if(close.value==1){ // 'はい'が押されたとき
-      history.pushState(null, null, null);
-
-    window.addEventListener("popstate", function() {
-        history.pushState(null, null, null);
-    });
       return true;
     }
     open.setAttribute("disabled","");
     close.removeAttribute("disabled");
     close2.removeAttribute("disabled");
+    //オーバーレイ開く
     overlayToggle();
     return false;
   }
-  
+  //'いいえ'が押されたとき
   close2.addEventListener('click', function(){
+    // ダブルクリック防止
     close2.setAttribute("disabled","");
     open.removeAttribute("disabled");
+    //オーバーレイ閉じる
     overlayToggle();
   }, false);
 
   close.addEventListener('click', function(){
     close.value = "1";
+    // ダブルクリック防止
     close.setAttribute("disabled","");
+    //フォーム送信
     document.forms.form1.submit();
   }, false);
 
