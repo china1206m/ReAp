@@ -82,3 +82,8 @@ li{
   .p_right{
     text-align: right;
   }
+
+  .non{
+    margin-left: 10%;
+    margin-right: 20%
+  }
