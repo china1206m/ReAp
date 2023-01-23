@@ -29,7 +29,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
     
-
+    <p class="non">検索項目に該当するものがありません。</p>
 
 <div>
   <ul id="country_list">

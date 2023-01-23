@@ -147,12 +147,12 @@ return false;
 }
 if(eventday != "" && eventday2 == ""){
   alert ( "開催期間の終了日を選択してください" );
-document.searchForm.event_search_end.focus();
+document.searchForm.event_day_end.focus();
 return false;
 }
 if(eventday2 != "" && eventday == ""){
   alert ( "開催期間の開始日を選択してください" );
-document.searchForm.event_search_first.focus();
+document.searchForm.event_day_first.focus();
 return false;
 }
 return true;
