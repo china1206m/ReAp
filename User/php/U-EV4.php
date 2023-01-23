@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </table>
 
       <p>費用</p>
-      <input type="number" name="plan_cost" class="cost"> 円
+      <input type="number" name="event_cost" class="cost"> 円
 
       <center>
         <br>
@@ -163,10 +163,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function check () {
 var prefectures = document.searchForm.event_prefectures.value;
 var eventsearch = document.searchForm.event_search.value;
+var cost = document.searchForm.event_cost.value;
 var event_first = document.searchForm.event_search_first.value;
 var event_end = document.searchForm.event_search_end.value;
 
-if ( prefectures == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
+if ( prefectures == "" && cost == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
   alert ( "検索したい項目を入力してください。" );
   document.searchForm.event_prefectures.focus();
   return false;
