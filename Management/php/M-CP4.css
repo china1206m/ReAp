@@ -117,7 +117,7 @@ section {
     cursor: pointer;
   }
 
-  #close-btn:hover {
+  .close:hover {
     background-color: #064fda; /* 背景色 */
 
   }
