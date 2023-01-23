@@ -1,11 +1,12 @@
 <?php
-
+session_start();
 include "MG.php";
 
-$coupon_search = "";
-$coupon_prefectures = "";
-$coupon_place = "";
-$coupon_deadline = "";
+$coupon_search = $_SESSION['coupon_search'];
+$coupon_name = $_SESSION['coupon_name'];
+$coupon_prefectures = $_SESSION['coupon_prefectures'];
+$coupon_place = $_SESSION['coupon_place'];
+$coupon_deadline = $_SESSION['coupon_deadline'];
 
 $db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
 
