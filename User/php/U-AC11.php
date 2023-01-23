@@ -9,14 +9,15 @@
 
     <body>
     <main id="main">
-        <form action='' method="POST" enctype="multipart/form-data">
         <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
-            
+       
+        <form action='' method="POST" enctype="multipart/form-data" id="form1">
         <div align="center">
 
             <font size="+4">
                 クーポン一覧
             </font>
+
 
             <ul id="coupon_list">
                 
@@ -36,10 +37,10 @@
                       </font><br>
                     </p>
                     <div>
-                        <button onclick="disp()" id="close-btn" type="submit">
+                        <button id="close-btn" class="send-btn" disabled>
                             はい
                         </button>
-                        <button id="close-btn"  class="overlay-event" type="submit">
+                        <button id="close-btn"  class="close" type="button" disabled>
                             いいえ
                         </button>
                     </div>
@@ -61,40 +62,8 @@
       </aside>
             
     
-    <script>
-                document.addEventListener('DOMContentLoaded', function(){
-    
-    // オーバレイを開閉する関数
-    const overlay = document.getElementById('overlay');
-    function overlayToggle() {
-      overlay.classList.toggle('overlay-on');
-    }
-    // 指定した要素に対して上記関数を実行するクリックイベントを設定
-    const clickArea = document.getElementsByClassName('overlay-event');
-    for(let i = 0; i < clickArea.length; i++) {
-      clickArea[i].addEventListener('click', overlayToggle, false);
-    }
-    
-    // イベントに対してバブリングを停止
-    function stopEvent(event) {
-      event.stopPropagation();
-    }
-    const overlayInner = document.getElementById('overlay-inner');
-    overlayInner.addEventListener('click', stopEvent, false);
-    
-  }, false);
-
-  n=2;
-function disp() {
-    if(n == 1){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました</span>";
-    }else if(n == 2){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです</span>";
-    }
-}
-
-
- 
+<script>
+  
 var n=8;
     // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
   var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
@@ -155,8 +124,41 @@ for (var count = 0; count < 6; count++) {
     div_date.appendChild(date);
    
 }
-            
 
+  var overlayev = document.getElementsByClassName("coupon");
+  var send = document.getElementsByClassName("send-btn");
+  var close = document.getElementsByClassName("close");
+
+  //オーバーレイ開閉の関数
+  const overlay = document.getElementById('overlay');
+  function overlayToggle() {
+    overlay.classList.toggle('overlay-on');
+  }
+
+
+  overlayev[0].addEventListener('click', function(){
+    overlayev[0].setAttribute("disabled","");
+    send[0].removeAttribute("disabled");
+    close[0].removeAttribute("disabled");
+    //オーバーレイ開く
+    overlayToggle();
+    return false;
+  }, false);
+  //'いいえ'が押されたとき
+  close[0].addEventListener('click', function(){
+    // ダブルクリック防止
+    close[0].setAttribute("disabled","");
+    overlayev[0].removeAttribute("disabled");
+    //オーバーレイ閉じる
+    overlayToggle();
+ }, false);
+
+  send[0].addEventListener('click', function(){
+    // ダブルクリック防止
+    send[0].setAttribute("disabled","");
+    //フォーム送信
+    document.forms.form1.submit();
+  }, false);          
     </script>
         
         
