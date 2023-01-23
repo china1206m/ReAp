@@ -1,17 +1,15 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-      /* データ挿入 */
+    // データ挿入 
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
-
-    $_SESSION['eventuser_id'] = 1;
 
     // 入力したいカラム名を指定
     $column = ['coupon_name','eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
@@ -20,9 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
 
     // 入力された値の型を定義
-    $type = [1,0,1,1,1,0];
+    $type = [2, 0, 2, 2, 2, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+
     $result = $add->ma_return("coupon",$column, $post, $type);
     if($result==-1){
       header('Location:E-AC7.php');
@@ -30,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['coupon_id'] = $result;
       //header('Location: ./list.php');
     }
+
 
     exit;
 }
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
 </ul>
 </aside>

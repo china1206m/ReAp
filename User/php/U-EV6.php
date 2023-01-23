@@ -26,7 +26,9 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>      
+    <!--phpの検索結果がないときのひょうじはここ-->
+    <h4 align="center">検索条件に該当するものはありません。</h4>
     <ul id="self_contribution">
     </ul>
     <div class="box"></div>

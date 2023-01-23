@@ -1,13 +1,15 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
 
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['event_search'] = $_POST['event_search'];
     $_SESSION['event_prefectures'] = $_POST['event_prefectures'];
-    $_SESSION['event_day'] = $_POST['event_day'];
+    $_SESSION['event_day_first'] = $_POST['event_day_first'];
+    $_SESSION['event_day_end'] = $_POST['event_day_end'];
+    $_SESSION['event_cost'] = $_POST['event_cost'];
 
     // 画面遷移　イベント検索結果画面
     header('Location:U-EV6.php');
@@ -27,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+  <font size="+4" class="screenname">検索条件</font>
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
   
@@ -57,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </table>
 
       <p>費用</p>
-      <input type="number" name="plan_cost" class="cost"> 円
+      <input type="number" name="event_cost" class="cost"> 円
 
       <center>
         <br>
@@ -160,15 +163,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function check () {
 var prefectures = document.searchForm.event_prefectures.value;
 var eventsearch = document.searchForm.event_search.value;
+var cost = document.searchForm.event_cost.value;
 var event_first = document.searchForm.event_search_first.value;
 var event_end = document.searchForm.event_search_end.value;
 
-if ( prefectures == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
-alert ( "検索したい項目を入力してください。" );
-document.searchForm.event_search.focus();
-return false;
+if ( prefectures == "" && cost == "" && eventsearch == "" && event_first == "" && event_end == "" ) {
+  alert ( "検索したい項目を入力してください。" );
+  document.searchForm.event_prefectures.focus();
+  return false;
 }
-
+if(eventday != "" && eventday2 == ""){
+  alert ( "開催期間の終了日を選択してください" );
+  document.searchForm.event_search_end.focus();
+  return false;
+}
+if(eventday2 != "" && eventday == ""){
+  alert ( "開催期間の開始日を選択してください" );
+  document.searchForm.event_search_first.focus();
+  return false;
+}
 return true;
 }
   </script>

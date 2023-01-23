@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <br>
 <br>
-<a class="already" href="E-AC1.php">新規登録の方はこちらから</a>   
+<a class="already" href="E-AC1.html">新規登録の方はこちらから</a>   
       
 </div>
 </form>

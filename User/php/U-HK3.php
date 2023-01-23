@@ -1,5 +1,4 @@
 <?php
-/*
 // セッション開始 
 session_start();
 
@@ -10,12 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['plan_who'] = $_POST['plan_who'];
     $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
     $_SESSION['plan_cost'] = $_POST['plan_cost'];
+    $_SESSION['plan_date_first'] = $_POST['plan_date_first'];
+    $_SESSION['plan_date_end'] = $_POST['plan_date_end'];
     $_SESSION['plan_stay'] = $_POST['plan_stay'];
 
     // 画面遷移　計画検索結果画面
     header('Location:U-HK11.php');
     exit;
-} */
+} 
 ?>
 
 <!DOCTYPE html>

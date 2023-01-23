@@ -1,11 +1,12 @@
 <?php
 
 include "MG.php";
-
-$event_search = "";
-$event_prefectures = "";
-$event_day_first = "";
-$event_day_end = "";
+session_start();
+$event_search = $_SESSION['event_search'];
+$event_prefectures = $_SESSION['event_prefectures'];
+$event_day_first = $_SESSION['event_day_first'];
+$event_day_end = $_SESSION['event_day_end'];
+$event_cost = $_SESSION['event_cost'];
 
 $db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
 
@@ -28,7 +29,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
     
-
+    <p class="non">検索項目に該当するものがありません。</p>
 
 <div>
   <ul id="country_list">
@@ -41,7 +42,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
         <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
 </ul>
 </aside>

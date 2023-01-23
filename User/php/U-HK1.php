@@ -29,6 +29,8 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
+    <form action="#" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
   
   
     <div class="acount_information">
@@ -56,14 +58,16 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="box1">
       </div>
+
+</form>
 </main>
 
 <aside id="sub">
   <ul class="menu">
       <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-EV2.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-FV1.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
     </ul>
 </aside>
@@ -95,10 +99,6 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       div_right.classList.add("right");
       div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
 
-      //都道府県の追加
-      var div_pre = document.createElement('div');
-      div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
-
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
       div_yoko.classList.add("yoko");
@@ -111,6 +111,10 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       var br = document.createElement('br');
 
       //条件追加
+      //都道府県の追加
+      var div_pre = document.createElement('p');
+      div_pre.classList.add("condition");
+      div_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
       var p_who = document.createElement('p');
       p_who.classList.add("condition");
       p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
@@ -154,21 +158,23 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
       // もっと見るを作成
-      var a = document.createElement('a');
+      var a = document.createElement('button');
+      a.type="submit";
       a.classList.add("more-see");
-      a.href = "U-HK7.php";
+      a.setAttribute('name','more_see' + i);
+      a.setAttribute('id', i);
+      a.setAttribute('onclick','button(this.id)');
       a.innerText = "...もっと見る";
-
 
       ul.appendChild(li);
       li.appendChild(p);
       li.appendChild(div_ranking);
       div_ranking.appendChild(div_right);
       div_ranking.appendChild(div_yoko);
-      div_ranking.appendChild(div_pre);
       div_yoko.appendChild(div_title);
       div_ranking.appendChild(br);
       div_ranking.appendChild(br);
+      div_ranking.appendChild(div_pre);
       div_ranking.appendChild(p_who);
       div_ranking.appendChild(p_cost);
       div_ranking.appendChild(p_day);
@@ -187,5 +193,15 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </script>
 
+<script>
+ function button(clicked_id)
+  {
+    var s = clicked_id;
+    var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = s;
+        console.log(counter.value);
+  }
+  </script>
 
 </body>

@@ -24,7 +24,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
-    <form action="M-EV2.php M-SC1.php" method="POST" enctype="multipart/form-data">
+    
     <h3>投稿イベント</h3>
 
     <div>
@@ -34,21 +34,20 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     
       <div class="right"> 
-                <button type="submit" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button type="button" onclick="location.href='M-SC2.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
       </div>
     </div>
 
-</form>
 </main>
 
 <aside id="sub">
   
   <ul>
-    <li class="menu-list"><a class="menu-button" href="M-HK1.php.html"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-PL1.php"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-EV1.php"><img src="M-menu-event.png" width="45" height="43">　イベント</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-RP1.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-CP1.php"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-RP2.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="M-CP1.html"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
   </ul>
 </aside>

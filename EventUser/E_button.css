@@ -10,8 +10,8 @@
       margin: 1em 0; /* 前後の隙間 */
       padding: 0.6em 1em; /* 塗りの余白 */
       font-size: 2em; /* フォントサイズ */
-      background-color: #ffe599ff; /* 背景色 */
-      color: black; /* テキストカラー */
+      background-color: #1aa1ff; /* 背景色 */
+      color: white; /* テキストカラー */
       cursor: pointer; /* カーソルを指マークに */
       border-radius: 3px; /* 角の丸み */
       border: 0; /* 枠線を消す */
@@ -21,7 +21,7 @@
   
     /* ホバー時（カーソルをのせた時）の見た目 */
   .button_yellow:hover {
-      background-color: #ffd700; /* 背景色 */
+      background-color: #064fda; /* 背景色 */
     }
 
  

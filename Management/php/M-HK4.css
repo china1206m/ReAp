@@ -106,6 +106,10 @@
 .right{
   text-align: right;
 }
+
+ul {
+  list-style: none;
+}
 }
 
 /*スマホ用*/

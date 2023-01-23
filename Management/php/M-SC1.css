@@ -105,6 +105,11 @@ p {
       margin-left: 50px;
 }
 
+
+.screenname {
+  margin-left:35%;
+}
+
 @media screen and (min-width:990px) {
   /* ラジオボタン */
 input[type=radio] {

@@ -1,8 +1,8 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 呼び出し
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['plan_cost'], $_POST['plan_day'], 0, 0, $post_date];
 
     // 入力された値の型を定義
-    $type = [0,1,1,1,0,0,0,0,1];
+    $type = [0, 2, 2, 2, 0, 1, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['plan_id'] = $add->ma_return("plan",$column, $post, $type);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
 
-    <form action="U-AC24.html" method="POST" name="searchForm" onSubmit="return check();">
+    <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
     <font size="+4" class="screenname">
       投稿
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </p>
       <table align="center">
         <tr>
-          <td><input type="radio" name="plan_who" value="一人" id="one" required="required"><label for="one">一人</label></td>
+          <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
           <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>
         </tr>
         <tr>
@@ -110,11 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <font size="+4">宿泊</font>
       </p>
       <div align="center">
-        <input type="number" name="plan_day" class="stay-from" required> 
+        <input type="number" name="plan_day" class="stay-from"> 
         <font size="+3">
             泊 
         </font>
-        <input type="number" name="plan_day" class="stay-to" required> 
+        <input type="number" name="plan_day" class="stay-to"> 
         <font size="+3">
             日
         </font>
@@ -241,6 +241,35 @@ return true;
   month = date.getMonth() + 1;
   day = date.getDate();
   document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+  </script>
+  <script>
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+const clearRadioButton = (radioButton) => {
+  setTimeout(func =()=>{
+    radioButton.checked = false;
+  },100)
+}
+
+radioButtons.forEach(radioButton => {
+  let queryStr = 'label[for="' + radioButton.id + '"]'
+  let label = document.querySelector(queryStr)
+
+  radioButton.addEventListener("mouseup", func=()=>{
+    if(radioButton.checked){
+      clearRadioButton(radioButton)
+    }
+  });
+
+  if(label){
+    label.addEventListener("mouseup", func=()=>{
+      if(radioButton.checked){
+        clearRadioButton(radioButton)
+      }
+    });
+  }
+
+});
   </script>
 </body>
 

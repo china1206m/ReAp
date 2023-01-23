@@ -1,36 +1,22 @@
 <?php
-
-/* セッション開始 */
+// セッション開始
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
   include "MU.php";
-
   $update = new MU();
-
-  $column = ['user_mali', 'user_pass'];
-  
+  $column = ["user_mail", "user_pass"];
   $post = [$_POST['user_mail'], $_POST['user_pass']];
-  
-  $type = [1, 1, 1];
-
-  $id_name = "ser_id";
-
+  $type = [1, 1];
+  $id_name = "user_id";
   $id = $_SESSION['user_id'];
-
 
   $update->mu("user", $column, $post, $type, $id_name, $id);
 
-  //$_SESSION['register_message'] = '登録しました';
-  //header('Location:E-AC3.php');
+  header('Location:U-AC3.php');
   exit;
-}else{
-  //header('Location:E-AC3.php');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント情報変更</h3>
     
-    <form action="U-HK3.php" method="POST"> 
+    <form action="" method="POST"> 
         
         <td><p><label for="user_mail" >メールアドレス<span class="require">必須</span></label></p></td>
         <input type="email" class="user" name="user_mail" value="" maxlength="30" placeholder="〇〇〇＠△△△" required>
@@ -74,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <aside id="sub">
     <ul class="menu">
       <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
       <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>

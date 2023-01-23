@@ -1,9 +1,9 @@
 <?php
-
+session_start(); // セッション開始
 include "MG.php";
 
-$id = 1;
-$db = MG_04($id,"","","","","","","","","","");
+$plan_id = $_SESSION['plan_id'];
+$db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $user_id = $plan[0]['user_id']; 
@@ -13,7 +13,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 $db = getDB();
 $sql = "SELECT * FROM plan_detail WHERE plan_id = ? ORDER BY plan_detail_id ASC";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$plan_id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
@@ -39,8 +39,10 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="plan_information">
           <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
-            <img src="monkey.png" class="circle" align="left" alt="">
-            <div class="title"><?php print($plan[0]['plan_title']); ?></div>
+            <a href="U-HK1.php" style="text-decoration:none;">
+              <img src="monkey.png" alt="" height="100%" width="100%" class="circle" align="left">
+            </a>
+            <div class="title">タイトル<?php print($plan[0]['plan_title']); ?></div>
           </div>
           <br>
           <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
@@ -51,6 +53,14 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </li>
     </ul>
+    <div class="favorite">
+      <input type="checkbox" id="like">
+      <label for="like">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </label><h4>1110</h4>
+    </div>
     <div class="box"></div>
   </main>
 

@@ -109,6 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </tr>
       </table>
 
+      <p><label for="event_cost">費用</label></p>
+      <input type="number" name="event_cost" class="prefectures" value="">円
+
         <center>
           <br>
           <br>
@@ -124,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
       <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
       <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-      <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+      <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
       <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
     </ul>
   </aside>
@@ -132,23 +135,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script>
 function check () {
 var prefectures = document.searchForm.event_prefectures.value;
-var eventday = document.searchForm.event_search_first.value;
-var eventday2 = document.searchForm.event_search_end.value;
+var eventday = document.searchForm.event_day_first.value;
+var eventday2 = document.searchForm.event_day_end.value;
 var eventsearch = document.searchForm.event_search.value;
+var cost = document.searchForm.event_cost.value;
 
-if ( prefectures == "" && eventday == "" && eventsearch == "" && eventday2 == "") {
+if ( prefectures == "" && eventday == "" && eventsearch == "" && eventday2 == "" && cost == "") {
 alert ( "検索したい項目を入力してください。" );
 document.searchForm.event_prefectures.focus();
 return false;
 }
 if(eventday != "" && eventday2 == ""){
   alert ( "開催期間の終了日を選択してください" );
-document.searchForm.event_search_end.focus();
+document.searchForm.event_day_end.focus();
 return false;
 }
 if(eventday2 != "" && eventday == ""){
   alert ( "開催期間の開始日を選択してください" );
-document.searchForm.event_search_first.focus();
+document.searchForm.event_day_first.focus();
 return false;
 }
 return true;

@@ -1,18 +1,26 @@
 <?php
-
-include "MG.php";
 session_start(); // セッション開始
-$id = $_SESSION['eventuser_id'];
-$db = MG_02($id,"","","","","","","","","");
+$eventuser_id = $_SESSION['eventuser_id'];
+include "MG.php";
+$db = MG_02($eventuser_id,"","","","","","","","","");
+
+/*
+include "MGvG.php";
+$post = [$_SESSION['eventuser_id']];
+$db = MG("eventuser", $post);
+*/
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
 $sql = "SELECT * FROM event WHERE eventuser_id = ? ORDER BY post_date DESC LIMIT 50";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$eventuser_id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
+if($count1 == 0) {
+  $_SESSION['event'] = '投稿したイベントはありません。';
+}
 
 $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,17 +39,22 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <main id="main">
     <h3>投稿イベント</h3>
 
-    <!--ここに追加してね-->
-    <p class="non">
-    投稿したイベントはありません
-    </p>
+  
 
     <div>
       <ul id="country_list">
           
       </ul>
     
-    
+    <!--ここに追加してね-->
+    <p class="non">
+    <?php
+        if (isset($_SESSION['event'])) {
+          echo($_SESSION['event']);
+        }
+      ?>
+    </p>
+
       <div class="right"> 
         <button type="button" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
     
@@ -148,3 +161,8 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </Script>
 </body>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['event'] = '';
+?>

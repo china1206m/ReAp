@@ -1,18 +1,22 @@
 <?php
 
 include "MG.php";
-
-$plan_search = "";
-$plan_who = "";
-$plan_prefectures = "";
-$plan_cost = "";
-$plan_date_first = "";
-$plan_date_end = "";
-$plan_day = "";
+session_start();
+$plan_search = $_SESSION['plan_search'];
+$plan_who = $_SESSION['plan_who'];
+$plan_prefectures = $_SESSION['plan_prefectures'];
+$plan_cost = $_SESSION['plan_cost'];
+$plan_date_first = $_SESSION['plan_date_first'];
+$plan_date_end = $_SESSION['plan_date_end'];
+$plan_day = $_SESSION['plan_stay'];
 
 $db = MG_12($plan_search,$plan_who,$plan_prefectures,$plan_cost,$plan_date_first,$plan_date_end,$plan_day);
 
 $count1 = $db->rowCount();
+
+if($count1 == 0) {
+  $_SESSION['plan_search'] = '検索条件に該当するものはありません。';
+}
 
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
@@ -30,6 +34,14 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
   <body>
     <main id="main">
       <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+      <!--phpの検索結果がないときのひょうじはここ-->
+      <h4 align="center">
+        <?php
+          if (isset($_SESSION['plan_search'])) {
+            echo($_SESSION['plan_search']);
+          }
+        ?>
+      </h4>
       <ul id="planlist">
       </ul>
       <div class="box"></div>
@@ -171,3 +183,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
     </script>
   </body>
 </html>
+<?php
+/* セッションの初期化 */
+$_SESSION['plan_search'] = '';
+?>
