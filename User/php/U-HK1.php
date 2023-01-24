@@ -3,14 +3,14 @@ session_cache_limiter("none");
 session_start(); // セッション開始
 include "MG.php";
 
-$id = 1;
-$db = MG_01($id,"","","","","","","","");
+$user_id = $_SESSION['user_id'];
+$db = MG_01($user_id,"","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
 $sql = "SELECT * FROM plan WHERE user_id = ? ORDER BY post_date DESC LIMIT 50";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$user_id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     <div class="acount_information">
       <div class="yoko">
-      <img src="U-menu-acount.png" align="left" alt="写真" class="circle">
+      <img src="image.php?id=<?= $user[0]['user_id']; ?>" align="left" alt="写真" class="circle">
     
     
       <div class="user_name">
