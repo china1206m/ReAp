@@ -28,7 +28,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     <form action="#" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
   
