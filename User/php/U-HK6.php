@@ -34,20 +34,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </head>
   <body>
     <main id="main">
+    
       <div align="right">
         <button class="btn" onclick="location.href='U-HK2.php'"><img src="crown.png" alt="ranking"></button>
         <button class="btn" onclick="location.href='U-HK5.html'"><img src="post.png" alt="post"></button>    
         <button class="btn" onclick="location.href='U-HK3.php'"><img src="serch.png" alt="search"></button>
       </div>
-
-      <form action="" method="POST">
+    <form action="" method="POST">
       <input type="hidden" id="counter" name="counter" value="0">
 
       <ul id="planlist">
       </ul>
       <div class="box"></div>
 
-      </form>
+    </form>
     </main>
 
     <aside id="sub">
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //アイコン追加
       var img = document.createElement('img');
       img.classList.add("circle");
-      img.src = 'monky.png';
+      img.src = "image.php?id=<?= $user[0]['user_id']; ?>";
       img.align = 'left'
       img.alt = '<?php print($user[0]['user_name']); ?>'
         
