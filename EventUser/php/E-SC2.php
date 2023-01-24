@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
-  img.src = 'monky.png';
+  img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
   img.align = 'left'
   img.alt = 'アイコン'
   img.width = 100;
