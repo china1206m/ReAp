@@ -2,6 +2,16 @@
 // セッション開始 
 session_start();
 
+/* セッションの初期化 */
+$_SESSION['plan_search'] = '';
+$_SESSION['plan_who'] = '';
+$_SESSION['plan_prefectures'] = '';
+$_SESSION['plan_cost'] = '';
+$_SESSION['plan_date_first'] = '';
+$_SESSION['plan_date_end'] = '';
+$_SESSION['plan_stay'] = '';
+
+
 // POSTで送信されている
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
