@@ -41,7 +41,7 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
             <a href="U-HK1.php" style="text-decoration:none;">
-              <img src="monkey.png" alt="" height="100%" width="100%" class="circle" align="left">
+              <img src="image.php?id=<?= $plan[0]['user_id']; ?>" alt="" height="100%" width="100%" class="circle" align="left">
             </a>
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div>
