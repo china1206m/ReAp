@@ -33,7 +33,11 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="center">
         <?php print($user[0]['user_name']); ?>
       </div>
-      <div class="left"><img src="U-menu-acount.png" class="image-circle"></div>
+      <div class="left">
+        <a href="#lightbox" data-toggle="modal" data-slide-to="<?= $i; ?>">
+          <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="image-circle">
+        </a>  
+      </div>
     </div>
     
     <center>
