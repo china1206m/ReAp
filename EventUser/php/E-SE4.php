@@ -12,15 +12,21 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //form送信後
 //MD
-//完了画面出すなら
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+  $type = [1];
+  $result = $delete->md("event", "event_id", $event_id, $type);
+  //完了画面出すなら
     //モジュールでエラーのとき特定の数字を返り値として渡してほしい
-    //$result = ;
-    //if($result==-1){
+    if($result == -1){
       //error
       //header('');
-    //}else{
-      //正常時処理 完了画面
-    //}
+    }else{
+      header('Location:E-SE1.php');
+      exit;
+    }
+}
 
 ?>
 
