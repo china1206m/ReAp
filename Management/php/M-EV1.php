@@ -24,20 +24,13 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
-    
-    <h3>投稿イベント</h3>
-
-    <div>
-      <ul id="country_list">
-          
-      </ul>
-    
-    
-      <div class="right"> 
-                <button type="button" onclick="location.href='M-SC2.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
-      </div>
+  <div align="right">   
+      <button class="btn" onclick="location.href='E-SC1.php'"><img src="serch.png" alt="search"></button>
     </div>
 
+    <ul id="planlist">
+    </ul>
+    <div class="box"></div>
 </main>
 
 <aside id="sub">
@@ -61,7 +54,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   //文字列はphpで作成しそれを引っ張ってくる
   //var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
 
-  var ul = document.getElementById("country_list");
+  var ul = document.getElementById("planlist");
 
   <?php 
 
@@ -74,7 +67,22 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	// li要素を作成
 	var li = document.createElement('li');
-  li.classList.add("event_information");
+  li.classList.add("home-list");
+
+  var p = document.createElement('p');
+
+  //計画情報のための四角追加
+  var div_planlist = document.createElement('div');
+  div_planlist.classList.add("planlist_information");
+
+  //投稿日の追加
+  var div_right = document.createElement('div');
+  div_right.classList.add("right");
+  div_right.innerText = "投稿日"
+
+  //アイコンと題名の横並びのためのクラス追加
+  var div_yoko = document.createElement('div');
+  div_yoko.classList.add("yoko");
 
   // アイコンを作成
   var img = document.createElement('img');
@@ -82,8 +90,6 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   img.src = 'monky.png';
   img.align = 'left'
   img.alt = 'アイコン'
-  img.width = 100;
-  img.height = 100;
 
   // 題名を作成
   var div = document.createElement('div');
@@ -91,11 +97,54 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   var daimei = document.createTextNode("<?php print($event[$i]['event_title']); ?>");
   div.appendChild(daimei);
 
+  var br = document.createElement('br');
+
+    //都道府県の追加
+    var p_pre = document.createElement('p');
+    p_pre.classList.add("condition");
+    p_pre.innerText = "都道府県"
+
+    //条件追加
+    var p_who = document.createElement('p');
+    p_who.classList.add("condition");
+    p_who.innerHTML = "誰と"
+    var p_cost = document.createElement('p');
+    p_cost.classList.add("condition");
+    p_cost.innerHTML = "円"
+    var p_day = document.createElement('p');
+    p_day.classList.add("condition");
+    p_day.innerHTML = "泊日"
+
+    //olの追加
+    var ol = document.createElement('ol');
+
+    //ol内のliの追加
+    var li_ol = document.createElement('li');
+
+    //場所の四角の追加
+    var div_home = document.createElement('div');
+    div_home.classList.add("home_information");
+
+    //場所名追加
+    var p_planname = document.createElement('p');
+    p_planname.classList.add("plan_content");
+    p_planname.innerHTML = "場所"
+
   // 本文を作成
   var p = document.createElement('p');
-  p.classList.add("limit");
+  p.classList.add("plan_cpntent");
   var text = document.createTextNode("<?php print($event[$i]['event_content']); ?>");
   p.appendChild(text);
+
+  //滞在時間追加
+  var p_time = document.createElement('p');
+    p_time.innerHTML = "時間分"
+    p_time.classList.add("plan_content");
+
+    //移動時間追加
+    var p_travel = document.createElement('p');
+    p_travel.classList.add("travel_time");
+    p_travel.innerHTML = "時間分"
 
   // もっと見るを作成
   var a = document.createElement('a');
@@ -105,10 +154,25 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
-  li.appendChild(img);
-  li.appendChild(div);
-  li.appendChild(p);
-  li.appendChild(a);
+    li.appendChild(div_planlist);
+    div_planlist.appendChild(div_right);
+    div_planlist.appendChild(div_yoko);
+    div_yoko.appendChild(img);
+    div_yoko.appendChild(div_title);
+    div_planlist.appendChild(br);
+    div_planlist.appendChild(br);
+    div_planlist.appendChild(p_pre);
+    div_planlist.appendChild(p_who);
+    div_planlist.appendChild(p_cost);
+    div_planlist.appendChild(p_day);
+    div_planlist.appendChild(ol);
+    ol.appendChild(li_ol);
+    li_ol.appendChild(div_home);
+    div_home.appendChild(p_planname);
+    div_home.appendChild(p_content);
+    div_home.appendChild(p_time);
+    div_planlist.appendChild(p_travel);
+    div_planlist.appendChild(a);
 
       <?php endfor; ?>
 
