@@ -1,8 +1,9 @@
 <?php
+session_start(); // セッション開始
 
 include "MG.php";
 
-$event_id = 1;
+$event_id = $_SESSION['event_id'];
 $db = MG_06($event_id,"","","","","","","","","","","");
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
 
