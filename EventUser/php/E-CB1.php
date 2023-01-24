@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </tr>
 
 <tr>
-  <td><input type="number" id="date" name="event_cost" class="event_cost" minlength="1"></td>
+  <td><input type="number" id="date" name="event_cost" class="event_cost" minlength="1" required></td>
  </tr>
 </table>
 
