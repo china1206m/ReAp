@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $event_id = $add->ma_return("event",$column, $post, $type);
     $_SESSION['event_id'] = $event_id;
 
-    if(isset($_FILES['event_image']['tmp_name'])) {
+    if(!empty($_FILES['event_image']['tmp_name'])) {
       include_once "MC-01.php";
       $pdo = getDB();
 
