@@ -7,8 +7,6 @@ session_start();
     /* 退会 */
     include "MD.php";
     $delete = new MD();
-  
-    $_SESSION['eventuser_id'] = 1;
 
     $type = [1];
     $delete->md("eventuser", "eventuser_id", $_SESSION['eventuser_id'], $type);
