@@ -15,17 +15,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 入力したいカラム名を指定
     $column = ['eventuser_id','event_title', 'event_prefectures', 'event_day_first', 'event_day_end', 
-              'event_content', 'event_image', 'event_place', 'event_cost', 'event_favorite_total', 'post_date'];
+              'event_content', 'event_place', 'event_cost', 'event_favorite_total', 'post_date'];
     
     // 入力された値をpost配列に格納
     $post = [$_SESSION['eventuser_id'], $_POST['event_title'], $_POST['event_prefectures'], $_POST['event_day_first'], $_POST['event_day_end'], 
-            $_POST['event_content'], $_FILES['event_image']['tmp_name'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
+            $_POST['event_content'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
 
     // 入力された値のデータ型を定義
-    $type = [0, 2, 2, 1, 1, 2, 1, 2, 0, 0, 1];
+    $type = [0, 2, 2, 1, 1, 2, 2, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $_SESSION['event_id'] = $add->ma_return("event",$column, $post, $type);
+    $event_id = $add->ma_return("event",$column, $post, $type);
+    $_SESSION['event_id'] = $event_id;
+
+    if(isset($_FILES['event_image']['tmp_name'])) {
+      include_once "MC-01.php";
+      $pdo = getDB();
+
+      $content = file_get_contents($_FILES['event_image']['tmp_name']);
+      $sql = 'UPDATE event SET  event_image = :event_image WHERE event_id = :event_id';
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(':event_image', $content);
+      $stmt->bindValue(':event_id', $event_id);
+      $stmt->execute();
+    } 
 
     // 画面遷移　ホーム画面
     header('Location:E-EL1.html');
