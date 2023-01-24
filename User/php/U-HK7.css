@@ -161,58 +161,55 @@
     list-style: none;
   }
 
-      /*お気に入り*/
-      .favorite {
-        margin-left: 700px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      input[type="checkbox"] {
-        display: none;
-      }
-      label {
-        position: relative;
-        cursor: pointer;
-      }
-      label svg {
-        width: 80px;
-      }
-      input[type="checkbox"] + label svg {
-        fill: #FAE2E2;
-        transition: all .3s;
-      }
-      input[type="checkbox"]:checked + label svg {
-        fill: #FA9797;
-        animation: like .8s ease-out;
-        transition: all .3s;
-      }
-      @keyframes like {
-        0% {
-          transform: scale(1,1);
-        }
-        50% {
-          transform: scale(.5,.5);
-        }
-        100% {
-          transform: scale(1,1);
-        }
-      }
-      input[type="checkbox"]:checked + label::after {
-        content: "";
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        border: 5px solid #FA9797;
-        border-radius: 50%;
-        animation: circle .8s ease-out;
-        opacity: 0;
-        top: -10px;
-        left: -4px;
-        z-index: -100;
-      }
-
-      h4 {
-        font-size: 1.5em;
-      }
+  .favorite {
+    background-color: white;
+    display: flex;
+  }
+  
+  .unlike {
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border: 0;
+    position: relative;
+    margin-left: 75%;
+  }
+  
+  .unlike::before {
+    content: "";
+    position: absolute;
+    left: 45px; /* x位置 */
+    top: 0; /* y位置 */
+    width: 45px; /* 幅 */
+    height: 75px; /* 高さ */
+    background: #d3d3d3; /* 色 */
+    border-radius: 75px 45px 0 0; /* 丸み */
+    transform: rotate(-45deg); /* 角度調整 */
+    transform-origin: 0 100%; /* 回転の基準点 */
+  }
+  
+  .unlike::after {
+    content: "";
+    position: absolute;
+    left: 0; /* x位置 */
+    top: 0; /* y位置 */
+    width: 45px; /* 幅 */
+    height: 75px; /* 高さ */
+    background: #d3d3d3; /* 色 */
+    border-radius: 45px 75px 0 0; /* 丸み */
+    transform: rotate(45deg); /* 角度調整 */
+    transform-origin: 100% 100%; /* 回転の基準点 */
+  }
+  
+  .like::before {
+    background: #FF5252; /* 色 */
+  }
+  
+  .like::after {
+    background: #FF5252; /* 色 */
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
 }
