@@ -96,7 +96,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
         // もっと見るを作成
         var a = document.createElement('a');
         a.classList.add("more-see");
-        a.href = "U-HK7.php";
+        a.href = "U-EV2.php";
         a.innerText = "...もっと見る";
   
         ul.appendChild(li);
