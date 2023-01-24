@@ -1,4 +1,6 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
@@ -10,6 +12,13 @@ $stmt->execute();
 $count1 = $stmt->rowCount();
 
 $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $plan_id = $plan[$counter]['plan_id'];
+  $_SESSION['plan_id'] = $plan_id;
+  header('Location:U-HK7.php');
+}
 
 ?>
 
@@ -25,6 +34,8 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">計画ランキング</h3>
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
 
     <ul id="ranking">
     </ul>
@@ -143,9 +154,12 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
         // もっと見るを作成
-        var a = document.createElement('a');
+        var a = document.createElement('button');
+        a.type="submit";
         a.classList.add("more-see");
-        a.href = "U-HK7.php";
+        a.setAttribute('name','more_see' + <?php print($i); ?>);
+        a.setAttribute('id', <?php print($i); ?>);
+        a.setAttribute('onclick','button(this.id)');
         a.innerText = "...もっと見る";
 
 
@@ -175,7 +189,11 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <?php endfor; ?>
 
-    
+        function button(clicked_id){
+          var s = clicked_id;
+          var counter = document.getElementById("counter");
+          counter.value = s;
+        }
 
 </script>
 </body>

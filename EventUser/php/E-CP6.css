@@ -84,6 +84,7 @@ section {
     border:solid #ccc 0px;
     border-radius: 3px; /* 角の丸み */
     cursor: pointer;
+    margin-top: 100px;
   }
 
   #open-btn:hover {
