@@ -1,7 +1,8 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
-session_start();
 $plan_search = $_SESSION['plan_search'];
 $plan_who = $_SESSION['plan_who'];
 $plan_prefectures = $_SESSION['plan_prefectures'];
@@ -20,6 +21,13 @@ if($count1 == 0) {
 
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $plan_id = $plan[$counter]['plan_id'];
+  $_SESSION['plan_id'] = $plan_id;
+  header('Location:U-HK7.php');
+}
+
 ?>
 
 
@@ -34,6 +42,8 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
   <body>
     <main id="main">
       <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+      <form action="" method="POST">
+      <input type="hidden" id="counter" name="counter" value="0">
       <!--phpの検索結果がないときのひょうじはここ-->
       <h4 align="center">
         <?php
@@ -151,9 +161,12 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
 
       // もっと見るを作成
-      var a = document.createElement('a');
+      var a = document.createElement('button');
+      a.type="submit";
       a.classList.add("more-see");
-      a.href = "U-HK7.php";
+      a.setAttribute('name','more_see' + <?php print($i); ?>);
+      a.setAttribute('id', <?php print($i); ?>);
+      a.setAttribute('onclick','button(this.id)');
       a.innerText = "...もっと見る";
 
       ul.appendChild(li);
@@ -180,10 +193,12 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
         <?php endfor; ?>
 
+        function button(clicked_id){
+          var s = clicked_id;
+          var counter = document.getElementById("counter");
+          counter.value = s;
+        }
+
     </script>
   </body>
 </html>
-<?php
-/* セッションの初期化 */
-$_SESSION['plan_search'] = '';
-?>
