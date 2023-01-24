@@ -50,7 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿　詳細</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+    <font size="+4" class="screenname">詳細投稿</font>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
 
     <form action="" method="POST" enctype="multipart/form-data">

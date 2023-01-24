@@ -272,7 +272,9 @@ ol{
     border: solid medium;
 }
 
-
+.screenname {
+    margin-left:33%;
+  }
 
 
 }

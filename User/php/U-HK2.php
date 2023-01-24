@@ -18,13 +18,14 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID U-HK2</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-HK2.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">計画ランキング</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+    <font size="+4" class="screenname">計画ランキング</font>
 
     <ul id="ranking">
     </ul>
