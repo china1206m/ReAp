@@ -7,6 +7,7 @@ $db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $user_id = $plan[0]['user_id']; 
+$_SESSION['user_id'] = $user_id;
 $db = MG_01($user_id,"","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
