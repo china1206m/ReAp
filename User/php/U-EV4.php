@@ -2,6 +2,12 @@
 // セッション開始 
 session_start();
 
+    $_SESSION['event_search'] = "";
+    $_SESSION['event_prefectures'] = "";
+    $_SESSION['event_day_first'] = "";
+    $_SESSION['event_day_end'] = "";
+    $_SESSION['event_cost'] = "";
+
 // POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
