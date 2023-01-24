@@ -1,7 +1,7 @@
 <?php
+session_start(); // セッション開始
 
 include "MG.php";
-session_start(); // セッション開始
 $event_id = $_SESSION['event_id'];
 $db = MG_06($event_id,"","","","","","","","","","","");
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -14,13 +14,13 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 //MD
 //完了画面出すなら
     //モジュールでエラーのとき特定の数字を返り値として渡してほしい
-    $result = ;
-    if($result==-1){
+    //$result = ;
+    //if($result==-1){
       //error
-      header('');
-    }else{
+      //header('');
+    //}else{
       //正常時処理 完了画面
-    }
+    //}
 
 ?>
 

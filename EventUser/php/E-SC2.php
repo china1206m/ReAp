@@ -1,18 +1,26 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
-session_start();
 $event_search = $_SESSION['event_search'];
 $event_prefectures = $_SESSION['event_prefectures'];
 $event_day_first = $_SESSION['event_day_first'];
 $event_day_end = $_SESSION['event_day_end'];
 $event_cost = $_SESSION['event_cost'];
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
 
 $count1 = $db->rowCount();
 
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $event_id = $event[$counter]['event_id'];
+  $_SESSION['event_id'] = $event_id;
+  header('Location:E-SE4.php');
+}
 
 ?>
 
@@ -28,6 +36,8 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 <body bgcolor="#f0f8ff">
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     
     <p class="non">検索項目に該当するものがありません。</p>
 
@@ -94,9 +104,12 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   p.innerHTML = "<?php print($event[$i]['event_content']); ?>";
 
   // もっと見るを作成
-  var a = document.createElement('a');
+  var a = document.createElement('button');
+  a.type="submit";
   a.classList.add("more-see");
-  a.href = "E-SE4.php";
+  a.setAttribute('name','more_see' + <?php print($i); ?>);
+  a.setAttribute('id', <?php print($i); ?>);
+  a.setAttribute('onclick','button(this.id)');
   a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加
@@ -109,6 +122,12 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   li.appendChild(a);
 
         <?php endfor; ?>
+
+        function button(clicked_id){
+          var s = clicked_id;
+          var counter = document.getElementById("counter");
+          counter.value = s;
+        }
 
 </Script>
 </body>
