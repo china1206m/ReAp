@@ -1,6 +1,7 @@
 <?php
 session_start();
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    /*
     include "MU.php";
 
     $update = new MU();
@@ -10,6 +11,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $column_name = "user_id";
     $id = $_SESSION['user_id'];
     $update->mu("user", $column, $post, $type, $column_name, $id);
+    */
+
+    include "MU.php";
+
+    $update = new MU();
+    $column = ["user_name", "profile_message"];
+    $post = [$_POST['user_name'], $_POST['profile_message']];
+    $type = [2, 2];
+    $column_name = "user_id";
+    $user_id = $_SESSION['user_id'];
+    $update->mu("user", $column, $post, $type, $column_name, $user_id);
+
+    include_once "MC-01.php";
+    $pdo = getDB();
+
+    $content = file_get_contents($_FILES['profile_image']['tmp_name']);
+    $sql = 'UPDATE user SET  profile_image = :profile_image WHERE user_id = :user_id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':profile_image', $content);
+    $stmt->bindValue(':user_id', $user_id);
+    $stmt->execute();
+
     header('Location:U-AC3.php');
     exit;
 }
