@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント情報変更</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     
     <form action="" method="POST"> 
         
