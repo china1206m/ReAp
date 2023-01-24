@@ -34,13 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </head>
   <body>
     <main id="main">
-    <form action="" method="POST">
-    <input type="hidden" id="counter" name="counter" value="0">
       <div align="right">
         <button class="btn" onclick="location.href='U-HK2.php'"><img src="crown.png" alt="ranking"></button>
         <button class="btn" onclick="location.href='U-HK5.html'"><img src="post.png" alt="post"></button>    
         <button class="btn" onclick="location.href='U-HK3.php'"><img src="serch.png" alt="search"></button>
       </div>
+
+      <form action="" method="POST">
+      <input type="hidden" id="counter" name="counter" value="0">
 
       <ul id="planlist">
       </ul>
