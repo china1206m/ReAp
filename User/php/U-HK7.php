@@ -20,6 +20,7 @@ $count1 = $stmt->rowCount();
 
 $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 
