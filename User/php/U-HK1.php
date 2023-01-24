@@ -36,13 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <main id="main">
-<<<<<<< HEAD
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
     <form action="" method="POST">
-=======
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
-    <form action="#" method="POST">
->>>>>>> 5be2292fe74ea2fbb91e103cfdcd164068063940
     <input type="hidden" id="counter" name="counter" value="0">
   
   
