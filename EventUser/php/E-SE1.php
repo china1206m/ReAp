@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter("none");
 session_start(); // セッション開始
-$eventuser_id = 1;
+$eventuser_id = $_SESSION['eventuser_id'];
 include "MG.php";
 $db = MG_02($eventuser_id,"","","","","","","","","");
 
