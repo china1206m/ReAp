@@ -52,6 +52,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
     <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_place']) ?></p>
     <center id="image_area">
+    <img arc="neko.jpg" alt = 'さいくん' width = 400>
     </center>
 
     
@@ -90,20 +91,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
     </ul>
   </aside>
   
-<script>
-  //画像の文字列はphpで用意する
-const images = ['neko.jpg', 'naruto.jpg'];
-const content_area = document.getElementById("image_area");
-for (var count = 0; count < 2; count++) {
-let img_add = document.createElement('img');
-img_add.src = images[count];
-img_add.alt = 'さいくん'; // 代替テキスト
-img_add.width = 400; // 横サイズ（px） 
 
-
-content_area.appendChild(img_add);
-}
-</script>
 
 
 <script>
