@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
   <form action="" method="POST">
   <input type="hidden" id="counter" name="counter" value="0">
+  </form>
     <div align="right">
       <button class="btn" onclick="location.href='U-EV4.php'"><img src="serch.png" alt="search"></button>
     </div>
