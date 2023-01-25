@@ -1,13 +1,11 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $_SESSION['user_id'] = 1;
-    /* データ挿入 */
+    // データ挿入 
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
@@ -30,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mu = new MU();
     $mu->report_count($_SESSION['user_id']);
 
-    header('Location:U-HK7.php');
+    header('Location:U-HK1.php');
     exit;
 }
 ?>
