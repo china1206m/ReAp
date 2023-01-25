@@ -2,8 +2,7 @@
 session_start(); // セッション開始
 include "MG.php";
 
-//$plan_id = $_SESSION['plan_id'];
-$plan_id = 1;
+$plan_id = $_SESSION['plan_id'];
 $db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
