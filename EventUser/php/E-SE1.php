@@ -49,13 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <input type="hidden" id="counter" name="counter" value="0">
     <h3>投稿イベント</h3>
 
-  
-
-    <div>
-      <ul id="country_list">
-          
-      </ul>
-    
     <!--ここに追加してね-->
     <p class="non">
     <?php
@@ -65,8 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       ?>
     </p>
 
+    <div>
+      <ul id="country_list">
+          
+      </ul>
+    
+    
+
       <div class="right"> 
-        <button type="button" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
+        <button type="button" class="search" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
     
       </div>
     
