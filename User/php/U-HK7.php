@@ -56,9 +56,11 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </li>
     </ul>
+    <form method="POST" action="">
     <div class="favorite">
       <button class="unlike" type="submit"></button><h4>お気に入り数</h4>
     </div>
+  </form>
     <div class="box"></div>
   </main>
 
@@ -103,6 +105,17 @@ var p_time = document.createElement('p');
 p_time.innerHTML = "<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
 p_time.classList.add("plan_content");
 
+//写真と移動時間の配置
+var div_ect = document.createElement('div');
+div_ect.classList.add("ect");
+
+//写真追加
+var pic = document.createElement('img');
+pic.classList.add("pics");
+pic.src = "monkey.png";
+pic.align = 'left'
+pic.alt = ''
+
 //移動時間追加
 var p_travel = document.createElement('p');
 p_travel.classList.add("travel_time");
@@ -113,8 +126,9 @@ li_ol.appendChild(div_home);
 div_home.appendChild(p_placename);
 div_home.appendChild(p_content);
 div_home.appendChild(p_time);
-li_ol.appendChild(p_travel);
-
+li_ol.appendChild(div_ect);
+div_ect.appendChild(pic);
+div_ect.appendChild(p_travel);
     <?php endfor; ?>
 
 </script>
