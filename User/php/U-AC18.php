@@ -37,10 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
     <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <form action='' method="POST" enctype="multipart/form-data">
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
+    <!--<form action='' method="POST" enctype="multipart/form-data">-->
     <ul id="ranking">
     </ul>
-  </form>
+  <!--</form>-->
 </main>
 
 <aside id="sub">
@@ -142,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //移動時間追加
         var p_travel = document.createElement('p');
         p_travel.classList.add("travel_time");
-        p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
+        p_travel.innerHTML = ""
 
         // もっと見るを作成
         var a = document.createElement('button');
