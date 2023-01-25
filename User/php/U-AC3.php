@@ -1,18 +1,16 @@
 <?php
-/*
+session_start(); // セッション開始
 include "MG.php";
 
-$id = 1;
+$id = $_SESSION['user_id'];
 
 $db = MG_01($id,"","","","","","","","");
 
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
-*/
-session_start(); // セッション開始
-include "MGvG.php";
-$post = [$_SESSION['user_id']];
+/*include "MGvG.php";
+$post = 3;
 $db = MG("user",$post);
-$user = $db->fetchAll(PDO::FETCH_ASSOC);
+$user = $db->fetchAll(PDO::FETCH_ASSOC);*/
 ?>
 
 
@@ -35,7 +33,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <div class="left">
         <a href="#lightbox" data-toggle="modal" data-slide-to="<?= $i; ?>">
-          <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="image-circle">
+          <img src="image.php?id=<? $user[0]['user_id']; ?>" class="image-circle">
         </a>  
       </div>
     </div>
