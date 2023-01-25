@@ -38,7 +38,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
             
     </ul>
 </form> 
-<form action="E-AC4.php" method="POST">
+<form action="E-CP4.php" method="POST">
     <ul id="coupon_list2">
         
         
