@@ -40,7 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
     <!--phpの検索結果がないときのひょうじはここ-->
-    <h4 align="center">検索条件に該当するものはありません。</h4>
+    <h4 align="center">
+      <?php 
+        if($count1 == 0) {
+          $str = '検索条件に該当するものはありません。';
+          echo $str;
+        }
+      ?>
+    </h4>
     <ul id="self_contribution">
     </ul>
     <div class="box"></div>

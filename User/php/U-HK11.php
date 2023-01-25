@@ -15,10 +15,6 @@ $db = MG_12($plan_search,$plan_who,$plan_prefectures,$plan_cost,$plan_date_first
 
 $count1 = $db->rowCount();
 
-if($count1 == 0) {
-  $_SESSION['plan'] = '検索条件に該当するものはありません。';
-}
-
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -47,8 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <!--phpの検索結果がないときのひょうじはここ-->
       <h4 align="center">
         <?php
-          if (isset($_SESSION['plan'])) {
-            echo($_SESSION['plan']);
+          if($count1 == 0) {
+            $str = '検索条件に該当するものはありません。';
+            echo $str;
           }
         ?>
       </h4>
