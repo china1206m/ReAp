@@ -58,8 +58,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div align="center">
                 <div class="profile">
                     
-                    <img class="profile__img" src="画像のURL"><br>
-                    <input type="file" name="profile_image" accept="image/jpeg,image/png">
+                <img id="preview" class="profile__img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw=="><br>
+                <input type="file" name="profile_image" accept="image/jpeg,image/png" onchange="previewImage(this);">
                 </div>
                 
                 <div class="box1" align="left">
@@ -104,7 +104,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
               </ul>
           </aside>
-        
 
+          <script>
+            function previewImage(obj){
+                var fileReader = new FileReader();
+                fileReader.onload = (function(){
+                    document.getElementById('preview').src =fileReader.result;
+                });
+                fileReader.readAsDataURL(obj.files[0]);
+            }
+          </script>
+    
     </body>
 </html>
