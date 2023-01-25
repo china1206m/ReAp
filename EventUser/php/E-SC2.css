@@ -43,11 +43,19 @@ li{
 
    /*もっと見るボタンのデザイン*/
 .more-see { 
+  /* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+
+
   color: gray;
   text-decoration: none; 
   font-weight: bold;
   font-size: 1.1em;
   position:absolute;
+  border: white;
+  background-color: white;
   right: 0;
   bottom: 0;
   margin-left: 100px;

@@ -94,6 +94,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       var div_pre = document.createElement('p');
       div_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
 
+  //開始日の追加
+  var div_first = document.createElement('p');
+      div_first.innerText = "<?php print($event[$i]['event_day_first']) ?>"
+      div_first.classList.add("yoko");
+
+  //~の追加
+  var div_heniyo = document.createElement('p');
+      div_heniyo.innerText = "～"
+      div_heniyo.classList.add("yoko");
+
+  //終了日の追加
+  var div_end = document.createElement('p');
+      div_end.classList.add("yoko");
+      div_end.innerText = "<?php print($event[$i]['event_day_end']) ?>"
+
+  //場所の追加
+  var div_place = document.createElement('p');
+      div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
+
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
@@ -128,6 +147,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(div_pre);
+  li.appendChild(div_first);
+  li.appendChild(div_heniyo);
+  li.appendChild(div_end);
+  li.appendChild(div_place);
   li.appendChild(p);
   li.appendChild(a);
 
