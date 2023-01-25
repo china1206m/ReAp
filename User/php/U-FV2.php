@@ -4,7 +4,7 @@ session_start(); // セッション開始
 
 include "MG.php";
 
-$id = 1;
+$id = $_SESSION['user_id'];
 
 $db = getDB();
 $sql = "SELECT * FROM plan_favorite WHERE user_id = ? ORDER BY plan_favorite_id DESC LIMIT 50";
