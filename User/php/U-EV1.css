@@ -1,90 +1,179 @@
 /*パソコン用*/
 @media screen and (min-width:990px) {
-  h3{
-      margin-left: 0;
-      font-size: 1em;
-    }
-}
+  /*戻るボタンのデザイン*/ 
+  .circle {
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
 
+  /* ユーザ名とアイコンの横並び */
+  div.yoko{
+    display: flex;
+  }
+
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+  }
+    
+  /*計画の情報掲載デザイン*/ 
+  .all_information{
+    padding: 10px;
+    background:white; /*背景色の指定*/
+    width:95%;
+    position: relative;
+    border: solid medium #dae5f8;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+    
+  /*もっと見るボタンのデザイン*/
+  .more-see { 
+    color: gray;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 1.1em;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 100px;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+  }
+    
+  .list{
+    list-style:none;
+  }
+
+  .right{
+    text-align: right;
+  }
+
+  .btn {
+    background-color: white;
+    border: 0;
+  }
+
+  .circle {
+    width:100px;
+    height:100px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+
+  .pref {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .box {
+    height: 180px;
+    border: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .content {
+    display: -webkit-box; /* 必須 */
+    -webkit-box-orient: vertical; /* 必須 */
+    -webkit-line-clamp: 15; /* 行数を制限 */
+    overflow: hidden; /* はみ出た部分を非表示 */
+  }
+}
 
 /*スマホ用*/
 @media screen and (max-width:990px) {
   /*戻るボタンのデザイン*/ 
-      .circle {
-        width: 200px;
-        height: 200px;
-        border: 1px solid;
-        border-radius: 50%;
-      }
+  .circle {
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
 
-      /* ユーザ名とアイコンの横並び */
-      div.yoko{
-        display: flex;
-      }
+  /* ユーザ名とアイコンの横並び */
+  div.yoko{
+    display: flex;
+  }
 
-
-      .title {
-        margin: 0 0 0 20px;
-        padding: 0;
-        font-weight: bold;
-        font-size: 40px;
-        text-align: center;
-      }
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+  }
     
-    /*計画の情報掲載デザイン*/ 
-    .all_information{
-        padding: 10px;
-        background:white; /*背景色の指定*/
-        width:94%;
-        position: relative;
-        border: solid medium #dae5f8;
-        margin-bottom: 5px;
-        }
+  /*計画の情報掲載デザイン*/ 
+  .all_information{
+    padding: 10px;
+    background:white; /*背景色の指定*/
+    width:94%;
+    position: relative;
+    border: solid medium #dae5f8;
+    margin-bottom: 5px;
+  }
     
-    /*もっと見るボタンのデザイン*/
-    .more-see { 
-        color: gray;
-        text-decoration: none; 
-        font-weight: bold;
-        font-size: 1.1em;
-        position:absolute;
-        right: 0;
-        bottom: 0;
-        margin-left: 100px;
-        }
+  /*もっと見るボタンのデザイン*/
+  .more-see { 
+    color: gray;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 1.1em;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 100px;
+  }
     
-    .list{
-        list-style:none;
-    }
+  .list{
+    list-style:none;
+  }
 
-    .right{
-      text-align: right;
-    }
+  .right{
+    text-align: right;
+  }
 
-    .btn {
-      background-color: white;
-      border: 0;
-    }
+  .btn {
+    background-color: white;
+    border: 0;
+  }
 
-    .circle {
-      width:100px;
-      height:100px;
-      border: 1px solid;
-      border-radius: 50%;
-      margin-left: 20px;
-    }
+  .circle {
+    width:100px;
+    height:100px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
 
-    .pref {
-      text-align: center;
-      font-size: 1.5em;
-    }
+  .pref {
+    text-align: center;
+    font-size: 1.5em;
+  }
 
-    .box {
-      height: 180px;
-      border: 0;
-    }
+  .box {
+    height: 180px;
+    border: 0;
+  }
 
-    ul {
-      list-style: none;
-    }
+  ul {
+    list-style: none;
+  }
+
+  .content {
+    display: -webkit-box; /* 必須 */
+    -webkit-box-orient: vertical; /* 必須 */
+    -webkit-line-clamp: 15; /* 行数を制限 */
+    overflow: hidden; /* はみ出た部分を非表示 */
+  }
 }

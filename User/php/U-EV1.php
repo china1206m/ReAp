@@ -65,66 +65,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $eventuser = $db->fetchAll(PDO::FETCH_ASSOC); 
     ?>
       var li = document.createElement('li');
-        li.classList.add("event_list");
+      li.classList.add("event_list");
   
-        //イベント情報のための四角追加
-        var div_eventlist = document.createElement('div');
-        div_eventlist.classList.add("all_information");
+      //イベント情報のための四角追加
+      var div_eventlist = document.createElement('div');
+      div_eventlist.classList.add("all_information");
 
-        //投稿日の追加
+      //投稿日の追加
       var div_right = document.createElement('div');
       div_right.classList.add("right");
       div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
 
-        //アイコン追加
-        var img = document.createElement('img');
-        img.classList.add("circle");
-        img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
-        img.align = 'left'
-        img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
+      //アイコン追加
+      var img = document.createElement('img');
+      img.classList.add("circle");
+      img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
+      img.align = 'left'
+      img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
   
-        //アイコンと題名の横並びのためのクラス追加
-        var div_yoko = document.createElement('div');
-        div_yoko.classList.add("yoko");
+      //アイコンと題名の横並びのためのクラス追加
+      var div_yoko = document.createElement('div');
+      div_yoko.classList.add("yoko");
         
-        //題名追加
-        var div_title = document.createElement('div');
-        div_title.classList.add("title");
-        div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
+      //題名追加
+      var div_title = document.createElement('div');
+      div_title.classList.add("title");
+      div_title.innerHTML = "<?php print($event[$i]['event_title']); ?>";
   
-        var br = document.createElement('br');
+      var br = document.createElement('br');
 
-        //都道府県の追加
+      //都道府県の追加
       var p_pre = document.createElement('p');
       p_pre.classList.add("pref");
       p_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
   
-        //イベント内容追加
-        var p = document.createElement('p');
-        p.classList.add("content");
-        p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+      //イベント内容追加
+      var p = document.createElement('p');
+      p.classList.add("content");
+      p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
 
-        // もっと見るを作成
-        var a = document.createElement('button');
-        a.type="submit";
-        a.classList.add("more-see");
-        a.setAttribute('name','more_see' + <?php print($i); ?>);
-        a.setAttribute('id', <?php print($i); ?>);
-        a.setAttribute('onclick','button(this.id)');
-        a.innerText = "...もっと見る";
+      // もっと見るを作成
+      var a = document.createElement('button');
+      a.type="submit";
+      a.classList.add("more-see");
+      a.setAttribute('name','more_see' + <?php print($i); ?>);
+      a.setAttribute('id', <?php print($i); ?>);
+      a.setAttribute('onclick','button(this.id)');
+      a.innerText = "...もっと見る";
   
-        ul.appendChild(li);
-        li.appendChild(div_eventlist);
-        div_eventlist.appendChild(div_right);
-        div_eventlist.appendChild(div_yoko);
-        div_yoko.appendChild(img);
-        div_yoko.appendChild(div_title);
-        div_eventlist.appendChild(br);
-        div_eventlist.appendChild(br);
-        div_eventlist.appendChild(p_pre);
-        div_eventlist.appendChild(p);
-        div_eventlist.appendChild(a);
-      
+      ul.appendChild(li);
+      li.appendChild(div_eventlist);
+      div_eventlist.appendChild(div_right);
+      div_eventlist.appendChild(div_yoko);
+      div_yoko.appendChild(img);
+      div_yoko.appendChild(div_title);
+      div_eventlist.appendChild(br);
+      div_eventlist.appendChild(br);
+      div_eventlist.appendChild(p_pre);
+      div_eventlist.appendChild(p);
+      div_eventlist.appendChild(a);
         
         <?php endfor; ?>
 
@@ -133,7 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           var counter = document.getElementById("counter");
           counter.value = s;
         }
-
   </script>
 </body>
 </html>

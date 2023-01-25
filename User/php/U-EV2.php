@@ -26,34 +26,30 @@ $_SESSION['event_eventuser_id'] = $eventuser_id;
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 
-<body bgcolor="#f0f8ff">
+<body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
     <div class="yoko">
-      <ul>
-        <li>
-          <div class="event_information">
-            <p align="right"><?php print($event[0]['post_date']); ?></p>
-            <div class="yoko">
-              <a href="U-EV3.php" style="text-decoration:none;">
-                <img src = "E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle" align="left" alt="アイコン" width="100%" height="100%">
-              </a>
-              <div class="title">
-                <?php print($event[0]['event_title']); ?>
-              </div>
+      <div class="event_information">
+        <p align="right"><?php print($event[0]['post_date']); ?></p>
+          <div class="yoko">
+            <a href="U-EV3.php" style="text-decoration:none;">
+              <img src = "E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle" align="left" alt="アイコン" width="100%" height="100%">
+            </a>
+            <div class="title">
+              <?php print($event[0]['event_title']); ?>
             </div>
-            <p class="event_info"><?php print($event[0]['event_day_first']); ?>　～　<?php print($event[0]['event_day_end']); ?></p>
-            <div class="event_info">
-              <p><?php print($event[0]['event_prefectures']); ?></p>
-              <p><?php print($event[0]['event_place']); ?></p>
-            </div>
-            <center id="image_area"></center>
-            <p><?php print($event[0]['event_content']); ?></p>
-            <p><?php print($event[0]['event_cost']); ?>円</p>
           </div>
-        </li>
-      </ul>
+          <p class="event_info"><?php print($event[0]['event_day_first']); ?>　～　<?php print($event[0]['event_day_end']); ?></p>
+          <div class="event_info">
+            <p><?php print($event[0]['event_prefectures']); ?></p>
+            <p><?php print($event[0]['event_place']); ?></p>
+          </div>
+          <center id="image_area"></center>
+          <p><?php print($event[0]['event_content']); ?></p>
+          <p><?php print($event[0]['event_cost']); ?>円</p>
+        </div>
     </div>
     <div class="box"></div>
   </main>
@@ -72,11 +68,11 @@ $_SESSION['event_eventuser_id'] = $eventuser_id;
   //画像の文字列はphpで用意する
   const images = ['neko.jpg', 'naruto.jpg'];
   const content_area = document.getElementById("image_area");
-    let img_add = document.createElement('img');
-    img_add.src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>';
-    img_add.alt = 'さいくん'; // 代替テキスト
-    img_add.width = 400; // 横サイズ（px）
-    content_area.appendChild(img_add);
+  let img_add = document.createElement('img');
+  img_add.src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>';
+  img_add.alt = 'さいくん'; // 代替テキスト
+  img_add.width = 400; // 横サイズ（px）
+  content_area.appendChild(img_add);
   </script>
 
 </body>

@@ -1,5 +1,7 @@
-/*戻るボタンのデザイン*/
-.button_back {
+/*パソコン用*/
+@media screen and (min-width:990px) {
+  /*戻るボタンのデザイン*/
+  .button_back {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -19,64 +21,147 @@
     transition: 0.3s; /* ホバーの変化を滑らかに */
   }
   
-     /*イベントの情報掲載デザイン*/ 
-     .event_information{
-      background:white; /*背景色の指定*/
-      padding:10px;
-      border: solid thin black;
-      width:900px;
-      }
+  /*イベントの情報掲載デザイン*/ 
+  .event_information{
+    background:white; /*背景色の指定*/
+    padding:10px;
+    border: solid medium #dae5f8;
+    width:900px;
+  }
   
-      .circle {
-        width:50px;
-        height:50px;
-        border: 1px solid;
-        border-radius: 50%;
-      }
+  .circle {
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
   
-      .title {
-        margin: 0 0 0 20px;
-        padding: 0;
-        font-weight: bold;
-        font-size: 30px;
-        text-align: center;
-      }
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
     
   /* アイコンとタイトルを横並びに設定 */
   .yoko{
     display: flex;
-    }
+  }
 
-    .event_info {
-      font-size: 1.5em;
-
-    }
+  .event_info {
+    font-size: 1.5em;
+  }
     
   /*ボタンの縦並び*/ 
-  li{
+  li {
     list-style:none;
     padding:16px;
     margin:8px
   }
   
-    .image{
-      width: 40%;
+  .image{
+    width: 40%;
+  }
   
-    }
+  .post_day{
+    margin-left: 100px;
+  }
   
-    .post_day{
-      margin-left: 100px;
-    }
-  
-    a {
-      color: black;
-    }
+  a {
+    color: black;
+  }
 
-    h3 {
-      font-size: 3em;
-    }
+  h3 {
+    font-size: 3em;
+  }
 
   .box {
     height: 180px;
     border: 0;
-  }  
+  }
+}
+
+/*スマホ用*/
+@media screen and (max-width:990px) {
+  /*戻るボタンのデザイン*/
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+  }
+  
+  /*イベントの情報掲載デザイン*/ 
+  .event_information{
+    background:white; /*背景色の指定*/
+    padding:10px;
+    border: solid thin black;
+    width:900px;
+  }
+  
+  .circle {
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+  
+  .title {
+    margin: 0 0 0 20px;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
+    
+  /* アイコンとタイトルを横並びに設定 */
+  .yoko{
+    display: flex;
+  }
+
+  .event_info {
+    font-size: 1.5em;
+  }
+    
+  /*ボタンの縦並び*/ 
+  li {
+    list-style:none;
+    padding:16px;
+    margin:8px
+  }
+  
+  .image{
+    width: 40%;
+  }
+  
+  .post_day{
+    margin-left: 100px;
+  }
+  
+  a {
+    color: black;
+  }
+
+  h3 {
+    font-size: 3em;
+  }
+
+  .box {
+    height: 180px;
+    border: 0;
+  }
+}
