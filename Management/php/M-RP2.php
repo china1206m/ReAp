@@ -9,7 +9,7 @@
 <body bgcolor="#f0f8ff">
   <main id="main">
     <form action='' method="POST" enctype="multipart/form-data">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3><h3 class="button_back"></h3></button>
+    
    
 
     <div>
