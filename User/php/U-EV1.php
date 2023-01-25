@@ -33,12 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <main id="main">
-  <form action="" method="POST">
-  <input type="hidden" id="counter" name="counter" value="0">
-  </form>
     <div align="right">
       <button class="btn" onclick="location.href='U-EV4.php'"><img src="serch.png" alt="search"></button>
     </div>
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     <ul id="event-list">
     </ul>
     <div class="box"></div>
