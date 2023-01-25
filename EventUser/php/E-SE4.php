@@ -52,14 +52,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php print($event[0]['event_title']) ?>
     </div>
 
-    <p><?php print($event[0]['event_content']) ?></p>
-    <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
-    <p><?php print($event[0]['event_cost']) ?>円</p>
+    <p><?php print($event[0]['event_prefectures']) ?></p>
     <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_place']) ?></p>
+
+    <p><?php print($event[0]['event_content']) ?></p>
+    
+    
     <center id="image_area">
     <img src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>' alt = 'さいくん' width = 400>
     </center>
+
+    <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
+    <p><?php print($event[0]['event_cost']) ?>円</p>
 
     
   </div></li>
