@@ -78,9 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p>期間</p>
         <table>
         <tr>
-        <td><input type="date" id="date" name="plan_search_first" class="plan-day" value=""></td>
+        <td><input type="date" id="date" name="plan_date_first" class="plan-day" value=""></td>
         <td><div class="kara">～</div></td>
-        <td><input type="date" id="date" name="plan_search_end" class="plan-day2" value=""></td>
+        <td><input type="date" id="date" name="plan_date_end" class="plan-day2" value=""></td>
         </tr>
       </table>
   
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="number" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
-      <input type="number" name="plan_day" class="stay"> 泊
+      <input type="number" name="plan_stay" class="stay"> 泊
       <center>
         <br>
         <br>

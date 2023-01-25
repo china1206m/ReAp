@@ -4,7 +4,7 @@ session_start(); // セッション開始
 
 include "MG.php";
 
-$id = 1;
+$id = $_SESSION['user_id'];
 
 $db = getDB();
 $sql = "SELECT * FROM plan_favorite WHERE user_id = ? ORDER BY plan_favorite_id DESC LIMIT 50";
@@ -37,6 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <input type="hidden" id="counter" name="counter" value="0">
+    <h4 align="center">
+      <?php 
+        if($count1 == 0) {
+          $str = 'お気に入りされている投稿はありません';
+          echo $str;
+        }
+      ?>
+    </h4>
 
     <ul id="ranking">
     </ul>

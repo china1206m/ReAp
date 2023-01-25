@@ -5,7 +5,7 @@ session_start(); // セッション開始
 include "MG.php";
 
 $db = getDB();
-$sql = "SELECT * FROM plan ORDER BY plan_favorite_season DESC LIMIT 50";
+$sql = "SELECT * FROM plan ORDER BY plan_favorite_total DESC LIMIT 50";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 

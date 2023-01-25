@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
-    
+    <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
   
   
@@ -56,8 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <button onclick="location.href='U-HK12.php'" class="report"><img src="U-report.png"></button>
   </div>
-  
-  <form action="" method="POST">
+
     <div class="plan">
       計画ルート
     </div>
@@ -68,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="box1">
       </div>
 
-</form>
 </main>
 
 <aside id="sub">

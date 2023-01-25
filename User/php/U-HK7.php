@@ -1,4 +1,5 @@
 <?php
+session_cache_limiter("none");
 session_start(); // セッション開始
 include "MG.php";
 
@@ -6,10 +7,10 @@ $plan_id = $_SESSION['plan_id'];
 $db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
-$user_id = $plan[0]['user_id']; 
-$_SESSION['user_id'] = $user_id;
-$db = MG_01($user_id,"","","","","","","","");
-$user = $db->fetchAll(PDO::FETCH_ASSOC);
+$planuser_id = $plan[0]['user_id']; 
+//$_SESSION['user_id'] = $user_id; いらない
+$db = MG_01($planuser_id,"","","","","","","","");
+$planuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
 $sql = "SELECT * FROM plan_detail WHERE plan_id = ? ORDER BY plan_detail_id ASC";
@@ -21,6 +22,59 @@ $count1 = $stmt->rowCount();
 
 $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+//ログインユーザ情報
+$user_id = $_SESSION['user_id'];
+
+//お気に入りテーブルからログインユーザーのお気に入り情報を取ってくる
+$db = MG_07("",$user_id,"");
+$count2 = $db->rowCount();
+$plan_favorite = $db->fetchAll(PDO::FETCH_ASSOC);
+
+//お気に入りされているかの判定
+
+$flag = 0;
+for ($i = 0; $i < $count2; $i++) {
+  if($plan_favorite[$i]['plan_id'] == $plan_id){
+    $flag = 1;
+    break;
+  }
+}
+
+//flagが0の場合お気に入りしていない
+//flagが1の場合お気に入り済み
+
+
+//お気に入り押下処理
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($flag == 0){
+    //お気に入り+1
+    $db = getDB();
+    $sql = "UPDATE plan SET plan_favorite_total = plan_favorite_total + 1 WHERE plan_id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1,$plan_id);
+    $stmt->execute();
+    //お気に入りに追加
+    $db = getDB();
+    $sql = "INSERT INTO plan_favorite(user_id,plan_id) VALUES($user_id,$plan_id);";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+  } else {
+    //お気に入り-1
+    $db = getDB();
+    $sql = "UPDATE plan SET plan_favorite_total = plan_favorite_total - 1 WHERE plan_id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1,$plan_id);
+    $stmt->execute(); 
+    //お気に入りから削除
+    $db = getDB();
+    $sql = "DELETE FROM plan_favorite WHERE user_id = ? AND plan_id = ?;";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1,$user_id);
+    $stmt->bindValue(2,$plan_id);
+    $stmt->execute();
+  }
+  header('Location:U-HK7.php');
+}
 
 ?>
 
@@ -55,9 +109,11 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </li>
     </ul>
+    <form method="POST" action="">
     <div class="favorite">
-      <button class="unlike" type="submit"></button><h4>お気に入り数</h4>
+      <button class="unlike" type="submit"></button><h4><?php print($plan[0]['plan_favorite_total']); ?></h4>
     </div>
+  </form>
     <div class="box"></div>
   </main>
 
@@ -102,17 +158,30 @@ var p_time = document.createElement('p');
 p_time.innerHTML = "<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
 p_time.classList.add("plan_content");
 
+//写真と移動時間の配置
+var div_ect = document.createElement('div');
+div_ect.classList.add("ect");
+
+//写真追加
+var pic = document.createElement('img');
+pic.classList.add("pics");
+pic.src = "monkey.png";
+pic.align = 'left'
+pic.alt = ''
+
 //移動時間追加
 var p_travel = document.createElement('p');
 p_travel.classList.add("travel_time");
-p_travel.innerHTML = "<?php print($plan_detail[$i]['travel_time_hour']); ?>時間<?php print($plan_detail[$i]['travel_time_minute']); ?>分"
+p_travel.innerHTML = "<?php if($i+1 < $count1){print($plan_detail[$i+1]['travel_time_hour']); ?>時間<?php print($plan_detail[$i+1]['travel_time_minute']); ?>分<?php }?>"
 
 ol.appendChild(li_ol);
 li_ol.appendChild(div_home);
 div_home.appendChild(p_placename);
 div_home.appendChild(p_content);
 div_home.appendChild(p_time);
-li_ol.appendChild(p_travel);
+li_ol.appendChild(div_ect);
+div_ect.appendChild(pic);
+div_ect.appendChild(p_travel);
 
     <?php endfor; ?>
 

@@ -925,7 +925,7 @@ function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
     }
 
     if (!is_nullorempty($cost)) {
-      $cost_interval = 1;
+      $cost_interval = 500;
       $cost_before = $cost - $cost_interval;
       $cost_after = $cost + $cost_interval;
       $stmt->bindValue($n,$cost_before);
@@ -1009,7 +1009,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
     }
 
     if (!is_nullorempty($cost)) {
-      $cost_interval = 1;
+      $cost_interval = 500;
       $cost_before = $cost - $cost_interval;
       $cost_after = $cost + $cost_interval;
       $stmt->bindValue($n,$cost_before);
