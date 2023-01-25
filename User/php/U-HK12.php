@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>通報理由</h2>
         </div>
     
-        <form action="U-HK7.php" method="POST" name="reportForm" onSubmit="return check();">
+        <form action="" method="POST" name="reportForm" onSubmit="return check();">
             <div class="reason-select" align="center">
                 <div class="button-box">
                     <div class="reason" style="max-width:650px;">
