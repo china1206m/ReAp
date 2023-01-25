@@ -3,7 +3,7 @@ session_cache_limiter("none");
 session_start(); // セッション開始
 include "MG.php";
 
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['planuser_id'];
 $db = MG_01($user_id,"","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 

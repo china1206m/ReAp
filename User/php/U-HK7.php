@@ -26,7 +26,7 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $user_id = $_SESSION['user_id'];
 
 // 投稿詳細のユーザ情報
-$_SESSION['user_id'] = $planuser_id;
+$_SESSION['planuser_id'] = $planuser_id;
 
 //お気に入りテーブルからログインユーザーのお気に入り情報を取ってくる
 $db = MG_07("",$user_id,"");
