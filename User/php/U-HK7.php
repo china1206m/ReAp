@@ -172,7 +172,7 @@ pic.alt = ''
 //移動時間追加
 var p_travel = document.createElement('p');
 p_travel.classList.add("travel_time");
-p_travel.innerHTML = "<?php print($plan_detail[$i]['travel_time_hour']); ?>時間<?php print($plan_detail[$i]['travel_time_minute']); ?>分"
+p_travel.innerHTML = "<?php if($i+1 < $count1){print($plan_detail[$i+1]['travel_time_hour']); ?>時間<?php print($plan_detail[$i+1]['travel_time_minute']); ?>分<?php }?>"
 
 ol.appendChild(li_ol);
 li_ol.appendChild(div_home);
@@ -182,6 +182,7 @@ div_home.appendChild(p_time);
 li_ol.appendChild(div_ect);
 div_ect.appendChild(pic);
 div_ect.appendChild(p_travel);
+
     <?php endfor; ?>
 
 </script>
