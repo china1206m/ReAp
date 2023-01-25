@@ -59,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p>開催期間</p>
         <table>
         <tr>
-        <td><input type="date" id="date" name="event_search_first" class="event-day" value=""></td>
+        <td><input type="date" id="date" name="event_day_first" class="event-day" value=""></td>
         <td><div class="kara">～</div></td>
-        <td><input type="date" id="date" name="event_search_end" class="event-day2" value=""></td>
+        <td><input type="date" id="date" name="event_day_end" class="event-day2" value=""></td>
         </tr>
       </table>
 
