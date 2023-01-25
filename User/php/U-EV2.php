@@ -25,7 +25,7 @@ $_SESSION['eventuser_id'] = $eventuser_id;
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 
-<body bgcolor="#f0f8ff">
+<body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
