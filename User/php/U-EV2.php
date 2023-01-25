@@ -10,7 +10,7 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 $eventuser_id = $event[0]['eventuser_id'];
 $db = MG_02($eventuser_id,"","","","","","","","","");
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
-
+$_SESSION['eventuser_id'] = $eventuser_id;
 ?>
 
 
