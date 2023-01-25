@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       p_pre.classList.add("pref");
       p_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
   
-        //条件追加
+        //内容追加
         var p = document.createElement('p');
         p.classList.add("content");
         p.innerHTML = "<?php print($event[$i]['event_content']); ?>"

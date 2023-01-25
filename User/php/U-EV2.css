@@ -27,6 +27,7 @@
     padding:10px;
     border: solid medium #dae5f8;
     width:900px;
+    margin-left: 50px;
   }
   
   .circle {
@@ -109,8 +110,9 @@
   .event_information{
     background:white; /*背景色の指定*/
     padding:10px;
-    border: solid thin black;
+    border: solid medium #dae5f8;
     width:900px;
+    margin-left: 20px;
   }
   
   .circle {
