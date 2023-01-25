@@ -33,7 +33,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="acount_information">
       <div class="yoko">
-        <img src="U-menu-acount.png" align="left" alt="写真" class="circle">
+        <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" align="left" alt="写真" class="circle">
         <div class="user_name">
           <?php print($eventuser[0]['eventuser_name']); ?>
         </div>
