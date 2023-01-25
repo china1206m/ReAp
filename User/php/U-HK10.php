@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     <font size="+4" class="screenname">詳細投稿</font>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
+    <div class="right"><button class="place_add" onclick="place_delete()"><img src="delete.png" alt="追加写真"></button></div>
 
     <form action="" method="POST" enctype="multipart/form-data">
     
@@ -240,7 +241,26 @@ function addCount(){
     }
 </script>
 
+<script>
 
+
+function deleteCount(){
+  count--;
+}
+
+function place_delete(){
+        deleteCount();        
+
+        var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = count;
+        console.log(counter.value);
+
+  var ol = document.getElementById("place_list");
+  ol.removeChild(ol.lastChild);
+  ol.removeChild(ol.lastChild);
+}
+</script>
 
   </body>
   </html>
