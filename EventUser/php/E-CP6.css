@@ -155,3 +155,8 @@ p {
     font-size: 1.5em;
     margin-left: 200px;
 }
+
+.admit{
+  border: 0;
+  background-color: white;
+}
