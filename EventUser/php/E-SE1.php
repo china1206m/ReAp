@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter("none");
 session_start(); // セッション開始
-$eventuser_id = 1;
+$eventuser_id = $_SESSION['eventuser_id'];
 include "MG.php";
 $db = MG_02($eventuser_id,"","","","","","","","","");
 
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  div.innerHTML = "<?php print($event[$i]['event_title']) ?>"
+  div.innerHTML = "<?php print($event[$i]['event_title']) ?>";
 
   // 本文を作成
   var p = document.createElement('p');
@@ -180,3 +180,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </script>
 </body>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['event'] = '';
+?>

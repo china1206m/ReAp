@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <title>U-EV1</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-EV1.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
   <form action="" method="POST">
   <input type="hidden" id="counter" name="counter" value="0">
+  </form>
     <div align="right">
       <button class="btn" onclick="location.href='U-EV4.php'"><img src="serch.png" alt="search"></button>
     </div>
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //アイコン追加
         var img = document.createElement('img');
         img.classList.add("circle");
-        img.src = 'monky.png';
+        img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
         img.align = 'left'
         img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
   

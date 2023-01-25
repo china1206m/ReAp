@@ -14,23 +14,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['eventuser_id'] = 1;
 
     // 入力したいカラム名を指定
-    $column = ['eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
+    $column = ['coupon_name', 'eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
     
     // 入力された値をpost配列に格納
-    $post = [ $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
+    $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
 
     // 入力された値の型を定義
-    $type = [1,0,1,1,1,0];
+    $type = [2, 0, 2, 2, 2, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $result = $add->ma_return("coupon",$column, $post, $type);
+    /*
     if($result==-1){
       header('Location:E-AC7.php');
     }else{
       $_SESSION['coupon_id'] = $result;
       //header('Location: ./list.php');
     }
-
+*/
+  header('Location:E-CP1.html');
     exit;
 }
 ?>
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             <tr>
             <td>
-            <select name="coupon_prefectures" class="prefectures-shop" required>
+            <select id="pre" name="coupon_prefectures" class="prefectures-shop" required>
             <option value="">都道府県を選択</option>
             <option value="北海道">北海道</option>
             <optgroup label="東北">
@@ -125,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             </td>
         
-            <td><input type="text" class="prefectures-shop" name="coupon_place" maxlength="30" placeholder="30文字以内" required></td>
+            <td><input type="text" id="shop" class="prefectures-shop" name="coupon_place" maxlength="30" placeholder="30文字以内" required></td>
             </tr>
         </table>
     
@@ -133,30 +135,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="date" id="date" name="coupon_deadline" class="day" required>
 
         <p><label for="name">クーポン名<span class="require">必須</span></label></p>
-        <input type="text" name="coupon_name" class="prefectures-shop" maxlength="30" placeholder="20文字以内" required>
+        <input type="text" id="name" name="coupon_name" class="prefectures-shop" maxlength="30" placeholder="20文字以内" required>
     
         <p><label for="shop">詳細<span class="require">必須</span></label></p>
-        <textarea class="tarea" name="coupon_content" maxlength="1000" placeholder="1000文字以内" required></textarea>
+        <textarea class="tarea" id="cont" name="coupon_content" maxlength="1000" placeholder="1000文字以内" required></textarea>
     
      
         
 
       <center>
-        <button id="open-btn" class="overlay-event">発行する</button>
+        <button id="open-btn" class="overlay-event" onclick="make()">発行する</button>
       </center>
     </form>  
    
       <div style="display: block;" id="overlay">
         <div class="flex">
           <div id="overlay-inner">
-            <hr class="top">
-            都道府県
+          <hr class="top">
+            　都道府県：<input disabled class="admit"  type="text" id="admit_1" required>
             <hr>
-            店名
+            　　　店名：<input disabled class="admit" type="text" id="admit_2" required>
             <hr>
-            使用期限
+            　使用期限：<input disabled class="admit" type="text" id="admit_3" required>
             <hr>
-            詳細
+            クーポン名：<input disabled class="admit" type="text" id="admit_4" required>
+            <hr>
+            詳細<br><input disabled class="admit" type="text" id="admit_5" required>
             <hr class="under">
           <!--idはデザイン-->
           <button id="close-btn1" class="close" value="" disabled>はい</button>
@@ -177,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="E-CP1.php"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+    <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
     <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
 </ul>
 </aside>
@@ -237,7 +241,34 @@ function disp() {
   </script>
 
 
+<script>
+ function make(){
+    let info1_pre = document.getElementById('pre');
+    var info2_pre = info1_pre.value
+    let out_pre = document.getElementById('admit_1');
+    out_pre.value = info2_pre;
 
+    let info1_shop = document.getElementById('shop');
+    var info2_shop = info1_shop.value
+    let out_shop = document.getElementById('admit_2');
+    out_shop.value = info2_shop;
+
+    let info1_day = document.getElementById('date');
+    var info2_day = info1_day.value
+    let out_day = document.getElementById('admit_3');
+    out_day.value = info2_day;
+
+    let info1_name = document.getElementById('name');
+    var info2_name = info1_name.value
+    let out_name = document.getElementById('admit_4');
+    out_name.value = info2_name;
+
+    let info1_cont = document.getElementById('cont');
+    var info2_cont = info1_cont.value
+    let out_cont = document.getElementById('admit_5');
+    out_cont.value = info2_cont;
+ }
+  </script>
 
 
 </body>

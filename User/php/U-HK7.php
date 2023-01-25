@@ -2,7 +2,8 @@
 session_start(); // セッション開始
 include "MG.php";
 
-$plan_id = $_SESSION['plan_id'];
+//$plan_id = $_SESSION['plan_id'];
+$plan_id = 1;
 $db = MG_04($plan_id,"","","","","","","","","","");
 $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,14 +56,11 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </li>
     </ul>
+    <form method="POST" action="">
     <div class="favorite">
-      <input type="checkbox" id="like">
-      <label for="like">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </label><h4>1110</h4>
+      <button class="unlike" type="submit"></button><h4>お気に入り数</h4>
     </div>
+  </form>
     <div class="box"></div>
   </main>
 
@@ -107,6 +105,17 @@ var p_time = document.createElement('p');
 p_time.innerHTML = "<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
 p_time.classList.add("plan_content");
 
+//写真と移動時間の配置
+var div_ect = document.createElement('div');
+div_ect.classList.add("ect");
+
+//写真追加
+var pic = document.createElement('img');
+pic.classList.add("pics");
+pic.src = "monkey.png";
+pic.align = 'left'
+pic.alt = ''
+
 //移動時間追加
 var p_travel = document.createElement('p');
 p_travel.classList.add("travel_time");
@@ -117,9 +126,16 @@ li_ol.appendChild(div_home);
 div_home.appendChild(p_placename);
 div_home.appendChild(p_content);
 div_home.appendChild(p_time);
-li_ol.appendChild(p_travel);
-
+li_ol.appendChild(div_ect);
+div_ect.appendChild(pic);
+div_ect.appendChild(p_travel);
     <?php endfor; ?>
 
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+  $('.unlike').on('click', function () {
+    $('.unlike').toggleClass('like');
+  });
+  </script>
 </body>

@@ -13,6 +13,10 @@ $db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end,$ev
 
 $count1 = $db->rowCount();
 
+if($count1 == 0) {
+  $_SESSION['event'] = '検索項目に該当するものがありません。';
+}
+
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <title>画面ID E-SC2</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="E-SC2.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
@@ -39,7 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
     
-    <p class="non">検索項目に該当するものがありません。</p>
+    <p class="non">
+    <?php
+      if (isset($_SESSION['event'])) {
+      echo($_SESSION['event']);
+      }
+    ?>
+    </p>
 
 <div>
   <ul id="country_list">
@@ -87,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
-  img.src = 'monky.png';
+  img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
   img.align = 'left'
   img.alt = 'アイコン'
   img.width = 100;
@@ -132,3 +142,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </Script>
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['event'] = '';
+?>

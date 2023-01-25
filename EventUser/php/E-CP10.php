@@ -1,54 +1,31 @@
-<?php
-session_start();
-include "MG.php";
-
-$coupon_search = $_SESSION['coupon_search'];
-$coupon_name = $_SESSION['coupon_name'];
-$coupon_prefectures = $_SESSION['coupon_prefectures'];
-$coupon_place = $_SESSION['coupon_place'];
-$coupon_deadline = $_SESSION['coupon_deadline'];
-
-$db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
-
-$count1 = $db->rowCount();
-
-$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>画面ID E-CP3</title>
-  <meta charset=”utf-8″>
-  <link rel="stylesheet" href="E-CP3.css" type="text/css">
+  <title>画面ID E-CP10</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="E-CP10.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
 <body>
 
 <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
-
-    <p class="non">検索内容に該当するクーポンはありません。</p>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン一覧</h3>
 
     
 <div class="yoko-narabi">
 <form action="E-CP4.php" method="POST">
     <ul id="coupon_list1">
-        <li>
             
     </ul>
 </form> 
 <form action="E-CP4.php" method="POST">
     <ul id="coupon_list2">
         
-        
     </ul>
 </form>
 </div>
 
- </main>
+</main>
 
 <aside id="sub">
     <ul>
@@ -61,20 +38,10 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 </aside>
 
 <script>
-//nは表示数
-    var n=8;
-    // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
-  var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
-  var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
-  var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
+    var ul1 = document.getElementById("coupon_list1");
+for (i = 0; i < 6; i=i + 2) {
 
-var ul1 = document.getElementById("coupon_list1");
-
-    <?php 
-
-        for ($i = 0; $i < $count1; $i=$i + 2) :
-
-    ?>
+  
 
     // li要素を作成
     var li1 = document.createElement('li');
@@ -100,9 +67,9 @@ var ul1 = document.getElementById("coupon_list1");
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
-    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
+    var shopname = document.createTextNode("店名");
+    var date = document.createTextNode("期限");
+    var cont = document.createTextNode("クーポン名");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -122,17 +89,16 @@ var ul1 = document.getElementById("coupon_list1");
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-
-    <?php endfor; ?>
+   
+    }
 
 var ul2 = document.getElementById("coupon_list2");
 
+ 
 
-    <?php 
+    for (i = 1; i < 6; i=i + 2) {
 
-        for ($i = 1; $i < $count1; $i=$i + 2) :
-
-    ?>
+  
 
     // li要素を作成
     var li1 = document.createElement('li');
@@ -158,9 +124,9 @@ var ul2 = document.getElementById("coupon_list2");
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
-    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var shopname = document.createTextNode("店名");
+    var date = document.createTextNode("期限");
+    var cont = document.createTextNode("クーポン名");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -181,9 +147,11 @@ var ul2 = document.getElementById("coupon_list2");
     div_date.appendChild(br3);
     div_date.appendChild(date);
 
-        <?php endfor; ?>
-  
+    }
 
 </script>
+
+
+
 </body>
 </html>

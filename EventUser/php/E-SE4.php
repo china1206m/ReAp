@@ -12,15 +12,21 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //form送信後
 //MD
-//完了画面出すなら
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+  $type = [1];
+  $result = $delete->md("event", "event_id", $event_id, $type);
+  //完了画面出すなら
     //モジュールでエラーのとき特定の数字を返り値として渡してほしい
-    //$result = ;
-    //if($result==-1){
+    if($result == -1){
       //error
       //header('');
-    //}else{
-      //正常時処理 完了画面
-    //}
+    }else{
+      header('Location:E-SE1.php');
+      exit;
+    }
+}
 
 ?>
 
@@ -40,7 +46,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 <div class="yoko">
   <ul>
   <li><div class="event_information">
-    <img src = 'monkt.png' class="circle" align="left" alt="アイコン" width="100%" height="100%">
+    <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle" align="left" alt="アイコン" width="100%" height="100%">
     
     <div class="title">
       <?php print($event[0]['event_title']) ?>
@@ -52,7 +58,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
     <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_place']) ?></p>
     <center id="image_area">
-    <img arc="neko.jpg" alt = 'さいくん' width = 400>
+    <img src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>' alt = 'さいくん' width = 400>
     </center>
 
     

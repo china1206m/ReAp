@@ -15,24 +15,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     for($i = 1; $i <= $count; $i++) {
         if($i == 1) {
             // 入力したいカラム名を指定
-            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'plan_image'];
+            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute'];
             // 入力された値をpost配列に格納
-            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
-            $_FILES["plan_image$i"]['tmp_name']];
+            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"]];
             // 入力された値の型を定義
-            $type = [0,1,1,0,0,1];
+            $type = [0, 2, 2, 0, 0];
+
         } else {
             // 入力したいカラム名を指定
-            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute', 'plan_image', 
+            $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute',
             'travel_time_hour', 'travel_time_minute'];
             // 入力された値をpost配列に格納
             $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
-            $_FILES["plan_image$i"]['tmp_name'], $_POST["travel_time_hour2"], $_POST["travel_time_minute2"]];
+            $_POST["travel_time_hour2"], $_POST["travel_time_minute2"]];
             // 入力された値の型を定義
-            $type = [0,1,1,0,0,1,0,0];
-        }
+            $type = [0, 2, 2, 0, 0, 0, 0];
+        }     
         // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-        $_SESSION['user_detail_id'] = $add->ma_return("plan_detail",$column, $post, $type);        
+        $plan_detail_id = $add->ma_return("plan_detail",$column, $post, $type);
+        $_SESSION['user_detail_id'] = $plan_detail_id;
+
+        if(!empty($_FILES["plan_image$i"]['tmp_name'])) {
+          include_once "MC-01.php";
+          $pdo = getDB();
+    
+          $content = file_get_contents($_FILES["plan_image$i"]['tmp_name']);
+          $sql = 'UPDATE plan_detail SET  plan_image = :plan_image WHERE plan_detail_id = :plan_detail_id';
+          $stmt = $pdo->prepare($sql);
+          $stmt->bindValue(':plan_image', $content);
+          $stmt->bindValue(':plan_detail_id', $plan_detail_id);
+          $stmt->execute();
+        } 
     }
     // ホーム画面
     header('Location:U-HK6.php');
@@ -53,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     <font size="+4" class="screenname">詳細投稿</font>
     <div class="right"><button class="place_add" onclick="place_add()"><img src="U-home_add.png" alt="追加写真"></button></div>
+    <div class="right"><button class="place_add" onclick="place_delete()"><img src="delete.png" alt="追加写真"></button></div>
 
     <form action="" method="POST" enctype="multipart/form-data">
     
@@ -227,7 +241,26 @@ function addCount(){
     }
 </script>
 
+<script>
 
+
+function deleteCount(){
+  count--;
+}
+
+function place_delete(){
+        deleteCount();        
+
+        var counter = document.getElementById("counter");
+        console.log(counter.value);
+        counter.value = count;
+        console.log(counter.value);
+
+  var ol = document.getElementById("place_list");
+  ol.removeChild(ol.lastChild);
+  ol.removeChild(ol.lastChild);
+}
+</script>
 
   </body>
   </html>
