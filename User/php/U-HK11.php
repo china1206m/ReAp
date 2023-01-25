@@ -93,7 +93,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
       //アイコン追加
       var img = document.createElement('img');
       img.classList.add("circle");
-      img.src = 'monky.png';
+      img.src = 'image.php?id=<?= $user[0]['user_id']; ?>';
       img.align = 'left'
       img.alt = '<?php print($user[0]['user_name']); ?>'
         
