@@ -36,7 +36,7 @@ $_SESSION['eventuser_id'] = $eventuser_id;
             <p align="right"><?php print($event[0]['post_date']); ?></p>
             <div class="yoko">
               <a href="U-EV3.php" style="text-decoration:none;">
-                <img src = "monkey.png" class="circle" align="left" alt="アイコン" width="100%" height="100%">
+                <img src = "E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle" align="left" alt="アイコン" width="100%" height="100%">
               </a>
               <div class="title">
                 <?php print($event[0]['event_title']); ?>
@@ -72,7 +72,7 @@ $_SESSION['eventuser_id'] = $eventuser_id;
   const images = ['neko.jpg', 'naruto.jpg'];
   const content_area = document.getElementById("image_area");
     let img_add = document.createElement('img');
-    img_add.src = 'monky.png';
+    img_add.src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>';
     img_add.alt = 'さいくん'; // 代替テキスト
     img_add.width = 400; // 横サイズ（px）
     content_area.appendChild(img_add);
