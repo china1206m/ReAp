@@ -19,9 +19,10 @@
                 所持クーポン一覧
             </font>
 
-            <ul id="coupon_list1">
-                
-                    
+            <font size="+2" id="write" class="write">
+            </font>
+            
+            <ul id="coupon_list1">      
             </ul>
                     
         </div>
@@ -47,6 +48,12 @@
   var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
 var ul1 = document.getElementById("coupon_list1");
+
+var count = 0;
+if(count == 0){
+    var write = document.getElementById("write");
+    write.innerHTML = "所持しているクーポンはありません";
+}else{
 for (var count = 0; count < 6; count++) {
     // li要素を作成
     var li1 = document.createElement('li');
@@ -97,6 +104,7 @@ for (var count = 0; count < 6; count++) {
     div_date.appendChild(br3);
     div_date.appendChild(date);
                 }
+            }
         </script>
 
         
