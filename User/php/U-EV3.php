@@ -2,7 +2,7 @@
 session_start();
 include "MG.php";
 
-$eventuser_id = $_SESSION['eventuser_id'];
+$eventuser_id = $_SESSION['event_eventuser_id'];
 $db = MG_02($eventuser_id,"","","","","","","","","");
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 

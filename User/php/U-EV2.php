@@ -10,7 +10,8 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 $eventuser_id = $event[0]['eventuser_id'];
 $db = MG_02($eventuser_id,"","","","","","","","","");
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION['eventuser_id'] = $eventuser_id;
+
+$_SESSION['event_eventuser_id'] = $eventuser_id;
 ?>
 
 
@@ -25,7 +26,7 @@ $_SESSION['eventuser_id'] = $eventuser_id;
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
 
-<body>
+<body bgcolor="#f0f8ff">
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
