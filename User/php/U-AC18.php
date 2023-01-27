@@ -86,12 +86,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         var div_yoko = document.createElement('div');
         div_yoko.classList.add("yoko");
 
-        //アイコン追加
+        // ユーザアイコン
+        <?php if(!empty($user[0]['profile_image'])) { ?>
         var img = document.createElement('img');
         img.classList.add("circle");
         img.src = 'monky.png';
         img.align = 'left'
         img.alt = 'アイコン'
+        <?php } else { ?>
+          // デフォルトアイコン
+
+        <?php } ?>
         
         //題名追加
         var div_title = document.createElement('div');
@@ -161,7 +166,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         li.appendChild(div_ranking);
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
+        <?php if(!empty($user[0]['profile_image'])) { ?>
         div_yoko.appendChild(img);
+        <?php } else ?>
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
         div_ranking.appendChild(br);
