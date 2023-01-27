@@ -1,19 +1,22 @@
 <?php
-
+session_start();
 include "MG.php";
 
-$id = 1;
+$eventuser_id = $_SESSION['eventuser_id'];
 
 $today = date("Y-m-d");
 
 $db = getDB();
 $sql = "SELECT * FROM coupon WHERE eventuser_id = ? AND coupon_deadline <= ? LIMIT 50";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$eventuser_id);
 $stmt->bindValue(2,$today);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
+if($count1 == 0) {
+  $_SESSION['coupon'] = '期限切れのクーポンはありません。';
+}
 
 $coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -32,7 +35,13 @@ $coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">期限切れクーポン</h3>
 
-    <p class="non">検索内容に該当するクーポンはありません。</p>
+    <p class="non">
+      <?php
+        if (isset($_SESSION['coupon'])) {
+          echo($_SESSION['coupon']);
+        }
+      ?>
+    </p>
 
     
 <div class="yoko-narabi">
@@ -241,3 +250,8 @@ function disp() {
     </script>
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['coupon'] = '';
+?>
