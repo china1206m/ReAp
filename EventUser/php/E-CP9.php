@@ -71,17 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <button id="open-btn" class="overlay-event" type="button">全て消去する</button>
 </center>
 
-<form action="#" method="POST">
-<div id="overlay" class="overlay-event">
+<form action="#" method="POST" id="form1">
+<div id="overlay">
     <div class="flex">
       <div id="overlay-inner">
         <p>選択した投稿を消去します。</p>
         <p>本当によろしいですか。</p>
         <!--idはデザイン-->
-        <button id="close-btn" type=button onClick="disp()">はい</button>
+        <button id="close-btn" class="send-btn" disabled>はい</button>
         
         <!--はいを押したら消去機能呼び出し-->
-        <button id="close-btn" class="overlay-event" type=button>いいえ</button>
+        <button id="close-btn" class="close" type=button disabled>いいえ</button>
        </div>
     </div>
 </div>
@@ -224,40 +224,44 @@ var ul2 = document.getElementById("coupon_list2");
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      
-      // オーバレイを開閉する関数
-      const overlay = document.getElementById('overlay');
-      function overlayToggle() {
-        overlay.classList.toggle('overlay-on');
-      }
-      // 指定した要素に対して上記関数を実行するクリックイベントを設定
-      const clickArea = document.getElementsByClassName('overlay-event');
-      for(let i = 0; i < clickArea.length; i++) {
-        clickArea[i].addEventListener('click', overlayToggle, false);
-      }
-      
-      // イベントに対してバブリングを停止
-      function stopEvent(event) {
-        event.stopPropagation();
-      }
-      const overlayInner = document.getElementById('overlay-inner');
-      overlayInner.addEventListener('click', stopEvent, false);
-      
-    }, false);
-    </script>
+var overlayev = document.getElementsByClassName("overlay-event");
+  var send = document.getElementsByClassName("send-btn");
+  var close = document.getElementsByClassName("close");
 
-<script>
-    //nが1の時処理が完了・nが2の時処理にエラー
-   var m=2;
-function disp() {
-    if(m == 1){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>完了しました<br></span><br><button id=close-btn type=button onclick=location.href='E-CP1.php'>完了</button>";
-    }else if(m == 2){
-        document.getElementById("overlay-inner").innerHTML = "<span style='color: red;'>エラーです.<br>ページを再読み込みします。</span><br><button id=close-btn type=button onclick=location.href='E-CP9.php'>再読み込み</button>";
-    }
-}      
-    </script>
+  //オーバーレイ開閉の関数
+  const overlay = document.getElementById('overlay');
+  function overlayToggle() {
+    overlay.classList.toggle('overlay-on');
+  }
+
+
+  overlayev[0].addEventListener('click', function(){
+    overlayev[0].setAttribute("disabled","");
+    send[0].removeAttribute("disabled");
+    close[0].removeAttribute("disabled");
+    //オーバーレイ開く
+    overlayToggle();
+    return false;
+  }, false);
+  //'いいえ'が押されたとき
+  close[0].addEventListener('click', function(){
+    // ダブルクリック防止
+    close[0].setAttribute("disabled","");
+    overlayev[0].removeAttribute("disabled");
+    //オーバーレイ閉じる
+    overlayToggle();
+ }, false);
+
+  send[0].addEventListener('click', function(){
+    // ダブルクリック防止
+    send[0].setAttribute("disabled","");
+    //フォーム送信
+    document.forms.form1.submit();
+  }, false); 
+
+</script>
+
+
 </body>
 </html>
 
