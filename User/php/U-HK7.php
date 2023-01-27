@@ -9,7 +9,7 @@ $plan = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $planuser_id = $plan[0]['user_id']; 
 //$_SESSION['user_id'] = $user_id; いらない
-$db = MG_01($planuser_id,"","","","","","","","");
+$db = MG_01($planuser_id,"","","","","","","","","");
 $planuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
