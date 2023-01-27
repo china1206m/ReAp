@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['plan_cost'] = $_POST['plan_cost'];
 
     // 画面遷移　クーポン検索結果画面
-    header('Location:E-CP3.php');
+    header('Location:U-AC11.php');
     exit;
 }
 ?>
