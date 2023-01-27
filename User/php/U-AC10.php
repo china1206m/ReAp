@@ -130,7 +130,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </ul>
       </aside>
 
-        
+      <script>
+      function check () {
+      var prefectures = document.searchForm.coupon_prefectures.value;
+      var eventday = document.searchForm.coupon_place.value;
+      var eventsearch = document.searchForm.coupon_deadline.value;
+      var content = document.searchForm.coupon_search1.value;
+      
+      if ( prefectures == "" && eventday == "" && eventsearch == "" && content == "") {
+      alert ( "検索したい項目を入力してください。" );
+      document.searchForm.coupon_prefectures.focus();
+      return false;
+      }
+      
+      return true;
+      }
+      </script>
 
     </body>
 </html>
