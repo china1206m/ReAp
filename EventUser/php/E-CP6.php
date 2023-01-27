@@ -11,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // addインスタンス生成
     $add = new MA();
 
-    $_SESSION['eventuser_id'] = 1;
-
     // 入力したいカラム名を指定
     $column = ['coupon_name', 'eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
     
