@@ -2,10 +2,20 @@
 
 include "MG.php";
 
-$id = 1;
+$_SESSION['coupon_id'] = 1;
 
 $db = MG_09($id,"","","","","","");
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+  $type = [1];
+  $delete->md("coupon", "coupon_id", $_SESSION['coupon_id'], $type);
+  session_destroy(); // セッション破棄
+  header('Location:E-CP1.html');
+  exit;
+}
 
 ?>
 
@@ -45,7 +55,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
     <div id="overlay" class="overlay-event">
       <div class="flex">
-      <form action="#" method="POST" id="form1">
+      <form action="" method="POST" id="form1">
         <div id="overlay-inner">
           <p>クーポンを消去します。</p>
           <p>本当によろしいですか。</p>
