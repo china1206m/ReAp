@@ -1,3 +1,15 @@
+<?php
+
+include "MG.php";
+
+$eventuser_id = 1;
+
+$db = MG_09("","",$eventuser_id,"","","","");
+$count1 = $db->rowCount();
+$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +51,8 @@
 
 <script>
     var ul1 = document.getElementById("coupon_list1");
-for (i = 0; i < 6; i=i + 2) {
 
-  
+    <?php for ($i = 0; $i < $count1; $i=$i + 2) : ?>
 
     // li要素を作成
     var li1 = document.createElement('li');
@@ -67,9 +78,9 @@ for (i = 0; i < 6; i=i + 2) {
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode("店名");
-    var date = document.createTextNode("期限");
-    var cont = document.createTextNode("クーポン名");
+    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -90,13 +101,15 @@ for (i = 0; i < 6; i=i + 2) {
     div_date.appendChild(br3);
     div_date.appendChild(date);
    
-    }
+    <?php endfor; ?>
 
 var ul2 = document.getElementById("coupon_list2");
 
- 
+    <?php 
 
-    for (i = 1; i < 6; i=i + 2) {
+        for ($i = 1; $i < $count1; $i=$i + 2) :
+
+    ?>
 
   
 
@@ -124,9 +137,9 @@ var ul2 = document.getElementById("coupon_list2");
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode("店名");
-    var date = document.createTextNode("期限");
-    var cont = document.createTextNode("クーポン名");
+    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -147,7 +160,7 @@ var ul2 = document.getElementById("coupon_list2");
     div_date.appendChild(br3);
     div_date.appendChild(date);
 
-    }
+    <?php endfor; ?>
 
 </script>
 
