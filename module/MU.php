@@ -3,7 +3,7 @@
 class MU{
     function db($sum){
         try{
-            include "MC-01.php";
+            include_once "MC-01.php";
             // データベース接続
             $db = getDB();
 
@@ -16,37 +16,32 @@ class MU{
         }
     }
 
-
     function mu($table, $column, $post, $type, $id_name, $id){
     
         $sum = $table." set ";
     
         for($i = 0; $i < count($post); $i++){
-                
-                 
             // 複数挿入の場合
             if($i >= 1){
                 $sum = $sum.",";
             }   
-    
             // 列名=
-            $sum = $sum.$columnname[$i]."=";
+            $sum = $sum.$column[$i]."=";
                     
-            // 型調べ
+            // 型調べ、変更後の値
             if($type[$i] == 0) {
-                sum = $sum.$post[$i];
+                $sum = $sum.$post[$i];
                     
             // CHAR
             } else if($type[$i] == 1) {
             $sum = $sum."'".$post[$i]."'";
-                    
             // NCHAR
             } else {
                 $sum = $sum."N'".$post[$i]."'";
             }
         }
 
-        $sum = $sum." WHERE ".$column_id."=".$id;
+        $sum = $sum." WHERE ".$id_name."=".$id;
 
         $this->db($sum);
     
