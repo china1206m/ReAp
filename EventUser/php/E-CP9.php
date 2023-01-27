@@ -32,6 +32,8 @@ $coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">期限切れクーポン</h3>
 
+    <p class="non">検索内容に該当するクーポンはありません。</p>
+
     
 <div class="yoko-narabi">
 <form action="E-CP4.php" method="POST">

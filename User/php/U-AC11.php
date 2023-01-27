@@ -28,7 +28,7 @@
         
             
 
-            <span id="overlay" class="overlay-event">
+            <span id="overlay">
               <span class="flex">
                 <span id="overlay-inner">
                     <p>上記のクーポンを取得します。<br>
@@ -37,10 +37,10 @@
                       </font><br>
                     </p>
                     <div>
-                        <button id="close-btn" class="send-btn" disabled>
+                        <button id="close-btn1" class="close" disabled>
                             はい
                         </button>
-                        <button id="close-btn"  class="close" type="button" disabled>
+                        <button id="close-btn2" class="close" type="button" disabled>
                             いいえ
                         </button>
                     </div>
@@ -125,9 +125,10 @@ for (var count = 0; count < 6; count++) {
    
 }
 
-  var overlayev = document.getElementsByClassName("overlay-event");
-  var send = document.getElementsByClassName("send-btn");
-  var close = document.getElementsByClassName("close");
+var overlayev = document.getElementsByClassName("overlay-event");
+  var events = Array.from(overlayev);
+  var close = document.getElementById("close-btn1");
+  var close2 = document.getElementById("close-btn2");
 
   //オーバーレイ開閉の関数
   const overlay = document.getElementById('overlay');
@@ -136,26 +137,34 @@ for (var count = 0; count < 6; count++) {
   }
 
 
-  overlayev[0].addEventListener('click', function(){
-    overlayev[0].setAttribute("disabled","");
-    send[0].removeAttribute("disabled");
-    close[0].removeAttribute("disabled");
+  events.forEach(function(e){
+
+    e.addEventListener('click', function(){
+     
+    e.setAttribute("disabled","");
+   
+    close.removeAttribute("disabled");
+    close2.removeAttribute("disabled");
     //オーバーレイ開く
     overlayToggle();
-    return false;
   }, false);
+
+  })
+  
   //'いいえ'が押されたとき
-  close[0].addEventListener('click', function(){
+  close2.addEventListener('click', function(){
     // ダブルクリック防止
-    close[0].setAttribute("disabled","");
-    overlayev[0].removeAttribute("disabled");
+    events.forEach(function(e){
+      e.removeAttribute("disabled");
+    })
+    close2.setAttribute("disabled","");
     //オーバーレイ閉じる
     overlayToggle();
  }, false);
 
-  send[0].addEventListener('click', function(){
+  close.addEventListener('click', function(){
     // ダブルクリック防止
-    send[0].setAttribute("disabled","");
+    close.setAttribute("disabled","");
     //フォーム送信
     document.forms.form1.submit();
   }, false);          
