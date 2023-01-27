@@ -1,15 +1,35 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
 $db = getDB();
-$sql = "SELECT * FROM plan ORDER BY post_date DESC LIMIT 50";
+$sql = "SELECT * FROM plan ORDER BY plan_favorite_total DESC LIMIT 100";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
 
 $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  for ($i = 0; $i < $count1; $i++) :  
+    //計画投稿者のID
+    $user_id = $plan[$i]['user_id'];
+
+    $db = getDB();
+    $sql = "UPDATE user SET coupon_can_get = coupon_can_get + 1 WHERE user_id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1,$user_id);
+    $stmt->execute();
+
+  endfor;
+
+  // 画面遷移　計画検索結果画面
+  header('Location:M-HK1.php');
+} 
 
 ?>
 
@@ -18,7 +38,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID M-HK1</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="M-HK1.css" type="text/css">
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
@@ -28,9 +48,11 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="right">
             <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
             <button type="button" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
-            <button class="button-only" type="button">
-                お気に入り数リセット
+            <form action="" method="POST">
+            <button type="submit" class="button-only" type="button">
+                お気に入り上位100人クーポン配布
             </button>
+
     </div>
     
 
@@ -92,7 +114,7 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     //投稿日の追加
     var div_right = document.createElement('div');
     div_right.classList.add("right");
-    div_right.innerText = "投稿日"
+    div_right.innerText = "<?php print($plan[$i]['post_date']); ?>"
 
     //アイコンと題名の横並びのためのクラス追加
     var div_yoko = document.createElement('div');
@@ -106,28 +128,28 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
   img.alt = 'アイコン'
   
   // 題名を作成
-  var div = document.createElement('div');
-  div.className = 'title';
+  var div_title = document.createElement('div');
+  div_title.className = 'title';
   var daimei = document.createTextNode("<?php print($plan[$i]['plan_title']); ?>");
-  div.appendChild(daimei);
+  div_title.appendChild(daimei);
 
   var br = document.createElement('br');
 
   //都道府県の追加
   var p_pre = document.createElement('p');
   p_pre.classList.add("condition");
-  p_pre.innerText = "都道府県"
+  p_pre.innerText = "<?php print($plan[$i]['plan_prefectures']); ?>"
 
   //条件追加
   var p_who = document.createElement('p');    
   p_who.classList.add("condition");
-  p_who.innerHTML = "誰と"
+  p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
   var p_cost = document.createElement('p');
   p_cost.classList.add("condition");
-  p_cost.innerHTML = "円"
+  p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>円"
   var p_day = document.createElement('p');
   p_day.classList.add("condition");
-  p_day.innerHTML = "泊日"
+  p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>泊<?php print($plan[$i]['plan_day']+1); ?>日"
 
   //olの追加
   var ol = document.createElement('ol');
@@ -142,23 +164,23 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
   //場所名追加
   var p_planname = document.createElement('p');
   p_planname.classList.add("plan_content");
-  p_planname.innerHTML = "場所"
+  p_planname.innerHTML = "<?php print($plan_detail[0]['plan_place']); ?>"
 
   // 本文を作成
-  var p = document.createElement('p');
-  p.classList.add("limit");
+  var p_content = document.createElement('p');
+  p_content.classList.add("limit");
   var text = document.createTextNode("<?php print($plan_detail[0]['plan_content']); ?>");
-  p.appendChild(text);
+  p_content.appendChild(text);
 
   //滞在時間追加
   var p_time = document.createElement('p');
-    p_time.innerHTML = "時間分"
+    p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
     p_time.classList.add("plan_content");
 
     //移動時間追加
     var p_travel = document.createElement('p');
     p_travel.classList.add("travel_time");
-    p_travel.innerHTML = "時間分"
+    p_travel.innerHTML = ""
 
   // もっと見るを作成
   var a = document.createElement('a');
