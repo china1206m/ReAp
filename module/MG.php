@@ -876,7 +876,7 @@ function MG_10($id1,$id2,$id3) {
 
 //event検索モジュール
 
-function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
+function MG_11($id,$search,$prefectures,$day_first,$day_end,$cost) {
 
   $n = 1;
 
@@ -885,6 +885,10 @@ function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
     $db = getDB();
 
     $sql = "SELECT * FROM event WHERE 1 = 1 ";
+
+    if (!is_nullorempty($id)) {
+      $sql .= "AND eventuser_id = ?";
+    }
 
     if (!is_nullorempty($search)) {
       $sql .= "AND event_title LIKE ? ";
@@ -911,6 +915,10 @@ function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
 
     $stmt = $db->prepare($sql);
 
+    if (!is_nullorempty($id)) {
+      $stmt->bindValue($n,$id);
+      $n++;
+    }
 
     if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
