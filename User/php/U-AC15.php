@@ -40,7 +40,7 @@
 
         
 
-            <span id="overlay" class="overlay-event">
+            <span id="overlay">
               <span class="flex">
                 <span id="overlay-inner">
                     <p>上記のクーポンを使用します。<br>
