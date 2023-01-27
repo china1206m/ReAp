@@ -28,97 +28,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン検索</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+    <font size="+4" class="screenname">クーポン検索</font>
 
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
     <input type="search" name="coupon_search1" class="event_search" placeholder="キーワードを入力">
-    <table>
-        <tr>
-            <td><p><label class="label-prefectures-shop" for="prefectures" >都道府県</label></p></td>
-            <td><p><label class="label-prefectures-shop" for="shop">店名</label></p></td>
-        </tr>
     
-        <tr>
-            <td><select name="coupon_prefectures" class="prefectures-shop">
-        <option value="">都道府県を選択</option>
-        <option value="北海道">北海道</option>
-        <optgroup label="東北">
-          <option value="青森県">青森県</option>
-          <option value="秋田県">秋田県</option>
-          <option value="岩手県">岩手県</option>
-          <option value="山形県">山形県</option>
-          <option value="宮城県">宮城県</option>
-          <option value="福島県">福島県</option>
-        </optgroup>
-        <optgroup label="関東">
-          <option value="茨城県">茨城県</option>
-          <option value="栃木県">栃木県</option>
-          <option value="群馬県">群馬県</option>
-          <option value="埼玉県">埼玉県</option>
-          <option value="千葉県">千葉県</option>
-          <option value="東京都">東京都</option>
-          <option value="神奈川県">神奈川県</option>
-        </optgroup>
-        <optgroup label="中部">
-          <option value="新潟県">新潟県</option>
-          <option value="富山県">富山県</option>
-          <option value="石川県">石川県</option>
-          <option value="福井県">福井県</option>
-          <option value="山梨県">山梨県</option>
-          <option value="長野県">長野県</option>
-          <option value="岐阜県">岐阜県</option>
-          <option value="静岡県">静岡県</option>
-          <option value="愛知県">愛知県</option>
-        </optgroup>
-        <optgroup label="近畿">
-          <option value="三重県">三重県</option>
-          <option value="滋賀県">滋賀県</option>
-          <option value="京都府">京都府</option>
-          <option value="大阪府">大阪府</option>
-          <option value="兵庫県">兵庫県</option>
-          <option value="奈良県">奈良県</option>
-          <option value="和歌山県">和歌山県</option>
-        </optgroup>
-        <optgroup label="中国">
-          <option value="岡山県">岡山県</option>
-          <option value="広島県">広島県</option>
-          <option value="鳥取県">鳥取県</option>
-          <option value="島根県">島根県</option>
-          <option value="山口県">山口県</option>
-        </optgroup>
-        <optgroup label="四国">
-          <option value="徳島県">徳島県</option>
-          <option value="香川県">香川県</option>
-          <option value="愛媛県">愛媛県</option>
-          <option value="高知県">高知県</option>
-        </optgroup>
-        <optgroup label="九州沖縄">
-          <option value="福岡県">福岡県</option>
-          <option value="佐賀県">佐賀県</option>
-          <option value="長崎県">長崎県</option>
-          <option value="熊本県">熊本県</option>
-          <option value="大分県">大分県</option>
-          <option value="宮崎県">宮崎県</option>
-          <option value="鹿児島県">鹿児島県</option>
-          <option value="沖縄県">沖縄県</option>
-        </optgroup>
-      </select></td>
+        
+      <p><label class="label-prefectures-shop" for="prefectures" >都道府県</label></p>
+      <select id="region" class="prefectures-shop">
+        <option value="">選択してください</option>
+        <option value="hokkaido">北海道地方</option>
+        <option value="tohoku">東北地方</option>
+        <option value="kanto">関東地方</option>
+        <option value="tyubu">中部地方</option>
+        <option value="kansai">関西地方</option>
+        <option value="tyugoku">中国地方</option>
+        <option value="shikoku">四国地方</option>
+        <option value="kyushu-okinawa">九州・沖縄地方</option>
+      </select>
+      <select id="pref" class="prefectures-shop" name="coupon_prefectures">
+        <option value="">選択してください</option>
+      </select>
     
-        <td><input type="text" class="prefectures-shop" name="coupon_place" maxlength="30"></td>
-    </tr>
-    </table>
+
+      <p><label class="label-prefectures-shop" for="shop">店名</label></p>
+      <input type="text" class="prefectures-shop" name="coupon_place" maxlength="30">
+    
 
     <p><label for="shop">使用期限</label></p>
     <input type="date" id="date" name="coupon_deadline" class="day" value="">
 
-   
     
+  
 
     <center>
     <button type="submit" name="coupon_search" class="button-only">検索</button>
     </center>
 </form>
-    </main>
+
+</main>
 
     <aside id="sub">
         <ul class="menu">
@@ -146,6 +95,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       return true;
       }
       </script>
+
+<script>
+  var array = new Array();
+      array[''] = new Array({cd:"0", label:"選択してください"});
+      array["hokkaido"] = new Array(
+          {cd:"北海道", label:"北海道"}
+      );
+      array["tohoku"] = [
+          {cd:"青森県", label:"青森県"},
+          {cd:"岩手県", label:"岩手県"},
+          {cd:"宮城県", label:"宮城県"},
+          {cd:"秋田県", label:"秋田県"},
+          {cd:"山形県", label:"山形県"},
+          {cd:"福島県", label:"福島県"}
+      ];
+      array["kanto"] = [
+          {cd:"茨城県", label:"茨城県"},
+          {cd:"栃木県", label:"栃木県"},
+          {cd:"群馬県", label:"群馬県"},
+          {cd:"埼玉県", label:"埼玉県"},
+          {cd:"千葉県", label:"千葉県"},
+          {cd:"東京都", label:"東京都"},
+          {cd:"神奈川県", label:"神奈川県"}
+      ];
+      array["tyubu"] = [
+          {cd:"新潟県", label:"新潟県"},
+          {cd:"富山県", label:"富山県"},
+          {cd:"石川県", label:"石川県"},
+          {cd:"福井県", label:"福井県"},
+          {cd:"山梨県", label:"山梨県"},
+          {cd:"長野県", label:"長野県"},
+          {cd:"岐阜県", label:"岐阜県"},
+          {cd:"静岡県", label:"静岡県"},
+          {cd:"愛知県", label:"愛知県"}
+      ];
+      array["kansai"] = [
+          {cd:"三重県", label:"三重県"},
+          {cd:"滋賀県", label:"滋賀県"},
+          {cd:"京都府", label:"京都府"},
+          {cd:"大阪府", label:"大阪府"},
+          {cd:"兵庫県", label:"兵庫県"},
+          {cd:"奈良県", label:"奈良県"},
+          {cd:"和歌山県", label:"和歌山県"}
+      ];
+      array["tyugoku"] = [
+          {cd:"鳥取県", label:"鳥取県"},
+          {cd:"島根県", label:"島根県"},
+          {cd:"岡山県", label:"岡山県"},
+          {cd:"広島県", label:"広島県"},
+          {cd:"山口県", label:"山口県"}
+      ];
+      array["shikoku"] = [
+          {cd:"香川県", label:"香川県"},
+          {cd:"徳島県", label:"徳島県"},
+          {cd:"愛媛県", label:"愛媛県"},
+          {cd:"高知県", label:"高知県"}
+      ];
+      array["kyushu-okinawa"] = [
+          {cd:"福岡県", label:"福岡県"},
+          {cd:"佐賀県", label:"佐賀県"},
+          {cd:"長崎県", label:"長崎県"},
+          {cd:"熊本県", label:"熊本県"},
+          {cd:"大分県", label:"大分県"},
+          {cd:"宮崎県", label:"宮崎県"},
+          {cd:"鹿児島県", label:"鹿児島県"},
+          {cd:"沖縄県", label:"沖縄県"}
+      ];
+
+  document.getElementById('region').onchange = function(){
+    city = document.getElementById("pref");
+    city.options.length = 0
+    var changedPref = region.value;
+      for (let i = 0; i < array[changedPref].length; i++) {
+        var op = document.createElement("option");
+        value = array[changedPref][i]
+        op.value = value.cd;
+        op.text = value.label;
+        pref.appendChild(op);
+      }
+  }
+</script>
+
+
 
     </body>
 </html>
