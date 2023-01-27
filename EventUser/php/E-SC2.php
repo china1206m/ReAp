@@ -21,6 +21,9 @@ if($count1 == 0) {
 
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
 
+$db = MG_02($eventuser_id,"","","","","","","","","");
+$eventuser =  $db->fetchAll(PDO::FETCH_ASSOC);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $counter = $_POST['counter'];
   $event_id = $event[$counter]['event_id'];
@@ -115,14 +118,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   var div_place = document.createElement('p');
       div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
 
-  // アイコンを作成
-  var img = document.createElement('img');
-  img.classList.add("circle");
-  img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
-  img.align = 'left'
-  img.alt = 'アイコン'
-  img.width = 100;
-  img.height = 100;
+  // ユーザ指定アイコン
+  <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+
+    var img = document.createElement('img');
+    img.classList.add("circle");
+    img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
+    img.align = 'left'
+    img.alt = 'アイコン'
+    img.width = 100;
+    img.height = 100;
+
+    // デフォルトアイコン
+  <?php } else { ?>
+
+  <?php } ?>
 
   // 題名を作成
   var div = document.createElement('div');
@@ -146,7 +156,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
   li.appendChild(div_right);
+  <?php if(!empty($eventuser[0]['profile_message'])) { ?>
   li.appendChild(img);
+  <?php } ?>
   li.appendChild(div);
   li.appendChild(div_pre);
   li.appendChild(div_first);
