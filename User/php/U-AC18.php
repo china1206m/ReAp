@@ -88,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // ユーザアイコン
         <?php if(!empty($user[0]['profile_image'])) { ?>
-        var img = document.createElement('img');
-        img.classList.add("circle");
-        img.src = 'monky.png';
-        img.align = 'left'
-        img.alt = 'アイコン'
+          var img = document.createElement('img');
+          img.classList.add("circle");
+          img.src = 'monky.png';
+          img.align = 'left'
+          img.alt = 'アイコン'
         <?php } else { ?>
           // デフォルトアイコン
 
@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
         <?php if(!empty($user[0]['profile_image'])) { ?>
-        div_yoko.appendChild(img);
+          div_yoko.appendChild(img);
         <?php } else ?>
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
