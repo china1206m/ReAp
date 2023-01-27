@@ -20,6 +20,16 @@ if($count1 == 0) {
 
 $coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+
+  for($i = 0; $i < $count1; $i++) {
+    $type = [1];
+    $delete->md("coupon", "coupon_id", $coupon[$i]['coupon_id'], $type); 
+  }
+}
+
 ?>
 
 <!DOCTYPE html>

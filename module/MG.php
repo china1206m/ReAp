@@ -1058,7 +1058,7 @@ function MG_13($search,$prefectures,$place,$deadline) {
     $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
 
     if (!is_nullorempty($search)) {
-      $sql .= "AND coupon_name LIKE ? ";
+      $sql .= "AND coupon_name LIKE ? OR coupon_content LIKE ? ";
     }
 
     if (!is_nullorempty($prefectures)) {
@@ -1079,6 +1079,8 @@ function MG_13($search,$prefectures,$place,$deadline) {
 
     if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
+      $stmt->bindValue($n,$search);
+      $n++;
       $stmt->bindValue($n,$search);
       $n++;
     }

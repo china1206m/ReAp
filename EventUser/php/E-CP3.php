@@ -3,19 +3,15 @@ session_start();
 include "MG.php";
 
 $coupon_search = $_SESSION['coupon_search'];
+$coupon_name = $_SESSION['coupon_name'];
 $coupon_prefectures = $_SESSION['coupon_prefectures'];
 $coupon_place = $_SESSION['coupon_place'];
 $coupon_deadline = $_SESSION['coupon_deadline'];
 
 $db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
-$count1 = $db->rowCount();
-<<<<<<< HEAD
-=======
-if($count1 == 1) {
-    $_SESSION['coupon'] = '検索内容に該当するクーポンはありません。';
-}
 
->>>>>>> a017571d350b4a35fd1caa104fb64981b0922bf1
+$count1 = $db->rowCount();
+
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -36,8 +32,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
     <p class="non">
         <?php
-             if (isset($_SESSION['coupon'])) {
-                echo($_SESSION['coupon']);
+             if ($count1 == 0) {
+                echo '検索内容に該当するクーポンはありません。';
             }
         ?>
     </p>
@@ -197,8 +193,3 @@ var ul2 = document.getElementById("coupon_list2");
 </script>
 </body>
 </html>
-
-<?php
-/* セッションの初期化 */
-$_SESSION['coupon'] = '';
-?>
