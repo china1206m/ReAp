@@ -111,8 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p><label for="shop">使用期限</label></p>
     <input type="date" id="date" name="coupon_deadline" class="day" value="">
 
-    <p><label for="name">クーポン名</label></p>
-    <input type="text" name="coupon_name" class="prefectures-shop" maxlength="30" placeholder="20文字以内">
+   
     
 
     <center>
