@@ -43,6 +43,7 @@ if($_POST['table']=="1"){
 }else{
   $administrator_id = $administrator[$counter]['plan_id'];
 }
+//$_POST['stop']=1なら停止,$_POST['stop']=0なら復活
 
 ?>
 
@@ -84,6 +85,7 @@ if($_POST['table']=="1"){
         </form>
     
         <form action="#" method="POST">
+        <input type="hidden" id="stop" name="stop" value="0">
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="user_id"><li class="tite">ユーザID</li></ul>
@@ -109,7 +111,7 @@ if($_POST['table']=="1"){
         <button type="submit" class="button-only">検索</button>
         </form>
 
-        <form action="#" method="POST">
+
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="event_id"><li class="tite">ユーザID</li></ul>
@@ -119,7 +121,7 @@ if($_POST['table']=="1"){
             <ul id="stop_count_e"><li class="tite">停止回数</li></ul>
             <ul id="condition_e"><li>　</li></ul>
         </div>
-        </form>
+  
     </div>
 
 
@@ -133,7 +135,7 @@ if($_POST['table']=="1"){
         <button type="submit" class="button-only">検索</button>
         </form>
 
-        <form action="#" method="POST">
+ 
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="manage_id"><li class="tite">ユーザID</li></ul>
@@ -144,7 +146,7 @@ if($_POST['table']=="1"){
             <ul id="condition_m"><li>　</li></ul>
                 
         </div>
-    </form>
+
     </div>
        
 </div>
@@ -269,10 +271,11 @@ if($_POST['table']=="1"){
     var ul_condition1 = document.getElementById("condition_u");
     var li_condition1 = document.createElement('li');
 
-    
+    var stop = document.getElementById("stop");
     var button_revival = document.createElement('button');
     <?php if($user[$i]['user_stop']==0):?>
       button_revival.setAttribute("disabled","");
+      stop.value = "1";
     <?php endif; ?>
     button_revival.type = "submit";
     button_revival.classList.add("situation_button");
@@ -287,7 +290,7 @@ if($_POST['table']=="1"){
     button_suspension.innerHTML = "停止";
 
     var button_delete = document.createElement('button');
-    button_delete.type = "submit";
+    button_delete.type = "button";
     button_delete.classList.add("situation_button");
     button_delete.classList.add("overlay-event");
     button_delete.setAttribute('id', <?php print($i); ?>);
@@ -381,7 +384,7 @@ const len = elements.length;
         var li_condition1 = document.createElement('li');
     
         var button_delete = document.createElement('button');
-        button_delete.type = "submit";
+        button_delete.type = "button";
         button_delete.classList.add("situation_button");
         button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
@@ -441,7 +444,7 @@ const len = elements.length;
         var li_condition1 = document.createElement('li');
     
         var button_delete = document.createElement('button');
-        button_delete.type = "submit";
+        button_delete.type = "button";
         button_delete.classList.add("situation_button");
         button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
