@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div id="overlay" class="overlay-event">
       <div class="flex">
-      <form action="#" method="POST" id="form1">
+      <form action="" method="POST" id="form1">
         <div id="overlay-inner">
           <p>クーポンを消去します。</p>
           <p>本当によろしいですか。</p>
