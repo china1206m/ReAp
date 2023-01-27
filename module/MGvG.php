@@ -9,6 +9,8 @@ function MG($table, $get) {
     $type = null;
     $user = ["user_id", "user_mail", "user_pass", "user_name", "profile_image", "profile_message", "coupon_can_get", "report_total", "stop_total"];
     $user_type = [0,1,1];
+    $eventuser = ["eventuser_id", "eventuser_mail"];
+    $eventuser_type = [0,1];
 
     $administrator = ["administrator_id", "administrator_pass", "administrator_name"];
     $administrator_type = [0, 1, 1];
@@ -19,6 +21,10 @@ function MG($table, $get) {
         case "user":
             $column = $user;
             $type = $user_type;
+            break;
+        case "eventuser":
+            $column = $eventuser;
+            $type = $eventuser_type;
             break;
         case "administrator":
             $column = $administrator;

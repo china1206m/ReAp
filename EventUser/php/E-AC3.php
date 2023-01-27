@@ -26,7 +26,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="center">
         <?php print($eventuser[0]['eventuser_name']); ?>
       </div>
-      <div class="left"><img src="E-menu-acount.png" class="image-circle"></div>
+      <div class="left"><img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="image-circle"></div>
     </div>
     
     <center>

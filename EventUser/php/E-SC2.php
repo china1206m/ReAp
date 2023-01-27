@@ -1,18 +1,30 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
-session_start();
 $event_search = $_SESSION['event_search'];
 $event_prefectures = $_SESSION['event_prefectures'];
 $event_day_first = $_SESSION['event_day_first'];
 $event_day_end = $_SESSION['event_day_end'];
 $event_cost = $_SESSION['event_cost'];
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end);
+$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
 
 $count1 = $db->rowCount();
 
+if($count1 == 0) {
+  $_SESSION['event'] = '検索項目に該当するものがありません。';
+}
+
 $event = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $event_id = $event[$counter]['event_id'];
+  $_SESSION['event_id'] = $event_id;
+  header('Location:E-SE4.php');
+}
 
 ?>
 
@@ -21,15 +33,23 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID E-SC2</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="E-SC2.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     
-    <p class="non">検索項目に該当するものがありません。</p>
+    <p class="non">
+    <?php
+      if (isset($_SESSION['event'])) {
+      echo($_SESSION['event']);
+      }
+    ?>
+    </p>
 
 <div>
   <ul id="country_list">
@@ -74,10 +94,29 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
       var div_pre = document.createElement('p');
       div_pre.innerText = "<?php print($event[$i]['event_prefectures']); ?>"
 
+  //開始日の追加
+  var div_first = document.createElement('p');
+      div_first.innerText = "<?php print($event[$i]['event_day_first']) ?>"
+      div_first.classList.add("yoko");
+
+  //~の追加
+  var div_heniyo = document.createElement('p');
+      div_heniyo.innerText = "～"
+      div_heniyo.classList.add("yoko");
+
+  //終了日の追加
+  var div_end = document.createElement('p');
+      div_end.classList.add("yoko");
+      div_end.innerText = "<?php print($event[$i]['event_day_end']) ?>"
+
+  //場所の追加
+  var div_place = document.createElement('p');
+      div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
+
   // アイコンを作成
   var img = document.createElement('img');
   img.classList.add("circle");
-  img.src = 'monky.png';
+  img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
   img.align = 'left'
   img.alt = 'アイコン'
   img.width = 100;
@@ -94,9 +133,12 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   p.innerHTML = "<?php print($event[$i]['event_content']); ?>";
 
   // もっと見るを作成
-  var a = document.createElement('a');
+  var a = document.createElement('button');
+  a.type="submit";
   a.classList.add("more-see");
-  a.href = "E-SE4.php";
+  a.setAttribute('name','more_see' + <?php print($i); ?>);
+  a.setAttribute('id', <?php print($i); ?>);
+  a.setAttribute('onclick','button(this.id)');
   a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加
@@ -105,11 +147,26 @@ $event = $db->fetchAll(PDO::FETCH_ASSOC);
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(div_pre);
+  li.appendChild(div_first);
+  li.appendChild(div_heniyo);
+  li.appendChild(div_end);
+  li.appendChild(div_place);
   li.appendChild(p);
   li.appendChild(a);
 
         <?php endfor; ?>
 
+        function button(clicked_id){
+          var s = clicked_id;
+          var counter = document.getElementById("counter");
+          counter.value = s;
+        }
+
 </Script>
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['event'] = '';
+?>

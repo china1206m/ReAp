@@ -8,8 +8,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post = [$_POST['user_name'], $_POST['profile_message']];
     $type = [2, 2];
     $column_name = "eventuser_id";
-    $id = $_SESSION['eventuser_id'];
-    $update->mu("eventuser", $column, $post, $type, $column_name, $id);
+    $eventuser_id = $_SESSION['eventuser_id'];
+    $update->mu("eventuser", $column, $post, $type, $column_name, $eventuser_id);
+
+    include_once "MC-01.php";
+    $pdo = getDB();
+
+    $content = file_get_contents($_FILES['profile_image']['tmp_name']);
+    $sql = 'UPDATE eventuser SET  profile_image = :profile_image WHERE eventuser_id = :eventuser_id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':profile_image', $content);
+    $stmt->bindValue(':eventuser_id', $eventuser_id);
+    $stmt->execute();
     header('Location:E-AC3.php');
     exit;
 }
@@ -31,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p class="image-circle"></p>
     <br>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="profiel_image" class="profiel_image" accept="image/jpeg,image/png">
+    <input type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png">
      
     </center>
 
@@ -39,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
               <input type="text" class="txt" name="user_name" maxlength="20" placeholder="20文字以内" required>
                 
               <p><label for="message" >一言コメント</label></p>
-                <p><textarea class="tarea" name="profiel_message" placeholder="200文字以内" maxlength="200"></textarea></p>
+                <p><textarea class="tarea" name="profile_message" placeholder="200文字以内" maxlength="200"></textarea></p>
                 
     <center>
                <button type="submit" class="button-only">変更する</button>

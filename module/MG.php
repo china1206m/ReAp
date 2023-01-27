@@ -1,6 +1,6 @@
 <?php
 
-include "MC-01.php";
+include_once "MC-01.php";
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -867,7 +867,7 @@ function MG_10($id1,$id2,$id3) {
 
 //event検索モジュール
 
-function MG_11($search,$prefectures,$day_first,$day_end) {
+function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
 
   $n = 1;
 
@@ -891,6 +891,10 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
     
     if (!is_nullorempty($day_end)) {
       $sql .= "AND event_day_first <= ? ";
+    }
+
+    if (!is_nullorempty($cost)) {
+      $sql .= "AND event_cost >= ? AND event_cost <= ? ";
     }
 
     $sql .= "LIMIT 50";
@@ -917,6 +921,16 @@ function MG_11($search,$prefectures,$day_first,$day_end) {
 
     if (!is_nullorempty($day_end)) {
       $stmt->bindValue($n,$day_end);
+      $n++;
+    }
+
+    if (!is_nullorempty($cost)) {
+      $cost_interval = 500;
+      $cost_before = $cost - $cost_interval;
+      $cost_after = $cost + $cost_interval;
+      $stmt->bindValue($n,$cost_before);
+      $n++;
+      $stmt->bindValue($n,$cost_after);
       $n++;
     }
 
@@ -961,11 +975,11 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
     }
 
     if (!is_nullorempty($date_first)) {
-      $sql .= "AND plan_date >= ? ";
+      $sql .= "AND post_date >= ? ";
     }
     
     if (!is_nullorempty($date_end)) {
-      $sql .= "AND plan_date <= ? ";
+      $sql .= "AND post_date <= ? ";
     }
 
     if (!is_nullorempty($day)) {
@@ -995,7 +1009,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
     }
 
     if (!is_nullorempty($cost)) {
-      $cost_interval = 1;
+      $cost_interval = 500;
       $cost_before = $cost - $cost_interval;
       $cost_after = $cost + $cost_interval;
       $stmt->bindValue($n,$cost_before);

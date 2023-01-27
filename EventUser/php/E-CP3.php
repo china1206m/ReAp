@@ -30,6 +30,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
 
+    <p class="non">検索内容に該当するクーポンはありません。</p>
+
     
 <div class="yoko-narabi">
 <form action="E-CP4.php" method="POST">
@@ -38,7 +40,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
             
     </ul>
 </form> 
-<form action="E-AC4.php" method="POST">
+<form action="E-CP4.php" method="POST">
     <ul id="coupon_list2">
         
         
@@ -100,7 +102,7 @@ var ul1 = document.getElementById("coupon_list1");
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');

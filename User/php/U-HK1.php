@@ -1,20 +1,28 @@
 <?php
-
+session_cache_limiter("none");
+session_start(); // セッション開始
 include "MG.php";
 
-$id = 1;
-$db = MG_01($id,"","","","","","","","");
+$user_id = $_SESSION['planuser_id'];
+$db = MG_01($user_id,"","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();
 $sql = "SELECT * FROM plan WHERE user_id = ? ORDER BY post_date DESC LIMIT 50";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(1,$id);
+$stmt->bindValue(1,$user_id);
 $stmt->execute();
 
 $count1 = $stmt->rowCount();
 
 $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $plan_id = $plan[$counter]['plan_id'];
+  $_SESSION['plan_id'] = $plan_id;
+  header('Location:U-HK7.php');
+}
 
 ?>
 
@@ -29,13 +37,13 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">アカウント</h3>
-    <form action="#" method="POST">
+    <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
   
   
     <div class="acount_information">
       <div class="yoko">
-      <img src="U-menu-acount.png" align="left" alt="写真" class="circle">
+      <img src="image.php?id=<?= $user[0]['user_id']; ?>" align="left" alt="写真" class="circle">
     
     
       <div class="user_name">
@@ -59,7 +67,6 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="box1">
       </div>
 
-</form>
 </main>
 
 <aside id="sub">
@@ -161,8 +168,8 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
       var a = document.createElement('button');
       a.type="submit";
       a.classList.add("more-see");
-      a.setAttribute('name','more_see' + i);
-      a.setAttribute('id', i);
+      a.setAttribute('name','more_see' + <?php print($i); ?>);
+      a.setAttribute('id', <?php print($i); ?>);
       a.setAttribute('onclick','button(this.id)');
       a.innerText = "...もっと見る";
 
@@ -190,18 +197,13 @@ $plan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endfor; ?>
 
   
-
-</script>
-
-<script>
- function button(clicked_id)
+    function button(clicked_id)
   {
     var s = clicked_id;
     var counter = document.getElementById("counter");
-        console.log(counter.value);
         counter.value = s;
-        console.log(counter.value);
   }
-  </script>
+
+</script>
 
 </body>

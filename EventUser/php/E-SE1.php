@@ -1,4 +1,5 @@
 <?php
+session_cache_limiter("none");
 session_start(); // セッション開始
 $eventuser_id = $_SESSION['eventuser_id'];
 include "MG.php";
@@ -24,6 +25,13 @@ if($count1 == 0) {
 
 $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $counter = $_POST['counter'];
+  $event_id = $event[$counter]['event_id'];
+  $_SESSION['event_id'] = $event_id;
+  header('Location:E-SE4.php');
+}
+
 ?>
 
 
@@ -37,15 +45,10 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body bgcolor="#f0f8ff">
   <main id="main">
+  <form action="" method="POST">
+  <input type="hidden" id="counter" name="counter" value="0">
     <h3>投稿イベント</h3>
 
-  
-
-    <div>
-      <ul id="country_list">
-          
-      </ul>
-    
     <!--ここに追加してね-->
     <p class="non">
     <?php
@@ -55,8 +58,15 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
       ?>
     </p>
 
+    <div>
+      <ul id="country_list">
+          
+      </ul>
+    
+    
+
       <div class="right"> 
-        <button type="button" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
+        <button type="button" class="search" onclick="location.href='E-SC1.php'"> 検索　　　　<img src="serch_image.png" height ="40" width="40" /></button>
     
       </div>
     
@@ -131,7 +141,7 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
-  div.innerHTML = "<?php print($event[$i]['event_title']) ?>"
+  div.innerHTML = "<?php print($event[$i]['event_title']) ?>";
 
   // 本文を作成
   var p = document.createElement('p');
@@ -139,9 +149,12 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
   p.innerHTML = "<?php print($event[$i]['event_content']) ?>";
 
   // もっと見るを作成
-  var a = document.createElement('a');
+  var a = document.createElement('button');
+  a.type="submit";
   a.classList.add("more-see");
-  a.href = "E-SE4.php";
+  a.setAttribute('name','more_see' + <?php print($i); ?>);
+  a.setAttribute('id', <?php print($i); ?>);
+  a.setAttribute('onclick','button(this.id)');
   a.innerText = "...もっと見る";
   
   // それぞれの要素を追加したい場所へ追加
@@ -159,7 +172,13 @@ $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php endfor; ?>
 
-</Script>
+        function button(clicked_id){
+          var s = clicked_id;
+          var counter = document.getElementById("counter");
+          counter.value = s;
+        }
+
+</script>
 </body>
 
 <?php

@@ -2,6 +2,16 @@
 // セッション開始 
 session_start();
 
+/* セッションの初期化 */
+$_SESSION['plan_search'] = '';
+$_SESSION['plan_who'] = '';
+$_SESSION['plan_prefectures'] = '';
+$_SESSION['plan_cost'] = '';
+$_SESSION['plan_date_first'] = '';
+$_SESSION['plan_date_end'] = '';
+$_SESSION['plan_stay'] = '';
+
+
 // POSTで送信されている
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -68,9 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p>期間</p>
         <table>
         <tr>
-        <td><input type="date" id="date" name="plan_search_first" class="plan-day" value=""></td>
+        <td><input type="date" id="date" name="plan_date_first" class="plan-day" value=""></td>
         <td><div class="kara">～</div></td>
-        <td><input type="date" id="date" name="plan_search_end" class="plan-day2" value=""></td>
+        <td><input type="date" id="date" name="plan_date_end" class="plan-day2" value=""></td>
         </tr>
       </table>
   
@@ -78,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="number" name="plan_cost" class="cost"> 円
   
       <p>宿泊</p>
-      <input type="number" name="plan_day" class="stay"> 泊
+      <input type="number" name="plan_stay" class="stay"> 泊
       <center>
         <br>
         <br>
@@ -90,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <aside id="sub">
     <ul class="menu">
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>

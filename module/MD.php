@@ -3,9 +3,9 @@
 class MD {
 
     // テーブル名、カラム名、削除したい値、型   
-    function md($table, $columnnaem, $post, $type) : void {
+    function md($table, $columnnaem, $post, $type) {
         try {
-            include "MC-01.php";
+            include_once "MC-01.php";
             // データベース接続
             $db = getDB();
 
@@ -23,8 +23,10 @@ class MD {
     
             // INSERT命令を実行
             $stt->execute();
+            return 1;
         } catch(PDOException $e) {
             die("エラーメッセージ：{$e->getMessage()}");
+            return -1;
         }
     }
 }

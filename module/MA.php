@@ -4,7 +4,7 @@ class MA {
         function ma($table, $column, $post, $type) : void {
             try {
                 // データベース接続
-                include "MC-01.php";
+                include_once "MC-01.php";
                 $db = getDB();
     
                 $sum_column = null; // 最終挿入値column
@@ -43,7 +43,7 @@ class MA {
     function ma_return ($table, $column, $post, $type) {
         try {
             // データベース接続
-            include "MC-01.php";
+            include_once "MC-01.php";
             $db = getDB();
 
             $sum_column = null; // 最終挿入値column

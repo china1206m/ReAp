@@ -30,6 +30,147 @@
       font-size: 1em;
     }
 
+    /*計画内の場所の情報掲載デザイン*/ 
+    .acount_information{
+      background:white; /*背景色の指定*/
+      width:80%;
+      border: solid thin black;
+      margin-left: 10%;
+      text-align: center;
+      }
+
+      .circle {
+        width:100px;
+        height:100px;
+        border: 1px solid;
+        border-radius: 50%;
+      }
+
+      .profiel_message{
+      background:white; /*背景色の指定*/
+      width:80%;
+      border: solid thin black;
+      margin-left: 10%;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      }
+
+      .user_name{
+        font-size: 3em;
+        margin-top: 20px;
+        margin-left: 100px;
+      }
+
+      /* ユーザ名とアイコンの横並び */
+      div.yoko{
+        display: flex;
+      }
+
+      .plan{
+      background: #dae5f8; /*背景色の指定*/
+      width:80%;
+      height: 70px;
+      font-size: 3em;
+      border: solid thin black;
+      margin-left: 10%;
+      text-align: center;
+      }
+
+      .title {
+        margin: 0 0 0 20px;
+        padding: 0;
+        font-weight: bold;
+        font-size: 40px;
+        text-align: center;
+      }
+    
+    
+    .plan_content{
+        font-size: 20px;
+    }
+    
+    .travel_time{
+    text-align: center;
+    font-size: 20px;
+    }
+    
+    .condition{
+        display: inline;
+        font-size: 20px;
+        margin-left: 80px;
+    }
+    
+    ol{
+        font-size: 40px;
+        margin-left: 20px;
+    }
+    
+    /*計画内の場所の情報掲載デザイン*/ 
+    .home_information{
+        background:white; /*背景色の指定*/
+        width:92%;
+        border: solid thin black;
+        }
+    
+    /*計画の情報掲載デザイン*/ 
+    .all_information{
+        padding: 10px;
+        background:white; /*背景色の指定*/
+        width:81%;
+        position: relative;
+        border: solid medium #dae5f8;
+        margin-left: 7%;
+        }
+    
+    /*もっと見るボタンのデザイン*/
+    .more-see { 
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+        color: gray;
+        text-decoration: none; 
+        font-weight: bold;
+        font-size: 1.1em;
+        position:absolute;
+        right: 0;
+        bottom: 0;
+        border: 0;
+        background-color: white;
+        margin-left: 100px;
+        }
+    
+    .list{
+        list-style:none;
+    }
+
+    .right{
+      text-align: right;
+    }
+
+    .report{
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+      background-color: white;
+      border: solid thin white;
+      margin-left: 90%;
+    }
+
+    .box1{
+      /*計画内の場所の情報掲載デザイン*/ 
+      height: 300px;
+      background:white; /*背景色の指定*/
+      width:92%;
+      border: solid thin white;
+      
+    }
+
 }
 
 
@@ -156,6 +297,11 @@
     
     /*もっと見るボタンのデザイン*/
     .more-see { 
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
         color: gray;
         text-decoration: none; 
         font-weight: bold;
@@ -163,6 +309,8 @@
         position:absolute;
         right: 0;
         bottom: 0;
+        border: 0;
+        background-color: white;
         margin-left: 100px;
         }
     

@@ -84,6 +84,7 @@ section {
     border:solid #ccc 0px;
     border-radius: 3px; /* 角の丸み */
     cursor: pointer;
+    margin-top: 100px;
   }
 
   #open-btn:hover {
@@ -135,7 +136,6 @@ p {
 .prefectures-shop{
     width: 300px;
     font-size: 1.5em;
-    color: gray;
     margin-left: 200px;
 }
 
@@ -153,4 +153,9 @@ p {
     height: 100px;
     font-size: 1.5em;
     margin-left: 200px;
+}
+
+.admit{
+  border: 0;
+  background-color: white;
 }

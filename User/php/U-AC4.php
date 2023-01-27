@@ -1,6 +1,7 @@
 <?php
 session_start();
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    /*
     include "MU.php";
 
     $update = new MU();
@@ -10,6 +11,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $column_name = "user_id";
     $id = $_SESSION['user_id'];
     $update->mu("user", $column, $post, $type, $column_name, $id);
+    */
+
+    include "MU.php";
+
+    $update = new MU();
+    $column = ["user_name", "profile_message"];
+    $post = [$_POST['user_name'], $_POST['profile_message']];
+    $type = [2, 2];
+    $column_name = "user_id";
+    $user_id = $_SESSION['user_id'];
+    $update->mu("user", $column, $post, $type, $column_name, $user_id);
+
+    include_once "MC-01.php";
+    $pdo = getDB();
+
+    $content = file_get_contents($_FILES['profile_image']['tmp_name']);
+    $sql = 'UPDATE user SET  profile_image = :profile_image WHERE user_id = :user_id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':profile_image', $content);
+    $stmt->bindValue(':user_id', $user_id);
+    $stmt->execute();
+
     header('Location:U-AC3.php');
     exit;
 }
@@ -35,8 +58,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div align="center">
                 <div class="profile">
                     
-                    <img class="profile__img" src="画像のURL"><br>
-                    <input type="file" name="profile_image" accept="image/jpeg,image/png">
+                <img id="preview" class="profile__img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw=="><br>
+                <input type="file" name="profile_image" accept="image/jpeg,image/png" onchange="previewImage(this);">
                 </div>
                 
                 <div class="box1" align="left">
@@ -75,13 +98,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <aside id="sub">
             <ul class="menu">
                 <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-                <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+                <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
               </ul>
           </aside>
-        
 
+          <script>
+            function previewImage(obj){
+                var fileReader = new FileReader();
+                fileReader.onload = (function(){
+                    document.getElementById('preview').src =fileReader.result;
+                });
+                fileReader.readAsDataURL(obj.files[0]);
+            }
+          </script>
+    
     </body>
 </html>

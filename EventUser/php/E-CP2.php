@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="date" id="date" name="coupon_deadline" class="day" value="">
 
     
+    
 
     <center>
     <button type="submit" name="coupon_search" class="button-only">検索</button>
@@ -135,8 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       var eventday = document.searchForm.coupon_place.value;
       var eventsearch = document.searchForm.coupon_deadline.value;
       var content = document.searchForm.coupon_search1.value;
+      var name = document.searchForm.coupon_name.value;
       
-      if ( prefectures == "" && eventday == "" && eventsearch == "" && content == "") {
+      if ( prefectures == "" && eventday == "" && eventsearch == "" && content == "" && name=="") {
       alert ( "検索したい項目を入力してください。" );
       document.searchForm.coupon_prefectures.focus();
       return false;

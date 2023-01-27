@@ -1,84 +1,76 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
-$coupon_search = "";
-$coupon_prefectures = "";
-$coupon_place = "";
-$coupon_deadline = "";
+$eventuser_id = $_SESSION['eventuser_id'];
 
-$db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
-
+$db = MG_09("","",$eventuser_id,"","","","");
 $count1 = $db->rowCount();
-
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $counter = $_POST['counter'];
+    $event_id = $coupon[$counter]['coupon_id'];
+    $_SESSION['coupon_id'] = $event_id;
+    header('Location:E-CP4.php');
+  }
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>画面ID M-CP3</title>
+  <title>画面ID E-CP10</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="M-CP3.css" type="text/css">
-  <link rel="stylesheet" href="M-menu.css" type="text/css">
+  <link rel="stylesheet" href="E-CP10.css" type="text/css">
+  <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
 <body>
 
 <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
-
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン一覧</h3>
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     
 <div class="yoko-narabi">
-<form action="M-CP4.php" method="POST">
+
     <ul id="coupon_list1">
-        <li>
             
     </ul>
-</form> 
-<form action="M-AC4.php" method="POST">
+ 
+
     <ul id="coupon_list2">
         
-        
     </ul>
-</form>
 
- </main>
+</div>
+</form>
+</main>
 
 <aside id="sub">
     <ul>
-    <li class="menu-list"><a class="menu-button" href="M-HK1.php"><img src="M-menu-home.png" width="45" height="43">　ホーム</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-PL1.html"><img src="M-menu-place.png" width="45" height="43">　名所</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-EV1.php"><img src="M-menu-event.png" width="45" height="43">　イベント</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-RP2.php"><img src="M-menu-report.png" width="45" height="43">　通報一覧</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-CP1.html"><img src="M-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
-    <li class="menu-list"><a class="menu-button" href="M-UM1.php"><img src="M-menu-acount.png" width="45" height="43">　ユーザ管理</a></li><br>
-
-    <li class="menu-list"><button type="button" class="menu-logout" onclick=location.href="M-AC2.php">ログアウト</a></li><br>
-    </ul>
+            <li class="menu-list"><a class="menu-button" href="E-EL1.html"><img src="E-menu-home.png" width="45" height="43">　ホーム</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="E-CB1.php"><img src="E-menu-post.png" width="45" height="43">　イベント投稿</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="E-SE1.php"><img src="E-menu-see.png" width="45" height="43">　投稿イベント<br>　　　一覧・消去</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="E-CP1.html"><img src="E-menu-coupon.png" width="45" height="43">　クーポン</a></li><br>
+            <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
+      </ul>
 </aside>
 
 <script>
-//nは表示数
-    var n=8;
-    // phpで文字列に改行を入れて作成する　下のcountry,shopはphpで作成するもの
-  //var day = ['期限１', '期限２', '期限３', '期限４', '期限５'];
-  //var shop = ['店名１', '店名２', '店名３', '店名４', '店名５'];
-  //var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
+    var ul1 = document.getElementById("coupon_list1");
 
-var ul1 = document.getElementById("coupon_list1");
-
-    <?php 
-
-        for ($i = 0; $i < $count1; $i=$i + 2) :
-
-    ?>
+    <?php for ($i = 0; $i < $count1; $i=$i + 2) : ?>
 
     // li要素を作成
     var li1 = document.createElement('li');
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', <?php print($i); ?>);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -100,7 +92,7 @@ var ul1 = document.getElementById("coupon_list1");
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -121,7 +113,7 @@ var ul1 = document.getElementById("coupon_list1");
     div_date.appendChild(br3);
     div_date.appendChild(date);
    
-        <?php endfor; ?>
+    <?php endfor; ?>
 
 var ul2 = document.getElementById("coupon_list2");
 
@@ -131,11 +123,15 @@ var ul2 = document.getElementById("coupon_list2");
 
     ?>
 
+  
+
     // li要素を作成
     var li1 = document.createElement('li');
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', <?php print($i); ?>);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -157,7 +153,7 @@ var ul2 = document.getElementById("coupon_list2");
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -178,10 +174,14 @@ var ul2 = document.getElementById("coupon_list2");
     div_date.appendChild(br3);
     div_date.appendChild(date);
 
-        <?php endfor; ?>
+    <?php endfor; ?>
 
-  
-
+    function button(clicked_id){
+        var s = clicked_id;
+        var counter = document.getElementById("counter");
+        counter.value = s;
+    }
 </script>
+
 </body>
 </html>

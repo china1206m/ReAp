@@ -1,13 +1,11 @@
 <?php
-/* セッション開始 */
+// セッション開始 
 session_start();
  
-/* POSTで送信されている */
+// POSTで送信されている 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $_SESSION['user_id'] = 1;
-    /* データ挿入 */
+    // データ挿入 
     // 呼び出し
     include "MA.php";
     // addインスタンス生成
@@ -30,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mu = new MU();
     $mu->report_count($_SESSION['user_id']);
 
-    header('Location:U-HK7.php');
+    header('Location:U-HK1.php');
     exit;
 }
 ?>
@@ -52,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>通報理由</h2>
         </div>
     
-        <form action="U-HK7.php" method="POST" name="reportForm" onSubmit="return check();">
+        <form action="" method="POST" name="reportForm" onSubmit="return check();">
             <div class="reason-select" align="center">
                 <div class="button-box">
                     <div class="reason" style="max-width:650px;">
@@ -71,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <aside id="sub">
     <ul class="menu">
         <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-        <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+        <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
         <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>

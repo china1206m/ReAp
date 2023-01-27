@@ -19,9 +19,10 @@
                 所持クーポン一覧
             </font>
 
-            <ul id="coupon_list1">
-                
-                    
+            <font size="+2" id="write" class="write">
+            </font>
+            
+            <ul id="coupon_list1">      
             </ul>
                     
         </div>
@@ -32,7 +33,7 @@
         <aside id="sub">
             <ul class="menu">
                 <li class="menu-list"><a class="menu-button" href="U-HK6.php"><img class="menu_img" src="U-menu-home.png" >　ホーム</a></li><br>
-                <li class="menu-list"><a class="menu-button" href="U-PL1.php"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
+                <li class="menu-list"><a class="menu-button" href="U-PL1.html"><img class="menu_img" src="U-menu-place.png">　名所</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-EV1.php"><img class="menu_img" src="U-menu-event.png">　イベント</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-FV2.php"><img class="menu_img" src="U-menu-favorite.png">　お気に入り</a></li><br>
                 <li class="menu-list"><a class="menu-button" href="U-AC3.php"><img class="menu_img" src="U-menu-acount.png">　アカウント</a></li><br>
@@ -47,6 +48,12 @@
   var content = ['内容１', '内容２', '内容３', '内容４', '内容５'];
 
 var ul1 = document.getElementById("coupon_list1");
+
+var count = 0;
+if(count == 0){
+    var write = document.getElementById("write");
+    write.innerHTML = "所持しているクーポンはありません";
+}else{
 for (var count = 0; count < 6; count++) {
     // li要素を作成
     var li1 = document.createElement('li');
@@ -97,6 +104,7 @@ for (var count = 0; count < 6; count++) {
     div_date.appendChild(br3);
     div_date.appendChild(date);
                 }
+            }
         </script>
 
         

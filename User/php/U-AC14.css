@@ -232,6 +232,13 @@ button:hover {
   label:hover {
     background-color: #E2EDF9;
   }
+
+  .write{
+    display: block;
+    margin-top: 350px;
+    color: #006DD9;
+
+  }
   
   
   

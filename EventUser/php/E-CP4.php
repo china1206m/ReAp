@@ -1,11 +1,22 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
-$id = 1;
+$coupon_id = $_SESSION['coupon_id'];
 
-$db = MG_09($id,"","","","","","");
+$db = MG_09($coupon_id,"","","","","","");
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+  include "MD.php";
+  $delete = new md();
+  $type = [1];
+  $delete->md("coupon", "coupon_id", $coupon_id, $type);
+  header('Location:E-CP1.html');
+  exit;
+}
 
 ?>
 
