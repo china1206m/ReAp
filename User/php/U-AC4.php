@@ -26,13 +26,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once "MC-01.php";
     $pdo = getDB();
 
-    $content = file_get_contents($_FILES['profile_image']['tmp_name']);
-    $sql = 'UPDATE user SET  profile_image = :profile_image WHERE user_id = :user_id';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':profile_image', $content);
-    $stmt->bindValue(':user_id', $user_id);
-    $stmt->execute();
-
+    if(!empty($_FILES['profile_image']['tmp_name'])) {
+        $content = file_get_contents($_FILES['profile_image']['tmp_name']);
+        $sql = 'UPDATE user SET  profile_image = :profile_image WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':profile_image', $content);
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->execute();
+    }
     header('Location:U-AC3.php');
     exit;
 }
