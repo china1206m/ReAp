@@ -22,21 +22,22 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン一覧</h3>
-
+    <form action="E-CP4.php" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     
 <div class="yoko-narabi">
-<form action="E-CP4.php" method="POST">
+
     <ul id="coupon_list1">
             
     </ul>
-</form> 
-<form action="E-CP4.php" method="POST">
+ 
+
     <ul id="coupon_list2">
         
     </ul>
-</form>
-</div>
 
+</div>
+</form>
 </main>
 
 <aside id="sub">
@@ -59,6 +60,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', i);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -118,6 +121,8 @@ var ul2 = document.getElementById("coupon_list2");
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', i);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -164,7 +169,14 @@ var ul2 = document.getElementById("coupon_list2");
 
 </script>
 
-
+<script>
+function button(clicked_id)
+{
+  var s = clicked_id;
+  var counter = document.getElementById("counter");
+      counter.value = s;
+}
+</script>
 
 </body>
 </html>
