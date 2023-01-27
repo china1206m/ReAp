@@ -3,13 +3,15 @@ session_cache_limiter("none");
 session_start(); // セッション開始
 
 include "MG.php";
+
+$eventuser_id = $_SESSION['eventuser_id'];
 $event_search = $_SESSION['event_search'];
 $event_prefectures = $_SESSION['event_prefectures'];
 $event_day_first = $_SESSION['event_day_first'];
 $event_day_end = $_SESSION['event_day_end'];
 $event_cost = $_SESSION['event_cost'];
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
+$db = MG_11($eventuser_id,$event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
 
 $count1 = $db->rowCount();
 
