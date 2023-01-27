@@ -77,11 +77,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
 
       //アイコン追加
-      var img = document.createElement('img');
-      img.classList.add("circle");
-      img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
-      img.align = 'left'
-      img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
+      <?php if(!empty($eventuser[0]['profile_image'])) { ?>
+        var img = document.createElement('img');
+        img.classList.add("circle");
+        img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
+        img.align = 'left'
+        img.alt = '<?php print($eventuser[0]['eventuser_name']) ?>'
+      <?php } else { ?>
+        // デフォルトアイコン
+
+      <?php } ?>
   
       //アイコンと題名の横並びのためのクラス追加
       var div_yoko = document.createElement('div');
@@ -117,7 +122,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       li.appendChild(div_eventlist);
       div_eventlist.appendChild(div_right);
       div_eventlist.appendChild(div_yoko);
+      <?php if(!empty($eventuser[0]['profile_image'])) { ?>
       div_yoko.appendChild(img);
+      <?php } ?>
       div_yoko.appendChild(div_title);
       div_eventlist.appendChild(br);
       div_eventlist.appendChild(br);
