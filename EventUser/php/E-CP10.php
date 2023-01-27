@@ -1,12 +1,21 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
-$eventuser_id = 1;
+$eventuser_id = $_SESSION['eventuser_id'];
 
 $db = MG_09("","",$eventuser_id,"","","","");
 $count1 = $db->rowCount();
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $counter = $_POST['counter'];
+    $event_id = $coupon[$counter]['coupon_id'];
+    $_SESSION['coupon_id'] = $event_id;
+    header('Location:E-CP4.php');
+  }
 
 ?>
 
@@ -22,7 +31,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン一覧</h3>
-    <form action="E-CP4.php" method="POST">
+    <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
     
 <div class="yoko-narabi">
@@ -60,7 +69,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
-    button1.setAttribute('id', i);
+    button1.setAttribute('id', <?php print($i); ?>);
     button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
@@ -83,7 +92,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -121,7 +130,7 @@ var ul2 = document.getElementById("coupon_list2");
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
-    button1.setAttribute('id', i);
+    button1.setAttribute('id', <?php print($i); ?>);
     button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
@@ -144,7 +153,7 @@ var ul2 = document.getElementById("coupon_list2");
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -167,15 +176,11 @@ var ul2 = document.getElementById("coupon_list2");
 
     <?php endfor; ?>
 
-</script>
-
-<script>
-function button(clicked_id)
-{
-  var s = clicked_id;
-  var counter = document.getElementById("counter");
-      counter.value = s;
-}
+    function button(clicked_id){
+        var s = clicked_id;
+        var counter = document.getElementById("counter");
+        counter.value = s;
+    }
 </script>
 
 </body>

@@ -1,21 +1,13 @@
 <?php
+session_cache_limiter("none");
+session_start(); // セッション開始
 
 include "MG.php";
 
-$_SESSION['coupon_id'] = 1;
+$coupon_id = $_SESSION['coupon_id'];
 
-$db = MG_09($id,"","","","","","");
+$db = MG_09($coupon_id,"","","","","","");
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  include "MD.php";
-  $delete = new md();
-  $type = [1];
-  $delete->md("coupon", "coupon_id", $_SESSION['coupon_id'], $type);
-  session_destroy(); // セッション破棄
-  header('Location:E-CP1.html');
-  exit;
-}
 
 ?>
 
@@ -32,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">クーポン詳細</h3>
+    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
 
 
     <center>
@@ -55,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div id="overlay" class="overlay-event">
       <div class="flex">
-      <form action="" method="POST" id="form1">
+      <form action="#" method="POST" id="form1">
         <div id="overlay-inner">
           <p>クーポンを消去します。</p>
           <p>本当によろしいですか。</p>
