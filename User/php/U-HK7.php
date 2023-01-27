@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
     <ul id="plan">
       <li class="plan_list">
-        <div class="plan_information">
+        <div class="information">
           <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
             <a href="U-HK1.php" style="text-decoration:none;">
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
     <form method="POST" action="">
     <div class="favorite">
-      <button class="unlike" type="submit"></button><h4><?php print($plan[0]['plan_favorite_total']); ?></h4>
+      <button class="unlike" type="submit"></button><h4 class="num_like"><?php print($plan[0]['plan_favorite_total']); ?></h4>
     </div>
   </form>
     <div class="box"></div>
@@ -169,7 +169,7 @@ div_ect.classList.add("ect");
 var pic = document.createElement('img');
 pic.classList.add("pics");
 pic.src = "monkey.png";
-pic.align = 'left'
+pic.align = "center"
 pic.alt = ''
 
 //移動時間追加
