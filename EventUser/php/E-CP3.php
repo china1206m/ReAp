@@ -11,6 +11,9 @@ $coupon_deadline = $_SESSION['coupon_deadline'];
 $db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
 
 $count1 = $db->rowCount();
+if($count1 == 1) {
+    $_SESSION['coupon'] = '検索内容に該当するクーポンはありません。';
+}
 
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
@@ -30,7 +33,13 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
 
-    <p class="non">検索内容に該当するクーポンはありません。</p>
+    <p class="non">
+        <?php
+             if (isset($_SESSION['coupon'])) {
+                echo($_SESSION['coupon']);
+            }
+        ?>
+    </p>
 
     
 <div class="yoko-narabi">
@@ -187,3 +196,8 @@ var ul2 = document.getElementById("coupon_list2");
 </script>
 </body>
 </html>
+
+<?php
+/* セッションの初期化 */
+$_SESSION['coupon'] = '';
+?>
