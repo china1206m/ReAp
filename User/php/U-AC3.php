@@ -4,7 +4,7 @@ include "MG.php";
 
 $id = $_SESSION['user_id'];
 
-$db = MG_01($id,"","","","","","","","");
+$db = MG_01($id,"","","","","","","","","");
 
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 /*include "MGvG.php";
