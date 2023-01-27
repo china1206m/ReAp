@@ -3,15 +3,12 @@ session_start();
 include "MG.php";
 
 $coupon_search = $_SESSION['coupon_search'];
-$coupon_name = $_SESSION['coupon_name'];
 $coupon_prefectures = $_SESSION['coupon_prefectures'];
 $coupon_place = $_SESSION['coupon_place'];
 $coupon_deadline = $_SESSION['coupon_deadline'];
 
 $db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
-
 $count1 = $db->rowCount();
-
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -21,7 +18,7 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
   <title>画面ID E-CP3</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="E-CP3.css" type="text/css">
   <link rel="stylesheet" href="E-menu.css" type="text/css">
 </head>
