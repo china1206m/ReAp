@@ -15,6 +15,13 @@ $count1 = $db->rowCount();
 
 $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $counter = $_POST['counter'];
+    $coupon_id = $coupon[$counter]['coupon_id'];
+    $_SESSION['coupon_id'] = $coupon_id;
+    header('Location:E-CP4.php');
+  }
+
 ?>
 
 
@@ -30,7 +37,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">検索結果</h3>
-
+    <form action="" method="POST">
+    <input type="hidden" id="counter" name="counter" value="0">
     <p class="non">
         <?php
              if ($count1 == 0) {
@@ -41,18 +49,18 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
     
 <div class="yoko-narabi">
-<form action="E-CP4.php" method="POST">
+<!--<form action="E-CP4.php" method="POST">-->
     <ul id="coupon_list1">
         <li>
             
     </ul>
-</form> 
-<form action="E-CP4.php" method="POST">
+<!--</form> 
+<form action="E-CP4.php" method="POST">-->
     <ul id="coupon_list2">
         
         
     </ul>
-</form>
+<!--</form>-->
 </div>
 
  </main>
@@ -88,6 +96,8 @@ var ul1 = document.getElementById("coupon_list1");
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', <?php print($i); ?>);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -146,6 +156,8 @@ var ul2 = document.getElementById("coupon_list2");
 
     var button1 = document.createElement('button');
     button1.classList.add("coupon");
+    button1.setAttribute('id', <?php print($i); ?>);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -189,6 +201,12 @@ var ul2 = document.getElementById("coupon_list2");
     div_date.appendChild(date);
 
         <?php endfor; ?>
+
+        function button(clicked_id){
+        var s = clicked_id;
+        var counter = document.getElementById("counter");
+        counter.value = s;
+    }
   
 
 </script>
