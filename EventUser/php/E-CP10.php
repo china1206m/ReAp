@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -153,7 +153,7 @@ var ul2 = document.getElementById("coupon_list2");
     // テキスト情報を作成
     var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
     var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
-    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_content']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
