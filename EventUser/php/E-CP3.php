@@ -2,13 +2,14 @@
 session_start();
 include "MG.php";
 
+$eventuser_id = $_SESSION['eventuser_id'];
 $coupon_search = $_SESSION['coupon_search'];
-$coupon_name = $_SESSION['coupon_name'];
+//$coupon_name = $_SESSION['coupon_name'];
 $coupon_prefectures = $_SESSION['coupon_prefectures'];
 $coupon_place = $_SESSION['coupon_place'];
 $coupon_deadline = $_SESSION['coupon_deadline'];
 
-$db = MG_13($coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
+$db = MG_13($eventuser_id,$coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
 
 $count1 = $db->rowCount();
 
