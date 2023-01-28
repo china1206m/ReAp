@@ -30,9 +30,9 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
         <?php 
           if(!empty($eventuser[0]['profile_image'])) {
         ?>
-          <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="image-circle">
+          <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle" align="left">
         <?php } else { ?>
-          <img src="E-menu-acount.png" class="image-circle">
+          <img src="castle.bmp" class="circle" align="left">
         <?php } ?>
       </div>
     </div>

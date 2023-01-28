@@ -50,11 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle" align="left" alt="アイコン" width="100%" height="100%">
     <?php } else { ?>
       <!-- デフォルトアイコン -->
-      
+      <img src="castle.bmp" class="circle" align="left">
     <?php } ?>
     <div class="title">
       <?php print($event[0]['event_title']) ?>
     </div>
+
+    <br><br>
 
     <p><?php print($event[0]['event_prefectures']) ?></p>
     <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
@@ -64,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     <center id="image_area">
-    
+     <img src="">
     </center>
 
     <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
@@ -106,15 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </aside>
   
-  <script>
-  for(i = 0; i<0; i++){
-    var image_area = document.getElementById("image_area");
-    var  img = document.createElement('img');
-         img.src = "E-menu-home.png";
-    image_area.appendChild(img);
-
-  }
-</script>
+  
 
 
 

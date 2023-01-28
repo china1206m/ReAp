@@ -147,13 +147,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // アイコンデフォルト
   var img = document.createElement('img');
   img.classList.add("circle");
-  img.src = 'E-menu-acount.png';
+  img.src = 'castle.bmp';
   img.align = 'left'
   img.alt = 'アイコン'
-  img.width = 100;
-  img.height = 100;
+  
+
+  
 
   <?php } ?>
+
+  var br= document.createElement('br');
 
   // 題名を作成
   var div = document.createElement('div');
@@ -182,8 +185,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ?>
   li.appendChild(img);
   <?php } ?>
+  //デフォルト作成場所　うえとおなじだからここはif文いらない？
   li.appendChild(img);
   li.appendChild(div);
+  li.appendChild(br);
   li.appendChild(div_pre);
   li.appendChild(div_first);
   li.appendChild(div_heniyo);

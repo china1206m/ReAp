@@ -81,10 +81,11 @@ h3{
 }
 
 .circle {
-  width:50px;
-  height:50px;
-  border: 1px solid;
+  width:90px;
+  height:95px;
+  border: 0;
   border-radius: 50%;
+  margin-top: -30px;
 }
 
 .title {
