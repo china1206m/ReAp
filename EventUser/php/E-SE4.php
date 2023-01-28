@@ -46,8 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="yoko">
   <ul>
   <li><div class="event_information">
-    <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle" align="left" alt="アイコン" width="100%" height="100%">
-    
+    <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+      <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle" align="left" alt="アイコン" width="100%" height="100%">
+    <?php } else { ?>
+      <!-- デフォルトアイコン -->
+      
+    <?php } ?>
     <div class="title">
       <?php print($event[0]['event_title']) ?>
     </div>

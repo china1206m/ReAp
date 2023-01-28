@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <head>
     <title>U-HK11</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="U-HK6.css" type="text/css">
+    <link rel="stylesheet" href="U-HK11.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
   </head>
   <body>
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         for ($i = 0; $i < $count1; $i++) :  
 
           $user_id = $plan[$i]['user_id']; 
-          $db = MG_01($user_id,"","","","","","","","");
+          $db = MG_01($user_id,"","","","","","","","","");
           $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
           $plan_id = $plan[$i]['plan_id']; 
@@ -152,11 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
       p_time.classList.add("plan_content");
 
-      //移動時間追加
-      var p_travel = document.createElement('p');
-      p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
-
       // もっと見るを作成
       var a = document.createElement('button');
       a.type="submit";
@@ -184,7 +179,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_home.appendChild(p_planname);
       div_home.appendChild(p_content);
       div_home.appendChild(p_time);
-      div_planlist.appendChild(p_travel);
       div_planlist.appendChild(a);
       
 

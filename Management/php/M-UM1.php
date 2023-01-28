@@ -34,6 +34,17 @@ $count3 = $db->rowCount();
 
 $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 
+//$_POST['table']で消去するアカウントテーブル指定
+$counter = $_POST['counter'];
+if($_POST['table']=="1"){
+  $user_id = $user[$counter]['plan_id'];
+}elseif($_POST['table']=="2"){
+  $eventuser_id = $eventuser[$counter]['plan_id'];
+}else{
+  $administrator_id = $administrator[$counter]['plan_id'];
+}
+//$_POST['stop']=1なら停止,$_POST['stop']=0なら復活
+
 ?>
 
 
@@ -73,7 +84,8 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
         <button class="button-only">検索</button></p>
         </form>
     
-        <form action="#" method="POST" onSubmit="return check();">
+        <form action="#" method="POST">
+        <input type="hidden" id="stop" name="stop" value="0">
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="user_id"><li class="tite">ユーザID</li></ul>
@@ -99,7 +111,7 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit" class="button-only">検索</button>
         </form>
 
-        <form action="#" method="POST" onSubmit="return check();">
+
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="event_id"><li class="tite">ユーザID</li></ul>
@@ -109,7 +121,7 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
             <ul id="stop_count_e"><li class="tite">停止回数</li></ul>
             <ul id="condition_e"><li>　</li></ul>
         </div>
-        </form>
+  
     </div>
 
 
@@ -123,7 +135,7 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit" class="button-only">検索</button>
         </form>
 
-        <form action="#" method="POST" onSubmit="return check();">
+ 
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="manage_id"><li class="tite">ユーザID</li></ul>
@@ -134,7 +146,7 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
             <ul id="condition_m"><li>　</li></ul>
                 
         </div>
-    </form>
+
     </div>
        
 </div>
@@ -142,14 +154,17 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 
 <div style="display: block;" id="overlay">
     <div class="flex">
+      <form action="#" method="POST" id="delete_form">
+      <input type="hidden" id="table" name="table" value="">
+      <input type="hidden" id="counter" name="counter" value="0">
       <div id="overlay-inner">
           選択したユーザを消去します。<br>
           本当によろしいですか。<br>
-        <button id="close-btn" type="submit" onClick="disp()">はい</button>
-      </form>
+        <button id="close-btn1" class="close" disabled>はい</button>
         <!--はいを押したら消去機能呼び出し-->
-        <button id="close-btn" class="close" type=button>いいえ</button>
+        <button id="close-btn2" class="close" type=button disabled>いいえ</button>
       </div>
+      </form>
     </div>
   </div>
 </main>
@@ -256,31 +271,32 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
     var ul_condition1 = document.getElementById("condition_u");
     var li_condition1 = document.createElement('li');
 
-    var input_revival = document.createElement('input');
-    input_revival.type = "radio";
-    input_revival.name = "situation_u"+<?php print($count) ?>;
-    input_revival.value = "1";
-    input_revival.id = "revival_u"+<?php print($count) ?>;
-    var label_revival = document.createElement('label');
-    label_revival.innerText = "復活"+<?php print($count) ?>;
-    label_revival.classList.add("situation");
-    label_revival.htmlFor ="revival_u"+<?php print($count) ?>;
+    var stop = document.getElementById("stop");
+    var button_revival = document.createElement('button');
+    <?php if($user[$i]['user_stop']==0):?>
+      button_revival.setAttribute("disabled","");
+      stop.value = "1";
+    <?php endif; ?>
+    button_revival.type = "submit";
+    button_revival.classList.add("situation_button");
+    button_revival.innerHTML = "復活";
 
-    var input_suspension = document.createElement('input');
-    input_suspension.type = "radio";
-    input_suspension.name = "situation_u"+<?php print($count) ?>;
-    input_suspension.value = "2";
-    input_suspension.id  = "suspension_u"+<?php print($count) ?>;
-    var label_suspension = document.createElement('label');
-    label_suspension.innerText = "停止"+<?php print($count) ?>;
-    label_suspension.classList.add("situation");
-    label_suspension.htmlFor = "suspension_u"+<?php print($count) ?>;
+    var button_suspension = document.createElement('button');
+    <?php if($user[$i]['user_stop']==1):?>
+      button_suspension.setAttribute("disabled","");
+    <?php endif; ?>
+    button_suspension.type = "submit";
+    button_suspension.classList.add("situation_button");
+    button_suspension.innerHTML = "停止";
 
     var button_delete = document.createElement('button');
-    button_delete.type = "submit";
+    button_delete.type = "button";
     button_delete.classList.add("situation_button");
     button_delete.classList.add("overlay-event");
+    button_delete.setAttribute('id', <?php print($i); ?>);
     button_delete.innerHTML = "消去";
+    var table = document.getElementById("table");
+    table.value = "1";
 
     
     ul_id1.appendChild(li_id1);
@@ -368,10 +384,13 @@ const len = elements.length;
         var li_condition1 = document.createElement('li');
     
         var button_delete = document.createElement('button');
-        button_delete.type = "submit";
+        button_delete.type = "button";
         button_delete.classList.add("situation_button");
+        button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
         button_delete.classList.add("overlay-event");
+        var table = document.getElementById("table");
+        table.value = "2";
         
         ul_id1.appendChild(li_id1);
         ul_name1.appendChild(li_name1);
@@ -425,10 +444,13 @@ const len = elements.length;
         var li_condition1 = document.createElement('li');
     
         var button_delete = document.createElement('button');
-        button_delete.type = "submit";
+        button_delete.type = "button";
         button_delete.classList.add("situation_button");
+        button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
         button_delete.classList.add("overlay-event");
+        var table = document.getElementById("table");
+        table.value = "3";
         
         
         ul_id1.appendChild(li_id1);
@@ -443,21 +465,50 @@ const len = elements.length;
     </script>
 
 <script>
-    function check () {
-  
-      // オーバレイを開閉する関数
-      const overlay = document.getElementById('overlay');
+  var overlayev = document.getElementsByClassName("overlay-event");
+  var events = Array.from(overlayev);
+  var close = document.getElementById("close-btn1");
+  var close2 = document.getElementById("close-btn2");
+  var counter = document.getElementById("counter");
+
+  // オーバレイを開閉する関数
+  const overlay = document.getElementById('overlay');
       function overlayToggle() {
         overlay.classList.toggle('overlay-on');
       }
-      overlayToggle();
-    
-      const clickArea = document.getElementsByClassName('close');
-      for(let i = 0; i < clickArea.length; i++) {
-        clickArea[i].addEventListener('click', overlayToggle, false);
-      }
-      return false;
-  }
+
+  events.forEach(function(e){
+
+    e.addEventListener('click', function(){
+    counter.value = e.id;
+    e.setAttribute("disabled","");
+    close.removeAttribute("disabled");
+    close2.removeAttribute("disabled");
+    //オーバーレイ開く
+    overlayToggle();
+    }, false);
+
+  })
+
+
+  //'いいえ'が押されたとき
+  close2.addEventListener('click', function(){
+    // ダブルクリック防止
+    events.forEach(function(e){
+      e.removeAttribute("disabled");
+    })
+    close2.setAttribute("disabled","");
+    //オーバーレイ閉じる
+    overlayToggle();
+ }, false);
+
+  close.addEventListener('click', function(){
+    // ダブルクリック防止
+    close.setAttribute("disabled","");
+    //フォーム送信
+    document.forms.delete_form.submit();
+  }, false);
+
 </script>
 
 </body>

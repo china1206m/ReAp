@@ -12,8 +12,8 @@ $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $counter = $_POST['counter'];
-    $event_id = $coupon[$counter]['coupon_id'];
-    $_SESSION['coupon_id'] = $event_id;
+    $coupon_id = $coupon[$counter]['coupon_id'];
+    $_SESSION['coupon_id'] = $coupon_id;
     header('Location:E-CP4.php');
   }
 

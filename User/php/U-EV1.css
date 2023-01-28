@@ -1,6 +1,5 @@
 /*パソコン用*/
 @media screen and (min-width:990px) {
-  /*戻るボタンのデザイン*/ 
   .circle {
     width: 200px;
     height: 200px;
@@ -21,7 +20,7 @@
     text-align: center;
   }
     
-  /*計画の情報掲載デザイン*/ 
+  /*情報掲載デザイン*/ 
   .all_information{
     padding: 10px;
     background:white; /*背景色の指定*/
@@ -92,7 +91,6 @@
 
 /*スマホ用*/
 @media screen and (max-width:990px) {
-  /*戻るボタンのデザイン*/ 
   .circle {
     width: 200px;
     height: 200px;
@@ -133,6 +131,8 @@
     right: 0;
     bottom: 0;
     margin-left: 100px;
+    background-color: white;
+    border: 0;
   }
     
   .list{

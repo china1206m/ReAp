@@ -26,7 +26,15 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
       <div class="center">
         <?php print($eventuser[0]['eventuser_name']); ?>
       </div>
-      <div class="left"><img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="image-circle"></div>
+      <div class="left">
+        <?php 
+          if(!empty($eventuser[0]['profile_image'])) {
+        ?>
+          <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="image-circle">
+        <?php } else { ?>
+          <img src="E-menu-acount.png" class="image-circle">
+        <?php } ?>
+      </div>
     </div>
     
     <center>

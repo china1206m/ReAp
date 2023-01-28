@@ -4,7 +4,7 @@ include "MG.php";
 
 $id = $_SESSION['user_id'];
 
-$db = MG_01($id,"","","","","","","","");
+$db = MG_01($id,"","","","","","","","","");
 
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 /*include "MGvG.php";
@@ -32,9 +32,12 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);*/
         <?php print($user[0]['user_name']); ?>
       </div>
       <div class="left">
-        <a href="#lightbox" data-toggle="modal" data-slide-to="<?= $i; ?>">
-          <img src="image.php?id=<? $user[0]['user_id']; ?>" class="image-circle">
-        </a>  
+        <?php if(!empty($user[0]['profile_image'])) { ?>
+          <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="image-circle">
+        <?php } else { ?>
+          <!-- デフォルトアイコン -->
+          
+        <?php } ?>
       </div>
     </div>
     

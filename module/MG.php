@@ -19,7 +19,7 @@ function is_nullorempty($obj) {
 
 //ユーザーテーブル
 
-function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
+function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop,$state) {
 
   $n = 1;
 
@@ -63,6 +63,10 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
 
     if (!is_nullorempty($stop)) {
       $sql .= "AND stop_total = ? ";
+    }
+
+    if (!is_nullorempty($state)) {
+      $sql .= "AND user_stop = ? ";
     }
 
     $stmt = $db->prepare($sql);
@@ -110,6 +114,11 @@ function MG_01($id,$mail,$pass,$name,$image,$message,$coupon,$report,$stop) {
 
     if (!is_nullorempty($stop)) {
       $stmt->bindValue($n,$stop);
+      $n++;
+    }
+
+    if (!is_nullorempty($state)) {
+      $stmt->bindValue($n,$state);
       $n++;
     }
 
@@ -867,7 +876,7 @@ function MG_10($id1,$id2,$id3) {
 
 //event検索モジュール
 
-function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
+function MG_11($id,$search,$prefectures,$day_first,$day_end,$cost) {
 
   $n = 1;
 
@@ -876,6 +885,10 @@ function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
     $db = getDB();
 
     $sql = "SELECT * FROM event WHERE 1 = 1 ";
+
+    if (!is_nullorempty($id)) {
+      $sql .= "AND eventuser_id = ?";
+    }
 
     if (!is_nullorempty($search)) {
       $sql .= "AND event_title LIKE ? ";
@@ -902,6 +915,10 @@ function MG_11($search,$prefectures,$day_first,$day_end,$cost) {
 
     $stmt = $db->prepare($sql);
 
+    if (!is_nullorempty($id)) {
+      $stmt->bindValue($n,$id);
+      $n++;
+    }
 
     if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';
@@ -1047,7 +1064,7 @@ function MG_12($search,$who,$prefectures,$cost,$date_first,$date_end,$day) {
 
 //クーポン検索モジュール
 
-function MG_13($search,$prefectures,$place,$deadline) {
+function MG_13($id,$search,$prefectures,$place,$deadline) {
 
   $n = 1;
 
@@ -1057,8 +1074,12 @@ function MG_13($search,$prefectures,$place,$deadline) {
 
     $sql = "SELECT * FROM coupon WHERE 1 = 1 ";
 
+    if (!is_nullorempty($id)) {
+      $sql .= "AND eventuser_id = ? ";
+    }
+
     if (!is_nullorempty($search)) {
-      $sql .= "AND coupon_name LIKE ? OR coupon_content LIKE ? ";
+      $sql .= "AND (coupon_name LIKE ? OR coupon_content LIKE ?) ";
     }
 
     if (!is_nullorempty($prefectures)) {
@@ -1076,6 +1097,10 @@ function MG_13($search,$prefectures,$place,$deadline) {
 
     $stmt = $db->prepare($sql);
 
+    if (!is_nullorempty($id)) {
+      $stmt->bindValue($n,$id);
+      $n++;
+    }
 
     if (!is_nullorempty($search)) {
       $search = '%'.$search.'%';

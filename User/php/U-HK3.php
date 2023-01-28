@@ -191,27 +191,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
 var plansearch = document.searchForm.plan_search.value;
-var date_first = document.searchForm.plan_search_first.value;
-var date_end = document.searchForm.plan_search_end.value;
+var date_first = document.searchForm.plan_date_first.value;
+var date_end = document.searchForm.plan_date_end.value;
 
 if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
   alert ( "検索したい項目を入力してください。" );
-  document.searchForm.event_prefectures.focus();
+  document.searchForm.plan_prefectures.focus();
   return false;
 }
 if(eventday != "" && eventday2 == ""){
   alert ( "開催期間の終了日を選択してください" );
-  document.searchForm.event_search_end.focus();
+  document.searchForm.plan_date_end.focus();
   return false;
 }
 if(eventday2 != "" && eventday == ""){
   alert ( "開催期間の開始日を選択してください" );
-  document.searchForm.event_search_first.focus();
+  document.searchForm.plan_fate_first.focus();
   return false;
 }
 return true;
 }
 </script>
+
+<script>
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+const clearRadioButton = (radioButton) => {
+  setTimeout(func =()=>{
+    radioButton.checked = false;
+  },100)
+}
+
+radioButtons.forEach(radioButton => {
+  let queryStr = 'label[for="' + radioButton.id + '"]'
+  let label = document.querySelector(queryStr)
+
+  radioButton.addEventListener("mouseup", func=()=>{
+    if(radioButton.checked){
+      clearRadioButton(radioButton)
+    }
+  });
+
+  if(label){
+    label.addEventListener("mouseup", func=()=>{
+      if(radioButton.checked){
+        clearRadioButton(radioButton)
+      }
+    });
+  }
+
+});
+  </script>
 </body>
 
 </html>

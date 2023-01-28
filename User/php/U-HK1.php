@@ -4,7 +4,7 @@ session_start(); // セッション開始
 include "MG.php";
 
 $user_id = $_SESSION['planuser_id'];
-$db = MG_01($user_id,"","","","","","","","");
+$db = MG_01($user_id,"","","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 $db = getDB();

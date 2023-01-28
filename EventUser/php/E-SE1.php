@@ -129,14 +129,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   var div_place = document.createElement('p');
       div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
 
-  // アイコンを作成
+  // アイコンユーザ選択
+  <?php
+  
+    if(!empty($eventuser[0]['profile_image'])) {
+      
+  ?>
   var img = document.createElement('img');
   img.classList.add("circle");
-  img.src = 'monky.png';
+  img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
   img.align = 'left'
   img.alt = 'アイコン'
   img.width = 100;
   img.height = 100;
+  <?php  } else {  ?>
+
+  // アイコンデフォルト
+  var img = document.createElement('img');
+  img.classList.add("circle");
+  img.src = 'E-menu-acount.png';
+  img.align = 'left'
+  img.alt = 'アイコン'
+  img.width = 100;
+  img.height = 100;
+
+  <?php } ?>
 
   // 題名を作成
   var div = document.createElement('div');
@@ -160,6 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
   li.appendChild(div_right);
+  <?php 
+    if(!empty($eventuser[0]['profile_image'])) {
+  ?>
+  li.appendChild(img);
+  <?php } ?>
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(div_pre);

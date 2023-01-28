@@ -10,7 +10,7 @@ $event_day_first = $_SESSION['event_day_first'];
 $event_day_end = $_SESSION['event_day_end'];
 $event_cost = $_SESSION['event_cost'];
 
-$db = MG_11($event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
+$db = MG_11("",$event_search,$event_prefectures,$event_day_first,$event_day_end,$event_cost);
 
 $count1 = $db->rowCount();
 
@@ -71,6 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       for ($i = 0; $i < $count1; $i++) :
 
+        $eventuser_id = $event[$i]['eventuser_id'];
+        $db = MG_02($eventuser_id,"","","","","","","","","");
+        $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
+
     ?>
   var li = document.createElement('li');
         li.classList.add("list");
@@ -84,13 +88,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_right.classList.add("right");
       div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
 
-        //アイコン追加
-        var img = document.createElement('img');
-        img.classList.add("circle");
-        img.src = 'monky.png';
-        img.align = 'left'
-        img.alt = 'username'
-  
+        // ユーザアイコン
+        <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+          var img = document.createElement('img');
+          img.classList.add("circle");
+          img.src = 'monky.png';
+          img.align = 'left'
+          img.alt = 'username'
+        <?php } else { ?>
+          // デフォルトアイコン
+        <?php } ?>
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
         div_yoko.classList.add("yoko");
@@ -124,7 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         li.appendChild(div_eventlist);
         div_eventlist.appendChild(div_right);
         div_eventlist.appendChild(div_yoko);
+        <?php if(!empty($eventuser[0]['profile_message'])) { ?>
         div_yoko.appendChild(img);
+        <?php } ?>
         div_yoko.appendChild(div_title);
         div_eventlist.appendChild(br);
         div_eventlist.appendChild(br);
