@@ -185,6 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ?>
   li.appendChild(img);
   <?php } ?>
+  //デフォルト作成場所　うえとおなじだからここはif文いらない？
   li.appendChild(img);
   li.appendChild(div);
   li.appendChild(br);
