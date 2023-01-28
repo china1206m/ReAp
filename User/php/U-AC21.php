@@ -55,7 +55,12 @@ $_SESSION['planuser_id'] = $planuser_id;
       <li class="home-list">
         <div class="ranking_information">
           <div class="yoko">
-            <img src="monky.png" class="circle" align="left" alt="アイコン">
+            <?php if(!empty($planuser[0]['profile_image'])) { ?>
+              <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="circle" align="left" alt="アイコン">
+            <?php } else { ?>
+              <!-- デフォルトアイコン -->
+              
+            <?php } ?>
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div><br>
           <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
