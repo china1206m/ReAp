@@ -89,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_right.innerText = "<?php print($event[$i]['post_date']); ?>"
 
         // ユーザアイコン
-        <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+        <?php if(!empty($eventuser[0]['profile_image'])) { ?>
           var img = document.createElement('img');
           img.classList.add("circle");
-          img.src = 'monky.png';
+          img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
           img.align = 'left'
           img.alt = 'username'
         <?php } else { ?>
