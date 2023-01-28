@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     <center id="image_area">
-    
+     <img src="">
     </center>
 
     <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
@@ -102,15 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </aside>
   
-  <script>
-  for(i = 0; i<0; i++){
-    var image_area = document.getElementById("image_area");
-    var  img = document.createElement('img');
-         img.src = "E-menu-home.png";
-    image_area.appendChild(img);
-
-  }
-</script>
+  
 
 
 
