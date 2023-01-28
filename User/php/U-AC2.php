@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $add = new MA();
 
     // 入力したいカラム名を指定
-    $column = ['user_mail','user_pass', 'user_name', 'coupon_can_get', 'report_total'];
+    $column = ['user_mail','user_pass', 'user_name', 'coupon_can_get', 'report_total','stop_total', 'user_stop'];
     
     // 入力された値をpost配列に格納
-    $post = [$_POST['user_mail'], $_POST['user_pass'], $_POST['user_name'], 0, 0];
+    $post = [$_POST['user_mail'], $_POST['user_pass'], $_POST['user_name'], 0, 0, 0, 0];
 
     // 入力された値の型を定義
-    $type = [1,1,1,0,0];
+    $type = [1, 1, 2, 0, 0, 0, 0];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $_SESSION['user_id'] = $add->ma_return("user",$column, $post, $type);
