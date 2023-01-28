@@ -189,7 +189,9 @@ div_home.appendChild(p_placename);
 div_home.appendChild(p_content);
 div_home.appendChild(p_time);
 li_ol.appendChild(div_ect);
-div_ect.appendChild(pic);
+<?php if(!empty($plan_detail[$i]['plan_image'])) { ?>
+  div_ect.appendChild(pic);
+<?php } ?>
 div_ect.appendChild(p_travel);
 
     <?php endfor; ?>
