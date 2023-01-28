@@ -99,7 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <p align="right"><?php print($plan[0]['post_date']); ?></p>
           <div class="yoko">
             <a href="U-HK1.php" style="text-decoration:none;">
-              <img src="image.php?id=<?= $plan[0]['user_id']; ?>" alt="" height="100%" width="100%" class="circle" align="left">
+              <?php if(!empty($planuser[0]['profile_image'])) { ?>
+                <img src="U-ImageUser.php?id=<?= $plan[0]['user_id']; ?>" alt="" height="100%" width="100%" class="circle" align="left">
+              <?php } else { ?>
+                <!-- デフォルトアイコン -->
+              <?php } ?>
             </a>
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div>
@@ -166,11 +170,13 @@ var div_ect = document.createElement('div');
 div_ect.classList.add("ect");
 
 //写真追加
-var pic = document.createElement('img');
-pic.classList.add("pics");
-pic.src = "monkey.png";
-pic.align = "center"
-pic.alt = ''
+<?php if(!empty($plan_detail[$i]['plan_image'])) { ?>
+  var pic = document.createElement('img');
+  pic.classList.add("pics");
+  pic.src = "U-ImagePlan.php?id=<?= $plan_detail[$i]['plan_detail_id']; ?>";
+  pic.align = "center"
+  pic.alt = ''
+<?php } ?>
 
 //移動時間追加
 var p_travel = document.createElement('p');
