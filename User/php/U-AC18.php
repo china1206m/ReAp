@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
     <!--<form action='' method="POST" enctype="multipart/form-data">-->
+    <font size="+2" id="write" class="write" align="center">
+    </font>
     <ul id="ranking">
     </ul>
   <!--</form>-->
@@ -59,8 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
     var ul = document.getElementById("ranking");
     
+    var count = 0;
+if(count == 0){
+    var write = document.getElementById("write");
+    write.innerHTML = "投稿している計画はありません";
+}else{
     <?php 
-
       for ($i = 0; $i < $count1; $i++) :  
 
       $plan_id = $plan[$i]['plan_id']; 
@@ -184,6 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_home.appendChild(p_time);
         div_ranking.appendChild(p_travel);
         div_ranking.appendChild(a);
+}
 
         <?php endfor; ?>
 
