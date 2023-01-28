@@ -97,12 +97,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       var div_yoko = document.createElement('div');
       div_yoko.classList.add("yoko");
 
-      //アイコン追加
-      var img = document.createElement('img');
-      img.classList.add("circle");
-      img.src = 'image.php?id=<?= $user[0]['user_id']; ?>';
-      img.align = 'left'
-      img.alt = '<?php print($user[0]['user_name']); ?>'
+      // ユーザアイコン
+      <?php if(!empty($user[0]['profile_image'])) { ?>
+        var img = document.createElement('img');
+        img.classList.add("circle");
+        img.src = 'U-ImageUser.php?id=<?= $user[0]['user_id']; ?>';
+        img.align = 'left'
+        img.alt = '<?php print($user[0]['user_name']); ?>'
+      <?php } else { ?>
+        // デフォオルトアイコン
+      <?php } ?>
         
       //題名追加
       var div_title = document.createElement('div');
@@ -165,7 +169,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       li.appendChild(div_planlist);
       div_planlist.appendChild(div_right);
       div_planlist.appendChild(div_yoko);
-      div_yoko.appendChild(img);
+      <?php if(!empty($user[0]['profile_image'])) { ?>
+        div_yoko.appendChild(img);
+      <?php } ?>
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
       div_planlist.appendChild(br);
