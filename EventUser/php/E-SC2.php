@@ -131,7 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // デフォルトアイコン
   <?php } else { ?>
-
+  var img = document.createElement('img');
+  img.classList.add("circle");
+  img.src = 'castle.bmp';
+  img.align = 'left'
+  img.alt = 'アイコン'
   <?php } ?>
 
   // 題名を作成
@@ -159,7 +163,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php if(!empty($eventuser[0]['profile_message'])) { ?>
   li.appendChild(img);
   <?php } ?>
+  li.appendChild(img);
   li.appendChild(div);
+  li.appendChild(br);
   li.appendChild(div_pre);
   li.appendChild(div_first);
   li.appendChild(div_heniyo);
