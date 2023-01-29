@@ -102,11 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         img.alt = '<?php print($user[0]['user_name']); ?>'
       <?php } else { ?>
         // デフォルトアイコン
-        var img = document.createElement('img');
-        img.classList.add("circle");
-        img.src = 'castle.bmp';
-        img.align = 'left'
-        img.alt = 'アイコン'
+        var img1 = document.createElement('img');
+        img1.classList.add("circle");
+        img1.src = 'castle.bmp';
+        img1.align = 'left'
+        img1.alt = 'アイコン'
 
       <?php } ?>
         
@@ -174,6 +174,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php if(!empty($user[0]['profile_image'])) { ?>
         div_yoko.appendChild(img);
       <?php } ?>
+      //デフォルトの時
+      div_yoko.appendChild(img1);
+      //ここまで
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
       div_planlist.appendChild(br);
