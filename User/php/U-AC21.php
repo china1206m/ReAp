@@ -25,6 +25,24 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // 投稿詳細のユーザ情報
 $_SESSION['planuser_id'] = $planuser_id;
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+  $post = [$_SESSION['plan_id']];
+  $type = [0];
+  // 計画消去
+  $delete->md("plan", "plan_id", $post, $type);
+  
+  // 計画詳細消去
+  for ($i = 0; $i < $count; $i++) {
+    $post = [$plan_detail[$i]['plan_detail_id']];
+    $type = [0];
+    $delete->md("plan_detail", "plan_detail_id", $post, $type);
+  }
+  header('Locaton:U-AC18.php');
+  exit;
+}
+
 ?>
 
 <!DOCTYPE html>
