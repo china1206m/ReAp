@@ -91,12 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // ユーザアイコン
         <?php if(!empty($eventuser[0]['profile_image'])) { ?>
           var img = document.createElement('img');
-          img.classList.add("circle");
+          img.classList.add("circle1");
           img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
           img.align = 'left'
           img.alt = 'username'
         <?php } else { ?>
           // デフォルトアイコン
+        var img1 = document.createElement('img');
+        img1.classList.add("circle");
+        img1.src = 'castle.bmp';
+        img1.align = 'left'
+        img1.alt = 'なし'
         <?php } ?>
         //アイコンと題名の横並びのためのクラス追加
         var div_yoko = document.createElement('div');
@@ -134,6 +139,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if(!empty($eventuser[0]['profile_message'])) { ?>
         div_yoko.appendChild(img);
         <?php } ?>
+        //デフォルトアイコン
+        div_yoko.appendChild(img1);
+        //ここまで
         div_yoko.appendChild(div_title);
         div_eventlist.appendChild(br);
         div_eventlist.appendChild(br);
