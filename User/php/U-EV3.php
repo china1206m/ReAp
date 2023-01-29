@@ -43,7 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="acount_information">
       <div class="yoko">
-        <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" align="left" alt="写真" class="circle">
+        <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" align="left" alt="写真" class="circle1">
+
+        <!--デフォルト-->
+        <img src="castle.bmp" align="left" alt="写真" class="circle">
+        
         <div class="user_name">
           <?php print($eventuser[0]['eventuser_name']); ?>
         </div>
