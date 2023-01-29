@@ -1,11 +1,6 @@
 /*パソコン用*/
 @media screen and (min-width:990px) {
-  .circle {
-    width: 200px;
-    height: 200px;
-    border: 1px solid;
-    border-radius: 50%;
-  }
+
 
   /* ユーザ名とアイコンの横並び */
   div.yoko{
@@ -59,13 +54,7 @@
     border: 0;
   }
 
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
+ 
 
   .pref {
     text-align: center;
@@ -87,16 +76,27 @@
     -webkit-line-clamp: 15; /* 行数を制限 */
     overflow: hidden; /* はみ出た部分を非表示 */
   }
+
+  .circle {
+    width:130px;
+    height:140px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0px;
+    }
+
+    .circle1 {
+      width:100px;
+      height:100px;
+      border: 0;
+      border-radius: 50%;
+      border: solid 20px white;
+      }
 }
 
 /*スマホ用*/
 @media screen and (max-width:990px) {
-  .circle {
-    width: 200px;
-    height: 200px;
-    border: 1px solid;
-    border-radius: 50%;
-  }
+
 
   /* ユーザ名とアイコンの横並び */
   div.yoko{
@@ -148,13 +148,7 @@
     border: 0;
   }
 
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
+
 
   .pref {
     text-align: center;
@@ -176,4 +170,20 @@
     -webkit-line-clamp: 15; /* 行数を制限 */
     overflow: hidden; /* はみ出た部分を非表示 */
   }
+
+  .circle {
+    width:130px;
+    height:140px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0px;
+    }
+
+    .circle1 {
+      width:100px;
+      height:100px;
+      border: 0;
+      border-radius: 50%;
+      border: solid 20px white;
+      }
 }
