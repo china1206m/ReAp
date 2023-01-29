@@ -1,3 +1,17 @@
+<?php 
+session_start();
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include "MA.php";
+    $add = new ma();
+    $column = ['user_id', 'coupon_id'];
+    $post = [$_SESSION['user_id'] ,$_SESSION['coupon_id']];
+    $type = [0, 0];
+    $add->ma("get_coupon", $column, $post, $type);
+    header('Location:U-AC14.php');
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
