@@ -96,3 +96,12 @@ appearance: none;
     margin-left: 10%;
     margin-right: 20%
   }
+
+  .circle1 {
+    width:65px;
+    height:65px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -25px;
+    border:solid 10px white;
+    }

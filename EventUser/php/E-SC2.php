@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php if(!empty($eventuser[0]['profile_message'])) { ?>
 
     var img = document.createElement('img');
-    img.classList.add("circle");
+    img.classList.add("circle1");
     img.src = 'E-ImageUser.php?id=<?= $event[$i]['eventuser_id']; ?>';
     img.align = 'left'
     img.alt = 'アイコン'
