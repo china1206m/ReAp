@@ -96,12 +96,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // ユーザアイコン
       <?php if(!empty($user[0]['profile_image'])) { ?>
         var img = document.createElement('img');
-        img.classList.add("circle");
+        img.classList.add("circle1");
         img.src = "U-ImageUser.php?id=<?= $user[0]['user_id']; ?>";
         img.align = 'left'
         img.alt = '<?php print($user[0]['user_name']); ?>'
       <?php } else { ?>
         // デフォルトアイコン
+        var img = document.createElement('img');
+        img.classList.add("circle");
+        img.src = 'castle.bmp';
+        img.align = 'left'
+        img.alt = 'アイコン'
+
       <?php } ?>
         
       //題名追加

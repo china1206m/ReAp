@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <ul>
   <li><div class="event_information">
     <?php if(!empty($eventuser[0]['profile_message'])) { ?>
-      <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle" align="left" alt="アイコン" width="100%" height="100%">
+      <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle1" align="left" alt="アイコン">
     <?php } else { ?>
       <!-- デフォルトアイコン -->
       <img src="castle.bmp" class="circle" align="left">
