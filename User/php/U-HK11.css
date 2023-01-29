@@ -25,13 +25,6 @@
     font-size: 3em;
   }
 
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
 
   .title {
     margin: 0 0 0 20px;
@@ -120,6 +113,22 @@
     height: 0px;
     border: 0;
   }
+
+  .circle {
+    width:130px;
+    height:140px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0px;
+    }
+
+    .circle1 {
+      width:100px;
+      height:100px;
+      border: 0;
+      border-radius: 50%;
+      border: solid 20px white;
+      }
 }
 
 
@@ -151,13 +160,7 @@
     font-size: 3em;
   }
 
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
+
 
   .title {
     margin: 0 0 0 20px;
@@ -245,4 +248,20 @@
     height: 180px;
     border: 0;
   }
+
+  .circle {
+    width:130px;
+    height:140px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0px;
+    }
+
+    .circle1 {
+      width:100px;
+      height:100px;
+      border: 0;
+      border-radius: 50%;
+      border: solid 20px white;
+      }
 }
