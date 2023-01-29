@@ -140,3 +140,12 @@ li{
   .day_yoko{
     display: inline;
   }
+
+  .circle1 {
+    width:65px;
+    height:65px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -5px;
+    border:solid 10px white;
+    }
