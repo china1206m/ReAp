@@ -7,6 +7,11 @@ session_start();
     $post = [$_SESSION['user_id'] ,$_SESSION['coupon_id']];
     $type = [0, 0];
     $add->ma("get_coupon", $column, $post, $type);
+
+    include "MU.php";
+    $update = new MU();
+    $update->coupon($_SESSION['user_id']);
+
     header('Location:U-AC14.php');
     exit;
   }
