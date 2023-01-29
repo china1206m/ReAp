@@ -145,11 +145,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php  } else {  ?>
 
   // アイコンデフォルト
-  var img = document.createElement('img');
-  img.classList.add("circle");
-  img.src = 'castle.bmp';
-  img.align = 'left'
-  img.alt = 'アイコン'
+  var img1 = document.createElement('img');
+  img1.classList.add("circle");
+  img1.src = 'castle.bmp';
+  img1.align = 'left'
+  img1.alt = 'アイコン'
   
 
   
@@ -185,8 +185,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ?>
   li.appendChild(img);
   <?php } ?>
-  //デフォルト作成場所　うえとおなじだからここはif文いらない？
-  li.appendChild(img);
+  //デフォルト作成場所
+  li.appendChild(img1);
+  //ここまで
   li.appendChild(div);
   li.appendChild(br);
   li.appendChild(div_pre);

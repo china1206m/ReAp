@@ -131,11 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // デフォルトアイコン
   <?php } else { ?>
-  var img = document.createElement('img');
-  img.classList.add("circle");
-  img.src = 'castle.bmp';
-  img.align = 'left'
-  img.alt = 'アイコン'
+  var img1 = document.createElement('img');
+  img1.classList.add("circle");
+  img1.src = 'castle.bmp';
+  img1.align = 'left'
+  img1.alt = 'アイコン'
   <?php } ?>
 
   // 題名を作成
@@ -164,7 +164,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   li.appendChild(img);
   <?php } ?>
   //デフォルト作成
-  li.appendChild(img);
+  li.appendChild(img1);
+  //ここまで
   li.appendChild(div);
   li.appendChild(br);
   li.appendChild(div_pre);
