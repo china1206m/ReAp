@@ -30,12 +30,7 @@
     margin-left: 50px;
   }
   
-  .circle {
-    width:50px;
-    height:50px;
-    border: 1px solid;
-    border-radius: 50%;
-  }
+
   
   .title {
     margin: 0 0 0 20px;
@@ -81,6 +76,23 @@
     height: 180px;
     border: 0;
   }
+
+  .circle1 {
+    width:100px;
+    height:105px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -5px;
+    border:solid 10px white;
+    }
+
+    .circle {
+      width:140px;
+      height:145px;
+      border: 0;
+      border-radius: 50%;
+      margin-top: -10px;
+      }
 }
 
 /*スマホ用*/
@@ -115,13 +127,7 @@
     margin-left: 20px;
   }
   
-  .circle {
-    width:50px;
-    height:50px;
-    border: 1px solid;
-    border-radius: 50%;
-  }
-  
+
   .title {
     margin: 0 0 0 20px;
     padding: 0;
@@ -166,4 +172,21 @@
     height: 180px;
     border: 0;
   }
+
+  .circle1 {
+    width:100px;
+    height:105px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -5px;
+    border:solid 10px white;
+    }
+
+    .circle {
+      width:140px;
+      height:145px;
+      border: 0;
+      border-radius: 50%;
+      margin-top: -10px;
+      }
 }
