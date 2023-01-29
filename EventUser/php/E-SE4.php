@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     <center id="image_area">
-     <img src="">
+     <img src="E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>">
     </center>
 
     <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
