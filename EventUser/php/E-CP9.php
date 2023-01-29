@@ -23,11 +23,12 @@ $coupon = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "MD.php";
   $delete = new md();
-
+  $type = [0];
   for($i = 0; $i < $count1; $i++) {
-    $type = [1];
     $delete->md("coupon", "coupon_id", $coupon[$i]['coupon_id'], $type); 
   }
+  header('Location:E-CP9.php');
+  exit;
 }
 
 ?>
@@ -71,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <button id="open-btn" class="overlay-event" type="button">全て消去する</button>
 </center>
 
-<form action="#" method="POST" id="form1">
+<form action="" method="POST" id="form1">
 <div id="overlay">
     <div class="flex">
       <div id="overlay-inner">
