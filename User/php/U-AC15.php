@@ -1,15 +1,25 @@
 <?php
-
-    //完了画面出すなら
-    //モジュールでエラーのとき特定の数字を返り値として渡してほしい
-    $result = ;
-    if($result==-1){
-      //error
-      header('');
-    }else{
-      //正常時処理 完了画面
-    }
+session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "MD.php";
+  $delete = new md();
+  $columnnaem = ['get_coupon_id'];
+  $post = [$_SESSION['get_coupon_id']];
+  $type = [0];
+  $result = $delete->md("get_coupon", $columnnaem, $post, $type);
+  //完了画面出すなら
+  //モジュールでエラーのとき特定の数字を返り値として渡してほしい
+  if($result==-1){
+    //error
+    header('');
+  }else{
+  //正常時処理 完了画面
+    header('Location:U-AC14.php');
+    exit;
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
