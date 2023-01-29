@@ -25,15 +25,6 @@
     font-size: 3em;
   }
 
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin-left: 20px;
-    text-decoration: none;
-  }
-
   .title {
     margin: 0 0 0 20px;
     padding: 0;
@@ -151,6 +142,23 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .circle1 {
+    width:100px;
+    height:105px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -5px;
+    border:solid 10px white;
+    }
+
+    .circle {
+      width:140px;
+      height:145px;
+      border: 0;
+      border-radius: 50%;
+      margin-top: -10px;
+      }
 }
 
 /*スマホ用*/
@@ -178,14 +186,6 @@
   h3 {
     margin-left: 0;
     font-size: 3em;
-  }
-
-  .circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
   }
 
   .title {
@@ -305,4 +305,21 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .circle1 {
+    width:100px;
+    height:105px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -5px;
+    border:solid 10px white;
+    }
+
+    .circle {
+      width:140px;
+      height:145px;
+      border: 0;
+      border-radius: 50%;
+      margin-top: -10px;
+      }
 }
