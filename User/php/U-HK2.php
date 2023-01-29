@@ -94,8 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         //アイコン追加
         var img = document.createElement('img');
-        img.classList.add("circle");
+        img.classList.add("circle1");
         img.src = 'monky.png';
+        img.align = 'left'
+        img.alt = 'アイコン'
+
+        //デフォルト
+        var img = document.createElement('img');
+        img.classList.add("circle");
+        img.src = 'castle.bmp';
         img.align = 'left'
         img.alt = 'アイコン'
         

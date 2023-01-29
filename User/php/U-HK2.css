@@ -30,13 +30,6 @@
         font-size: 1em;
       }
     
-    .circle {
-        width:50px;
-        height:50px;
-        border: 1px solid;
-        border-radius: 50%;
-        margin-left: 20px;
-      }
     
     .title {
         margin: 0 0 0 20px;
@@ -76,6 +69,7 @@
         background:white; /*背景色の指定*/
         width:92%;
         border: solid thin black;
+        margin-top: 100px;
         }
     
     /*計画の情報掲載デザイン*/ 
@@ -103,6 +97,22 @@
     li .home{
         list-style:none;
     }
+
+    .circle {
+      width:130px;
+      height:140px;
+      border: 0;
+      border-radius: 50%;
+      margin-top: 0px;
+      }
+  
+      .circle1 {
+        width:100px;
+        height:100px;
+        border: 0;
+        border-radius: 50%;
+        border: solid 20px white;
+        }
 }
 
 
@@ -135,13 +145,7 @@ h3{
     font-size: 3em;
   }
 
-.circle {
-    width:100px;
-    height:100px;
-    border: 1px solid;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
+
 
 .title {
     margin: 0 0 0 20px;
@@ -224,5 +228,21 @@ li .home{
   .screenname {
     margin-left:25%;
   }
+
+  .circle {
+    width:130px;
+    height:140px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0px;
+    }
+
+    .circle1 {
+      width:100px;
+      height:100px;
+      border: 0;
+      border-radius: 50%;
+      border: solid 20px white;
+      }
 }
 
