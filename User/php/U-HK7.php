@@ -109,6 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
           </div>
           <br>
+          <br>
+          <br>
           <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
           <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
           <p class="condition"><?php print($plan[0]['plan_cost']); ?>円</p>
