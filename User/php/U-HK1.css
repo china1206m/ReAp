@@ -106,6 +106,7 @@
         background:white; /*背景色の指定*/
         width:92%;
         border: solid thin black;
+        margin-bottom: 1em;
         }
     
     /*計画の情報掲載デザイン*/ 
@@ -289,6 +290,7 @@
         background:white; /*背景色の指定*/
         width:92%;
         border: solid thin black;
+        margin-bottom: 1em;
         }
     
     /*計画の情報掲載デザイン*/ 
