@@ -82,8 +82,8 @@ var count = 0;
     // li要素を作成
     var li1 = document.createElement('li');
 
-    var button1 = document.createElement('a');
-    button1.type = "button";
+    var button1 = document.createElement('button');
+    button1.type = "submit";
     button1.classList.add("coupon");
 
     var div_left = document.createElement('div');

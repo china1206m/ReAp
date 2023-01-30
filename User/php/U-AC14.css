@@ -1,248 +1,100 @@
-.k1{
-    margin: 120px;
-  }
-  
-  .k2{
-    margin: 30px;
-    text-align: right;
-  }
-  
-  .wrap1{
-    display: flex;
-  }
-  
-  .wrap2{
-    display: flex;
-  }
-  
-  .coupon {
-    display: flex;
-    width: 100%;
-    max-width: 620px;
-    background: rgb(165, 171, 242);
-    margin-top: 150px;
-    margin: 75px;
-  }
-  .price {
-    font-size: 30px;
-    font-weight: 900;
-    /*color: #f56359;*/
-    color: white;
-  }
-  .date {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-  }
-  .left {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 40px 20px;
-  }
-  .right {
-    position: relative;
-    display: flex;
-    width: 160px;
-    padding: 40px 20px;
-    border-left: 2px dashed #e0e6ef;
-    justify-content: center;
-  }
-  
-  /* circle-css */
-  
-  .right::before,
-  .right::after {
-    position: absolute;
-    display: block;
-    content: "";
-    border-radius: 100%;
-    background: #e0e6ef;
-    left: -12px;
-    width: 22px;
-    height: 22px;
-  }
-  .right::before {
-    top: -11px;
-  }
-  .right::after {
-    bottom: -11px;
-  }
+.coupon {
+  display: flex;
+  width: 800px;
+  max-width: 1000px;
+  background: #a5abf2;
+  /*background: gold;*/
+  margin-top: 150px;
+  margin: 75px;
+}
+.price {
+  font-size: 32px;
+  font-weight: 900;
+  /*color: #f56359;*/
+  color: white;
+}
 
-  .use{
-    width: 300px;
-  }
+.shop{
+  font-size: 28px;
+  font-weight: 900;
+  /*color: #f56359;*/
+  color: white;
+}
 
-  .button_back {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    /* 整える */
-    display: inline;
-    width: 10px;
-    margin-left: 30px;
-    padding: 0.6em 1em; /* 塗りの余白 */
-    font-weight: bold;
-    background-color: white; /* 背景色 */
-    color: black; /* テキストカラー */
-    cursor: pointer; /* カーソルを指マークに */
-    border-radius: 3px; /* 角の丸み */
-    border: 0; /* 枠線を消す */
-    transition: 0.3s; /* ホバーの変化を滑らかに */
-  }
-  
-  h3{
-    margin-left: 0;
-    font-size: 3em;
-  }
-  
-  .button_back:hover {
-    background-color: #ffffff; /* 背景色 */
-  }
+.date {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.left {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 20px 40px;
+}
+.right {
+  position: relative;
+  display: flex;
+  width: 100px;
+  padding: 80px 40px;
+  border-left: 2px dashed #e0e6ef;
+  justify-content: center;
+}
 
-  .button-only {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    /* 整える */
-    width: 200px;
-    margin: 1em 0; /* 前後の隙間 */
-    padding: 0.6em 1em; /* 塗りの余白 */
-    font-size: 2em; /* フォントサイズ */
-    background-color: #1aa1ff; /* 背景色 */
-    color: #FFF; /* テキストカラー */
-    cursor: pointer; /* カーソルを指マークに */
-    border-radius: 3px; /* 角の丸み */
-    border: 0; /* 枠線を消す */
-    transition: 0.3s; /* ホバーの変化を滑らかに */
-  
-  }
+/* circle-css */
 
-  /* ホバー時（カーソルをのせた時）の見た目 */
-.button-only:hover {
-    background-color: #064fda; /* 背景色 */
-  }
+.right::before,
+.right::after {
+position: absolute;
+display: block;
+content: "";
+border-radius: 100%;
+background: #e0e6ef;
+left: -12px;
+width: 22px;
+height: 22px;
+}
+.right::before {
+top: -11px;
+}
+.right::after {
+bottom: -11px;
+}
 
-  button {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    /* 整える */
-    display: flex;
-    width: 100%;
-    max-width: 620px;
-    background: rgb(165, 171, 242);
-    margin-top: 150px;
-    margin: 75px;
-  }
+.button_back {
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
 
-  /* ホバー時（カーソルをのせた時）の見た目 */
-button:hover {
-    background-color: #064fda; /* 背景色 */
-  }
+/* 整える */
+display: inline;
+width: 10px;
+margin-left: 30px;
+padding: 0.6em 1em; /* 塗りの余白 */
+font-weight: bold;
+background-color: white; /* 背景色 */
+color: black; /* テキストカラー */
+cursor: pointer; /* カーソルを指マークに */
+border-radius: 3px; /* 角の丸み */
+border: 0; /* 枠線を消す */
+transition: 0.3s; /* ホバーの変化を滑らかに */
+}
 
-  .box1 {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    width: 300px;
-    height: 100px;
-    margin-left: 200px;
-    padding: 5px;
-    cursor: pointer; /* カーソルを指マークに */
-    border: solid 2px black;
-    background-color: white;
-  }
-  
-  .box2 {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    width: 300px;
-    height: 100px;
-    margin-left: 100px;
-    padding: 5px;
-    cursor: pointer; /* カーソルを指マークに */
-    border: solid 2px black;
-    background-color: white;
-  }
-  
-  
-  .yoko-narabi{
-    display: flex;
-  }
-  
-  /*ボタンの縦並び*/ 
-  li{
-    list-style:none;
-    margin-top:50px
-  }
-  
-  .coupon {
-    display: flex;
-    width: 400px;
-    max-width: 500px;
-    background: rgb(165, 171, 242);
-    margin-top: 150px;
-    margin: 75px;
-  }
-  .price {
-    font-size: 16px;
-    font-weight: 900;
-    /*color: #f56359;*/
-    color:white;
-  }
-  
-  .shop{
-    font-size: 14px;
-    font-weight: 900;
-    /*color: #f56359;*/
-    color:white;
-  }
-  
-  .date {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
+h3{
+margin-left: 0;
+font-size: 3em;
+}
 
-  label{
-    display: flex;
-    width: 100%;
-    max-width: 620px;
-    background: rgb(129, 161, 228);
-    margin-top: 150px;
-    margin: 75px;
-    
-  }
-  input[type="radio"]:checked + label {
-    background: #006DD9;
-    color: #FFF;
-  }
-  label:hover {
-    background-color: #E2EDF9;
-  }
+.button_back:hover {
+background-color: #ffffff; /* 背景色 */
+}
 
-  .write{
-    display: block;
-    margin-top: 350px;
-    color: #006DD9;
-
-  }
-  
+/*ボタンの縦並び*/ 
+li{
+list-style:none;
+margin-top:50px
+}
   
   
   
