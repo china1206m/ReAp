@@ -116,6 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
 
       var br = document.createElement('br');
+      var br1 = document.createElement('br');
+      var br2 = document.createElement('br');
 
       //都道府県の追加
       var p_pre = document.createElement('p');
@@ -179,7 +181,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //ここまで
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
-      div_planlist.appendChild(br);
+      div_planlist.appendChild(br1);
+      div_planlist.appendChild(br2);
       div_planlist.appendChild(p_pre);
       div_planlist.appendChild(p_who);
       div_planlist.appendChild(p_cost);
