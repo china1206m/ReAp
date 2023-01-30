@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $get_coupon_id = $get_coupon[$counter]['get_coupon_id'];
     $_SESSION['coupon_id'] = $coupon_id;
     $_SESSION['get_coupon_id'] = $get_coupon_id;
-    header('Location:U-AC15demo.php');
+    header('Location:U-AC15.php');
   }
 
 
