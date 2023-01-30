@@ -184,10 +184,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(!empty($eventuser[0]['profile_image'])) {
   ?>
   li.appendChild(img);
-  <?php } ?>
+  <?php } else { ?>
   //デフォルト作成場所
   li.appendChild(img1);
   //ここまで
+  <?php } ?>
   li.appendChild(div);
   li.appendChild(br);
   li.appendChild(div_pre);
