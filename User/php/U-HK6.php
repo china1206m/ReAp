@@ -175,10 +175,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_planlist.appendChild(div_yoko);
       <?php if(!empty($user[0]['profile_image'])) { ?>
         div_yoko.appendChild(img);
-      <?php } ?>
+        <?php } else { ?>
       //デフォルトの時
       div_yoko.appendChild(img1);
       //ここまで
+      <?php } ?>
       div_yoko.appendChild(div_title);
       div_planlist.appendChild(br);
       div_planlist.appendChild(br1);
