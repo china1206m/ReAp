@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <body>
     <main id="main">
-        <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+        <button type="button" class="button_back" onclick="location.href='U-AC9.html'"><h3>＜</h3></button>
         <form action='' method="POST">
         <input type="hidden" id="counter" name="counter" value="0">
         <div align="center">
