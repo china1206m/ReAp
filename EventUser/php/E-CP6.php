@@ -24,10 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $add->ma_return("coupon",$column, $post, $type);
     
     if($result==-1){
-      header('Location:error.html');
+      header('Location:E-CP6error.html');
     }else{
       $_SESSION['coupon_id'] = $result;
-      header('Location: kannryo.html');
+      header('Location: E-CP6kanryo.html');
     }
 
     exit;
