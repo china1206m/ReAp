@@ -13,7 +13,7 @@ $get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $counter = $_POST['counter'];
-    $coupon_id = $coupon[$counter]['coupon_id'];
+    $coupon_id = $get_coupon[$counter]['coupon_id'];
     $_SESSION['coupon_id'] = $coupon_id;
     header('Location:U-AC15.php');
 }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="non">
               <?php
                 if($count1 == 0){
-                  echo '検索条件に合致するクーポンはありません';
+                  echo '所持するクーポンはありません';
                 }
               ?>
             </p>
