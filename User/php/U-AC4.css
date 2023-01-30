@@ -8,6 +8,7 @@
   height: 300px;
   border: radius 55px;
   margin-top: 80px;
+  border-radius: 50%;
 }
 
 .profile__change {
