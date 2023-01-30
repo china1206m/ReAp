@@ -66,6 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $plan_id = $plan[$i]['plan_id']; 
       $db = MG_05("",$plan_id,"","","","","","","");
       $plan_detail = $db->fetchAll(PDO::FETCH_ASSOC);
+
+      $user_id = $plan[$i]['user_id'];
+      $db = MG_01($user_id,"","","","","","","","","");
+      $user = $db->fetchAll(PDO::FETCH_ASSOC);
     ?>
         var li = document.createElement('li');
 
@@ -93,18 +97,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_yoko.classList.add("yoko");
 
         //アイコン追加
-        var img = document.createElement('img');
-        img.classList.add("circle1");
-        img.src = 'monky.png';
-        img.align = 'left'
-        img.alt = 'アイコン'
-
-        //デフォルト
-        var img1 = document.createElement('img');
-        img1.classList.add("circle");
-        img1.src = 'castle.bmp';
-        img1.align = 'left'
-        img1.alt = 'アイコン'
+        <?php if(!empty($user[0]['profile_image'])) { ?>
+          var img = document.createElement('img');
+          img.classList.add("circle");
+          img.src = 'U-imageUser.php?id=<?= $user[0]['user_id']; ?>';
+          img.align = 'left'
+          img.alt = 'アイコン'
+        <?php } else { ?>
+          // デフォルトアイコン
+        <?php } ?>
         
         //題名追加
         var div_title = document.createElement('div');
@@ -176,11 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         li.appendChild(div_ranking);
         div_ranking.appendChild(div_right);
         div_ranking.appendChild(div_yoko);
-        //使用者選択画像の時
-        div_yoko.appendChild(img);
-        //デフォルトアイコンの時
-        div_yoko.appendChild(img1);
-        //ここまで
+        <?php if(!empty($user[0]['profile_image'])) { ?>
+          div_yoko.appendChild(img);
+        <?php } else { ?>
+          // デフォルトアイコン
+        <?php } ?>
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
         div_ranking.appendChild(br);
