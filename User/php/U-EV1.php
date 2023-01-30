@@ -127,9 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_eventlist.appendChild(div_right);
       div_eventlist.appendChild(div_yoko);
       <?php if(!empty($eventuser[0]['profile_image'])) { ?>
-      div_yoko.appendChild(img);
+        div_yoko.appendChild(img);
       <?php } else { ?>
-      div_yoko.appendChild(img1);
+        div_yoko.appendChild(img1);
       <?php } ?>
       div_yoko.appendChild(div_title);
       div_eventlist.appendChild(br);
