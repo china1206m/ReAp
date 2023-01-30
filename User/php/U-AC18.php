@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <title>U-AC18</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-AC18.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
 </head>
@@ -42,6 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!--<form action='' method="POST" enctype="multipart/form-data">-->
     <font size="+2" id="write" class="write" align="center">
     </font>
+
+    <?php
+      if($count1 == 0){
+    echo "投稿した計画はありません";
+      }
+    ?>
+    
     <ul id="ranking">
     </ul>
   <!--</form>-->
@@ -62,10 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var ul = document.getElementById("ranking");
     
     var count = 0;
-if(count == 0){
+/*if(count == 0){
     var write = document.getElementById("write");
     write.innerHTML = "投稿している計画はありません";
-}else{
+}else{*/
     <?php 
       for ($i = 0; $i < $count1; $i++) :  
 
@@ -190,7 +197,7 @@ if(count == 0){
         div_home.appendChild(p_time);
         div_ranking.appendChild(p_travel);
         div_ranking.appendChild(a);
-}
+//}
 
         <?php endfor; ?>
 
