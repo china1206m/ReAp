@@ -136,11 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         li.appendChild(div_eventlist);
         div_eventlist.appendChild(div_right);
         div_eventlist.appendChild(div_yoko);
-        <?php if(!empty($eventuser[0]['profile_message'])) { ?>
-        div_yoko.appendChild(img);
+        <?php if(!empty($eventuser[0]['profile_image'])) { ?>
+          div_yoko.appendChild(img);
         <?php } else { ?>
         //デフォルトアイコン
-        div_yoko.appendChild(img1);
+         div_yoko.appendChild(img1);
         //ここまで
         <?php } ?>
         div_yoko.appendChild(div_title);
