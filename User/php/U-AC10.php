@@ -4,7 +4,7 @@ session_start();
 // POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_SESSION['coupon_search'] = $_POST['coupon_search'];
+    $_SESSION['coupon_search'] = $_POST['coupon_search1'];
     $_SESSION['coupon_name'] = $_POST['coupon_name'];
     $_SESSION['coupon_prefectures'] = $_POST['coupon_prefectures'];
     $_SESSION['coupon_place'] = $_POST['coupon_place'];
