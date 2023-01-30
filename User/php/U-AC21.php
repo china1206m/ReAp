@@ -73,9 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="ranking_information">
           <div class="yoko">
             <?php if(!empty($planuser[0]['profile_image'])) { ?>
-              <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="circle" align="left" alt="アイコン">
+              <img src="image.php?id=<?= $user[0]['user_id']; ?>" class="circle1" align="left" alt="アイコン">
             <?php } else { ?>
               <!-- デフォルトアイコン -->
+              <img src="castle.bmp" alt="" class="circle" align="left">
               
             <?php } ?>
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
