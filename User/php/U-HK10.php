@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <input type="number" name="stay_time_hour1" class="plan_time" value="" placeholder="" required>　時間
             <input type="number" name="stay_time_minute1" class="plan_time" value="" placeholder="" required>　分
-            <input type="file" accept="image/jpeg,image/png" name="plan_image1" class="plan_image" multiple/>
+            <input type="file" accept="image/jpeg,image/png" name="plan_image1" class="plan_image">
             </div>
 
             
@@ -207,7 +207,6 @@ function addCount(){
         input_img.type = "file";
         input_img.setAttribute('name','plan_image' + count);
         input_img.classList.add("plan_image");  
-        input_img.multiple = true;
         input_img.accept = "image/jpeg,image/png";
 
         

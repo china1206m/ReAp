@@ -16,7 +16,7 @@ class MU{
         }
     }
 
-    function mu($table, $column, $post, $type, $id_name, $id){
+    function update($table, $column, $post, $type, $id_name, $id){
     
         $sum = $table." set ";
     
