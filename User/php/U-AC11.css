@@ -10,15 +10,15 @@
 .price {
   font-size: 32px;
   font-weight: 900;
-  color: #f56359;
-  /*color: white;*/
+  /*color: #f56359;*/
+  color: white;
 }
 
 .shop{
   font-size: 28px;
   font-weight: 900;
-  color: #f56359;
-  /*color: white;*/
+  /*color: #f56359;*/
+  color: white;
 }
 
 .date {
