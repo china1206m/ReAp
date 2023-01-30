@@ -102,13 +102,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // ユーザアイコン
         <?php if(!empty($user[0]['profile_image'])) { ?>
           var img = document.createElement('img');
-          img.classList.add("circle");
+          img.classList.add("circle1");
           img.src = 'image.php?id=<?= $user[0]['user_id']; ?>';
           img.align = 'left'
           img.alt = 'アイコン'
         <?php } else { ?>
           // デフォルトアイコン
-
+          var img1 = document.createElement('img');
+          img1.classList.add("circle");
+          img1.src = 'castle.bmp';
+          img1.align = 'left'
+          img1.alt = 'アイコン'
         <?php } ?>
         
         //題名追加
@@ -117,6 +121,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
 
         var br = document.createElement('br');
+        var br1 = document.createElement('br');
+        var br2 = document.createElement('br');
 
         //条件追加
         var p_prefectures = document.createElement('p');
@@ -181,10 +187,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_ranking.appendChild(div_yoko);
         <?php if(!empty($user[0]['profile_image'])) { ?>
           div_yoko.appendChild(img);
-        <?php } else ?>
+        <?php } else { ?>
+          // デフォルトアイコン
+          div_yoko.appendChild(img1);
+        <?php } ?>
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
-        div_ranking.appendChild(br);
+        div_ranking.appendChild(br1);
+        div_ranking.appendChild(br2);
         div_ranking.appendChild(p_prefectures);
         div_ranking.appendChild(p_who);
         div_ranking.appendChild(p_cost);
