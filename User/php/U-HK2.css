@@ -70,6 +70,7 @@
         width:92%;
         border: solid thin black;
         margin-top: 100px;
+        margin-bottom: 1em;
         }
     
     /*計画の情報掲載デザイン*/ 
@@ -84,7 +85,15 @@
     
     /*もっと見るボタンのデザイン*/
     .more-see { 
+
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
         color: gray;
+        background-color: white;
+        border: 0;
         text-decoration: none; 
         font-weight: bold;
         font-size: 1.1em;
@@ -92,6 +101,7 @@
         right: 0;
         bottom: 0;
         margin-left: 100px;
+
         }
     
     li .home{
@@ -185,6 +195,7 @@ ol{
     background:white; /*背景色の指定*/
     width:92%;
     border: solid thin black;
+    margin-bottom: 1em;
     }
 
 /*計画の情報掲載デザイン*/ 
@@ -198,7 +209,14 @@ ol{
 
 /*もっと見るボタンのデザイン*/
 .more-see { 
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+
     color: gray;
+    background-color: white;
+    border:0;
     text-decoration: none; 
     font-weight: bold;
     font-size: 1.1em;
