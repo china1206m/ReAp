@@ -33,10 +33,10 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);*/
       </div>
       <div class="left">
         <?php if(!empty($user[0]['profile_image'])) { ?>
-          <img src="U-imageUser.php?id=<?= $user[0]['user_id']; ?>" class="image-circle">
+          <img src="U-imageUser.php?id=<?= $user[0]['user_id']; ?>" class="circle1">
         <?php } else { ?>
           <!-- デフォルトアイコン -->
-          
+          <img src="castle.bmp" align="left" alt="写真" class="circle">
         <?php } ?>
       </div>
     </div>
