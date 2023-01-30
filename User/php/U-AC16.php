@@ -1,7 +1,7 @@
 <?php 
+session_start();
 
 include "MG.php";
-session_start();
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "MA.php";
     $add = new ma();
@@ -29,7 +29,7 @@ session_start();
 <html>
 <head>
   <title>U-AC16</title>
-  <meta charset=”utf-8″>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="U-AC16.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
   
@@ -56,7 +56,7 @@ session_start();
 
     <div id="overlay">
       <div class="flex">
-      <form action="U-AC14.php" method="POST" id="form1">
+      <form action="" method="POST" id="form1">
         <div id="overlay-inner">
           <p>上記のクーポンを取得します。</p>
           <p>本当によろしいですか。</p>
