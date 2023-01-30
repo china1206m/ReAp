@@ -119,8 +119,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
 
       var br = document.createElement('br');
-      var br = document.createElement('br1');
-      var br = document.createElement('br2');
+      var br1 = document.createElement('br');
+      var br2 = document.createElement('br');
 
       //都道府県の追加
       var p_pre = document.createElement('p');
