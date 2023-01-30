@@ -113,6 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         div_title.innerHTML = "<?php print($plan[$i]['plan_title']); ?>";
 
         var br = document.createElement('br');
+        var br1 = document.createElement('br');
+        var br2 = document.createElement('br');
 
         //条件追加
         //都道府県の追加
@@ -184,7 +186,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php } ?>
         div_yoko.appendChild(div_title);
         div_ranking.appendChild(br);
-        div_ranking.appendChild(br);
+        div_ranking.appendChild(br1);
+        div_ranking.appendChild(br2);
         div_ranking.appendChild(div_pre);
         div_ranking.appendChild(p_who);
         div_ranking.appendChild(p_cost);
