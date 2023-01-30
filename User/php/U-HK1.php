@@ -43,9 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     <div class="acount_information">
       <div class="yoko">
-      <img src="image.php?id=<?= $user[0]['user_id']; ?>" align="left" alt="写真" class="circle1">
-      <!--デフォルト-->
-      <img src="castle.bmp" align="left" alt="写真" class="circle">
+        <?php if(!empty($user[0]['profile_image'])) { ?>
+          <img src="image.php?id=<?= $user[0]['user_id']; ?>" align="left" alt="写真" class="circle1">
+        <?php } else { ?>
+          <!--デフォルト-->
+          <img src="castle.bmp" align="left" alt="写真" class="circle">
+        <?php } ?>
     
     
       <div class="user_name">
