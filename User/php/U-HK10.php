@@ -249,6 +249,10 @@ function deleteCount(){
 }
 
 function place_delete(){
+
+  if(count == 1){
+    return false;
+  }
         deleteCount();        
 
         var counter = document.getElementById("counter");
