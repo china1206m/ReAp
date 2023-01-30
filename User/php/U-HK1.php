@@ -165,10 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       
 
-      //移動時間追加
-      var p_travel = document.createElement('p');
-      p_travel.classList.add("travel_time");
-      p_travel.innerHTML = "<?php print($plan_detail[0]['travel_time_hour']); ?>時間<?php print($plan_detail[0]['travel_time_minute']); ?>分"
+      
 
       // もっと見るを作成
       var a = document.createElement('button');
@@ -197,7 +194,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_home.appendChild(p_planname);
       div_home.appendChild(p_content);
       div_home.appendChild(p_time);
-      div_ranking.appendChild(p_travel);
       div_ranking.appendChild(a);
       
     <?php endfor; ?>
