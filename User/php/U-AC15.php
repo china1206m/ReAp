@@ -12,10 +12,8 @@ include "MG.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "MD.php";
   $delete = new MD();
-  $columnnaem = ['get_coupon_id'];
-  $post = [$_SESSION['get_coupon_id']];
   $type = [0];
-  $result = $delete->md("get_coupon", $columnnaem, $post, $type);
+  $result = $delete->md("get_coupon", "get_coupon_id", $_SESSION['get_coupon_id'], $type);
   //完了画面出すなら
   //モジュールでエラーのとき特定の数字を返り値として渡してほしい
   if($result==-1){
