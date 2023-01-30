@@ -1,0 +1,97 @@
+.coupon {
+  display: flex;
+  width: 800px;
+  max-width: 1000px;
+  background: #a5abf2;
+  /*background: gold;*/
+  margin-top: 150px;
+  margin: 75px;
+}
+.price {
+  font-size: 32px;
+  font-weight: 900;
+  /*color: #f56359;*/
+  color: white;
+}
+
+.shop{
+  font-size: 28px;
+  font-weight: 900;
+  /*color: #f56359;*/
+  color: white;
+}
+
+.date {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.left {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 20px 40px;
+}
+.right {
+  position: relative;
+  display: flex;
+  width: 100px;
+  padding: 80px 40px;
+  border-left: 2px dashed #e0e6ef;
+  justify-content: center;
+}
+
+/* circle-css */
+
+.right::before,
+.right::after {
+position: absolute;
+display: block;
+content: "";
+border-radius: 100%;
+background: #e0e6ef;
+left: -12px;
+width: 22px;
+height: 22px;
+}
+.right::before {
+top: -11px;
+}
+.right::after {
+bottom: -11px;
+}
+
+.button_back {
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+
+/* 整える */
+display: inline;
+width: 10px;
+margin-left: 30px;
+padding: 0.6em 1em; /* 塗りの余白 */
+font-weight: bold;
+background-color: white; /* 背景色 */
+color: black; /* テキストカラー */
+cursor: pointer; /* カーソルを指マークに */
+border-radius: 3px; /* 角の丸み */
+border: 0; /* 枠線を消す */
+transition: 0.3s; /* ホバーの変化を滑らかに */
+}
+
+h3{
+margin-left: 0;
+font-size: 3em;
+}
+
+.button_back:hover {
+background-color: #ffffff; /* 背景色 */
+}
+
+/*ボタンの縦並び*/ 
+li{
+list-style:none;
+margin-top:50px
+}
