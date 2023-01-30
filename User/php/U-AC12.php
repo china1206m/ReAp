@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
-        <title>U-AC11</title>
+        <title>U-AC12</title>
         <meta charset = "UTF-8">
         <link rel="stylesheet" href = "U-AC12.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
@@ -35,6 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
     <main id="main">
         <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+
+        <div align="right">
+            <button class="btn" onclick="location.href='U-AC10.php'"><img src="serch.png" alt="search"></button>
+        </div>
+
         <form action='' method="POST">
         <input type="hidden" id="counter" name="counter" value="0">
         <div align="center">

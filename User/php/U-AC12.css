@@ -95,3 +95,13 @@ li{
 list-style:none;
 margin-top:50px
 }
+
+.btn {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  background: white;
+  border: solid thin white;
+}
