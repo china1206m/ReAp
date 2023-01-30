@@ -190,11 +190,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <script>
 function check () {
 var prefectures = document.searchForm.plan_prefectures.value;
-var plansearch = document.searchForm.plan_search.value;
+var search = document.searchForm.plan_search.value;
+var who = document.searchForm.plan_who.value;
 var date_first = document.searchForm.plan_date_first.value;
 var date_end = document.searchForm.plan_date_end.value;
 
-if ( prefectures == "" && plansearch == "" && date_first == "" && date_end == "" ) {
+if ( prefectures == "" && who == "" && search == "" && date_first == "" && date_end == "" ) {
   alert ( "検索したい項目を入力してください。" );
   document.searchForm.plan_prefectures.focus();
   return false;
