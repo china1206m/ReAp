@@ -1,3 +1,18 @@
+<?php
+session_cache_limiter("none");
+session_start();
+include "MG.php";
+
+$user_id = $_SESSION['user_id'];
+
+$db = MG_10("",$user_id,"");
+$count1 = $db->rowCount();
+$get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -8,7 +23,9 @@
     </head>
     <body>
         <main id="main">
-        <form action="" method="POST" name="searchForm" onSubmit="return check();"></form>
+        <!--<form action="" method="POST" name="searchForm" onSubmit="return check();"></form>-->
+        <form action='' method="POST">
+        <input type="hidden" id="counter" name="counter" value="0">
         <button type="submit" class="button_back" onclick="history.back()"><h3>＜</h3></button>
 
         
@@ -50,18 +67,24 @@
 var ul1 = document.getElementById("coupon_list1");
 
 var count = 0;
-if(count == 0){
+/*if(count == 0){
     var write = document.getElementById("write");
     write.innerHTML = "所持しているクーポンはありません";
-}else{
-for (var count = 0; count < 6; count++) {
+}else{*/
+
+    <?php
+        for ($i = 0; $i < $count1; $i++) :
+
+        $coupon_id = $get_coupon[$i]['coupon_id'];
+        $db = MG_09($coupon_id,"","","","","","");
+        $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     // li要素を作成
     var li1 = document.createElement('li');
 
     var button1 = document.createElement('a');
     button1.type = "button";
     button1.classList.add("coupon");
-    button1.href = 'U-AC15.php';
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -81,9 +104,9 @@ for (var count = 0; count < 6; count++) {
 
 
     // テキスト情報を作成
-    var shopname = document.createTextNode(shop[count]);
-    var date = document.createTextNode(day[count]);
-    var cont = document.createTextNode(content[count]);
+    var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+    var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+    var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
     var br1 = document.createElement('br');
     var br2 = document.createElement('br');
     var br3 = document.createElement('br');
@@ -103,8 +126,8 @@ for (var count = 0; count < 6; count++) {
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-                }
-            }
+                <?php endfor; ?>
+            //}
         </script>
 
         
