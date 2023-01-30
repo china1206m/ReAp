@@ -20,10 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //完了画面出すなら
     //モジュールでエラーのとき特定の数字を返り値として渡してほしい
     if($result == -1){
-      //error
-      //header('');
+      header('Location:E-SE4error.html');
     }else{
-      header('Location:E-SE1.php');
+      header('Location:E-SE4kanryo.html');
       exit;
     }
 }
@@ -81,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <button id="open-btn" class="overlay-event" type="button">消去する</button>
 </div>
 
-<div id="overlay" class="overlay-event">
+<div id="overlay">
   <div class="flex">
     <form action="#" method="POST" id="form1">
     <div id="overlay-inner">
