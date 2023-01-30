@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $type = [0];
   for($i = 0; $i < $count1; $i++) {
     $delete->md("coupon", "coupon_id", $coupon[$i]['coupon_id'], $type); 
+    $delete->md("get_coupon", "coupon_id", $coupon[$i]['coupon_id'], $type);
   }
   header('Location:E-CP9.php');
   exit;
