@@ -9,6 +9,15 @@ $db = MG_10("",$user_id,"");
 $count1 = $db->rowCount();
 $get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $counter = $_POST['counter'];
+    $coupon_id = $get_coupon[$counter]['coupon_id'];
+    $get_coupon_id = $get_coupon[$counter]['get_coupon_id'];
+    $_SESSION['coupon_id'] = $coupon_id;
+    $_SESSION['get_coupon_id'] = $get_coupon_id;
+    header('Location:U-AC15demo.php');
+  }
+
 
 ?>
 
@@ -85,6 +94,8 @@ var count = 0;
     var button1 = document.createElement('button');
     button1.type = "submit";
     button1.classList.add("coupon");
+    button1.setAttribute('id', <?php print($i); ?>);
+    button1.setAttribute('onclick','button(this.id)');
 
     var div_left = document.createElement('div');
     div_left.classList.add("left");
@@ -128,6 +139,13 @@ var count = 0;
     div_date.appendChild(date);
                 <?php endfor; ?>
             //}
+
+            function button(clicked_id){
+                var s = clicked_id;
+                var counter = document.getElementById("counter");
+                counter.value = s;
+            }
+
         </script>
 
         
