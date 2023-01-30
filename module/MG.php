@@ -2,6 +2,7 @@
 
 include_once "MC-01.php";
 
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
 //0と""の判定モジュール
@@ -1091,7 +1092,7 @@ function MG_13($id,$search,$prefectures,$place,$deadline) {
     }
 
     if (!is_nullorempty($deadline)) {
-      $sql .= "AND coupon_deadline >= ? ";
+      $sql .= "AND coupon_deadline >= ? AND coupon_deadline <= ? ";
     }
 
 
@@ -1122,6 +1123,9 @@ function MG_13($id,$search,$prefectures,$place,$deadline) {
     }
 
     if (!is_nullorempty($deadline)) {
+      $today = date("Y-m-d");
+      $stmt->bindValue($n,$today);
+      $n++;
       $stmt->bindValue($n,$deadline);
       $n++;
     }
