@@ -162,10 +162,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   li.appendChild(div_right);
   <?php if(!empty($eventuser[0]['profile_message'])) { ?>
   li.appendChild(img);
-  <?php } ?>
+  <?php } else { ?>
   //デフォルト作成
   li.appendChild(img1);
   //ここまで
+  <?php } ?>
   li.appendChild(div);
   li.appendChild(br);
   li.appendChild(div_pre);
