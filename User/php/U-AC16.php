@@ -1,4 +1,6 @@
 <?php 
+
+include "MG.php";
 session_start();
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "MA.php";
@@ -15,6 +17,12 @@ session_start();
     header('Location:U-AC14.php');
     exit;
   }
+
+  $coupon_id = $_SESSION['coupon_id'];
+
+  $db = MG_09($coupon_id,"","","","","","");
+  $coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +41,13 @@ session_start();
     <center>
     <hr class="top">
 
-    <p class="coupon">都道府県：<?php //print($coupon[0]['coupon_prefectures']); ?>pref</p>
+    <p class="coupon">都道府県：<?php print($coupon[0]['coupon_prefectures']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　店名：<?php //print($coupon[0]['coupon_place']); ?>shop_name</p>
+    <p class="coupon">　　店名：<?php print($coupon[0]['coupon_place']); ?></p>
     <hr class="middle">
-    <p class="coupon">使用期限：<?php //print($coupon[0]['coupon_deadline']); ?>deadline</p>
+    <p class="coupon">使用期限：<?php print($coupon[0]['coupon_deadline']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　詳細：<?php //print($coupon[0]['coupon_content']); ?>detail</p>
+    <p class="coupon">　　詳細：<?php print($coupon[0]['coupon_content']); ?></p>
     <hr class="under">
 
     <div class="delay">

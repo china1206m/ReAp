@@ -1,3 +1,29 @@
+<?php
+session_cache_limiter("none");
+session_start();
+include "MG.php";
+
+$coupon_search = $_SESSION['coupon_search'];
+//$coupon_name = $_SESSION['coupon_name'];
+$coupon_prefectures = $_SESSION['coupon_prefectures'];
+$coupon_place = $_SESSION['coupon_place'];
+$coupon_deadline = $_SESSION['coupon_deadline'];
+
+$db = MG_13("",$coupon_search,$coupon_prefectures,$coupon_place,$coupon_deadline);
+
+$count1 = $db->rowCount();
+
+$coupon = $db->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $counter = $_POST['counter'];
+    $coupon_id = $coupon[$counter]['coupon_id'];
+    $_SESSION['coupon_id'] = $coupon_id;
+    header('Location:U-AC16.php');
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang = "ja">
     <head>
@@ -10,12 +36,21 @@
     <body>
     <main id="main">
         <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
-       
-        <form action='U-AC16.php' method="POST">
+        <form action='' method="POST">
+        <input type="hidden" id="counter" name="counter" value="0">
         <div align="center">
             <font size="+4">
                 クーポン一覧
             </font>
+
+            <p class="non">
+              <?php
+                if($count1 == 0){
+                  echo '検索条件に合致するクーポンはありません';
+                }
+              ?>
+            </p>
+
             <ul id="coupon_list">
             </ul>   
         </div>
@@ -36,15 +71,15 @@
 <script>
     var ul = document.getElementById("coupon_list");
 
-<?php //for ($i = 0; $i < $count1; $i++) : ?>
-
-  for (var i = 0; i < 5; i++) {
+<?php for ($i = 0; $i < $count1; $i++) : ?>
 // li要素を作成
 var li = document.createElement('li');
 
 var button1 = document.createElement('button');
 button1.type = "submit";
 button1.classList.add("coupon");
+button1.setAttribute('id', <?php print($i); ?>);
+button1.setAttribute('onclick','button(this.id)');
 
 var div_left = document.createElement('div');
 div_left.classList.add("left");
@@ -64,9 +99,9 @@ div_date.innerText = "有効期限";
 
 
 // テキスト情報を作成
-var shopname = document.createTextNode("<?php //print($coupon[$i]['coupon_place']); ?>場所");
-var date = document.createTextNode("<?php //print($coupon[$i]['coupon_deadline']); ?>2020/02/02");
-var cont = document.createTextNode("<?php //print($coupon[$i]['coupon_name']); ?>名前");
+var shopname = document.createTextNode("<?php print($coupon[$i]['coupon_place']); ?>");
+var date = document.createTextNode("<?php print($coupon[$i]['coupon_deadline']); ?>");
+var cont = document.createTextNode("<?php print($coupon[$i]['coupon_name']); ?>");
 var br1 = document.createElement('br');
 var br2 = document.createElement('br');
 var br3 = document.createElement('br');
@@ -86,10 +121,16 @@ var br3 = document.createElement('br');
     div_right.appendChild(div_date);
     div_date.appendChild(br3);
     div_date.appendChild(date);
-  }
   
 
-<?php //endfor; ?>       
+        <?php endfor; ?>    
+        
+        function button(clicked_id){
+        var s = clicked_id;
+        var counter = document.getElementById("counter");
+        counter.value = s;
+    }
+
     </script>
         
         
