@@ -68,4 +68,9 @@ class MU{
         $sum = "user set report_total = report_total + 1 WHERE user_id = ".$id;
         $this->db($sum);
     }
+
+    function coupon($id){
+        $sum = "user set coupon_can_get = coupon_can_get - 1 WHERE user_id = ".$id;
+        $this->db($sum);
+    }
 }
