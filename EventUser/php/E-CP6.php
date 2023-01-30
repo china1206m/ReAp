@@ -22,15 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
     $result = $add->ma_return("coupon",$column, $post, $type);
-    /*
+    
     if($result==-1){
-      header('Location:E-AC7.php');
+      header('Location:error.html');
     }else{
       $_SESSION['coupon_id'] = $result;
-      //header('Location: ./list.php');
+      header('Location: kannryo.html');
     }
-*/
-  header('Location:E-CP1.html');
+
     exit;
 }
 ?>
