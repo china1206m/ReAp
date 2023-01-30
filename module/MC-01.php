@@ -1,6 +1,6 @@
 <?PHP
 function getDB() :PDO {
-    $dsn ='mysql:dbname=test; host=localhost; charset=utf8';
+    $dsn ='mysql:dbname=ReAp; host=localhost; charset=utf8';
     $usr = 'root';
     $passwd = '';
 
