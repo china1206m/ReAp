@@ -60,12 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     <div align="right">
-        <button type="type" onclick="location.href='U-AC24.php'" class="solid">
-            <img src="hensyu.png" alt="編集" width="50" height="50">
-        </button>
+    <form action="" method="POST">
         <button type="type" onclick="location.href='U-AC18.php'" class="solid">
             <img src="gomibako.png" alt="ゴミ箱" width="50" height="50">
         </button>
+    </form>
     </div>
     
 
