@@ -40,13 +40,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">プロフィール編集</h3>
 
   
-    <p>
-      <img id="preview" class="profile_img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw==">
+    <p id="select_img">
+      
     </p>
     <br>
     <center>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png" onchange="previewImage(this);">
+    <input id="event_image_" type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png" value="castle.bmp" value="">
      
     </center>
 
@@ -74,12 +74,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <script>
-    function previewImage(obj){
+    var img = document.createElement('img');
+    img.classList.add("profile_img");
+    img.setAttribute('id','preview');
+    var td = document.getElementById("select_img");
+    td.appendChild(img);
+    var obj = document.getElementById("event_image_");
+    obj.addEventListener('change', function(){
+      img.src = "";
+      
       var fileReader = new FileReader();
-          fileReader.onload = (function(){
-            document.getElementById('preview').src =fileReader.result;
-          });
-          fileReader.readAsDataURL(obj.files[0]);
-          }
+      fileReader.onload = function(){
+        console.log(this.result);
+        img.src = this.result;
+      };
+      fileReader.readAsDataURL(obj.files[0]);
+    }, false);
+
     </script>
 </body>
