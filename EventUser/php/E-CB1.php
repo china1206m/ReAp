@@ -67,11 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
       <tr>
         <td><p><label for="post_day" >投稿日</label></p></td>
-        <td><img src="select_image.png" class="event_image" width="103px" height="85px"></td>
+        <td><img id="preview" class="profile_img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw=="><br></td>
     </tr>
     <tr>
       <td><div id="current_date" name="post_day" class="post_day"></p></td>
-      <td><input type="file" name="event_image" class="event_image" accept="image/jpeg,image/png" multiple/></td>
+      <td><input type="file" name="event_image" class="event_image" accept="image/jpeg,image/png" onchange="previewImage(this);"></td>
     </tr>
 </table>
     
@@ -194,4 +194,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   day = date.getDate();
   document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
   </script>
+
+  <script>
+    function previewImage(obj){
+      var fileReader = new FileReader();
+          fileReader.onload = (function(){
+            document.getElementById('preview').src =fileReader.result;
+          });
+          fileReader.readAsDataURL(obj.files[0]);
+          }
+    </script>
 </body>

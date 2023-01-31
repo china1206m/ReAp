@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [2, 2];
     $column_name = "eventuser_id";
     $eventuser_id = $_SESSION['eventuser_id'];
-    $update->update("eventuser", $column, $post, $type, $column_name, $eventuser_id);
+    $update->mu("eventuser", $column, $post, $type, $column_name, $eventuser_id);
 
     include_once "MC-01.php";
     $pdo = getDB();
@@ -39,11 +39,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()">＜</button><h3 class="button_back">プロフィール編集</h3>
 
-  <center>
-    <p class="image-circle"></p>
+  
+    <p>
+      <img id="preview" class="profile_img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw==">
+    </p>
     <br>
+    <center>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png">
+    <input type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png" onchange="previewImage(this);">
      
     </center>
 
@@ -68,4 +71,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <li class="menu-list"><a class="menu-button" href="E-AC3.php"><img src="E-menu-acount.png" width="45" height="43">　アカウント</a></li><br>
       </ul>
     </aside>
+
+
+    <script>
+    function previewImage(obj){
+      var fileReader = new FileReader();
+          fileReader.onload = (function(){
+            document.getElementById('preview').src =fileReader.result;
+          });
+          fileReader.readAsDataURL(obj.files[0]);
+          }
+    </script>
 </body>

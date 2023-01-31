@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="non">
               <?php
                 if($count1 == 0){
-                  echo '所持するクーポンはありません';
+                  echo '所持しているクーポンはありません';
                 }
               ?>
             </p>

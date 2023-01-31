@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+include "MG.php";
+
+$user_id = $_SESSION['user_id'];
+$db = MG_01($user_id,"","","","","","","","","");
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     /*
     include "MU.php";
@@ -21,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [2, 2];
     $column_name = "user_id";
     $user_id = $_SESSION['user_id'];
-    $update->mu("user", $column, $post, $type, $column_name, $user_id);
+    $update->update("user", $column, $post, $type, $column_name, $user_id);
 
     include_once "MC-01.php";
     $pdo = getDB();
@@ -70,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </font>
                         <br>
                         <div align="center" class="text">
-                            <input type=”text” maxlength="20" name="user_name" class="profile__name" placeholder="20文字以内" required>
+                            <input type=”text” maxlength="20" name="user_name" class="profile__name" placeholder="20文字以内" value="<?php print($user[0]['user_name']); ?>"required>
                         </div>
                         
                 </div><br>
@@ -82,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </font>
                     </div><br>
                     <div>
-                        <textarea name="profile_message" cols="50" rows="10" class="profile__coment"></textarea><br>
+                        <textarea name="profile_message" cols="50" rows="10" class="profile__coment"><?php print($user[0]['profile_message']); ?></textarea><br>
                     </div>
                     
                 </div>
