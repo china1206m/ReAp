@@ -41,10 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body bgcolor="#f0f8ff">
   <main id="main">
     <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back">投稿イベント</h3>
-    <p class="post_day"><?php print($event[0]['post_date']) ?></p>
+    
 <div class="yoko">
   <ul>
   <li><div class="event_information">
+    <p class="post_day"><?php print($event[0]['post_date']) ?></p>
     <?php if(!empty($eventuser[0]['profile_message'])) { ?>
       <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle1" align="left" alt="アイコン">
     <?php } else { ?>
