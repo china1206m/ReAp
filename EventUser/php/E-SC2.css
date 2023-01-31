@@ -61,9 +61,10 @@ appearance: none;
   margin-left: 100px;
   }
 
-  
+  .yoko{
+    display: inline;
+  }  
 
-  
 
   .circle {
     width:90px;
