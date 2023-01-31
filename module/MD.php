@@ -3,7 +3,7 @@
 class MD {
 
     // テーブル名、カラム名、削除したい値、型   
-    function md($table, $columnnaem, $post, $type) {
+    function delete($table, $columnnaem, $post, $type) {
         try {
             include_once "MC-01.php";
             // データベース接続
