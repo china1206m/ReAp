@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = [0, 2, 2, 0, 0, 0, 0];
         }     
         // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-        $plan_detail_id = $add->ma_return("plan_detail",$column, $post, $type);
+        $plan_detail_id = $add->add_return("plan_detail",$column, $post, $type);
         $_SESSION['user_detail_id'] = $plan_detail_id;
 
         if(!empty($_FILES["plan_image$i"]['tmp_name'])) {
