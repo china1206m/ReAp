@@ -138,6 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   img1.alt = 'アイコン'
   <?php } ?>
 
+  var br = document.createElement('br');
+
   // 題名を作成
   var div = document.createElement('div');
   div.className = 'title';
