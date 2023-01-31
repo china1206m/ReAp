@@ -1,7 +1,7 @@
 <?php
 class MA {
         // テーブル名、追加したい値、追加したい値の型
-        function ma($table, $column, $post, $type) : void {
+        function add($table, $column, $post, $type) : void {
             try {
                 // データベース接続
                 include_once "MC-01.php";
@@ -40,7 +40,7 @@ class MA {
         }
 
     // テーブル名、追加したい値、追加したい値の型
-    function ma_return ($table, $column, $post, $type) {
+    function add_return ($table, $column, $post, $type) {
         try {
             // データベース接続
             include_once "MC-01.php";
