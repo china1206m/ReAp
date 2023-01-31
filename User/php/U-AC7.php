@@ -3,9 +3,9 @@
 session_start();
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        include "logout.php";
-        $logout = new logout();
-        $logout->logout("U-AC6.php");
+        session_destroy();
+        header('Location:U-AC6.php');
+        exit;
   }
 ?>
 
