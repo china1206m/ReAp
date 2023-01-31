@@ -140,6 +140,7 @@
     background-color: #E2EDF9;
   }
 
+  /*戻るボタンのデザイン*/
   .button_back {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
@@ -161,7 +162,12 @@
   }
 
   h3 {
+    margin-left: 0;
     font-size: 3em;
+  }
+    
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
   }
 
   /*ボタンデザイン 背景：青、文字：白*/

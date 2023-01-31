@@ -35,20 +35,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="U-HK3.css" type="text/css">
+    <link rel="stylesheet" href="button.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
     <title>U-HK3</title>
 </head>
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
-  <font size="+4" class="screenname">検索条件</font>
+    <button type="button" class="button_back" onclick="history.back()">＜</button>
+    <font size="+4" class="screenname">検索条件</font>
 
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="plan_search" class="plan_search" maxlength="32" placeholder="キーワードを入力">
 
       <p>カテゴリ</p>
-      <table align="center">
+      <table class="cate">
         <tr>
           <td><input type="radio" name="plan_who" value="一人" id="one"><label for="one">一人</label></td>
           <td><input type="radio" name="plan_who" value="友達" id="friend"><label for="friend">友達</label></td>

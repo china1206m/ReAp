@@ -26,7 +26,12 @@
   }
 
   .screenname {
-    margin-left:35%;
+    margin-left: 30%;
+  }
+
+  .cate {
+    border-spacing: 5px;
+    margin: 0 auto;
   }
 
   /* ラジオボタン */
@@ -166,7 +171,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-  
+
     /* 整える */
     display: inline;
     width: 10px;
@@ -182,11 +187,21 @@
   }
 
   h3 {
+    margin-left: 0;
     font-size: 3em;
+  }
+    
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
   }
 
   .screenname {
-    margin-left:35%;
+    margin-left: 26%;
+  }
+
+  .cate {
+    border-spacing: 5px;
+    margin: 0 auto;
   }
 
   /* ラジオボタン */

@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+  <button type="button" class="button_back" onclick="history.back()">＜</button>
     <ul id="plan">
       <li class="plan_list">
         <div class="information">

@@ -37,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </head>
   <body>
     <main id="main">
-      <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <button type="button" class="button_back" onclick="history.back()">＜</button>
+    <font size="+4" class="screenname">検索条件</font>
       <form action="" method="POST">
       <input type="hidden" id="counter" name="counter" value="0">
       <!--phpの検索結果がないときのひょうじはここ-->
