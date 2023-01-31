@@ -727,6 +727,57 @@ function MG_07($id1,$id2,$id3) {
 
 //ユーザー通報テーブル
 
+function MG_08($id1,$id2,$content) {
+
+  $n = 1;
+
+  try{
+
+    $db = getDB();
+
+    $sql = "SELECT * FROM user_report WHERE 1 = 1 ";
+
+    if (!is_nullorempty($id1)) {
+      $sql .= "AND user_report_id = ? ";
+    }
+
+    if (!is_nullorempty($id2)) {
+      $sql .= "AND user_id = ? ";
+    }
+
+    if (!is_nullorempty($content)) {
+      $sql .= "AND report_content = ? ";
+    }
+
+
+    $stmt = $db->prepare($sql);
+
+
+    if (!is_nullorempty($id1)) {
+      $stmt->bindValue($n,$id1);
+      $n++;
+    }
+
+    if (!is_nullorempty($id2)) {
+      $stmt->bindValue($n,$id2);
+      $n++;
+    }
+
+    if (!is_nullorempty($content)) {
+      $stmt->bindValue($n,$content);
+      $n++;
+    }
+
+    $stmt->execute();
+
+    return $stmt;
+    
+  } catch(PDOException $e){
+    echo "DB接続失敗";
+  }
+
+}
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
 //クーポンテーブル
