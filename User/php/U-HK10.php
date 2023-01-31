@@ -33,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // 入力したいカラム名を指定
             $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute'];
             // 入力された値をpost配列に格納
-            $post = [$plan_id, $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"]];
+            $plan_content = nl2br($_POST["plan_content$i"]);
+            $post = [$plan_id, $_POST["plan_place$i"], $plan_content, $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"]];
             // 入力された値の型を定義
             $type = [0, 2, 2, 0, 0];
 
