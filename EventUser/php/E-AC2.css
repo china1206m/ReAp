@@ -28,14 +28,14 @@
   }
   
   input {
-    width: 30em;
+    width: 80%;
     padding: 0.5em;
     padding-bottom: 0.5em;
   }
   
   textarea {
     resize: none;
-    width: 25em;
+    width: 80%;
     padding: 0.5em;
   }
   
