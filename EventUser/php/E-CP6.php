@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [2, 0, 2, 2, 2, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $result = $add->ma_return("coupon",$column, $post, $type);
+    $result = $add->add_return("coupon",$column, $post, $type);
     
     if($result==-1){
       header('Location:E-CP6error.html');
