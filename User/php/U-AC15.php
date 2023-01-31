@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "MD.php";
   $delete = new MD();
   $type = [1];
-  $result = $delete->md("get_coupon", "coupon_id", $_SESSION['coupon_id'], $type);
+  $result = $delete->md("get_coupon", "get_coupon_id", $_SESSION['get_coupon_id'], $type);
   //session_destroy(); // セッションを破壊
   //完了画面出すなら
   //モジュールでエラーのとき特定の数字を返り値として渡してほしい
