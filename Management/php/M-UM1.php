@@ -379,10 +379,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var button_revival = document.createElement('button');
     <?php if($user[$i]['user_stop']==0):?>
       button_revival.setAttribute("disabled","");
+      button_revival.classList.add("disabled_button");
       stop.value = "1";
+    <?php else: ?>  
+      button_revival.classList.add("situation_button");  
     <?php endif; ?>
     button_revival.type = "button";
-    button_revival.classList.add("situation_button");
     button_revival.classList.add("stop_sus");
     button_revival.setAttribute('id', <?php print($i); ?>);
     button_revival.innerHTML = "復活";
@@ -390,9 +392,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var button_suspension = document.createElement('button');
     <?php if($user[$i]['user_stop']==1):?>
       button_suspension.setAttribute("disabled","");
+      button_suspension.classList.add("disabled_button");
+    <?php else: ?>  
+      button_suspension.classList.add("situation_button");
     <?php endif; ?>
     button_suspension.type = "button";
-    button_suspension.classList.add("situation_button");
     button_suspension.classList.add("stop_sus");
     button_suspension.setAttribute('id', <?php print($i); ?>);
     button_suspension.innerHTML = "停止";
