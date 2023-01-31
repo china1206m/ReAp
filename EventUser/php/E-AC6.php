@@ -9,7 +9,7 @@ session_start();
     $delete = new MD();
 
     $type = [1];
-    $delete->md("eventuser", "eventuser_id", $_SESSION['eventuser_id'], $type);
+    $delete->delete("eventuser", "eventuser_id", $_SESSION['eventuser_id'], $type);
    
     session_destroy(); // セッションを破壊
   
