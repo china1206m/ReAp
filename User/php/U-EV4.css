@@ -94,6 +94,11 @@ p {
   .screenname {
     margin-left:35%;
   }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 6%;
+  }
   
   @media screen and (max-width:990px) {
     /* ラジオボタン */
@@ -145,5 +150,10 @@ p {
       border-radius: 3px; /* 角の丸み */
       border: 0; /* 枠線を消す */
       transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+
+    .less{
+      margin-top: 5%;
+      margin-left: 7%;
     }
   }
