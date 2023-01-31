@@ -4,11 +4,11 @@ session_start();
 include "MG.php";
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "MA.php";
-    $add = new ma();
+    $add = new MA();
     $column = ['user_id', 'coupon_id'];
     $post = [$_SESSION['user_id'] ,$_SESSION['coupon_id']];
     $type = [0, 0];
-    $add->ma("get_coupon", $column, $post, $type);
+    $add->add("get_coupon", $column, $post, $type);
 
     include "MU.php";
     $update = new MU();
