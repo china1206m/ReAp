@@ -13,8 +13,8 @@ $get_coupon = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $counter = $_POST['counter'];
-    $coupon_id = $get_coupon[$counter]['coupon_id'];
-    $_SESSION['coupon_id'] = $coupon_id;
+    $get_coupon_id = $get_coupon[$counter]['get_coupon_id'];
+    $_SESSION['get_coupon_id'] = $get_coupon_id;
     header('Location:U-AC15.php');
 }
 
