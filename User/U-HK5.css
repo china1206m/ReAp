@@ -20,10 +20,6 @@
     transition: 0.3s; /* ホバーの変化を滑らかに */
     }
     
-    h3{
-    margin-left: 0;
-    font-size: 3em;
-    }
     
     .button_back:hover {
     background-color: #ffffff; /* 背景色 */
@@ -257,6 +253,11 @@
     background-color: rgb(169, 195, 237);
     margin: 200px;
     font-size: xx-large;
+  }
+
+  .top{
+    margin-top: 5%;
+    margin-left: 7%;
   }
 }
   
