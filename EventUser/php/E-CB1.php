@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [0, 2, 2, 1, 1, 2, 2, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $event_id = $add->ma_return("event",$column, $post, $type);
+    $event_id = $add->add_return("event",$column, $post, $type);
     $_SESSION['event_id'] = $event_id;
 
     if(!empty($_FILES['event_image']['tmp_name'])) {
