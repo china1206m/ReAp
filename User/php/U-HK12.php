@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [0,1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $_SESSION['user_report_id'] = $add->ma_return("user_report",$column, $post, $type);
+    $_SESSION['user_report_id'] = $add->add_return("user_report",$column, $post, $type);
 
     //通報回数変更
     include "MU.php";
