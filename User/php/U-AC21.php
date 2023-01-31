@@ -26,20 +26,25 @@ $plan_detail = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $_SESSION['planuser_id'] = $planuser_id;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  /*
   include "MD.php";
-  $delete = new md();
-  $post = [$_SESSION['plan_id']];
+  $delete = new MD();
+
   $type = [0];
-  // 計画消去
-  $delete->md("plan", "plan_id", $post, $type);
+  $delete->delete("plan", "plan_id", $plan_id, $type); 
+  */
+  $sql = "DELETE FROM plan WHERE plan_id = $plan_id";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+
   
   // 計画詳細消去
-  for ($i = 0; $i < $count; $i++) {
-    $post = [$plan_detail[$i]['plan_detail_id']];
-    $type = [0];
-    $delete->md("plan_detail", "plan_detail_id", $post, $type);
-  }
-  header('Locaton:U-AC18.php');
+  
+    $sql = "DELETE FROM plan_detail WHERE plan_id = $plan_id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+  
+  header('Location:U-AC18.php');
   exit;
 }
 
