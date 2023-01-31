@@ -3,9 +3,9 @@
 session_start();
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        include "logout.php";
-        $logout = new logout();
-        $logout->logout("E-AC4.php");
+    session_destroy();
+    header('Location:E-AC4.php');
+  exit;
   }
 ?>
 
