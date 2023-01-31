@@ -112,9 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <br>
           <br>
           <p class="condition"><?php print($plan[0]['plan_prefectures']); ?></p>
-          <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
-          <p class="condition"><?php print($plan[0]['plan_cost']); ?>円</p>
+          <p class="condition">費用：<?php print($plan[0]['plan_cost']); ?>円</p>
           <p class="condition"><?php print($plan[0]['plan_day']); ?>泊<?php print($plan[0]['plan_day'] + 1); ?>日</p>
+          <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
           <ol id="plan-detail"></ol>
         </div>
       </li>
@@ -165,7 +165,7 @@ p_content.innerHTML = "<?php print($plan_detail[$i]['plan_content']); ?>"
 
 //滞在時間追加
 var p_time = document.createElement('p');
-p_time.innerHTML = "<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
+p_time.innerHTML = "滞在時間：<?php print($plan_detail[$i]['stay_time_hour']); ?>時間<?php print($plan_detail[$i]['stay_time_minute']); ?>分"
 p_time.classList.add("plan_content");
 
 //写真と移動時間の配置
@@ -184,7 +184,7 @@ div_ect.classList.add("ect");
 //移動時間追加
 var p_travel = document.createElement('p');
 p_travel.classList.add("travel_time");
-p_travel.innerHTML = "<?php if($i+1 < $count1){print($plan_detail[$i+1]['travel_time_hour']); ?>時間<?php print($plan_detail[$i+1]['travel_time_minute']); ?>分<?php }?>"
+p_travel.innerHTML = "<?php if($i+1 < $count1){?> 移動時間： <?php print($plan_detail[$i+1]['travel_time_hour']); ?>時間<?php print($plan_detail[$i+1]['travel_time_minute']); ?>分<?php }?>"
 
 ol.appendChild(li_ol);
 li_ol.appendChild(div_home);
