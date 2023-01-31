@@ -34,10 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="utf-8">
     <link rel="stylesheet" href="U-HK11.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
   <body>
     <main id="main">
-    <button type="button" class="button_back" onclick="history.back()">＜</button>
+    <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
     <font size="+4" class="screenname">検索条件</font>
       <form action="" method="POST">
       <input type="hidden" id="counter" name="counter" value="0">
