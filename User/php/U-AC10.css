@@ -111,6 +111,11 @@ p {
     margin-top: 80px;
     margin-left: 200px;
 }
+
+.less{
+  margin-top: 5%;
+  margin-left: 7%;
+}
 }
 
 /*スマホ用*/
@@ -235,5 +240,10 @@ p {
 
 .screenname {
   margin-left:30%;
+}
+
+.less{
+  margin-top: 5%;
+  margin-left: 7%;
 }
 }
