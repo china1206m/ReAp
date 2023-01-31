@@ -2,6 +2,12 @@
 // セッション開始
 session_start();
 
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
+
     $_SESSION['event_search'] = "";
     $_SESSION['event_prefectures'] = "";
     $_SESSION['event_day_first'] = "";

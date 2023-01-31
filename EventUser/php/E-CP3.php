@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['eventuser_id'])){
+    $_SESSION['login_message'] = 'ログインしてください';
+    header('Location:E-AC4.php');
+    exit;
+  }
+  
 include "MG.php";
 
 $eventuser_id = $_SESSION['eventuser_id'];

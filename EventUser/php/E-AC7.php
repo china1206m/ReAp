@@ -1,11 +1,18 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "MU.php";
 
     $update = new MU();
     $column = ["eventuser_name", "profile_message"];
-    $post = [$_POST['user_name'], nl2br($_POST['profile_message'])];
+    $post = [$_POST['user_name'], $_POST['profile_message']];
     $type = [2, 2];
     $column_name = "eventuser_id";
     $eventuser_id = $_SESSION['eventuser_id'];

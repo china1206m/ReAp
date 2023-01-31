@@ -3,6 +3,12 @@
 /* セッション開始 */
 session_start();
 
+if(!isset($_SESSION['eventuser_id'])){
+    $_SESSION['login_message'] = 'ログインしてください';
+    header('Location:E-AC4.php');
+    exit;
+  }
+
 //フォームの初期値に編集前の情報格納
 include "MG.php";
 
