@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   //場所の追加
   var div_place = document.createElement('p');
-      div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
+      div_place.innerText = `<?php print($event[$i]['event_place']) ?>`
 
   // アイコンユーザ選択
   <?php
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  p.innerHTML = "<?php print($event[$i]['event_content']) ?>";
+  p.innerHTML = `<?php print($event[$i]['event_content']) ?>`;
 
   // もっと見るを作成
   var a = document.createElement('button');
