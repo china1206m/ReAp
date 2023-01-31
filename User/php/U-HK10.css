@@ -136,6 +136,11 @@
     background-color: #064fda; /* 背景色 */
   }
 
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
+  }
+
 }
 
 
@@ -274,6 +279,11 @@ ol{
 
 .screenname {
     margin-left:33%;
+  }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
   }
 
 
