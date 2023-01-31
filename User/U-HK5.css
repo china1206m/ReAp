@@ -8,7 +8,6 @@
     
     /* 整える */
     display: inline;
-    width: 10px;
     margin-left: 30px;
     padding: 0.6em 1em; /* 塗りの余白 */
     font-weight: bold;
@@ -157,7 +156,8 @@
     }
 
     h3{
-      font-size: 3em;
+      font-size: 6em;
+      color: red;
     }
     
     .button_back:hover {
