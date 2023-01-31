@@ -1,6 +1,11 @@
 <?php
 session_cache_limiter("none");
 session_start();
+if(!isset($_SESSION['user_id'])) {
+    $_SESSION['login_message'] = 'ログインしてください';
+    header('Location:U-AC6.php');
+    exit;
+}
 include "MG.php";
 
 $today = date("Y-m-d");

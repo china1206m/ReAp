@@ -1,7 +1,11 @@
 <?php
-
 /* セッション開始 */
 session_start();
+if(!isset($_SESSION['user_id'])) {
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
  
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id = $_SESSION['plan_id'];
   //$id = 1;
 
-  $update->mu("plan", $column, $post, $type, $id_name, $id);
+  $update->update("plan", $column, $post, $type, $id_name, $id);
 
   //$_SESSION['register_message'] = '登録しました';
   //header('Location:E-AC3.php');
