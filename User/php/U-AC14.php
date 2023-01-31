@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <body>
     <main id="main">
-        <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
+        <i class="fas fa-less-than less fa-3x" onclick="location.href='U-AC9.php'"></i>
 
         <form action='' method="POST">
         <input type="hidden" id="counter" name="counter" value="0">
