@@ -27,7 +27,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
   <body>
     <main id="main">
-    <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
+    <i class="fas fa-less-than less fa-3x" onclick="location.href='U-AC3.php'"></i>
 
       <div align="left">
         <img src="coupon.png" alt="" class="pics">
