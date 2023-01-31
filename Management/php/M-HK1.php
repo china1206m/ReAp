@@ -2,6 +2,12 @@
 session_cache_limiter("none");
 session_start(); // セッション開始
 
+if(!isset($_SESSION['administrator_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:M-AC1.php');
+  exit;
+}
+
 include "MG.php";
 
 $db = getDB();
@@ -90,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   <?php 
 
-    for ($i = 0; $i < $count1; $i++) :  
+    for ($i = 0; $i < 0; $i++) :  
 
     $user_id = $plan[$i]['user_id']; 
     $db = MG_01($user_id,"","","","","","","","");
