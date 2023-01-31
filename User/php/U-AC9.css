@@ -58,6 +58,11 @@
   .pics {
     margin-left: 60px;
   }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 6%;
+  }
 }
   
 /*スマホ用*/
@@ -110,5 +115,10 @@
   h3{
     margin-left: 0;
     font-size: 3em;
+  }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
   }
 }
