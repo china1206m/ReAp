@@ -192,10 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   li.appendChild(div);
   li.appendChild(br);
   li.appendChild(div_pre);
-  li.appendChild(div_first);
-  li.appendChild(div_heniyo);
-  li.appendChild(div_end);
-  li.appendChild(div_place);
   li.appendChild(p);
   li.appendChild(a);
 
