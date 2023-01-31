@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [1,1,1,1,0,1,1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $_SESSION['eventuser_id'] = $add->ma_return("eventuser",$column, $post, $type);
+    $_SESSION['eventuser_id'] = $add->add_return("eventuser",$column, $post, $type);
 
     header('Location:E-EL1.html');
     exit;
