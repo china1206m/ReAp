@@ -1,34 +1,33 @@
 /*パソコン用*/
 @media screen and (min-width:990px) {
-    .button_back {
-        /* ブラウザ特有のスタイルを無効に */
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
-      
-        /* 整える */
-        display: inline;
-        width: 10px;
-        margin-left: 30px;
-        padding: 0.6em 1em; /* 塗りの余白 */
-        font-size: 1.2em;
-        background-color: white; /* 背景色 */
-        color: black; /* テキストカラー */
-        cursor: pointer; /* カーソルを指マークに */
-        border-radius: 3px; /* 角の丸み */
-        border: 0; /* 枠線を消す */
-        transition: 0.3s; /* ホバーの変化を滑らかに */
-      }
+  .button_back {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     
-      /* ホバー時（カーソルをのせた時）の見た目 */
-    .button_back:hover {
-        background-color: white; /* 背景色 */
-      }
+    /* 整える */
+    display: inline;
+    width: 10px;
+    margin-left: 30px;
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-weight: bold;
+    background-color: white; /* 背景色 */
+    color: black; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
     
     h3{
-        margin-left: 0;
-        font-size: 1em;
-      }
+    margin-left: 0;
+    font-size: 3em;
+    }
+    
+    .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
+    }
     
     .circle {
         width:50px;
@@ -138,7 +137,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-  
+    
     /* 整える */
     display: inline;
     width: 10px;
@@ -151,12 +150,16 @@
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
-  }
-  
-  h3{
+    }
+    
+    h3{
     margin-left: 0;
     font-size: 3em;
-  }
+    }
+    
+    .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
+    }
   
   .circle {
     width:100px;
