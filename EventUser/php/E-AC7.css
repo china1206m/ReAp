@@ -1,12 +1,4 @@
-.image-circle {
-    background-image:url('hokkaido.png');  /*画像のURL*/
-    width:100px;  /*表示する横幅(縦幅と同じ値)*/
-    height:92px;  /*表示する縦幅(横幅と同じ値)*/
-    border-radius:50%;  /*丸く表示*/
-    border: #4e7bcc 1px solid; /*境界線の指定*/
-    background-position:center;  /*背景画像の位置*/
-    margin-left: 0;
-}
+
 
 /*戻るボタンのデザイン*/
 .button_back {
@@ -82,3 +74,12 @@ p {
     font-weight: bold;
     margin-left: 5px;
   }
+
+  .profile_img{
+    width:100px;
+    height:100px;
+    border: 0;
+    border-radius: 50%;
+    border: solid 20px white;
+    margin-left: 100px;
+}
