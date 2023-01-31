@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "MD.php";
   $delete = new md();
   $type = [1];
-  $result = $delete->md("event", "event_id", $event_id, $type);
+  $result = $delete->delete("event", "event_id", $event_id, $type);
   //完了画面出すなら
     //モジュールでエラーのとき特定の数字を返り値として渡してほしい
     if($result == -1){
