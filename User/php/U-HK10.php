@@ -8,16 +8,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "MA.php";
     // addインスタンス生成
     $add = new MA();
+    // 計画追加
+    // 現在時刻取得
+    $post_date = date('Y-m-d');
+
+    // 入力したいカラム名を指定
+    $column = ['user_id','plan_title', 'plan_who', 'plan_prefectures', 
+              'plan_cost', 'plan_day', 'plan_favorite_total', 'plan_favorite_season', 'post_date'];
+
+    // 入力された値をpost配列に格納
+    $post = [$_SESSION['user_id'], $_SESSION['plan_title'], $_SESSION['plan_who'], $_SESSION['plan_prefectures'], 
+            $_SESSION['plan_cost'], $_SESSION['plan_day'], 0, 0, $post_date];
+
+    // 入力された値の型を定義
+    $type = [0, 2, 2, 2, 0, 1, 0, 0, 1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $plan_id = $add->add_return("plan",$column, $post, $type);
 
     // 計画を追加した回数
     $count = $_POST['counter'];
-    
     for($i = 1; $i <= $count; $i++) {
         if($i == 1) {
             // 入力したいカラム名を指定
             $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute'];
             // 入力された値をpost配列に格納
-            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"]];
+            $post = [$plan_id, $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"]];
             // 入力された値の型を定義
             $type = [0, 2, 2, 0, 0];
 
@@ -26,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $column = ['plan_id','plan_place', 'plan_content', 'stay_time_hour', 'stay_time_minute',
             'travel_time_hour', 'travel_time_minute'];
             // 入力された値をpost配列に格納
-            $post = [$_SESSION['plan_id'], $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
+            $post = [$plan_id, $_POST["plan_place$i"], $_POST["plan_content$i"], $_POST["stay_time_hour$i"], $_POST["stay_time_minute$i"], 
             $_POST["travel_time_hour2"], $_POST["travel_time_minute2"]];
             // 入力された値の型を定義
             $type = [0, 2, 2, 0, 0, 0, 0];
