@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //内容追加
       var p = document.createElement('p');
       p.classList.add("content");
-      p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+      p.innerHTML = `<?php print($event[$i]['event_content']); ?>`
 
       // もっと見るを作成
       var a = document.createElement('button');

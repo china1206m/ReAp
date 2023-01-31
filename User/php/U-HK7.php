@@ -156,7 +156,7 @@ div_home.classList.add("plan_information");
 //場所名追加
 var p_placename = document.createElement('p');
 p_placename.classList.add("plan_content");
-p_placename.innerHTML = "<?php print($plan_detail[$i]['plan_place']); ?>"
+p_placename.innerHTML = `<?php print($plan_detail[$i]['plan_place']); ?>`
 
 //本文内容追加
 var p_content = document.createElement('p');
