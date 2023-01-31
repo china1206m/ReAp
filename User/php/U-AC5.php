@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id_name = "user_id";
   $id = $_SESSION['user_id'];
 
-  $update->mu("user", $column, $post, $type, $id_name, $id);
+  $update->update("user", $column, $post, $type, $id_name, $id);
 
   header('Location:U-AC3.php');
   exit;
