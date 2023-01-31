@@ -20,7 +20,10 @@
     transition: 0.3s; /* ホバーの変化を滑らかに */
     }
     
-    
+    h3{
+      font-size: 3em;
+    }
+
     .button_back:hover {
     background-color: #ffffff; /* 背景色 */
     }
@@ -151,6 +154,10 @@
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+
+    h3{
+      font-size: 3em;
     }
     
     .button_back:hover {
