@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // セッションでイベントユーザIDを保持
         foreach ($stmt as $row) {
             $_SESSION['administrator_id'] = $row['administrator_id'];
-            header('Location:M-HK1.html');
+            header('Location:M-HK1.php');
             exit;
         }
     }
