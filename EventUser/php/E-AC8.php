@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $id = $_SESSION['eventuser_id'];
   
-  $update->mu("eventuser", $column, $post, $type, $id_name, $id);
+  $update->update("eventuser", $column, $post, $type, $id_name, $id);
 
   header('Location:E-AC3.php');
   exit;
