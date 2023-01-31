@@ -56,6 +56,12 @@
   
         .menu{
           display:flex;
+          position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f0f8ff;
+
         }
       
         #header {
@@ -100,7 +106,6 @@
       .menu_img{
         width: 100px;
         height:96px;
-        
       }
   
       a{
