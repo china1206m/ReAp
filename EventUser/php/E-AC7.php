@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [2, 2];
     $column_name = "eventuser_id";
     $eventuser_id = $_SESSION['eventuser_id'];
-    $update->mu("eventuser", $column, $post, $type, $column_name, $eventuser_id);
+    $update->update("eventuser", $column, $post, $type, $column_name, $eventuser_id);
 
     include_once "MC-01.php";
     $pdo = getDB();
