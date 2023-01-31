@@ -1,11 +1,7 @@
 <?php
 /* セッション開始 */
 session_start();
-if(!isset($_SESSION['user_id'])) {
-  $_SESSION['login_message'] = 'ログインしてください';
-  header('Location:U-AC6.php');
-  exit;
-}
+
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   /* usernameとpasswordが定義されて、かつ空白ではない */
