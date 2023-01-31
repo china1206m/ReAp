@@ -8,18 +8,6 @@ $db = MG_01($user_id,"","","","","","","","","");
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    /*
-    include "MU.php";
-
-    $update = new MU();
-    $column = ["user_name", "profile_message", "profile_image"];
-    $post = [$_POST['user_name'], $_POST['profile_message'], $_FILES['profile_image']['tmp_name']];
-    $type = [2, 2, 1];
-    $column_name = "user_id";
-    $id = $_SESSION['user_id'];
-    $update->mu("user", $column, $post, $type, $column_name, $id);
-    */
-
     include "MU.php";
 
     $update = new MU();
