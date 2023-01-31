@@ -46,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <ul>
   <li><div class="event_information">
     <p class="post_day"><?php print($event[0]['post_date']) ?></p>
-    <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+    <!-- アイコン -->
+    <?php if(!empty($eventuser[0]['profile_image'])) { ?>
       <img src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>' class="circle1" align="left" alt="アイコン">
     <?php } else { ?>
       <!-- デフォルトアイコン -->
