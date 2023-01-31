@@ -123,6 +123,11 @@
         border-radius: 50%;
         border: solid 20px white;
         }
+
+        .less{
+          margin-top: 5%;
+          margin-left: 7%;
+        }
 }
 
 
@@ -244,7 +249,7 @@ li .home{
   }
 
   .screenname {
-    margin-left:25%;
+    margin-left:0;
   }
 
   .circle {
@@ -261,6 +266,11 @@ li .home{
       border: 0;
       border-radius: 50%;
       border: solid 20px white;
+      }
+
+      .less{
+        margin-top: 5%;
+        margin-left: 7%;
       }
 }
 
