@@ -47,14 +47,14 @@ $_SESSION['event_eventuser_id'] = $eventuser_id;
               <?php print($event[0]['event_title']); ?>
             </div>
           </div>
-          <p class="event_info"><?php print($event[0]['event_day_first']); ?>　～　<?php print($event[0]['event_day_end']); ?></p>
+          <p class="event_info">開催期間：<?php print($event[0]['event_day_first']); ?>　～　<?php print($event[0]['event_day_end']); ?></p>
           <div class="event_info">
             <p><?php print($event[0]['event_prefectures']); ?></p>
             <p><?php print($event[0]['event_place']); ?></p>
+            <p>費用：<?php print($event[0]['event_cost']); ?>円</p>
+            <center id="image_area"></center>
+            <p><?php print($event[0]['event_content']); ?></p>
           </div>
-          <center id="image_area"></center>
-          <p><?php print($event[0]['event_content']); ?></p>
-          <p><?php print($event[0]['event_cost']); ?>円</p>
         </div>
     </div>
     <div class="box"></div>
