@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = [0, 2, 2, 2, 0, 1, 0, 0, 1];
 
     // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
-    $_SESSION['plan_id'] = $add->ma_return("plan",$column, $post, $type);
+    $_SESSION['plan_id'] = $add->add_return("plan",$column, $post, $type);
 
     // 計画投稿（計画詳細）画面
     header('Location:U-HK10.php');
