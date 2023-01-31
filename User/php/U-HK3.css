@@ -77,7 +77,7 @@
     font-size: 1.5em;
     margin-top: 80px;
     margin-left: 200px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   /*ボタンデザイン 背景：青、文字：白*/
@@ -111,7 +111,7 @@
     font-size: 1.5em;
     margin-left: 250px;
     padding: 0.5em;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .stay {
@@ -120,7 +120,7 @@
     font-size: 1.5em;
     margin-left: 250px;
     padding: 0.5em;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .region-select {
@@ -129,7 +129,7 @@
     font-size: 1.2em;
     margin-left: 250px;
     background-color: white;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .pref-select {
@@ -138,7 +138,7 @@
     font-size: 1.2em;
     margin-left: 30px;
     background-color: white;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .plan-day {
@@ -146,7 +146,7 @@
     height: 40px;
     font-size: 1.5em;
     margin-left: 200px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .kara {
@@ -159,10 +159,10 @@
     height: 40px;
     font-size: 1.5em;
     margin-left: 40px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
-  .less{
+  .less {
     margin-top: 5%;
     margin-left: 6%;
   }
@@ -241,7 +241,7 @@
 
   /* 各ラベルの大きさ */
   p {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-left: 200px;
     margin-top: 80px;
   }
@@ -252,7 +252,7 @@
     font-size: 1.5em;
     margin-top: 80px;
     margin-left: 200px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   /*ボタンデザイン 背景：青、文字：白*/
@@ -284,27 +284,28 @@
     width: 200px;
     height: 40px;
     font-size: 1.5em;
-    margin-left: 250px;
     padding: 0.5em;
-    border: 2px solid;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+    margin: 20px;
   }
 
   .stay {
     width: 200px;
     height: 40px;
     font-size: 1.5em;
-    margin-left: 250px;
     padding: 0.5em;
-    border: 2px solid;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+    margin: 20px;
   }
 
   .region-select {
     width: 200px;
     height: 60px;
     font-size: 1.2em;
-    margin-left: 250px;
     background-color: white;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .pref-select {
@@ -313,15 +314,14 @@
     font-size: 1.2em;
     margin-left: 20px;
     background-color: white;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .plan-day {
     width: 300px;
     height: 40px;
     font-size: 1.5em;
-    margin-left: 200px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
   .kara {
@@ -334,11 +334,16 @@
     height: 40px;
     font-size: 1.5em;
     margin-left: 40px;
-    border: 2px solid;
+    border: 2px solid #006DD9;
   }
 
-  .less{
+  .less {
     margin-top: 5%;
     margin-left: 7%;
+  }
+
+  .box {
+    height: 180px;
+    border: 0;
   }
 }
