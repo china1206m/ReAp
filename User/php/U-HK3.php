@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="U-HK3.css" type="text/css">
     <link rel="stylesheet" href="button.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>U-HK3</title>
 </head>
 
@@ -62,23 +61,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </table> 
   
       <p>都道府県</p>
-      <select id="region" class="region-select">
-        <option value="">選択してください</option>
-        <option value="hokkaido">北海道地方</option>
-        <option value="tohoku">東北地方</option>
-        <option value="kanto">関東地方</option>
-        <option value="tyubu">中部地方</option>
-        <option value="kansai">関西地方</option>
-        <option value="tyugoku">中国地方</option>
-        <option value="shikoku">四国地方</option>
-        <option value="kyushu-okinawa">九州・沖縄地方</option>
-      </select>
-      <select id="pref" class="pref-select" name="plan_prefectures">
-        <option value="">選択してください</option>
-      </select>
+      <div align="center">
+        <select id="region" class="region-select" required>
+            <option value="">選択してください</option>
+            <option value="hokkaido">北海道地方</option>
+            <option value="tohoku">東北地方</option>
+            <option value="kanto">関東地方</option>
+            <option value="tyubu">中部地方</option>
+            <option value="kansai">関西地方</option>
+            <option value="tyugoku">中国地方</option>
+            <option value="shikoku">四国地方</option>
+            <option value="kyushu-okinawa">九州・沖縄地方</option>
+          </select>
+          <select id="pref" class="pref-select" name="plan_prefectures" required>
+            <option value="">選択してください</option>
+          </select>
+      </div>
 
       <p>期間</p>
-        <table>
+        <table align="center">
         <tr>
         <td><input type="date" id="date" name="plan_date_first" class="plan-day" value=""></td>
         <td><div class="kara">～</div></td>
@@ -87,16 +88,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </table>
   
       <p>費用</p>
-      <input type="number" name="plan_cost" class="cost"> 円
+      <div align="center">
+        <input type="number" name="plan_cost" class="cost"> 円
+      </div>
   
       <p>宿泊</p>
-      <input type="number" name="plan_stay" class="stay"> 泊
+      <div align="center">
+        <input type="number" name="plan_stay" class="stay"> 泊
+      </div>
+
       <center>
         <br>
         <br>
-      <button type="submit" class="button-only" name="submit">検索</button>
+      <button type="submit" class="button-only" name="submit" align="center">検索</button>
       </center>
     </form>
+    <div class="box"></div>
+
   </main>
 
   <aside id="sub">
