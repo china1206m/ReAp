@@ -32,16 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>U-AC16</title>
+  <title>U-AC15</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="U-AC16.css" type="text/css">
+  <link rel="stylesheet" href="U-AC15.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
-  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 
 <main id="main">
-<button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+    <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
     <center>
     <hr class="top">
 
