@@ -2,84 +2,83 @@
 
 /*戻るボタンのデザイン*/
 .button_back {
-    /* ブラウザ特有のスタイルを無効に */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  
-    /* 整える */
-    display: inline;
-    width: 10px;
-    margin-left: 30px;
-    padding: 0.6em 1em; /* 塗りの余白 */
-    font-size: 1.2em;
-    background-color: white; /* 背景色 */
-    color: black; /* テキストカラー */
-    cursor: pointer; /* カーソルを指マークに */
-    border-radius: 3px; /* 角の丸み */
-    border: 0; /* 枠線を消す */
-    transition: 0.3s; /* ホバーの変化を滑らかに */
-  }
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 
-  /* ホバー時（カーソルをのせた時）の見た目 */
+  /* 整える */
+  display: inline;
+  width: 10px;
+  margin-left: 30px;
+  padding: 0.6em 1em; /* 塗りの余白 */
+  font-size: 1.2em;
+  background-color: white; /* 背景色 */
+  color: black; /* テキストカラー */
+  cursor: pointer; /* カーソルを指マークに */
+  border-radius: 3px; /* 角の丸み */
+  border: 0; /* 枠線を消す */
+  transition: 0.3s; /* ホバーの変化を滑らかに */
+}
+
+/* ホバー時（カーソルをのせた時）の見た目 */
 .button_back:hover {
-    background-color: white; /* 背景色 */
-  }
+  background-color: white; /* 背景色 */
+}
 
 /*中央配置*/
 section {
-    height:80vh;
-    display: grid;
-    place-items: center;
+  height:80vh;
+  display: grid;
+  place-items: center;
 }
 
 /* 各ラベルの大きさ */
-p {
-    font-size: 1.5em;
-    margin-left: 400px;
-    margin-top: 80px;
+.position {
+  font-size: 1.5em;
+  margin-left: 400px;
+  margin-top: 80px;
 }
 
 /*テキストボックスの大きさ*/
 .txt{
-    line-height: 20px;
-    display: inline-block;
-    width: 400px;
-    padding: 0.5em;
-    border: 1px solid ;
-    font-size: 0.8em;
-    box-sizing: border-box;
-    background: white;
-    margin: 0.5em 0;
-    margin-left: 400px;
+  line-height: 20px;
+  display: inline-block;
+  width: 400px;
+  padding: 0.5em;
+  border: 1px solid ;
+  font-size: 0.8em;
+  box-sizing: border-box;
+  background: white;
+  margin: 0.5em 0;
+  margin-left: 400px;
 }
 
 .tarea{
-    display: inline-block;
-    resize: none;
-    width: 500px;
-    padding: 10px;
-    border: 1px solid ;
-    box-sizing: border-box;
-    background: white;
-    margin: 0.5em 0;
-    line-height: 1.5;
-    height: 12em;
-    margin-left: 0px;
+  display: inline-block;
+  resize: none;
+  width: 500px;
+  padding: 10px;
+  border: 1px solid ;
+  box-sizing: border-box;
+  background: white;
+  margin: 0.5em 0;
+  line-height: 1.5;
+  height: 12em;
+  margin-left: 0px;
 }
 
 .require{
-    color: red;
-    font-size: 0.6em;
-    font-weight: bold;
-    margin-left: 5px;
-  }
+  color: red;
+  font-size: 0.6em;
+  font-weight: bold;
+  margin-left: 5px;
+}
 
-  .profile_img{
-    width:100px;
-    height:100px;
-    border: 0;
-    border-radius: 50%;
-    border: solid 20px white;
-    margin-left: 100px;
+.profile_img{
+width: 100px;
+height: 100px;
+border: solid thin gray;
+margin-left: 500px;
+border-radius: 50%;
 }
