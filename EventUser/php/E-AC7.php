@@ -43,18 +43,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p id="select_img">
       
     </p>
+
     <br>
     <center>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input id="event_image_" type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png" value="castle.bmp" value="">
+    <input id="event_image_" type="file" name="profile_image" class="profiel_image" accept="image/jpeg,image/png" value="">
      
     </center>
 
-              <p><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
+              <p class="position"><label for="user_name" >ユーザ名<span class="require">必須</span></label></p>
               <input type="text" class="txt" name="user_name" maxlength="20" placeholder="20文字以内" required>
                 
-              <p><label for="message" >一言コメント</label></p>
-                <p><textarea class="tarea" name="profile_message" placeholder="200文字以内" maxlength="200"></textarea></p>
+              <p class="position"><label for="message" >一言コメント</label></p>
+                <p class="position"><textarea class="tarea" name="profile_message" placeholder="200文字以内" maxlength="200"></textarea></p>
                 
     <center>
                <button type="submit" class="button-only">変更する</button>
