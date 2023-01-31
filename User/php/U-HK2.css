@@ -46,6 +46,7 @@
     
     .plan_content{
         font-size: 20px;
+        margin-left: 20px;
     }
     
     .travel_time{
@@ -177,6 +178,7 @@ h3{
 
 .plan_content{
     font-size: 20px;
+    margin-left: 20px;
 }
 
 .travel_time{

@@ -3,6 +3,14 @@ session_cache_limiter("none");
 session_start();
 include "MG.php";
 
+$user_id = $_SESSION['user_id'];
+$db = MG_01($user_id,"","","","","","","","","");
+$user = $db->fetchAll(PDO::FETCH_ASSOC);
+if($user[0]['coupon_can_get'] == 0){
+    header('Location:U-AC9.php');
+    exit;
+}
+
 $today = date("Y-m-d");
 
 $db = getDB();
