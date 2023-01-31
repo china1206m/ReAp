@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "MD.php";
   $delete = new md();
   $type = [1];
-  $delete->md("coupon", "coupon_id", $coupon_id, $type);
+  $delete->delete("coupon", "coupon_id", $coupon_id, $type);
   header('Location:E-CP1.html');
   exit;
 }
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <hr class="middle">
     <p class="coupon">使用期限：<?php print($coupon[0]['coupon_deadline']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　詳細：<?php print($coupon[0]['coupon_content']); ?></p>
+    <p class="coupon">詳細<br><?php print($coupon[0]['coupon_content']); ?></p>
 
     <hr class="under">
     
