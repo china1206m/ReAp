@@ -1,24 +1,24 @@
 /* 左上の題名 */
 h3{
-    margin-left: 60px;
-    
-  }
+  margin-left: 60px;
+  
+}
 
 .search_user{
-   border-color: black;
-   border-radius: 5px;
-   background-color: white;
-   color: black;
-   border-width: 1px;
+ border-color: black;
+ border-radius: 5px;
+ background-color: white;
+ color: black;
+ border-width: 1px;
 }
 
 .search_count{
-  border-color: black;
-   border-radius: 5px;
-   background-color: white;
-   color: black;
-   border-width: 1px;
-   width: 50px;
+border-color: black;
+ border-radius: 5px;
+ background-color: white;
+ color: black;
+ border-width: 1px;
+ width: 50px;
 }
 
 /* タブ機能の掲載領域の装飾 */
@@ -29,40 +29,40 @@ h3{
 
 /* タブ(共通装飾＋非選択状態の装飾) */
 .tab {
-   display: inline-block;
-   border-width: 1px;
-   border-style: solid;
-   border-color: black;
-   border-radius: 10px;
-   padding: 0.5em 0.5em;
-   color: black;
-   background-color: white;
-   margin-left: 10px;
+ display: inline-block;
+ border-width: 1px;
+ border-style: solid;
+ border-color: black;
+ border-radius: 10px;
+ padding: 0.5em 0.5em;
+ color: black;
+ background-color: white;
+ margin-left: 10px;
 }
 
 /* タブにマウスポインタが載った際の装飾 */
 .tab:hover {
-   background-color: white;
-   color: #1aa1ff;
-   cursor: pointer;
+ background-color: white;
+ color: #1aa1ff;
+ cursor: pointer;
 }
 
 /* チェックが入っているラジオボタンの隣にあるタブの装飾(＝選択状態のタブ) */
 input:checked + .tab {
-   color: black;
-   background-color: #d9d9d9ff;
-   position: relative;
+ color: black;
+ background-color: #d9d9d9ff;
+ position: relative;
 }
 
 /* タブの中身(共通装飾＋非選択状態の装飾) */
 .tabcontent {
-   display: none;
-   margin-top: 10px;
-   padding: 1em;
-   position: relative;
-   z-index: 0;
-   background-color: white;
-   margin-left: 30px;
+ display: none;
+ margin-top: 10px;
+ padding: 1em;
+ position: relative;
+ z-index: 0;
+ background-color: white;
+ margin-left: 30px;
 }
 
 /* チェックが入っているラジオボタンに対応するタブの中身を表示する */
@@ -71,170 +71,190 @@ input:checked + .tab {
 #tabcheck3:checked ~ #tabcontent3 { display: block; }
 
 li {
-    list-style:none;
-  }
+  list-style:none;
+}
 
 .UM-title-yoko{
-   display: flex;
-   text-align: left;
- }
+ display: flex;
+ text-align: left;
+}
 
 .tite{
-  font-weight: bold;
+font-weight: bold;
 }
 
 /*復活・停止・消去のデザイン*/
 input[type=radio] {
-   display: none;
- }
- 
- .situation {
-   display: block; /* ブロックレベル要素化する */
-   float: left; /* 要素の左寄せ・回り込を指定する */
-   margin: 3px; /* ボックス外側の余白を指定する */
-   padding: 8px;
-   font-size: 1em;
-   color: gray; /* フォントの色を指定 */
-   text-align: center; /* テキストのセンタリングを指定する */
-   line-height: 8px; /* 行の高さを指定する */
-   cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
- }
- input[type="radio"]:checked +.situation {
-   color: #006DD9;
- }
+ display: none;
+}
+
+.situation {
+ display: block; /* ブロックレベル要素化する */
+ float: left; /* 要素の左寄せ・回り込を指定する */
+ margin: 3px; /* ボックス外側の余白を指定する */
+ padding: 8px;
+ font-size: 1em;
+ color: gray; /* フォントの色を指定 */
+ text-align: center; /* テキストのセンタリングを指定する */
+ line-height: 8px; /* 行の高さを指定する */
+ cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+}
+input[type="radio"]:checked +.situation {
+ color: #006DD9;
+}
 .situation :hover {
-   background-color: #E2EDF9;
- }
+ background-color: #E2EDF9;
+}
 
- .situation_button{
-  /* ブラウザ特有のスタイルを無効に */
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+.disabled_button{
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
 
-  margin-top: 7px;
-  background-color: white;
-  border: solid thin white;
-  display: block; /* ブロックレベル要素化する */
-  float: left; /* 要素の左寄せ・回り込を指定する */
-  line-height: 8px; /* 行の高さを指定する */
-  padding: 10px;
-   font-size: 1.0em;
-   color: gray; /* フォントの色を指定 */
-   text-align: center; /* テキストのセンタリングを指定する */
-   line-height: 0px; /* 行の高さを指定する */
-   cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
- }
+margin-top: 7px;
+background-color: white;
+border: solid thin white;
+display: block; /* ブロックレベル要素化する */
+float: left; /* 要素の左寄せ・回り込を指定する */
+line-height: 8px; /* 行の高さを指定する */
+padding: 10px;
+ font-size: 1.0em;
+ color: gray; /* フォントの色を指定 */
+ text-align: center; /* テキストのセンタリングを指定する */
+ line-height: 0px; /* 行の高さを指定する */
+ cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+}
 
- #U-table{
-  height: 30px;
- }
+.situation_button{
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+
+margin-top: 7px;
+background-color: white;
+border: solid thin white;
+display: block; /* ブロックレベル要素化する */
+float: left; /* 要素の左寄せ・回り込を指定する */
+line-height: 8px; /* 行の高さを指定する */
+padding: 10px;
+ font-size: 1.0em;
+ color: blue; /* フォントの色を指定 */
+ text-align: center; /* テキストのセンタリングを指定する */
+ line-height: 0px; /* 行の高さを指定する */
+ cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+}
+
+#U-table{
+height: 30px;
+}
 
 
 
- .list{
-   display: inline;
-   padding-right: 60px;
-   margin-left: 15px;
- }
+.list{
+ display: inline;
+ padding-right: 60px;
+ margin-left: 15px;
+}
 
 
- /*ボタンデザイン 背景：青、文字：白*/
- .button-only {
-  /* ブラウザ特有のスタイルを無効に */
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+/*ボタンデザイン 背景：青、文字：白*/
+.button-only {
+/* ブラウザ特有のスタイルを無効に */
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
 
-  /* 整える */
-  width: 50px;
-  margin: 1em 0; /* 前後の隙間 */
-  padding: 0.6em 1em; /* 塗りの余白 */
-  font-size: 0.5em; /* フォントサイズ */
-  background-color: #1aa1ff; /* 背景色 */
-  color: #FFF; /* テキストカラー */
-  cursor: pointer; /* カーソルを指マークに */
-  border-radius: 3px; /* 角の丸み */
-  border: 0; /* 枠線を消す */
-  transition: 0.3s; /* ホバーの変化を滑らかに */
-  margin-left: 80%;
+/* 整える */
+width: 50px;
+margin: 1em 0; /* 前後の隙間 */
+padding: 0.6em 1em; /* 塗りの余白 */
+font-size: 0.5em; /* フォントサイズ */
+background-color: #1aa1ff; /* 背景色 */
+color: #FFF; /* テキストカラー */
+cursor: pointer; /* カーソルを指マークに */
+border-radius: 3px; /* 角の丸み */
+border: 0; /* 枠線を消す */
+transition: 0.3s; /* ホバーの変化を滑らかに */
+margin-left: 80%;
 }
 
 /* ホバー時（カーソルをのせた時）の見た目 */
 .button-only:hover {
-  background-color: #064fda; /* 背景色 */
+background-color: #064fda; /* 背景色 */
 }
 
- .list_u{
-  margin-top: 5px;
- }
+.list_u{
+margin-top: 5px;
+}
 
 
- /* オーバレイの技術 */
+/* オーバレイの技術 */
 #overlay{
-  position: fixed;
-  top:0;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  visibility: hidden;
-  opacity: 0;
-  background: rgba(0,0,0,0.6);
-  transition: all 0.5s ease-out;
+position: fixed;
+top:0;
+z-index: 10;
+width: 100vw;
+height: 100vh;
+visibility: hidden;
+opacity: 0;
+background: rgba(0,0,0,0.6);
+transition: all 0.5s ease-out;
 }
 #overlay.overlay-on{
-  visibility: visible;
-  opacity: 1;
+visibility: visible;
+opacity: 1;
 }
 
 .flex{
-  width: 100%;
-  height:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
+width: 100%;
+height:100%;
+display: flex;
+justify-content: center;
+align-items: center; 
 }
 #overlay-inner{
-  width: 400px;
-  height: 200px;
-  padding:10px 60px;
-  background-color:#FFF;
-  text-align:center;
+width: 400px;
+height: 200px;
+padding:10px 60px;
+background-color:#FFF;
+text-align:center;
 }
 
 #open-btn{
-  display:block;
-  height: 50px;
-  width: 200px;
-  padding:10px 30px;
-  font-size: 1em; /* フォントサイズ */
-  background-color:#1aa1ff;
-  color: #FFF; /* テキストカラー */
-  border:solid #ccc 0px;
-  border-radius: 3px; /* 角の丸み */
-  cursor: pointer;
+display:block;
+height: 50px;
+width: 200px;
+padding:10px 30px;
+font-size: 1em; /* フォントサイズ */
+background-color:#1aa1ff;
+color: #FFF; /* テキストカラー */
+border:solid #ccc 0px;
+border-radius: 3px; /* 角の丸み */
+cursor: pointer;
 }
 
 #open-btn:hover {
-  background-color: #064fda; /* 背景色 */
+background-color: #064fda; /* 背景色 */
 
 }
 
 #close-btn{
-  display:inline;
-  width: 150px;
-  height: 40px;
-  margin: 20px auto;
-  padding: 10px 30px;
-  font-size: 1em; /* フォントサイズ */
-  background-color: #1aa1ff;
-  color: #FFF;
-  border:solid #ccc 0px;
-  border-radius: 3px; /* 角の丸み */
-  cursor: pointer;
+display:inline;
+width: 150px;
+height: 40px;
+margin: 20px auto;
+padding: 10px 30px;
+font-size: 1em; /* フォントサイズ */
+background-color: #1aa1ff;
+color: #FFF;
+border:solid #ccc 0px;
+border-radius: 3px; /* 角の丸み */
+cursor: pointer;
 }
 
 #close-btn:hover {
-  background-color: #064fda; /* 背景色 */
+background-color: #064fda; /* 背景色 */
 
 }
