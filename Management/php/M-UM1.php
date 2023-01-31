@@ -2,6 +2,12 @@
 session_cache_limiter("none");
 session_start();
 
+$user_id = "";
+$user_mail = "";
+$user_name = "";
+$report_total = "";
+$stop_total = "";
+
 $user_id = $_SESSION['user_id'];
 $user_mail = $_SESSION['user_mail'];
 $user_name = $_SESSION['user_name'];
@@ -25,6 +31,10 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
+$eventuser_id = "";
+$eventuser_name = "";
+$eventuser_mail = "";
+
 $eventuser_id = $_SESSION['eventuser_id'];
 $eventuser_name = $_SESSION['eventuser_name'];
 $eventuser_mail = $_SESSION['eventuser_mail'];
@@ -39,6 +49,9 @@ $count2 = $db->rowCount();
 $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
+
+$administrator_id = "";
+$administrator_name = "";
 
 $administrator_id = $_SESSION['administrator_id'];
 $administrator_name = $_SESSION['administrator_name'];
