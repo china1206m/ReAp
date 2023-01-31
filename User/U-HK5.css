@@ -120,6 +120,11 @@
           margin: 200px;
           font-size: xx-large;
         }
+
+        .top{
+          margin-top: 5%;
+          margin-left: 7%;
+        }
         
   }
   
@@ -146,11 +151,6 @@
     border-radius: 3px; /* 角の丸み */
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
-    }
-    
-    h3{
-    margin-left: 0;
-    font-size: 3em;
     }
     
     .button_back:hover {
