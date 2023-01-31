@@ -13,7 +13,7 @@ session_start();
    
     session_destroy(); // セッションを破壊
   
-    header('Location:U-AC2.php');
+    header('Location:U-AC1.html');
     exit;
   }
 ?>
