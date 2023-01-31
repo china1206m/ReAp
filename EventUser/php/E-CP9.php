@@ -57,16 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
 <div class="yoko-narabi">
-<form action="E-CP4.php" method="POST">
+
     <ul id="coupon_list1">
             
     </ul>
-</form> 
-<form action="E-CP4.php" method="POST">
+
     <ul id="coupon_list2">
         
     </ul>
-</form>
+
 </div>
 
 <center>
