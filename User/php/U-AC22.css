@@ -137,6 +137,11 @@
     background-color: #064fda; /* 背景色 */
   }
 
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
+  }
+
 }
 
 
@@ -273,6 +278,11 @@ ol{
     font-size: 40px;
     border: solid medium;
 }
+
+.less{
+    margin-top: 5%;
+    margin-left: 7%;
+  }
 
 
 
