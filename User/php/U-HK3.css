@@ -161,6 +161,11 @@
     margin-left: 40px;
     border: 2px solid;
   }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 6%;
+  }
 }
 
 /*スマホ用*/
@@ -330,5 +335,10 @@
     font-size: 1.5em;
     margin-left: 40px;
     border: 2px solid;
+  }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
   }
 }
