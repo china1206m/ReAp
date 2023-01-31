@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               
             <?php } ?>
             <div class="title"><?php print($plan[0]['plan_title']); ?></div>
+            <br><br>
           </div><br>
           <p class="condition"><?php print($plan[0]['plan_who']); ?></p>
           <p class="condition"><?php print($plan[0]['plan_cost']); ?>円</p>
@@ -136,6 +137,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         var p_travel = document.createElement('p');
         p_travel.classList.add("travel_time");
         p_travel.innerHTML = "<?php if($i+1 < $count1){print($plan_detail[$i+1]['travel_time_hour']); ?>時間<?php print($plan_detail[$i+1]['travel_time_minute']); ?>分<?php }?>"
+
+        var br = document.createElement('br');
+        var br1 = document.createElement('br');
+        var br2 = document.createElement('br');
 
         ol.appendChild(li_ol);
         li_ol.appendChild(div_home);
