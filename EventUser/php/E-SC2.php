@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
 
   // ユーザ指定アイコン
-  <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+  <?php if(!empty($eventuser[0]['profile_image'])) { ?>
 
     var img = document.createElement('img');
     img.classList.add("circle1");
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // それぞれの要素を追加したい場所へ追加
   ul.appendChild(li);
   li.appendChild(div_right);
-  <?php if(!empty($eventuser[0]['profile_message'])) { ?>
+  <?php if(!empty($eventuser[0]['profile_image'])) { ?>
   li.appendChild(img);
   <?php } else { ?>
   //デフォルト作成
