@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       p_who.innerHTML = "<?php print($plan[$i]['plan_who']); ?>"
       var p_cost = document.createElement('p');
       p_cost.classList.add("condition");
-      p_cost.innerHTML = "<?php print($plan[$i]['plan_cost']); ?>円"
+      p_cost.innerHTML = "費用：<?php print($plan[$i]['plan_cost']); ?>円"
       var p_day = document.createElement('p');
       p_day.classList.add("condition");
       p_day.innerHTML = "<?php print($plan[$i]['plan_day']); ?>泊<?php print($plan[$i]['plan_day'] + 1); ?>日"
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       //滞在時間追加
       var p_time = document.createElement('p');
-      p_time.innerHTML = "<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
+      p_time.innerHTML = "滞在時間：<?php print($plan_detail[0]['stay_time_hour']); ?>時間<?php print($plan_detail[0]['stay_time_minute']); ?>分"
       p_time.classList.add("plan_content");
 
       // もっと見るを作成
@@ -190,9 +190,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       div_planlist.appendChild(br1);
       div_planlist.appendChild(br2);
       div_planlist.appendChild(p_pre);
-      div_planlist.appendChild(p_who);
       div_planlist.appendChild(p_cost);
       div_planlist.appendChild(p_day);
+      div_planlist.appendChild(p_who);
       div_planlist.appendChild(ol);
       ol.appendChild(li_ol);
       li_ol.appendChild(div_home);
