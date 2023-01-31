@@ -33,10 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="utf-8">
   <link rel="stylesheet" href="U-EV6.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
   <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+  <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
     <form action="" method="POST">
     <input type="hidden" id="counter" name="counter" value="0">
     <!--phpの検索結果がないときのひょうじはここ-->
