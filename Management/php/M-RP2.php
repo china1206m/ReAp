@@ -81,6 +81,9 @@ $user_report = $db->fetchAll(PDO::FETCH_ASSOC);
 
     var p3 = document.createElement('p');
     p3.innerText = "メールアドレス:<?php print($user[0]['user_mail']) ?>"
+
+    var p4 = document.createElement('p');
+    p4.innerText = "通報内容:<?php print($user_report[$i]['report_content']) ?>"
   
     
     
@@ -89,6 +92,7 @@ $user_report = $db->fetchAll(PDO::FETCH_ASSOC);
     li.appendChild(p1);
     li.appendChild(p2);
     li.appendChild(p3);
+    li.appendChild(p4);
 
         <?php endfor; ?>
 
