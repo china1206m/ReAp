@@ -5,11 +5,35 @@ session_start();
   /* 退会処理 */
   if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     /* 退会 */
+    include "MG.php";
     include "MD.php";
     $delete = new MD();
 
     $type = [1];
-    $delete->delete("user", "user_id", $_SESSION['user_id'], $type);
+
+    $user_id = $_SESSION['user_id'];
+
+    $db = MG_04("",$user_id,"","","","","","","","","");
+    $count1 = $db->rowCount();
+    $plan = $db->fetchAll(PDO::FETCH_ASSOC);
+
+    for ($i = 0; $i < $count1; $i++) : 
+        $plan_id = $plan[$i]['plan_id'];
+
+        $delete->delete("plan_detail", "plan_id", $plan_id, $type);
+
+    endfor;
+
+
+    $delete->delete("plan_favorite", "user_id", $user_id, $type);
+    
+    $delete->delete("plan", "user_id", $user_id, $type);
+
+    $delete->delete("user_report", "user_id", $user_id, $type);
+
+    $delete->delete("get_coupon", "user_id", $user_id, $type);
+
+    $delete->delete("user", "user_id", $user_id, $type);
    
     session_destroy(); // セッションを破壊
   
