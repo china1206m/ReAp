@@ -168,7 +168,7 @@ p_placename.innerHTML = `<?php print($plan_detail[$i]['plan_place']); ?>`
 //本文内容追加
 var p_content = document.createElement('p');
 p_content.classList.add("plan_content");
-p_content.innerHTML = "<?php print($plan_detail[$i]['plan_content']); ?>"
+p_content.innerHTML = `<?php print($plan_detail[$i]['plan_content']); ?>`
 
 //滞在時間追加
 var p_time = document.createElement('p');
