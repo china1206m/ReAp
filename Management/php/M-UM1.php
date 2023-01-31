@@ -1,12 +1,22 @@
 <?php
+session_cache_limiter("none");
+session_start();
+
+$user_id = $_SESSION['user_id'];
+$user_mail = $_SESSION['user_mail'];
+$user_name = $_SESSION['user_name'];
+$report_total = $_SESSION['report_total'];
+$stop_total = $_SESSION['stop_total'];
+
+$_SESSION['user_id'] = "";
+$_SESSION['user_name'] = "";
+$_SESSION['user_mail'] = "";
+$_SESSION['report_total'] = "";
+$_SESSION['stop_total'] = "";
 
 include "MG.php";
-
-$user_id = "";
-$user_name = "";
-$user_mail = "";
-$report_total = "";
-$stop_total = "";
+include "MU.php";
+include "MD.php";
 
 $db = MG_01($user_id,$user_mail,"",$user_name,"","","",$report_total,$stop_total,"");
 $count1 = $db->rowCount();
@@ -15,9 +25,13 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
-$eventuser_id = "";
-$eventuser_name = "";
-$eventuser_mail = "";
+$eventuser_id = $_SESSION['eventuser_id'];
+$eventuser_name = $_SESSION['eventuser_name'];
+$eventuser_mail = $_SESSION['eventuser_mail'];
+
+$_SESSION['eventuser_id'] = "";
+$_SESSION['eventuser_name'] = "";
+$_SESSION['eventuser_mail'] = "";
 
 $db = MG_02($eventuser_id,$eventuser_mail,"",$eventuser_name,"","","","","","");
 $count2 = $db->rowCount();
@@ -26,8 +40,11 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
-$administrator_id = "";
-$administrator_name = "";
+$administrator_id = $_SESSION['administrator_id'];
+$administrator_name = $_SESSION['administrator_name'];
+
+$_SESSION['administrator_id'] = "";
+$_SESSION['administrator_name'] = "";
 
 $db = MG_03($administrator_id,"",$administrator_name);
 $count3 = $db->rowCount();
@@ -36,15 +53,93 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //$_POST['table']で消去するアカウントテーブル指定
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-$counter = $_POST['counter'];
-if($_POST['table']=="1"){
-  $user_id = $user[$counter]['user_id'];
-}elseif($_POST['table']=="2"){
-  $eventuser_id = $eventuser[$counter]['eventuser_id'];
-}else{
-  $administrator_id = $administrator[$counter]['administrator_id'];
-}
-//$_POST['stop']=1なら停止,$_POST['stop']=0なら復活
+  if($_POST['flag'] == 1){
+    //検索の場合
+
+    $_SESSION['user_id'] = $_POST['user_id'];
+    $_SESSION['user_name'] = $_POST['user_name'];
+    $_SESSION['user_mail'] = $_POST['user_mail'];
+    $_SESSION['report_total'] = $_POST['report_total'];
+    $_SESSION['stop_total'] = $_POST['stop_total'];
+    header('Location:M-UM1.php');
+  } else if($_POST['flag'] == 2){
+    //復活停止の場合
+
+    $counter = $_POST['counter'];
+    $user_id = $user[$counter]['user_id'];
+    $db = MG_01($user_id,"","","","","","","","","");
+    $userr = $db->fetchAll(PDO::FETCH_ASSOC);
+
+    if($userr[0]['user_stop'] == 0){
+      $update = new MU();
+      $colum = ['user_stop'];
+      $post = [1];
+      $type = [1];
+      $id_name = "user_id";
+      $id = $user_id;
+      $update->update("user", $colum, $post, $type, $id_name, $id);
+      header('Location:M-UM1.php');
+    }else if($userr[0]['user_stop'] == 1){
+
+      print($counter);
+      print($user_id);
+      $update = new MU();
+      $colum = ['user_stop'];
+      $post = [0];
+      $type = [1];
+      $id_name = "user_id";
+      $id = $user_id;
+      $update->update("user", $colum, $post, $type, $id_name, $id);
+      header('Location:M-UM1.php');
+    }
+
+    //$_POST['stop']=1なら停止,$_POST['stop']=0なら復活
+  } else if($_POST['flag'] == 3){
+
+    $counter = $_POST['counter1'];
+
+    if($_POST['table']=="1"){
+        $user_id = $user[$counter]['user_id'];
+
+        $db = getDB();
+        $sql = "DELETE FROM user WHERE user_id = ? ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(1,$user_id);
+        $stmt->execute();
+      }elseif($_POST['table']=="2"){
+        $eventuser_id = $eventuser[$counter]['eventuser_id'];
+
+        $db = getDB();
+        $sql = "DELETE FROM eventuser WHERE eventuser_id = ? ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(1,$eventuser_id);
+        $stmt->execute();
+      }elseif($_POST['table']=="3"){
+        $administrator_id = $administrator[$counter]['administrator_id'];
+        
+        $db = getDB();
+        $sql = "DELETE FROM administrator WHERE administrator_id = ? ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(1,$administrator_id);
+        $stmt->execute();
+      }
+
+      header('Location:M-UM1.php');
+  } else if($_POST['flag'] == 4){
+
+    $_SESSION['eventuser_id'] = $_POST['eventuser_id'];
+    $_SESSION['eventuser_name'] = $_POST['eventuser_name'];
+    $_SESSION['eventuser_mail'] = $_POST['eventuser_mail'];
+
+    header('Location:M-UM1.php');
+
+  } else if($_POST['flag'] == 5){
+
+    $_SESSION['administrator_id'] = $_POST['administrator_id'];
+    $_SESSION['administrator_name'] = $_POST['administrator_name'];
+
+    header('Location:M-UM1.php');
+  }
 }
 
 ?>
@@ -56,7 +151,7 @@ if($_POST['table']=="1"){
   <title>画面ID M-UM1</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="M-UM1.css" type="text/css">
-  <link rel="stylesheet" href="M-menu.css" type="text/css">
+  <!--<link rel="stylesheet" href="M-menu.css" type="text/css">-->
 </head>
 <body>
 
@@ -70,8 +165,10 @@ if($_POST['table']=="1"){
 
     <div class="tabcontent" id="tabcontent1">
 
-    <form action="M-UM1.php" method="POST" name="searchForm1" onSubmit="return check1();">
+    <form action="" method="POST" name="searchForm1" onSubmit="return check1();">
         <!--検索のための表示場所-->
+        <!--場合分け用input-->
+        <input type="hidden" name="flag" value="1">
         ユーザID：
         <input type="number" name="user_id" class="search_user" value="">
         ユーザ名：
@@ -86,8 +183,10 @@ if($_POST['table']=="1"){
         <button class="button-only">検索</button></p>
         </form>
     
-        <form action="#" method="POST">
+        <form action="" method="POST" id="stop_form">
+        <input type="hidden" name="flag" value="2">
         <input type="hidden" id="stop" name="stop" value="0">
+        <input type="hidden" id="counter" name="counter" value="0">
         <!--一覧のための表示場所-->
         <div class="UM-title-yoko">
             <ul id="user_id"><li class="tite">ユーザID</li></ul>
@@ -104,6 +203,7 @@ if($_POST['table']=="1"){
     <div class="tabcontent" id="tabcontent2">
         <form action="M-UM1.php" method="POST" name="searchForm2" onSubmit="return check2();">
         <!--検索のための表示場所-->
+        <input type="hidden" name="flag" value="4">
         ユーザID：
         <input type="number" name="eventuser_id" class="search_user" value="">
         ユーザ名：
@@ -130,10 +230,11 @@ if($_POST['table']=="1"){
     <div class="tabcontent" id="tabcontent3">
         <form action="M-UM1.php" method="POST" name="searchForm3" onSubmit="return check3();">
         <!--検索のための表示場所-->
+        <input type="hidden" name="flag" value="5">
         管理者ID：
-        <input type="number" name="administator_id" class="search_user" value="">
+        <input type="number" name="administrator_id" class="search_user" value="">
         管理者名：
-        <input type="text" name="administator_name" class="search_user" maxlength="20" placeholder="20文字以内">
+        <input type="text" name="administrator_name" class="search_user" maxlength="20" placeholder="20文字以内">
         <button type="submit" class="button-only">検索</button>
         </form>
 
@@ -156,9 +257,10 @@ if($_POST['table']=="1"){
 
 <div style="display: block;" id="overlay">
     <div class="flex">
-      <form action="#" method="POST" id="delete_form">
-      <input type="hidden" id="table" name="table" value="">
-      <input type="hidden" id="counter" name="counter" value="0">
+      <form action="" method="POST" id="delete_form">
+      <input type="hidden" name="flag" value="3">
+      <input type="hidden" id="table" name="table" value="1">
+      <input type="hidden" id="counter1" name="counter1" value="0">
       <div id="overlay-inner">
           選択したユーザを消去します。<br>
           本当によろしいですか。<br>
@@ -279,26 +381,28 @@ if($_POST['table']=="1"){
       button_revival.setAttribute("disabled","");
       stop.value = "1";
     <?php endif; ?>
-    button_revival.type = "submit";
+    button_revival.type = "button";
     button_revival.classList.add("situation_button");
+    button_revival.classList.add("stop_sus");
+    button_revival.setAttribute('id', <?php print($i); ?>);
     button_revival.innerHTML = "復活";
 
     var button_suspension = document.createElement('button');
     <?php if($user[$i]['user_stop']==1):?>
       button_suspension.setAttribute("disabled","");
     <?php endif; ?>
-    button_suspension.type = "submit";
+    button_suspension.type = "button";
     button_suspension.classList.add("situation_button");
+    button_suspension.classList.add("stop_sus");
+    button_suspension.setAttribute('id', <?php print($i); ?>);
     button_suspension.innerHTML = "停止";
 
     var button_delete = document.createElement('button');
     button_delete.type = "button";
     button_delete.classList.add("situation_button");
-    button_delete.classList.add("overlay-event");
+    button_delete.classList.add("overlay-event1");
     button_delete.setAttribute('id', <?php print($i); ?>);
     button_delete.innerHTML = "消去";
-    var table = document.getElementById("table");
-    table.value = "1";
 
     
     ul_id1.appendChild(li_id1);
@@ -392,9 +496,7 @@ const len = elements.length;
         button_delete.classList.add("situation_button");
         button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
-        button_delete.classList.add("overlay-event");
-        var table = document.getElementById("table");
-        table.value = "2";
+        button_delete.classList.add("overlay-event2");
         
         ul_id1.appendChild(li_id1);
         ul_name1.appendChild(li_name1);
@@ -452,9 +554,7 @@ const len = elements.length;
         button_delete.classList.add("situation_button");
         button_delete.setAttribute('id', <?php print($i); ?>);
         button_delete.innerHTML = "消去";
-        button_delete.classList.add("overlay-event");
-        var table = document.getElementById("table");
-        table.value = "3";
+        button_delete.classList.add("overlay-event3");
         
         
         ul_id1.appendChild(li_id1);
@@ -469,11 +569,18 @@ const len = elements.length;
     </script>
 
 <script>
-  var overlayev = document.getElementsByClassName("overlay-event");
-  var events = Array.from(overlayev);
+  var overlayev1 = document.getElementsByClassName("overlay-event1");
+  var events1 = Array.from(overlayev1);
+  var overlayev2 = document.getElementsByClassName("overlay-event2");
+  var events2 = Array.from(overlayev2);
+  var overlayev3 = document.getElementsByClassName("overlay-event3");
+  var events3 = Array.from(overlayev3);
+  var stop_sus = document.getElementsByClassName("stop_sus");
+  var sus = Array.from(stop_sus);
   var close = document.getElementById("close-btn1");
   var close2 = document.getElementById("close-btn2");
   var counter = document.getElementById("counter");
+  var counter1 = document.getElementById("counter1");
 
   // オーバレイを開閉する関数
   const overlay = document.getElementById('overlay');
@@ -481,24 +588,83 @@ const len = elements.length;
         overlay.classList.toggle('overlay-on');
       }
 
-  events.forEach(function(e){
+sus.forEach(function(e){
+
+e.addEventListener('click', function(){
+counter.value = e.id;
+document.forms.stop_form.submit();
+}, false);
+
+})
+
+//利用者消去用
+
+  events1.forEach(function(e){
 
     e.addEventListener('click', function(){
-    counter.value = e.id;
+    counter1.value = e.id;
+    var table = document.getElementById("table");
+    table.value = "1";
     e.setAttribute("disabled","");
     close.removeAttribute("disabled");
     close2.removeAttribute("disabled");
     //オーバーレイ開く
     overlayToggle();
+    
     }, false);
 
   })
+
+  //イベント投稿者消去用
+
+  events2.forEach(function(e){
+
+e.addEventListener('click', function(){
+counter1.value = e.id;
+var table = document.getElementById("table");
+table.value = "2";
+e.setAttribute("disabled","");
+close.removeAttribute("disabled");
+close2.removeAttribute("disabled");
+//オーバーレイ開く
+overlayToggle();
+
+}, false);
+
+})
+
+//管理者消去用
+
+events3.forEach(function(e){
+
+e.addEventListener('click', function(){
+counter1.value = e.id;
+var table = document.getElementById("table");
+table.value = "3";
+e.setAttribute("disabled","");
+close.removeAttribute("disabled");
+close2.removeAttribute("disabled");
+//オーバーレイ開く
+overlayToggle();
+
+}, false);
+
+})
+
+  
+
 
 
   //'いいえ'が押されたとき
   close2.addEventListener('click', function(){
     // ダブルクリック防止
-    events.forEach(function(e){
+    events1.forEach(function(e){
+      e.removeAttribute("disabled");
+    })
+    events2.forEach(function(e){
+      e.removeAttribute("disabled");
+    })
+    events3.forEach(function(e){
       e.removeAttribute("disabled");
     })
     close2.setAttribute("disabled","");
