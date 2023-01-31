@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main id="main">
 
-    <i class="fas fa-less-than less fa-3x"></i>
+    <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
 
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
     
