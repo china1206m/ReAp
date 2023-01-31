@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mu = new MU();
     $mu->report_count($_SESSION['user_id']);
 
-    header('Location:U-HK1.php');
+    header('Location:U-HK6.php');
     exit;
 }
 ?>
