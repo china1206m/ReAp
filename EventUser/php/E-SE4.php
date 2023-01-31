@@ -59,21 +59,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <br><br>
 
+    <p>開催期間：<?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_prefectures']) ?></p>
-    <p><?php print($event[0]['event_day_first']) ?>　～　<?php print($event[0]['event_day_end']) ?></p>
     <p><?php print($event[0]['event_place']) ?></p>
+    <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
+    <p>費用：<?php print($event[0]['event_cost']) ?>円</p>
 
-    <p><?php print($event[0]['event_content']) ?></p>
-    
-    
     <center id="image_area">
       <?php if(!empty($event[0]['event_image'])) { ?>
         <img src="E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>" class="img">
      <?php } ?>
     </center>
 
-    <!--費用に関しては必須でないのでデータがない場合には表示されないようになっている。-->
-    <p><?php print($event[0]['event_cost']) ?>円</p>
+    <p><?php print($event[0]['event_content']) ?></p>
 
     
   </div></li>
