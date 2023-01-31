@@ -5,11 +5,27 @@ session_start();
 // POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_SESSION['plan_title'] = $_POST['plan_title'];
-    $_SESSION['plan_who'] = $_POST['plan_who'];
-    $_SESSION['plan_prefectures'] = $_POST['plan_prefectures'];
-    $_SESSION['plan_cost'] = $_POST['plan_cost'];
-    $_SESSION['plan_day'] = $_POST['plan_day'];
+    // 呼び出し
+    include "MA.php";
+    // addインスタンス生成
+    $add = new MA();
+
+    // 現在時刻取得
+    $post_date = date('Y-m-d');
+
+    // 入力したいカラム名を指定
+    $column = ['user_id','plan_title', 'plan_who', 'plan_prefectures', 
+              'plan_cost', 'plan_day', 'plan_favorite_total', 'plan_favorite_season', 'post_date'];
+    
+    // 入力された値をpost配列に格納
+    $post = [$_SESSION['user_id'], $_POST['plan_title'], $_POST['plan_who'], $_POST['plan_prefectures'], 
+            $_POST['plan_cost'], $_POST['plan_day'], 0, 0, $post_date];
+
+    // 入力された値の型を定義
+    $type = [0, 2, 2, 2, 0, 1, 0, 0, 1];
+
+    // 引数としてテーブル名、追加する値、追加する値の型 返り値としてID
+    $_SESSION['plan_id'] = $add->add_return("plan",$column, $post, $type);
 
     // 計画投稿（計画詳細）画面
     header('Location:U-HK10.php');
@@ -23,16 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="U-HK8.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>U-HK8</title>
 </head>
 
 <body>
   <main id="main">
 
+    <i class="fas fa-less-than less fa-3x"></i>
+
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
-    <font size="+4" class="screenname">
-      投稿
+    
+    
     </font>
     <p><font size="+4" for="post_day" >投稿日</font></p>
     <div id="current_date" name="post_date" class="post_day"></div>
