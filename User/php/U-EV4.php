@@ -30,12 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="U-EV4.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>U-EV4</title>
 </head>
 
 <body>
   <main id="main">
-  <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button>
+  <i class="fas fa-less-than less fa-3x" onclick="history.back()"></i>
   <font size="+4" class="screenname">検索条件</font>
     <form action="" method="POST" name="searchForm" onSubmit="return check();">
       <input type="search" name="event_search" class="event_search" placeholder="キーワードを入力">
