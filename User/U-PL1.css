@@ -1,6 +1,6 @@
 .font{
     color: cornflowerblue;
-    margin-top: 800px;
+    margin-top: 600px;
 }
 
 .button_back {
@@ -24,10 +24,14 @@
   }
 
   h3{
-  
     font-size: 3em;
   }
   
   .button_back:hover {
     background-color: #ffffff; /* 背景色 */
+  }
+
+  .less{
+    margin-top: 5%;
+    margin-left: 7%;
   }
