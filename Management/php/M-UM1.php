@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>画面ID M-UM1</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="M-UM1.css" type="text/css">
-  <!--<link rel="stylesheet" href="M-menu.css" type="text/css">-->
+  <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
 <body>
 
