@@ -1,8 +1,22 @@
+<?php
+session_cache_limiter("none");
+session_start(); // セッション開始
+
+include "MG.php";
+
+$db = MG_08("","","");
+$count1 = $db->rowCount();
+$user_report = $db->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>画面ID M-RP2</title>
-  <meta charset=”UTF-8″>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="M-RP2.css" type="text/css">
   <link rel="stylesheet" href="M-menu.css" type="text/css">
 </head>
@@ -10,8 +24,6 @@
   <main id="main">
     <form action='' method="POST" enctype="multipart/form-data">
     
-   
-
     <div>
       <ul id="country_list">
           
@@ -50,19 +62,25 @@
     var country = ['日本', 'アメリカ', 'イギリス', 'ロシア', 'フランス'];
   
     var ul = document.getElementById("country_list");
-    for (var count = 0; count < 3; count++) {
+    <?php
+      for ($i = 0; $i < $count1; $i++) :  
+
+        $user_id = $user_report[$i]['user_id']; 
+        $db = MG_01($user_id,"","","","","","","","","");
+        $user = $db->fetchAll(PDO::FETCH_ASSOC);
+    ?>
       // li要素を作成
       var li = document.createElement('li');
         li.classList.add("box");
   
     var p1 = document.createElement('p');
-    p1.innerText = "ユーザID:"
+    p1.innerText = "ユーザID:<?php print($user[0]['user_id']) ?>"
 
     var p2 = document.createElement('p');
-    p2.innerText = "ユーザ名:"
+    p2.innerText = "ユーザ名:<?php print($user[0]['user_name']) ?>"
 
     var p3 = document.createElement('p');
-    p3.innerText = "メールアドレス:"
+    p3.innerText = "メールアドレス:<?php print($user[0]['user_mail']) ?>"
   
     
     
@@ -71,8 +89,9 @@
     li.appendChild(p1);
     li.appendChild(p2);
     li.appendChild(p3);
-    
-  }
+
+        <?php endfor; ?>
+
   </Script>
   </body>
 </html>
