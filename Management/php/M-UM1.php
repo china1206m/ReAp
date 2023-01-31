@@ -8,7 +8,7 @@ $user_mail = "";
 $report_total = "";
 $stop_total = "";
 
-$db = MG_01($user_id,$user_mail,"",$user_name,"","","",$report_total,$stop_total);
+$db = MG_01($user_id,$user_mail,"",$user_name,"","","",$report_total,$stop_total,"");
 $count1 = $db->rowCount();
 
 $user = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -35,15 +35,17 @@ $count3 = $db->rowCount();
 $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //$_POST['table']で消去するアカウントテーブル指定
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $counter = $_POST['counter'];
 if($_POST['table']=="1"){
-  $user_id = $user[$counter]['plan_id'];
+  $user_id = $user[$counter]['user_id'];
 }elseif($_POST['table']=="2"){
-  $eventuser_id = $eventuser[$counter]['plan_id'];
+  $eventuser_id = $eventuser[$counter]['eventuser_id'];
 }else{
-  $administrator_id = $administrator[$counter]['plan_id'];
+  $administrator_id = $administrator[$counter]['administrator_id'];
 }
 //$_POST['stop']=1なら停止,$_POST['stop']=0なら復活
+}
 
 ?>
 
@@ -73,7 +75,7 @@ if($_POST['table']=="1"){
         ユーザID：
         <input type="number" name="user_id" class="search_user" value="">
         ユーザ名：
-        <input type="text" name="user_name" class="search_user" maxlength="20" placeholder="２0文字以内">
+        <input type="text" name="user_name" class="search_user" maxlength="20" placeholder="20文字以内">
         メールアドレス：
         <input type="email" name="user_mail" class="search_user" maxlength="30" placeholder="〇〇〇＠△△">
         <p>
@@ -105,7 +107,7 @@ if($_POST['table']=="1"){
         ユーザID：
         <input type="number" name="eventuser_id" class="search_user" value="">
         ユーザ名：
-        <input type="text" name="eventuser_name" class="search_user" maxlength="20" placeholder="２0文字以内">
+        <input type="text" name="eventuser_name" class="search_user" maxlength="20" placeholder="20文字以内">
         メールアドレス：
         <input type="email" name="eventuser_mail" class="search_user" maxlength="30" placeholder="〇〇〇＠△△">
         <button type="submit" class="button-only">検索</button>
@@ -131,7 +133,7 @@ if($_POST['table']=="1"){
         管理者ID：
         <input type="number" name="administator_id" class="search_user" value="">
         管理者名：
-        <input type="text" name="administator_name" class="search_user" maxlength="20" placeholder="２０文字以内">
+        <input type="text" name="administator_name" class="search_user" maxlength="20" placeholder="20文字以内">
         <button type="submit" class="button-only">検索</button>
         </form>
 
@@ -305,10 +307,12 @@ if($_POST['table']=="1"){
     ul_report1.appendChild(li_report1);
     ul_stop1.appendChild(li_stop1);
     ul_condition1.appendChild(li_condition1);
-    li_condition1.appendChild(input_revival);
-    li_condition1.appendChild(label_revival);
-    li_condition1.appendChild(input_suspension);
-    li_condition1.appendChild(label_suspension);
+    /*li_condition1.appendChild(input_revival);
+    li_condition1.appendChild(label_revival);*/
+    li_condition1.appendChild(button_revival);
+    /*li_condition1.appendChild(input_suspension);
+    li_condition1.appendChild(label_suspension);*/
+    li_condition1.appendChild(button_suspension);
     li_condition1.appendChild(button_delete);
     
         <?php endfor; ?>

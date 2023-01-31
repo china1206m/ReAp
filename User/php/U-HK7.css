@@ -150,19 +150,20 @@
     border-radius: 50%;
     margin-top: -5px;
     border:solid 10px white;
-    }
+  }
 
-    .circle {
-      width:140px;
-      height:145px;
-      border: 0;
-      border-radius: 50%;
-      margin-top: -10px;
-      }
+  .circle {
+    width:140px;
+    height:145px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -10px;
+  }
 }
 
 /*スマホ用*/
 @media screen and (max-width:990px) {
+  /*戻るボタンのデザイン*/
   .button_back {
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
@@ -186,6 +187,10 @@
   h3 {
     margin-left: 0;
     font-size: 3em;
+  }
+    
+  .button_back:hover {
+    background-color: #ffffff; /* 背景色 */
   }
 
   .title {
@@ -313,13 +318,13 @@
     border-radius: 50%;
     margin-top: -5px;
     border:solid 10px white;
-    }
+  }
 
-    .circle {
-      width:140px;
-      height:145px;
-      border: 0;
-      border-radius: 50%;
-      margin-top: -10px;
-      }
+  .circle {
+    width:140px;
+    height:145px;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -10px;
+  }
 }

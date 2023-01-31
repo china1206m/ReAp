@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <main id="main">
-    <button type="button" class="button_back" onclick="history.back()"><h3>＜</h3></button><h3 class="button_back"></h3>
+    <button type="button" class="button_back" onclick="history.back()">＜</button>
         <div class="box" align="center">
             <h2>通報理由</h2>
         </div>
