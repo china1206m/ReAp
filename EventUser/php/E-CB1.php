@@ -67,11 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
       <tr>
         <td><p><label for="post_day" >投稿日</label></p></td>
-        <td><img id="preview" class="profile_img" src="data:image/gif;base64,R0lhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEOw=="><br></td>
+        <td id="select_img">
+        </td>
     </tr>
     <tr>
       <td><div id="current_date" name="post_day" class="post_day"></p></td>
-      <td><input type="file" name="event_image" class="event_image" accept="image/jpeg,image/png" onchange="previewImage(this);"></td>
+      <td><input id="event_image_" type="file" name="event_image" class="event_image" accept="image/jpeg,image/png"  value=""></td>
     </tr>
 </table>
     
@@ -195,13 +196,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
   </script>
 
+
+
+
   <script>
-    function previewImage(obj){
+    var img = document.createElement('img');
+    img.classList.add("profile_img");
+    img.setAttribute('id','preview');
+    var td = document.getElementById("select_img");
+    td.appendChild(img);
+    var obj = document.getElementById("event_image_");
+    obj.addEventListener('change', function(){
+      img.src = "";
+      
       var fileReader = new FileReader();
-          fileReader.onload = (function(){
-            document.getElementById('preview').src =fileReader.result;
-          });
-          fileReader.readAsDataURL(obj.files[0]);
-          }
+      fileReader.onload = function(){
+        console.log(this.result);
+        img.src = this.result;
+      };
+      fileReader.readAsDataURL(obj.files[0]);
+    }, false);
+
     </script>
+
+
 </body>
