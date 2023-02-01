@@ -89,3 +89,27 @@ background-color: #ffffff; /* 背景色 */
   margin-top: 5%;
   margin-left: 7%;
 }
+
+.button-only {
+  /* ブラウザ特有のスタイルを無効に */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* 整える */
+  width: 300px;
+  padding: 0.6em 1em; /* 塗りの余白 */
+  font-size: 2em; /* フォントサイズ */
+  background-color: #1aa1ff; /* 背景色 */
+  color: #FFF; /* テキストカラー */
+  cursor: pointer; /* カーソルを指マークに */
+  border-radius: 3px; /* 角の丸み */
+  border: 0; /* 枠線を消す */
+  transition: 0.3s; /* ホバーの変化を滑らかに */
+  margin-bottom: 500px;
+}
+
+/* ホバー時（カーソルをのせた時）の見た目 */
+.button-only:hover {
+  background-color: #064fda; /* 背景色 */
+}
