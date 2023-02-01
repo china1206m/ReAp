@@ -8,23 +8,17 @@ if(!isset($_SESSION['administrator_id'])){
   exit;
 }
 
-$user_id = "";
-$user_mail = "";
-$user_name = "";
-$report_total = "";
-$stop_total = "";
+if(!isset($_SESSION['user_id'])){$_SESSION['user_id'] = "";}
+if(!isset($_SESSION['user_mail'])){$_SESSION['user_mail'] = "";}
+if(!isset($_SESSION['user_name'])){$_SESSION['user_name'] = "";}
+if(!isset($_SESSION['report_total'])){$_SESSION['report_total'] = "";}
+if(!isset($_SESSION['stop_total'])){$_SESSION['stop_total'] = "";}
 
 $user_id = $_SESSION['user_id'];
 $user_mail = $_SESSION['user_mail'];
 $user_name = $_SESSION['user_name'];
 $report_total = $_SESSION['report_total'];
 $stop_total = $_SESSION['stop_total'];
-
-$_SESSION['user_id'] = "";
-$_SESSION['user_name'] = "";
-$_SESSION['user_mail'] = "";
-$_SESSION['report_total'] = "";
-$_SESSION['stop_total'] = "";
 
 include "MG.php";
 include "MU.php";
@@ -37,17 +31,13 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
-$eventuser_id = "";
-$eventuser_name = "";
-$eventuser_mail = "";
+if(!isset($_SESSION['eventuser_id'])){$_SESSION['eventuser_id'] = "";}
+if(!isset($_SESSION['eventuser_mail'])){$_SESSION['eventuser_mail'] = "";}
+if(!isset($_SESSION['eventuser_name'])){$_SESSION['eventuser_name'] = "";}
 
 $eventuser_id = $_SESSION['eventuser_id'];
 $eventuser_name = $_SESSION['eventuser_name'];
 $eventuser_mail = $_SESSION['eventuser_mail'];
-
-$_SESSION['eventuser_id'] = "";
-$_SESSION['eventuser_name'] = "";
-$_SESSION['eventuser_mail'] = "";
 
 $db = MG_02($eventuser_id,$eventuser_mail,"",$eventuser_name,"","","","","","");
 $count2 = $db->rowCount();
@@ -56,14 +46,12 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
-$administrator_id = "";
-$administrator_name = "";
+if(!isset($_SESSION['administrator1_id'])){$_SESSION['administrator1_id'] = "";}
+if(!isset($_SESSION['administrator1_name'])){$_SESSION['administrator1_name'] = "";}
 
-$administrator_id = $_SESSION['administrator_id'];
-$administrator_name = $_SESSION['administrator_name'];
+$administrator_id = $_SESSION['administrator1_id'];
+$administrator_name = $_SESSION['administrator1_name'];
 
-$_SESSION['administrator_id'] = "";
-$_SESSION['administrator_name'] = "";
 
 $db = MG_03($administrator_id,"",$administrator_name);
 $count3 = $db->rowCount();
@@ -74,6 +62,11 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if($_POST['flag'] == 1){
     //検索の場合
+    $_SESSION['user_id'] = "";
+    $_SESSION['user_name'] = "";
+    $_SESSION['user_mail'] = "";
+    $_SESSION['report_total'] = "";
+    $_SESSION['stop_total'] = "";
 
     $_SESSION['user_id'] = $_POST['user_id'];
     $_SESSION['user_name'] = $_POST['user_name'];
@@ -146,6 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header('Location:M-UM1.php');
   } else if($_POST['flag'] == 4){
 
+    $_SESSION['eventuser_id'] = "";
+    $_SESSION['eventuser_name'] = "";
+    $_SESSION['eventuser_mail'] = "";
+
     $_SESSION['eventuser_id'] = $_POST['eventuser_id'];
     $_SESSION['eventuser_name'] = $_POST['eventuser_name'];
     $_SESSION['eventuser_mail'] = $_POST['eventuser_mail'];
@@ -153,9 +150,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location:M-UM1.php');
 
   } else if($_POST['flag'] == 5){
+    $_SESSION['administrator1_id'] = "";
+    $_SESSION['administrator1_name'] = "";
 
-    $_SESSION['administrator_id'] = $_POST['administrator_id'];
-    $_SESSION['administrator_name'] = $_POST['administrator_name'];
+    $_SESSION['administrator1_id'] = $_POST['administrator_id'];
+    $_SESSION['administrator1_name'] = $_POST['administrator_name'];
 
     header('Location:M-UM1.php');
   }
