@@ -21,6 +21,7 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="U-AC9.css" type="text/css">
     <link rel="stylesheet" href="U-menu.css" type="text/css">
+    <link rel="stylesheet" href="button.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>U-AC9</title>
   </head>
@@ -34,8 +35,8 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
       </div>
 
       <div align="center">
-        <p><button onclick="location.href='U-AC14.php'" class="coupon">所持クーポン一覧</button></p>
-        <p><button onclick="location.href='U-AC12.php'" class="coupon">取得する</button></p>
+        <p><button onclick="location.href='U-AC14.php'" class="button-select">所持クーポン一覧</button></p>
+        <p><button onclick="location.href='U-AC12.php'" class="button-select">取得する</button></p>
         <?php
         if($user[0]['coupon_can_get'] == 0){
           echo 'クーポン取得権限がありません';
