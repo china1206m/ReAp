@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="yoko">
             <a href="U-HK1.php" style="text-decoration:none;">
               <?php if(!empty($planuser[0]['profile_image'])) { ?>
-                <img src="U-ImageUser.php?id=<?= $plan[0]['user_id']; ?>" alt="" class="circle1" align="left">
+                <img src="<?php echo $planuser[0]['profile_image']; ?>" alt="" class="circle1" align="left">
               <?php } else { ?>
                 <!-- デフォルトアイコン -->
                 <img src="castle.bmp" alt="" class="circle" align="left">

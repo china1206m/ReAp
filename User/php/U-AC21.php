@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="ranking_information">
           <div class="yoko">
             <?php if(!empty($planuser[0]['profile_image'])) { ?>
-              <img src="U-ImageUser.php?id=<?= $planuser_id; ?>" class="circle1" align="left" alt="アイコン">
+              <img src="<?php echo $planuser[0]['profile_image']; ?>" class="circle1" align="left" alt="アイコン">
             <?php } else { ?>
               <!-- デフォルトアイコン -->
               <img src="castle.bmp" alt="" class="circle" align="left">
