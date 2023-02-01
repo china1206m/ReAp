@@ -34,10 +34,12 @@ if(!isset($_SESSION['user_id'])) {
         
         <li><div>
         <form action="" method="POST">
-        <button type="submit"class="button-yes">はい</button>
+        <button type="submit"class="button-two">はい</button>
         </form>
+        <br>
+        <br>
       
-       <button type="submit"class="button-yes" onclick="location.href='U-AC3.php'">いいえ</button>
+       <button type="submit"class="button-two" onclick="location.href='U-AC3.php'">いいえ</button>
         </div></li>
       </ul>
     </center>
