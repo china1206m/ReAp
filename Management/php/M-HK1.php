@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="main">
     
   <div class="right">
-            <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
-            <button type="button" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
+            <button class="icon" type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+            <button class="icon" type="button" onclick="location.href='M-HK4.php'"><img src="rank.png" height ="40" width="40" /></button>
             <form action="" method="POST">
             <button type="submit" class="button-only" type="button">
                 お気に入り上位100人クーポン配布

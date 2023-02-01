@@ -1,7 +1,7 @@
 
 
 /*検索ボタン装飾*/ 
-button{
+.icon{
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;
