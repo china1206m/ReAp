@@ -1,6 +1,7 @@
 <?php
 /* セッション開始 */
 session_start();
+
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   /* usernameとpasswordが定義されて、かつ空白ではない */

@@ -1,3 +1,13 @@
+<?php
+
+if(!isset($_SESSION['administrator_id'])){
+    $_SESSION['login_message'] = 'ログインしてください';
+    header('Location:M-AC1.php');
+    exit;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

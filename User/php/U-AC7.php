@@ -1,11 +1,15 @@
 <?php
 /* セッション開始 */
 session_start();
-
+if(!isset($_SESSION['user_id'])) {
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        include "logout.php";
-        $logout = new logout();
-        $logout->logout("U-AC6.php");
+        session_destroy();
+        header('Location:U-AC6.php');
+        exit;
   }
 ?>
 

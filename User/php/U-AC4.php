@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+if(!isset($_SESSION['user_id'])) {
+    $_SESSION['login_message'] = 'ログインしてください';
+    header('Location:U-AC6.php');
+    exit;
+}
 include "MG.php";
 
 $user_id = $_SESSION['user_id'];
@@ -12,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $update = new MU();
     $column = ["user_name", "profile_message"];
-    $post = [$_POST['user_name'], $_POST['profile_message']];
+    $post = [$_POST['user_name'], nl2br($_POST['profile_message'])];
     $type = [2, 2];
     $column_name = "user_id";
     $user_id = $_SESSION['user_id'];

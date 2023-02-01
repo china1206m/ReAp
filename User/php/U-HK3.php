@@ -2,6 +2,12 @@
 // セッション開始 
 session_start();
 
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
+
 /* セッションの初期化 */
 $_SESSION['plan_search'] = '';
 $_SESSION['plan_who'] = '';

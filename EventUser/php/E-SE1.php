@@ -1,6 +1,13 @@
 <?php
 session_cache_limiter("none");
 session_start(); // セッション開始
+
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
+
 $eventuser_id = $_SESSION['eventuser_id'];
 include "MG.php";
 $db = MG_02($eventuser_id,"","","","","","","","","");
@@ -127,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   //場所の追加
   var div_place = document.createElement('p');
-      div_place.innerText = "<?php print($event[$i]['event_place']) ?>"
+      div_place.innerText = `<?php print($event[$i]['event_place']) ?>`
 
   // アイコンユーザ選択
   <?php
@@ -166,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // 本文を作成
   var p = document.createElement('p');
   p.classList.add("limit");
-  p.innerHTML = "<?php print($event[$i]['event_content']) ?>";
+  p.innerHTML = `<?php print($event[$i]['event_content']) ?>`;
 
   // もっと見るを作成
   var a = document.createElement('button');

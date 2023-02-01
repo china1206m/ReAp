@@ -2,6 +2,12 @@
 session_cache_limiter("none");
 session_start();
 
+if(!isset($_SESSION['administrator_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:M-AC1.php');
+  exit;
+}
+
 $user_id = "";
 $user_mail = "";
 $user_name = "";

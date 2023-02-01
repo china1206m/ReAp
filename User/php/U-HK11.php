@@ -2,6 +2,12 @@
 session_cache_limiter("none");
 session_start(); // セッション開始
 
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
+
 include "MG.php";
 $plan_search = $_SESSION['plan_search'];
 $plan_who = $_SESSION['plan_who'];
@@ -158,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //本文内容追加
       var p_content = document.createElement('p');
       p_content.classList.add("plan_content");
-      p_content.innerHTML = "<?php print($plan_detail[0]['plan_content']); ?>"
+      p_content.innerHTML = `<?php print($plan_detail[0]['plan_content']); ?>`
 
       //滞在時間追加
       var p_time = document.createElement('p');

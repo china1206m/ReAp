@@ -1,7 +1,11 @@
 <?php 
 session_cache_limiter("none");
 session_start();
-
+if(!isset($_SESSION['user_id'])) {
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
 include "MG.php";
 
   $coupon_id = $_SESSION['coupon_id'];
@@ -51,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <hr class="middle">
     <p class="coupon">使用期限：<?php print($coupon[0]['coupon_deadline']); ?></p>
     <hr class="middle">
-    <p class="coupon">　　詳細：<?php print($coupon[0]['coupon_content']); ?></p>
+    <p class="coupon">詳細<br><?php print($coupon[0]['coupon_content']); ?></p>
     <hr class="under">
 
     <div class="delay">

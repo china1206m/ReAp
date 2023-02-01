@@ -1,6 +1,13 @@
 <?php
 session_cache_limiter("none");
 session_start(); // セッション開始
+
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
+
 include "MG.php";
 
 $plan_id = $_SESSION['plan_id'];
@@ -156,12 +163,12 @@ div_home.classList.add("plan_information");
 //場所名追加
 var p_placename = document.createElement('p');
 p_placename.classList.add("plan_content");
-p_placename.innerHTML = "<?php print($plan_detail[$i]['plan_place']); ?>"
+p_placename.innerHTML = `<?php print($plan_detail[$i]['plan_place']); ?>`
 
 //本文内容追加
 var p_content = document.createElement('p');
 p_content.classList.add("plan_content");
-p_content.innerHTML = "<?php print($plan_detail[$i]['plan_content']); ?>"
+p_content.innerHTML = `<?php print($plan_detail[$i]['plan_content']); ?>`
 
 //滞在時間追加
 var p_time = document.createElement('p');

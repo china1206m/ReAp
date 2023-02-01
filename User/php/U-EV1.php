@@ -2,6 +2,12 @@
 session_cache_limiter("none");
 session_start(); // セッション開始
 
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
+
 include "MG.php";
 
 $db = getDB();
@@ -111,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //イベント内容追加
       var p = document.createElement('p');
       p.classList.add("content");
-      p.innerHTML = "<?php print($event[$i]['event_content']); ?>"
+      p.innerHTML = `<?php print($event[$i]['event_content']); ?>`
 
       // もっと見るを作成
       var a = document.createElement('button');

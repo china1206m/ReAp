@@ -2,6 +2,12 @@
 // セッション開始 
 session_start();
 
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
+
 // POSTで送信されている 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -16,10 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 入力したいカラム名を指定
     $column = ['eventuser_id','event_title', 'event_prefectures', 'event_day_first', 'event_day_end', 
               'event_content', 'event_place', 'event_cost', 'event_favorite_total', 'post_date'];
+
+    // 改行
+    $event_content = nl2br($_POST['event_content']);
+    $event_place = nl2br($_POST['event_place']);
     
     // 入力された値をpost配列に格納
     $post = [$_SESSION['eventuser_id'], $_POST['event_title'], $_POST['event_prefectures'], $_POST['event_day_first'], $_POST['event_day_end'], 
-            $_POST['event_content'], $_POST['event_place'], $_POST['event_cost'], 0, $post_date];
+            $event_content, $event_place, $_POST['event_cost'], 0, $post_date];
 
     // 入力された値のデータ型を定義
     $type = [0, 2, 2, 1, 1, 2, 2, 0, 0, 1];
@@ -78,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     <p><label for="title">題名<span class="require">必須</span></label></p>
-    <textarea name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
+    <input name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
 
     <p><label for="shop">都道府県<span class="require">必須</span></label></p>
         <select name="event_prefectures" class="prefectures" required>

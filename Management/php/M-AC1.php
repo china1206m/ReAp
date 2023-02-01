@@ -70,6 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <i id="eye" class="fa-solid fa-eye"></i></div>
 
 <br>
+<!--エラーメッセージ-->
+<p class="fail">ログインに失敗しました</p>
 <br>
 <br>
 <button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>

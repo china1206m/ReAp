@@ -1,3 +1,14 @@
+<?php
+
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:U-AC6.php');
+  exit;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>

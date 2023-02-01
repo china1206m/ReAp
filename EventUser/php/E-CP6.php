@@ -1,6 +1,12 @@
 <?php
 /* セッション開始 */
 session_start();
+
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
  
 /* POSTで送信されている */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $column = ['coupon_name', 'eventuser_id', 'coupon_place', 'coupon_prefectures', 'coupon_content', 'coupon_deadline'];
     
     // 入力された値をpost配列に格納
-    $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], $_POST['coupon_content'], $_POST['coupon_deadline']];
+    $post = [$_POST['coupon_name'], $_SESSION['eventuser_id'], $_POST['coupon_place'], $_POST['coupon_prefectures'], nl2br($_POST['coupon_content']), $_POST['coupon_deadline']];
 
     // 入力された値の型を定義
     $type = [2, 0, 2, 2, 2, 1];

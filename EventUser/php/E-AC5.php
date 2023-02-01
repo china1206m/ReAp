@@ -2,6 +2,12 @@
 /* セッション開始 */
 session_start();
 
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
+
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_destroy();
     header('Location:E-AC4.php');

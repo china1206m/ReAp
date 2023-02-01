@@ -2,6 +2,11 @@
 // セッション開始
 session_start();
 include "MG.php";
+if(!isset($_SESSION['eventuser_id'])){
+  $_SESSION['login_message'] = 'ログインしてください';
+  header('Location:E-AC4.php');
+  exit;
+}
 
 $eventuser_id = $_SESSION['eventuser_id'];
 $db = MG_02($eventuser_id,"","","","","","","","","");
