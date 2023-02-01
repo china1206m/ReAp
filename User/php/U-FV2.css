@@ -79,6 +79,10 @@
     
     /*もっと見るボタンのデザイン*/
     .more-see { 
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
         color: gray;
         text-decoration: none; 
         font-weight: bold;
@@ -88,7 +92,7 @@
         bottom: 0;
         margin-left: 100px;
         background-color: white;
-        border: 0;
+        border: solid thin white;
         }
   
         ul {
@@ -206,17 +210,22 @@
   
   /*もっと見るボタンのデザイン*/
   .more-see { 
-    color: gray;
-    text-decoration: none; 
-    font-weight: bold;
-    font-size: 1.1em;
-    position:absolute;
-    right: 0;
-    bottom: 0;
-    margin-left: 100px;
-    background-color: white;
-    border: 0;
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+      color: gray;
+      text-decoration: none; 
+      font-weight: bold;
+      font-size: 1.1em;
+      position:absolute;
+      right: 0;
+      bottom: 0;
+      margin-left: 100px;
+      background-color: white;
+      border: solid thin white;
     }
+
    .home-list {
     list-style:none;
   }
