@@ -83,7 +83,7 @@ $_SESSION['event_eventuser_id'] = $eventuser_id;
     const images = ['neko.jpg', 'naruto.jpg'];
     const content_area = document.getElementById("image_area");
     let img_add = document.createElement('img');
-    img_add.src = 'E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>';
+    img_add.src = '<?php echo "../EventUser/".$event[0]['event_image']; ?>';
     img_add.alt = 'さいくん'; // 代替テキスト
     img_add.width = 400; // 横サイズ（px）
     content_area.appendChild(img_add);
