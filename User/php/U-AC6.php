@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['user_mail'], $_POST['user_pass']) && $_POST['user_mail'] !== '' && $_POST['user_pass'] !== '')  {
     /* データベース接続 */
     include "MC-01.php";
+    include "MG.php";
     $db = getDB();
  
     /* ユーザー認証 */
@@ -20,14 +21,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ログインが成功したら
     if ($count == 1) {
         // userIDを取得
-        // セッションでイベントユーザIDを保持
+        // セッションでユーザIDを保持
         foreach ($stmt as $row) {
             $_SESSION['user_id'] = $row['user_id'];
+            $user_id = $_SESSION['user_id'];
+            $db = MG_01($user_id,"","","","","","","","","");
+            $user = $db->fetchAll(PDO::FETCH_ASSOC);
+            if($user[0]["user_stop"] == 1){
+              $_SESSION['login_message'] = 'このアカウントは停止されています';
+              $_SESSION['user_id'] = NULL;
+              header('Location:U-AC6.php');
+              exit;
+            } else {
             header('Location:U-HK6.php');
             exit;
+            }
+          }
         }
-    }
-  }
+      }
   /* 正しくログインできなかった */
   $_SESSION['login_message'] = '送信データが正しくありません';
   header('Location:'.$_SERVER['PHP_SELF']);
