@@ -48,6 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <head>
         <title>U-AC4</title>
         <meta charset = "UTF-8">
+        <link rel="stylesheet" href = "button.css">
         <link rel="stylesheet" href = "U-AC4.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -92,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
     
                 
-            <button type="submit" class="button-only" class="register">
+            <button type="submit" class="button-only arrang" class="register">
                     変更する
             </button>
             </div>
