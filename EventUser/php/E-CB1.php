@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     <p><label for="title">題名<span class="require">必須</span></label></p>
-    <textarea name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
+    <input name="event_title" class="event_title" minlength="1" maxlength="30" placeholder="30文字以内" required></textarea>
 
     <p><label for="shop">都道府県<span class="require">必須</span></label></p>
         <select name="event_prefectures" class="prefectures" required>
