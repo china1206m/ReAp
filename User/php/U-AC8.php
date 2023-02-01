@@ -76,12 +76,12 @@ if(!isset($_SESSION['user_id'])) {
             </div><br>
 
             <form action=""  method="POST">
-                <button type="submit" class="button-only arrang">
+                <button type="submit" class="button-two arrang">
                 同意します
                 </button>
             </form><br>
     
-                <button type="submit" class="button-only arrang" onclick="location.href='U-AC3.php'">
+                <button type="submit" class="button-two arrang" onclick="location.href='U-AC3.php'">
                 同意しません
                 </button>
 
