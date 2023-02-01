@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="utf-8">
   <link rel="stylesheet" href="U-HK10.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
+  <link rel="stylesheet" href="button.css" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
@@ -121,6 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ol>
     <center>
     <button type="submit" class="button-only" name="contribution">投稿</button>
+    <br>
+    <br>
+    <p class="box"></p>
+    <br>
     </center>
     </form>
 </ul>
