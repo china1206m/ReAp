@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
       <p>都道府県</p>
       <div align="center">
-        <select id="region" class="region-select" required>
+        <select id="region" class="region-select">
             <option value="">選択してください</option>
             <option value="hokkaido">北海道地方</option>
             <option value="tohoku">東北地方</option>
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="shikoku">四国地方</option>
             <option value="kyushu-okinawa">九州・沖縄地方</option>
           </select>
-          <select id="pref" class="pref-select" name="plan_prefectures" required>
+          <select id="pref" class="pref-select" name="plan_prefectures">
             <option value="">選択してください</option>
           </select>
       </div>
@@ -210,18 +210,20 @@ var search = document.searchForm.plan_search.value;
 var who = document.searchForm.plan_who.value;
 var date_first = document.searchForm.plan_date_first.value;
 var date_end = document.searchForm.plan_date_end.value;
+var cost = document.searchForm.plan_cost.value;
+var stay  = document.searchForm.plan_stay.value;
 
-if ( prefectures == "" && who == "" && search == "" && date_first == "" && date_end == "" ) {
+if ( prefectures == "" && who == "" && search == "" && date_first == "" && date_end == "" && cost == "" && stay == "") {
   alert ( "検索したい項目を入力してください。" );
   document.searchForm.plan_prefectures.focus();
   return false;
 }
-if(eventday != "" && eventday2 == ""){
+if(date_first != "" && date_end  == ""){
   alert ( "開催期間の終了日を選択してください" );
   document.searchForm.plan_date_end.focus();
   return false;
 }
-if(eventday2 != "" && eventday == ""){
+if(date_end != "" && date_first == ""){
   alert ( "開催期間の開始日を選択してください" );
   document.searchForm.plan_fate_first.focus();
   return false;
