@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $user = $db->fetchAll(PDO::FETCH_ASSOC);
     ?>
         var li = document.createElement('li');
+        li.classList.add("chon");
 
     //ランキング順位追加
         var span = document.createElement('span');

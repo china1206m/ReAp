@@ -57,7 +57,7 @@
     .condition{
         display: inline;
         font-size: 20px;
-        margin-left: 150px;
+        margin-left: 130px;
     }
     
     ol{
@@ -129,6 +129,10 @@
           margin-top: 5%;
           margin-left: 7%;
         }
+
+        .chon{
+          list-style: none;
+        }
 }
 
 
@@ -189,7 +193,7 @@ font-size: 20px;
 .condition{
     display: inline;
     font-size: 20px;
-    margin-left: 80px;
+    margin-left: 60px;
 }
 
 ol{
@@ -273,6 +277,10 @@ li .home{
       .less{
         margin-top: 5%;
         margin-left: 7%;
+      }
+
+      .chon{
+        list-style: none;
       }
 }
 
