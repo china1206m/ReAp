@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <title>画面ID U-AC10</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="button.css" type="text/css">
   <link rel="stylesheet" href="U-AC10.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 
     <center>
-    <button type="submit" name="coupon_search" class="button-only">検索</button>
+    <button type="submit" name="coupon_search" class="button-only arrang">検索</button>
     </center>
 </form>
 
