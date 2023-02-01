@@ -27,6 +27,8 @@ if(!isset($_SESSION['user_id'])) {
 
         $delete->delete("plan_detail", "plan_id", $plan_id, $type);
 
+        $delete->delete("plan_favorite", "plan_id", $plan_id, $type);
+
     endfor;
 
 
