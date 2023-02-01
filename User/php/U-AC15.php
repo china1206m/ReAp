@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <title>U-AC15</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="button.css" type="text/css">
   <link rel="stylesheet" href="U-AC15.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -58,8 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p class="coupon">詳細<br><?php print($coupon[0]['coupon_content']); ?></p>
     <hr class="under">
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="delay">
-    <button id="open-btn" class="overlay-event" name="coupon_delay" type="button">使用する</button>
+    <button class="overlay-event button-only" name="coupon_delay" type="button">使用する</button>
     </div>
 
     <div id="overlay">
