@@ -54,6 +54,7 @@ if(!isset($_SESSION['user_id'])) {
     <head>
         <title>U-AC8</title>
         <meta charset = "UTF-8">
+        <link rel="stylesheet" href = "button.css">
         <link rel="stylesheet" href = "U-AC8.css">
         <link rel="stylesheet" href="U-menu.css" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -75,12 +76,12 @@ if(!isset($_SESSION['user_id'])) {
             </div><br>
 
             <form action=""  method="POST">
-                <button type="submit" class="button-only">
+                <button type="submit" class="button-only arrang">
                 同意します
                 </button>
-            </form>
+            </form><br>
     
-                <button type="submit" class="button-only" onclick="location.href='U-AC3.php'">
+                <button type="submit" class="button-only arrang" onclick="location.href='U-AC3.php'">
                 同意しません
                 </button>
 
