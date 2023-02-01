@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $column = ['user_id','report_content'];
     
     // 入力された値をpost配列に格納
-    $post = [$_SESSION['user_id'], $_POST['report_content']];
+    $post = [$_SESSION['planuser_id'], $_POST['report_content']];
 
     // 入力された値の型を定義
     $type = [0,1];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //通報回数変更
     include "MU.php";
     $mu = new MU();
-    $mu->report_count($_SESSION['user_id']);
+    $mu->report_count($_SESSION['planuser_id']);
 
     header('Location:U-HK6.php');
     exit;
