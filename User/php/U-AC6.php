@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   ?>
 </div>
-<button type="submit" name="login" class="button-only" onclick="regit()">ログイン</button>
+<button type="submit" name="login" class="button-eye" onclick="regit()">ログイン</button>
 <a class="already" href="U-AC1.html">新規登録の方はこちらから</a>
       
 </div>
