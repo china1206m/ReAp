@@ -8,15 +8,15 @@ if(!isset($_SESSION['administrator_id'])){
   exit;
 }
 
-if(!isset($_SESSION['user_id'])){$_SESSION['user_id'] = "";}
-if(!isset($_SESSION['user_mail'])){$_SESSION['user_mail'] = "";}
-if(!isset($_SESSION['user_name'])){$_SESSION['user_name'] = "";}
+if(!isset($_SESSION['user1_id'])){$_SESSION['user1_id'] = "";}
+if(!isset($_SESSION['user1_mail'])){$_SESSION['user1_mail'] = "";}
+if(!isset($_SESSION['user1_name'])){$_SESSION['user1_name'] = "";}
 if(!isset($_SESSION['report_total'])){$_SESSION['report_total'] = "";}
 if(!isset($_SESSION['stop_total'])){$_SESSION['stop_total'] = "";}
 
-$user_id = $_SESSION['user_id'];
-$user_mail = $_SESSION['user_mail'];
-$user_name = $_SESSION['user_name'];
+$user_id = $_SESSION['user1_id'];
+$user_mail = $_SESSION['user1_mail'];
+$user_name = $_SESSION['user1_name'];
 $report_total = $_SESSION['report_total'];
 $stop_total = $_SESSION['stop_total'];
 
@@ -31,13 +31,13 @@ $user = $db->fetchAll(PDO::FETCH_ASSOC);
 
 //-------------------------------------------------------------------------------------------------
 
-if(!isset($_SESSION['eventuser_id'])){$_SESSION['eventuser_id'] = "";}
-if(!isset($_SESSION['eventuser_mail'])){$_SESSION['eventuser_mail'] = "";}
-if(!isset($_SESSION['eventuser_name'])){$_SESSION['eventuser_name'] = "";}
+if(!isset($_SESSION['eventuser1_id'])){$_SESSION['eventuser1_id'] = "";}
+if(!isset($_SESSION['eventuser1_mail'])){$_SESSION['eventuser1_mail'] = "";}
+if(!isset($_SESSION['eventuser1_name'])){$_SESSION['eventuser1_name'] = "";}
 
-$eventuser_id = $_SESSION['eventuser_id'];
-$eventuser_name = $_SESSION['eventuser_name'];
-$eventuser_mail = $_SESSION['eventuser_mail'];
+$eventuser_id = $_SESSION['eventuser1_id'];
+$eventuser_name = $_SESSION['eventuser1_name'];
+$eventuser_mail = $_SESSION['eventuser1_mail'];
 
 $db = MG_02($eventuser_id,$eventuser_mail,"",$eventuser_name,"","","","","","");
 $count2 = $db->rowCount();
@@ -62,15 +62,15 @@ $administrator = $db->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if($_POST['flag'] == 1){
     //検索の場合
-    $_SESSION['user_id'] = "";
-    $_SESSION['user_name'] = "";
-    $_SESSION['user_mail'] = "";
+    $_SESSION['user1_id'] = "";
+    $_SESSION['user1_name'] = "";
+    $_SESSION['user1_mail'] = "";
     $_SESSION['report_total'] = "";
     $_SESSION['stop_total'] = "";
 
-    $_SESSION['user_id'] = $_POST['user_id'];
-    $_SESSION['user_name'] = $_POST['user_name'];
-    $_SESSION['user_mail'] = $_POST['user_mail'];
+    $_SESSION['user1_id'] = $_POST['user_id'];
+    $_SESSION['user1_name'] = $_POST['user_name'];
+    $_SESSION['user1_mail'] = $_POST['user_mail'];
     $_SESSION['report_total'] = $_POST['report_total'];
     $_SESSION['stop_total'] = $_POST['stop_total'];
     header('Location:M-UM1.php');
@@ -139,13 +139,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header('Location:M-UM1.php');
   } else if($_POST['flag'] == 4){
 
-    $_SESSION['eventuser_id'] = "";
-    $_SESSION['eventuser_name'] = "";
-    $_SESSION['eventuser_mail'] = "";
+    $_SESSION['eventuser1_id'] = "";
+    $_SESSION['eventuser1_name'] = "";
+    $_SESSION['eventuser1_mail'] = "";
 
-    $_SESSION['eventuser_id'] = $_POST['eventuser_id'];
-    $_SESSION['eventuser_name'] = $_POST['eventuser_name'];
-    $_SESSION['eventuser_mail'] = $_POST['eventuser_mail'];
+    $_SESSION['eventuser1_id'] = $_POST['eventuser_id'];
+    $_SESSION['eventuser1_name'] = $_POST['eventuser_name'];
+    $_SESSION['eventuser1_mail'] = $_POST['eventuser_mail'];
 
     header('Location:M-UM1.php');
 
@@ -157,6 +157,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['administrator1_name'] = $_POST['administrator_name'];
 
     header('Location:M-UM1.php');
+  } else if($_POST['flag'] == 6){
+    $_SESSION['user1_id'] = "";
+    $_SESSION['user1_name'] = "";
+    $_SESSION['user1_mail'] = "";
+    $_SESSION['report_total'] = "";
+    $_SESSION['stop_total'] = "";
+
+    $_SESSION['eventuser1_id'] = "";
+    $_SESSION['eventuser1_name'] = "";
+    $_SESSION['eventuser1_mail'] = "";
+
+    $_SESSION['administrator1_id'] = "";
+    $_SESSION['administrator1_name'] = "";
+
+    header('Location:M-UM1.php');
+
   }
 }
 
@@ -198,7 +214,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="number" name="report_total" class="search_count" >
         停止回数：
         <input type="number" name="stop_total" class="search_count" >
-        <button class="button-only">検索</button></p>
+        <button class="button-only">検索</button>
+        </form>
+        <form action="" method="POST">
+          <input type="hidden" name="flag" value="6">
+          <button class="button-only">一覧</button></p>
         </form>
     
         <form action="" method="POST" id="stop_form">
