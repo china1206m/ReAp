@@ -8,6 +8,7 @@
     
     /* 整える */
     display: inline;
+    width: 10px;
     margin-left: 30px;
     padding: 0.6em 1em; /* 塗りの余白 */
     font-weight: bold;
@@ -20,9 +21,10 @@
     }
     
     h3{
-      font-size: 3em;
+    margin-left: 0;
+    font-size: 3em;
     }
-
+    
     .button_back:hover {
     background-color: #ffffff; /* 背景色 */
     }
@@ -107,26 +109,21 @@
           border: solid 3px blue;/*線*/
           border-radius: 15px;
           border-color: blue;
-          background-color: rgb(169, 195, 237);
-          margin-top: 200px;
+          background-color: white;
+          margin-top: 600px;
           font-size: xx-large;
       }
-      
-      .buse2{
-          width: 500px;
-          height: 100px;
-          border: solid 3px blue;/*線*/
-          border-radius: 15px;
-          border-color: blue;
-          background-color: rgb(169, 195, 237);
-          margin: 200px;
-          font-size: xx-large;
-        }
 
-        .less{
-          margin-top: 5%;
-          margin-left: 7%;
-        }
+      .arrang{
+        margin-top: 300px;
+      }
+
+      .less{
+        margin-left: 7%;
+        margin-top: 5%;
+      }
+
+
         
   }
   
@@ -154,10 +151,10 @@
     border: 0; /* 枠線を消す */
     transition: 0.3s; /* ホバーの変化を滑らかに */
     }
-
+    
     h3{
-      font-size: 6em;
-      color: red;
+    margin-left: 0;
+    font-size: 3em;
     }
     
     .button_back:hover {
@@ -246,26 +243,19 @@
     border: solid 3px blue;/*線*/
     border-radius: 15px;
     border-color: blue;
-    background-color: rgb(169, 195, 237);
-    margin-top: 500px;
+    background-color: white;
+    margin-top: 700px;
     font-size: xx-large;
 }
 
-.buse2{
-    width: 500px;
-    height: 100px;
-    border: solid 3px blue;/*線*/
-    border-radius: 15px;
-    border-color: blue;
-    background-color: rgb(169, 195, 237);
-    margin: 200px;
-    font-size: xx-large;
-  }
+.arrang{
+  margin-top: 500px;
+}
 
-  .less{
-    margin-top: 5%;
-    margin-left: 7%;
-  }
+.less{
+  margin-left: 7%;
+  margin-top: 5%;
+}
 }
   
   
