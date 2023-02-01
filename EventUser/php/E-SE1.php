@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ?>
   var img = document.createElement('img');
   img.classList.add("circle1");
-  img.src = 'E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>';
+  img.src = '<?php echo $eventuser[0]['profile_image']; ?>';
   img.align = 'left'
   img.alt = 'アイコン'
   img.width = 100;

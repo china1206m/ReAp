@@ -35,7 +35,7 @@ $eventuser = $db->fetchAll(PDO::FETCH_ASSOC);
         <?php 
           if(!empty($eventuser[0]['profile_image'])) {
         ?>
-          <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle1" align="left">
+          <img src="<?php echo $eventuser[0]['profile_image']; ?>" class="circle1" align="left">
         <?php } else { ?>
           <img src="castle.bmp" class="circle" align="left">
         <?php } ?>
