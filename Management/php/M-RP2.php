@@ -37,7 +37,7 @@ $user_report = $db->fetchAll(PDO::FETCH_ASSOC);
     
     
       <div class="right"> 
-                <button type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
+                <button class="search" type="button" onclick="location.href='M-SC1.php'"><img src="serch_image.png"  height ="40" width="40"/></button>
       </div>
     </div>
 

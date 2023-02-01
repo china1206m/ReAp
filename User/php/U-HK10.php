@@ -60,11 +60,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if(!empty($_FILES["plan_image$i"]['tmp_name'])) {
           include_once "MC-01.php";
           $pdo = getDB();
-    
-          $content = file_get_contents($_FILES["plan_image$i"]['tmp_name']);
+          $err_msg = '';
+          $name = $_FILES["plan_image$i"]['name'];
+          if(!move_uploaded_file($_FILES["plan_image$i"]['tmp_name'], 'image/'.$name)) {
+            $err_msg = 'sippai';
+          }
+          //$content = file_get_contents($_FILES["plan_image$i"]['tmp_name']);
           $sql = 'UPDATE plan_detail SET  plan_image = :plan_image WHERE plan_detail_id = :plan_detail_id';
           $stmt = $pdo->prepare($sql);
-          $stmt->bindValue(':plan_image', $content);
+          $stmt->bindValue(':plan_image', 'image/'.$name);
           $stmt->bindValue(':plan_detail_id', $plan_detail_id);
           $stmt->execute();
         } 

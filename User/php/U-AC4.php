@@ -26,10 +26,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pdo = getDB();
 
     if(!empty($_FILES['profile_image']['tmp_name'])) {
-        $content = file_get_contents($_FILES['profile_image']['tmp_name']);
+        //$content = file_get_contents($_FILES['profile_image']['tmp_name']);
+        $name = $_FILES["profile_image"]['name'];
+        $err_msg = '';
+        if(!move_uploaded_file($_FILES["profile_image"]['tmp_name'], 'image/'.$name)) {
+            $err_msg = 'sippai';
+        }
         $sql = 'UPDATE user SET  profile_image = :profile_image WHERE user_id = :user_id';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':profile_image', $content);
+        $stmt->bindValue(':profile_image', 'image/'.$name);
         $stmt->bindValue(':user_id', $user_id);
         $stmt->execute();
     }

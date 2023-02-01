@@ -1,5 +1,5 @@
 /*検索ボタン装飾*/ 
-button{
+.search{
     /* ブラウザ特有のスタイルを無効に */
     -moz-appearance: none;
     -webkit-appearance: none;

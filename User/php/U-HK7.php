@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="yoko">
             <a href="U-HK1.php" style="text-decoration:none;">
               <?php if(!empty($planuser[0]['profile_image'])) { ?>
-                <img src="U-ImageUser.php?id=<?= $plan[0]['user_id']; ?>" alt="" class="circle1" align="left">
+                <img src="<?php echo $planuser[0]['profile_image']; ?>" alt="" class="circle1" align="left">
               <?php } else { ?>
                 <!-- デフォルトアイコン -->
                 <img src="castle.bmp" alt="" class="circle" align="left">
@@ -183,7 +183,8 @@ div_ect.classList.add("ect");
 <?php if(!empty($plan_detail[$i]['plan_image'])) { ?>
   var pic = document.createElement('img');
   pic.classList.add("pics");
-  pic.src = "U-ImagePlan.php?id=<?= $plan_detail[$i]['plan_detail_id']; ?>";
+  //pic.src = "U-ImagePlan.php?id=<?= $plan_detail[$i]['plan_detail_id']; ?>";
+  pic.src = "<?php echo $plan_detail[$i]['plan_image'] ?>";
   pic.align = "center"
   pic.alt = ''
 <?php } ?>

@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php if(!empty($user[0]['profile_image'])) { ?>
         var img = document.createElement('img');
         img.classList.add("circle1");
-        img.src = "U-ImageUser.php?id=<?= $user[0]['user_id']; ?>";
+        img.src = "<?php echo $user[0]['profile_image']; ?>";
         img.align = 'left'
         img.alt = '<?php print($user[0]['user_name']); ?>'
       <?php } else { ?>
