@@ -44,7 +44,7 @@ $_SESSION['event_eventuser_id'] = $eventuser_id;
           <div class="yoko">
             <a href="U-EV3.php" style="text-decoration:none;">
               <?php if(!empty($eventuser[0]['profile_image'])) { ?>
-                <img src = "E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" class="circle1" align="left" alt="アイコン">
+                <img src = "<?php echo '../EventUser/'.$eventuser[0]['profile_image']; ?>" class="circle1" align="left" alt="アイコン">
               <?php } else {?>
                 <!-- デフォルトアイコン -->
                 <img src="castle.bmp" alt="" class="circle" align="left">

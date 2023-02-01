@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="acount_information">
       <div class="yoko">
         <?php if(!empty($eventuser[0]['profile_image'])) { ?>
-          <img src="E-ImageUser.php?id=<?= $eventuser[0]['eventuser_id']; ?>" align="left" alt="写真" class="circle1">
+          <img src="<?php echo '../EventUser/'.$eventuser[0]['profile_image']; ?>" align="left" alt="写真" class="circle1">
         <?php } else { ?>
           <!--デフォルト-->
           <img src="castle.bmp" align="left" alt="写真" class="circle">
