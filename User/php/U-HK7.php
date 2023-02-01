@@ -97,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="U-HK7.css" type="text/css">
   <link rel="stylesheet" href="U-menu.css" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="demo.css" type="text/css">
 </head>
 <body>
   <main id="main">
@@ -127,9 +128,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </li>
     </ul>
+
+    <br>
     <form method="POST" action="">
     <div class="favorite">
-      <button class="unlike" type="submit"></button><h4 class="num_like"><?php print($plan[0]['plan_favorite_total']); ?></h4>
+      <?php if($flag == 0) { ?>
+        <ul>
+          <li><button class="unlike" id="heart" type="submit"></button></li>
+          <li><h4 class="num_like"><?php print($plan[0]['plan_favorite_total']); ?></h4></li>
+      </ul>
+      <?php } else { ?>
+        <ul>
+          <li><button class="unlike" id="heart1" type="submit"></button></li>
+          <li><h4 class="num_like"><?php print($plan[0]['plan_favorite_total']); ?></h4></li>
+        </ul>
+      <?php } ?>
     </div>
   </form>
     <div class="box"></div>

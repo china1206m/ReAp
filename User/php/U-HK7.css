@@ -86,52 +86,10 @@
     justify-content: flex-end;
   }
   
-  .unlike {
-    width: 90px;
-    height: 90px;
-    background-color: white;
-    border: 0;
-    position: relative;
-  }
   
-  .unlike::before {
-    content: "";
-    position: absolute;
-    left: 45px; /* x位置 */
-    top: 0; /* y位置 */
-    width: 45px; /* 幅 */
-    height: 75px; /* 高さ */
-    background: #d3d3d3; /* 色 */
-    border-radius: 75px 45px 0 0; /* 丸み */
-    transform: rotate(-45deg); /* 角度調整 */
-    transform-origin: 0 100%; /* 回転の基準点 */
-  }
+
   
-  .unlike::after {
-    content: "";
-    position: absolute;
-    left: 0; /* x位置 */
-    top: 0; /* y位置 */
-    width: 45px; /* 幅 */
-    height: 75px; /* 高さ */
-    background: #d3d3d3; /* 色 */
-    border-radius: 45px 75px 0 0; /* 丸み */
-    transform: rotate(45deg); /* 角度調整 */
-    transform-origin: 100% 100%; /* 回転の基準点 */
-  }
   
-  .like::before {
-    background: #FF5252; /* 色 */
-  }
-  
-  .like::after {
-    background: #FF5252; /* 色 */
-  }
-  
-  .num_like {
-    font-size: 1.2em;
-    margin-right: 3%;
-  }
 
   .ect {
     margin-right: 5%;
@@ -255,50 +213,9 @@
     justify-content: flex-end;
   }
   
-  .unlike {
-    width: 90px;
-    height: 90px;
-    background-color: white;
-    border: 0;
-    position: relative;
-  }
-  
-  .unlike::before {
-    content: "";
-    position: absolute;
-    left: 45px; /* x位置 */
-    top: 0; /* y位置 */
-    width: 45px; /* 幅 */
-    height: 75px; /* 高さ */
-    background: #d3d3d3; /* 色 */
-    border-radius: 75px 45px 0 0; /* 丸み */
-    transform: rotate(-45deg); /* 角度調整 */
-    transform-origin: 0 100%; /* 回転の基準点 */
-  }
-  
-  .unlike::after {
-    content: "";
-    position: absolute;
-    left: 0; /* x位置 */
-    top: 0; /* y位置 */
-    width: 45px; /* 幅 */
-    height: 75px; /* 高さ */
-    background: #d3d3d3; /* 色 */
-    border-radius: 45px 75px 0 0; /* 丸み */
-    transform: rotate(45deg); /* 角度調整 */
-    transform-origin: 100% 100%; /* 回転の基準点 */
-  }
-  
-  .like::before {
-    background: #FF5252; /* 色 */
-  }
-  
-  .like::after {
-    background: #FF5252; /* 色 */
-  }
   
   .num_like {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-right: 3%;
   }
 
@@ -328,5 +245,10 @@
     border: 0;
     border-radius: 50%;
     margin-top: -10px;
+  }
+
+  h4{
+    margin-left:25px;
+    margin-top: 40px;
   }
 }
