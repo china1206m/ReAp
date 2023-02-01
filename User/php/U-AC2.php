@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <br>
         <center>
-            <button type="submit" class="button-only">登録する</button>
+            <button type="submit" class="button-eye">登録する</button>
         </center>
 </form>
 
