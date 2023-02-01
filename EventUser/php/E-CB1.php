@@ -41,11 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(!empty($_FILES['event_image']['tmp_name'])) {
       include_once "MC-01.php";
       $pdo = getDB();
-
-      $content = file_get_contents($_FILES['event_image']['tmp_name']);
+      //$content = file_get_contents($_FILES['event_image']['tmp_name']);
+      $err_msg = '';
+      $name = $_FILES["event_image"]['name'];
+      if(!move_uploaded_file($_FILES["event_image"]['tmp_name'], 'image/'.$name)) {
+        $err_msg = 'sippai';
+      }
       $sql = 'UPDATE event SET  event_image = :event_image WHERE event_id = :event_id';
       $stmt = $pdo->prepare($sql);
-      $stmt->bindValue(':event_image', $content);
+      $stmt->bindValue(':event_image', 'image/'.$name);
       $stmt->bindValue(':event_id', $event_id);
       $stmt->execute();
     } 

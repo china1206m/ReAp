@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <center id="image_area">
       <?php if(!empty($event[0]['event_image'])) { ?>
-        <img src="E-ImageEvent.php?id=<?= $event[0]['event_id']; ?>" class="img">
+        <img src="<?php echo $event[0]['event_image']; ?>" class="img">
      <?php } ?>
     </center>
 
