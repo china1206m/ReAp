@@ -183,7 +183,8 @@ div_ect.classList.add("ect");
 <?php if(!empty($plan_detail[$i]['plan_image'])) { ?>
   var pic = document.createElement('img');
   pic.classList.add("pics");
-  pic.src = "U-ImagePlan.php?id=<?= $plan_detail[$i]['plan_detail_id']; ?>";
+  //pic.src = "U-ImagePlan.php?id=<?= $plan_detail[$i]['plan_detail_id']; ?>";
+  pic.src = "<?php echo $plan_detail[$i]['plan_image'] ?>";
   pic.align = "center"
   pic.alt = ''
 <?php } ?>
