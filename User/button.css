@@ -71,6 +71,30 @@
       background-color: #064fda; /* 背景色 */
     }
     
+    /*ボタンデザイン 枠線：青、背景：白、文字：黒*/
+    .button-select {
+      /* ブラウザ特有のスタイルを無効に */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      
+      /* 整える */
+      width: 600px;
+      margin: 1.5em 0; /* 前後の隙間 */
+      padding: 0.6em 1em; /* 塗りの余白 */
+      font-size: 2em; /* フォントサイズ */
+      background-color: #1aa1ff; /* 背景色 */
+      color: white; /* テキストカラー */
+      cursor: pointer; /* カーソルを指マークに */
+      border-radius: 3px; /* 角の丸み */
+      border: 0; /* 枠線を消す */
+      transition: 0.3s; /* ホバーの変化を滑らかに */
+    }
+    
+    /* ホバー時（カーソルをのせた時）の見た目 */
+    .button-select:hover {
+      background-color: #064fda; /* 背景色 */
+    }
   }
   
   /*パソコン用*/
@@ -150,6 +174,30 @@
   .button-eye:hover {
       background-color: #064fda; /* 背景色 */
   }
+  
+  
+  .button-select {
+    /* ブラウザ特有のスタイルを無効に */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+      
+    /* 整える */
+    width: 600px;
+    margin: 1.5em 0; /* 前後の隙間 */
+    padding: 0.6em 1em; /* 塗りの余白 */
+    font-size: 2em; /* フォントサイズ */
+    background-color: #1aa1ff; /* 背景色 */
+    color: white; /* テキストカラー */
+    cursor: pointer; /* カーソルを指マークに */
+    border-radius: 3px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */  
+  }
     
+  /* ホバー時（カーソルをのせた時）の見た目 */
+  .button-select:hover {
+    background-color: #064fda; /* 背景色 */
+  }
   }
   
